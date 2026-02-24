@@ -9,7 +9,7 @@ const Navbar = () => {
 
     const navLinks = [
         { path: '/', label: 'Home', external: false },
-        { path: 'https://nocturn.sheerssoft.com', label: 'Product', external: true },
+        { path: 'https://ai.sheerssoft.com', label: 'Product', external: true },
         { path: '/demand', label: 'Demand', external: false },
         { path: '/solution', label: 'Solution', external: false },
         { path: '/about', label: 'About', external: false },
