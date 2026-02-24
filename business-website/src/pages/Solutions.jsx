@@ -7,7 +7,7 @@ import GlassCard from '../components/ui/GlassCard';
 import NeonButton from '../components/ui/NeonButton';
 import './Pages.css';
 
-const Solution = () => {
+const Solutions = () => {
     const solutions = [
         {
             icon: Globe,
@@ -119,4 +119,4 @@ const Solution = () => {
     );
 };
 
-export default Solution;
+export default Solutions;

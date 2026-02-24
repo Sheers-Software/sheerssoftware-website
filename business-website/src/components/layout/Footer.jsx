@@ -30,11 +30,10 @@ const Footer = () => {
                     {/* Quick Links */}
                     <div className="footer-column">
                         <h4 className="footer-title">Pages</h4>
-                        <Link to="/" className="footer-link">Home</Link>
                         <Link to="/about" className="footer-link">About</Link>
                         <a href="https://ai.sheerssoft.com" className="footer-link">Product</a>
-                        <Link to="/solution" className="footer-link">Solution</Link>
-                        <Link to="/demand" className="footer-link">Demand</Link>
+                        <Link to="/solutions" className="footer-link">Solutions</Link>
+                        <Link to="/blog" className="footer-link">Blog</Link>
                         <Link to="/contact" className="footer-link">Contact</Link>
                     </div>
 
@@ -67,7 +66,7 @@ const Footer = () => {
                 {/* Bottom */}
                 <div className="footer-bottom">
                     <p className="footer-copyright">
-                        © 2024 SheersSoft. All rights reserved.
+                        © {new Date().getFullYear()} Sheers Software Sdn. Bhd. All rights reserved.
                     </p>
                     <div className="footer-legal">
                         <Link to="/privacy" className="legal-link">Privacy Policy</Link>

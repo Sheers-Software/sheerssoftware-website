@@ -66,6 +66,102 @@
     color: var(--neon-cyan);
 }
 
+/* Dropdown specific styles */
+.nav-item {
+    position: relative;
+    /* Removed padding to restore original navbar height */
+}
+
+/* Invisible bridge so the hover state doesn't break when moving to the dropdown */
+.nav-item::before {
+    content: '';
+    position: absolute;
+    bottom: -20px;
+    height: 20px;
+    left: 0;
+    right: 0;
+}
+
+.dropdown-toggle {
+    display: inline-flex;
+    align-items: center;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    background: rgba(10, 10, 15, 0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 1rem;
+    min-width: 320px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+}
+
+/* The magic hover rule */
+.nav-item:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
+
+.dropdown-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1rem;
+    text-decoration: none;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid transparent;
+    transition: all 0.2s ease;
+}
+
+.dropdown-item:hover {
+    background: rgba(0, 255, 255, 0.05);
+    border-color: rgba(0, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+.dropdown-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 8px;
+    flex-shrink: 0;
+}
+
+.dropdown-content {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.dropdown-title {
+    color: white;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.dropdown-desc {
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    line-height: 1.4;
+}
+
 /* Contact Us Button */
 .contact-btn {
     display: flex;

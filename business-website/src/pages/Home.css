@@ -221,29 +221,41 @@
 
 /* Offer Stack */
 .offer-card {
-    padding: var(--space-3xl);
+    padding: var(--space-2xl);
     max-width: 800px;
     margin: 0 auto;
 }
 
 .offer-header {
     text-align: center;
-    margin-bottom: var(--space-2xl);
+    margin-bottom: var(--space-xl);
+}
+
+.offer-header h3 {
+    font-size: var(--font-size-2xl);
+    font-weight: 700;
 }
 
 .offer-list {
-    display: grid;
-    gap: var(--space-md);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
 }
 
 .offer-item {
     display: flex;
     align-items: center;
-    gap: var(--space-md);
-    padding: var(--space-md);
+    gap: var(--space-sm);
+    padding: var(--space-sm) var(--space-md);
     background: var(--bg-glass);
-    border-radius: var(--radius-md);
-    font-size: var(--font-size-lg);
+    border-radius: var(--radius-sm);
+    font-size: var(--font-size-base);
+    transition: all var(--transition-fast);
+}
+
+.offer-item:hover {
+    background: rgba(255, 255, 255, 0.08);
+    transform: translateX(4px);
 }
 
 /* CTA Section */

@@ -9,6 +9,8 @@ import {
 import PageLayout from '../components/layout/PageLayout';
 import GlassCard from '../components/ui/GlassCard';
 import NeonButton from '../components/ui/NeonButton';
+import LostRevenueAudit from '../components/funnel/LostRevenueAudit';
+import { TrendingDown } from 'lucide-react';
 import './Home.css';
 
 const Home = () => {
@@ -25,31 +27,35 @@ const Home = () => {
                     >
                         <div className="hero-badge">
                             <Sparkles size={16} />
-                            <span>Professional Digital Solutions</span>
+                            <span>Hotel Revenue Recovery AI</span>
                         </div>
 
                         {/* ⚡ Hook */}
-                        <h1 className="hero-title">
-                            Transform Your Business with <span className="text-gradient">SheersSoft</span>
+                        <h1 className="hero-title" style={{ fontSize: 'min(4rem, 10vw)', lineHeight: 1.2 }}>
+                            Stop Losing Bookings When You Are <span className="text-neon-cyan">Asleep</span> or <span className="text-neon-magenta">Busy</span>
                         </h1>
 
-                        <p className="hero-subtitle">
-                            Stop losing time and money on manual processes. <br />
-                            Let <span className="text-neon-cyan">intelligent automation</span> work for you.
+                        <p className="hero-subtitle" style={{ fontSize: '1.2rem', maxWidth: '800px', margin: '0 auto 2rem' }}>
+                            Every unanswered call or WhatsApp is revenue handed to your competitors. <br />
+                            Our <span className="text-gradient">AI Hotel Concierge</span> answers instantly, 24/7, turning inquiries into confirmed bookings.
                         </p>
 
                         <div className="hero-cta-group">
-                            <Link to="/contact">
+                            <a href="#revenue-audit" style={{ textDecoration: 'none' }}>
                                 <NeonButton variant="primary" size="lg">
-                                    Start Transformation <ArrowRight size={20} />
+                                    Calculate My Lost Revenue <TrendingDown size={20} style={{ marginLeft: '8px' }} />
                                 </NeonButton>
-                            </Link>
-                            <Link to="/product">
-                                <NeonButton variant="secondary" size="lg">
-                                    View Solutions
-                                </NeonButton>
-                            </Link>
+                            </a>
                         </div>
+                    </motion.div>
+                </div>
+            </section>
+
+            {/* 🎯 Funnel Lead Magnet */}
+            <section id="revenue-audit" className="section bg-gradient-subtle" style={{ padding: '4rem 0' }}>
+                <div className="container">
+                    <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
+                        <LostRevenueAudit />
                     </motion.div>
                 </div>
             </section>
@@ -66,22 +72,22 @@ const Home = () => {
                                 <div className="card-icon-wrapper magenta">
                                     <AlertTriangle size={32} />
                                 </div>
-                                <h3>Wasting Time</h3>
-                                <p>Your team spends hours on repetitive manual tasks instead of high-value work.</p>
+                                <h3>Missed Inquiries</h3>
+                                <p>Guests abandoning bookings because they waited too long for a reply.</p>
                             </GlassCard>
                             <GlassCard variant="magenta" className="problem-card">
                                 <div className="card-icon-wrapper magenta">
                                     <TrendingUp size={32} />
                                 </div>
-                                <h3>High Costs</h3>
-                                <p>Operational expenses keep climbing every month while efficiency stagnates.</p>
+                                <h3>Overworked Staff</h3>
+                                <p>Front desk overwhelmed by repetitive questions instead of serving guests.</p>
                             </GlassCard>
                             <GlassCard variant="magenta" className="problem-card">
                                 <div className="card-icon-wrapper magenta">
                                     <Clock size={32} />
                                 </div>
-                                <h3>Slow Growth</h3>
-                                <p>Your business isn't scaling as fast as you'd like due to bottlenecks.</p>
+                                <h3>Off-Hour Leaks</h3>
+                                <p>Losing high-value bookings that come in at 2 AM or during peak check-in.</p>
                             </GlassCard>
                         </div>
                     </motion.div>
@@ -98,11 +104,10 @@ const Home = () => {
                         className="text-center"
                     >
                         <h2 className="section-title">
-                            Every Day You Wait, You're <span className="text-neon-magenta">Losing Money</span>
+                            Every Unanswered Message is a <span className="text-neon-magenta">Lost Booking</span>
                         </h2>
                         <p className="section-text">
-                            While your competitors automate and scale, you're stuck with outdated processes.
-                            Your team is overworked, customers are waiting, and opportunities are slipping away.
+                            Modern guests expect instant replies. If you don't answer their WhatsApp or phone call within 5 minutes, they book with the next hotel on Google.
                         </p>
                         <p className="section-text-highlight">
                             How much longer can you afford to wait?
@@ -116,26 +121,26 @@ const Home = () => {
                 <div className="container">
                     <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}>
                         <h2 className="section-title text-center">
-                            Introducing <span className="text-gradient">SheersSoft Solutions</span>
+                            Introducing <span className="text-gradient">Nocturn AI</span>
                         </h2>
                         <p className="section-subtitle text-center">
-                            The all-in-one platform that automates your business operations
+                            Your 24/7 autonomous booking engine and guest concierge.
                         </p>
                         <div className="solution-grid">
                             <GlassCard variant="green" hover className="solution-card">
                                 <Zap size={40} className="text-neon-green mb-4" />
-                                <h3>AI-Powered Automation</h3>
-                                <p>Automate repetitive tasks and free up your team's time for what matters.</p>
-                            </GlassCard>
-                            <GlassCard variant="green" hover className="solution-card">
-                                <Shield size={40} className="text-neon-green mb-4" />
-                                <h3>Secure & Reliable</h3>
-                                <p>Enterprise-grade security you can trust with your most sensitive data.</p>
+                                <h3>Instant Replies 24/7</h3>
+                                <p>Answers WhatsApp, Web Chat, and Email in seconds, in over 50 languages.</p>
                             </GlassCard>
                             <GlassCard variant="green" hover className="solution-card">
                                 <TrendingUp size={40} className="text-neon-green mb-4" />
-                                <h3>Scalable Growth</h3>
-                                <p>Grows with your business from startup to enterprise without friction.</p>
+                                <h3>Drives Direct Bookings</h3>
+                                <p>Guides guests through the funnel directly to your booking engine, avoiding OTA fees.</p>
+                            </GlassCard>
+                            <GlassCard variant="green" hover className="solution-card">
+                                <Shield size={40} className="text-neon-green mb-4" />
+                                <h3>Flawless Knowledge</h3>
+                                <p>Trained on your exact policies, menus, and local recommendations. Never makes mistakes.</p>
                             </GlassCard>
                         </div>
                     </motion.div>
@@ -176,14 +181,10 @@ const Home = () => {
             <section className="section">
                 <div className="container">
                     <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}>
-                        <h2 className="section-title text-center">
-                            Everything You Need to <span className="text-neon-green">Succeed</span>
-                        </h2>
                         <GlassCard variant="gradient" className="offer-card">
-                            <div className="offer-header">
-                                <Gift size={60} className="text-neon-cyan mb-4" />
-                                <h3>Complete Package</h3>
-                            </div>
+                            <h2 className="section-title text-center" style={{ marginBottom: 'var(--space-xl)' }}>
+                                Everything You Need to <span className="text-neon-green">Succeed</span>
+                            </h2>
                             <div className="offer-list">
                                 {[
                                     'Full Platform Access',
