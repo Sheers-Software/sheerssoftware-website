@@ -8,12 +8,12 @@ const Navbar = () => {
     const location = useLocation();
 
     const navLinks = [
-        { path: '/', label: 'Home' },
-        { path: '/product', label: 'Product' },
-        { path: '/demand', label: 'Demand' },
-        { path: '/solution', label: 'Solution' },
-        { path: '/about', label: 'About' },
-        { path: '/contact', label: 'Contact' },
+        { path: '/', label: 'Home', external: false },
+        { path: 'https://nocturn.sheerssoft.com', label: 'Product', external: true },
+        { path: '/demand', label: 'Demand', external: false },
+        { path: '/solution', label: 'Solution', external: false },
+        { path: '/about', label: 'About', external: false },
+        { path: '/contact', label: 'Contact', external: false },
     ];
 
     const isActive = (path) => location.pathname === path;
@@ -30,13 +30,23 @@ const Navbar = () => {
                     {/* Desktop Navigation */}
                     <div className="navbar-links">
                         {navLinks.map((link) => (
-                            <Link
-                                key={link.path}
-                                to={link.path}
-                                className={`nav-link ${isActive(link.path) ? 'active' : ''}`}
-                            >
-                                {link.label}
-                            </Link>
+                            link.external ? (
+                                <a
+                                    key={link.path}
+                                    href={link.path}
+                                    className="nav-link"
+                                >
+                                    {link.label}
+                                </a>
+                            ) : (
+                                <Link
+                                    key={link.path}
+                                    to={link.path}
+                                    className={`nav-link ${isActive(link.path) ? 'active' : ''}`}
+                                >
+                                    {link.label}
+                                </Link>
+                            )
                         ))}
                     </div>
 
@@ -60,14 +70,25 @@ const Navbar = () => {
                 {isOpen && (
                     <div className="mobile-menu glass">
                         {navLinks.map((link) => (
-                            <Link
-                                key={link.path}
-                                to={link.path}
-                                className={`mobile-link ${isActive(link.path) ? 'active' : ''}`}
-                                onClick={() => setIsOpen(false)}
-                            >
-                                {link.label}
-                            </Link>
+                            link.external ? (
+                                <a
+                                    key={link.path}
+                                    href={link.path}
+                                    className="mobile-link"
+                                    onClick={() => setIsOpen(false)}
+                                >
+                                    {link.label}
+                                </a>
+                            ) : (
+                                <Link
+                                    key={link.path}
+                                    to={link.path}
+                                    className={`mobile-link ${isActive(link.path) ? 'active' : ''}`}
+                                    onClick={() => setIsOpen(false)}
+                                >
+                                    {link.label}
+                                </Link>
+                            )
                         ))}
                         <Link
                             to="/contact"

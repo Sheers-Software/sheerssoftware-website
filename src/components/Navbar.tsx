@@ -11,6 +11,10 @@ export function Navbar({ className }: { className?: string }) {
                 </a>
 
                 <div className="navbar-links hide-mobile">
+                    <a href="https://sheerssoft.com" style={{ color: "var(--color-gray-500)", display: "flex", alignItems: "center", gap: "4px" }}>
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m15 18-6-6 6-6" /></svg>
+                        SheersSoft
+                    </a>
                     <a href="/how-it-works">How It Works</a>
                     <a href="/pilot">Pilot Program</a>
                     <a href="/about">About</a>
@@ -34,6 +38,7 @@ export function Navbar({ className }: { className?: string }) {
 
             {/* Mobile Menu */}
             <div className="navbar-mobile-menu hide-desktop" id="mobile-menu">
+                <a href="https://sheerssoft.com" style={{ color: "var(--color-gray-500)" }}>← Back to SheersSoft</a>
                 <a href="/how-it-works">How It Works</a>
                 <a href="/pilot">Pilot Program</a>
                 <a href="/about">About</a>

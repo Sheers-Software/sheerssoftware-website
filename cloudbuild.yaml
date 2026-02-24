@@ -1,6 +1,52 @@
 steps:
-  # Build the Docker image
+  # ==========================================
+  # PRODUCT APP (Next.js in Root)
+  # ==========================================
+  # 1. Build the Product Docker image
   - name: 'gcr.io/cloud-builders/docker'
+    args:
+      - 'build'
+      - '-t'
+      - 'gcr.io/$PROJECT_ID/sheersdigital-product:$_COMMIT_SHA'
+      - '-t'
+      - 'gcr.io/$PROJECT_ID/sheersdigital-product:latest'
+      - '.'
+    id: 'build-product-image'
+
+  # 2. Push the Product Docker image
+  - name: 'gcr.io/cloud-builders/docker'
+    args:
+      - 'push'
+      - '--all-tags'
+      - 'gcr.io/$PROJECT_ID/sheersdigital-product'
+    id: 'push-product-image'
+
+  # 3. Deploy Product to Cloud Run
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    entrypoint: gcloud
+    args:
+      - 'run'
+      - 'deploy'
+      - 'sheersdigital-product'
+      - '--image'
+      - 'gcr.io/$PROJECT_ID/sheersdigital-product:$_COMMIT_SHA'
+      - '--region'
+      - 'asia-southeast1'
+      - '--platform'
+      - 'managed'
+      - '--allow-unauthenticated'
+      - '--memory'
+      - '512Mi'
+      - '--cpu'
+      - '1'
+    id: 'deploy-product-cloud-run'
+
+  # ==========================================
+  # BUSINESS WEBSITE (Vite/React in /business-website)
+  # ==========================================
+  # 4. Build the Website Docker image
+  - name: 'gcr.io/cloud-builders/docker'
+    dir: 'business-website'
     args:
       - 'build'
       - '-t'
@@ -8,22 +54,17 @@ steps:
       - '-t'
       - 'gcr.io/$PROJECT_ID/sheersdigital-site:latest'
       - '.'
-    id: 'build-image'
+    id: 'build-website-image'
 
-  # Push the Docker image
+  # 5. Push the Website Docker image
   - name: 'gcr.io/cloud-builders/docker'
     args:
       - 'push'
-      - 'gcr.io/$PROJECT_ID/sheersdigital-site:$_COMMIT_SHA'
-    id: 'push-image-sha'
+      - '--all-tags'
+      - 'gcr.io/$PROJECT_ID/sheersdigital-site'
+    id: 'push-website-image'
 
-  - name: 'gcr.io/cloud-builders/docker'
-    args:
-      - 'push'
-      - 'gcr.io/$PROJECT_ID/sheersdigital-site:latest'
-    id: 'push-image-latest'
-
-  # Deploy to Cloud Run
+  # 6. Deploy Website to Cloud Run
   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
     entrypoint: gcloud
     args:
@@ -41,9 +82,11 @@ steps:
       - '512Mi'
       - '--cpu'
       - '1'
-    id: 'deploy-cloud-run'
+    id: 'deploy-website-cloud-run'
 
 images:
+  - 'gcr.io/$PROJECT_ID/sheersdigital-product:$_COMMIT_SHA'
+  - 'gcr.io/$PROJECT_ID/sheersdigital-product:latest'
   - 'gcr.io/$PROJECT_ID/sheersdigital-site:$_COMMIT_SHA'
   - 'gcr.io/$PROJECT_ID/sheersdigital-site:latest'
 
@@ -51,5 +94,5 @@ options:
   machineType: 'E2_HIGHCPU_8'
   logging: CLOUD_LOGGING_ONLY
 
-timeout: '1200s'
+timeout: '2400s'
 

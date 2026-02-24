@@ -32,7 +32,7 @@ const Footer = () => {
                         <h4 className="footer-title">Pages</h4>
                         <Link to="/" className="footer-link">Home</Link>
                         <Link to="/about" className="footer-link">About</Link>
-                        <Link to="/product" className="footer-link">Product</Link>
+                        <a href="https://nocturn.sheerssoft.com" className="footer-link">Product</a>
                         <Link to="/solution" className="footer-link">Solution</Link>
                         <Link to="/demand" className="footer-link">Demand</Link>
                         <Link to="/contact" className="footer-link">Contact</Link>

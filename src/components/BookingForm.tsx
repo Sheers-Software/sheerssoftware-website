@@ -1,9 +1,9 @@
 "use client";
 
-import { useState, FormEvent } from "react";
+import { useState, FormEvent, Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 
-export function BookingForm() {
+function BookingFormInner() {
     const router = useRouter();
     const searchParams = useSearchParams();
     const [isLoading, setIsLoading] = useState(false);
@@ -16,8 +16,6 @@ export function BookingForm() {
         const data = Object.fromEntries(formData.entries());
 
         // TODO: Replace with actual HubSpot Forms API submission
-        // For now, we simulate a delay and redirect
-        // Ideally, post to /api/submit-demo or directly to HubSpot endpoint
         console.log("Form submitted:", data);
 
         setTimeout(() => {
@@ -97,5 +95,13 @@ export function BookingForm() {
                 {isLoading ? "Booking..." : "Book My Free Demo →"}
             </button>
         </form>
+    );
+}
+
+export function BookingForm() {
+    return (
+        <Suspense fallback={<div>Loading form...</div>}>
+            <BookingFormInner />
+        </Suspense>
     );
 }

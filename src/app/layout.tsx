@@ -3,6 +3,7 @@ import "./globals.css";
 import "./layout.css";
 import { Header } from "@/components/Header";
 import { WhatsAppFloatingButton } from "@/components/WhatsAppFloatingButton";
+import MetaPixel from "@/components/MetaPixel";
 
 export const metadata: Metadata = {
   title: {
@@ -53,6 +54,7 @@ export default function RootLayout({
         <Footer />
         <MobileCTA />
         <WhatsAppFloatingButton />
+        <MetaPixel />
 
         {/* Google Analytics - GA4 */}
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
@@ -99,7 +101,7 @@ function Footer() {
               Capturing bookings while you sleep.
             </p>
             <p className="footer-company">
-              A product by Sheers Software Sdn Bhd
+              A product by <a href="https://sheerssoft.com" style={{ color: "inherit", textDecoration: "underline" }} target="_blank" rel="noopener noreferrer">Sheers Software Sdn Bhd</a>
             </p>
           </div>
 
@@ -130,7 +132,7 @@ function Footer() {
         </div>
 
         <div className="footer-bottom">
-          <p>© {new Date().getFullYear()} Sheers Software Sdn Bhd. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} <a href="https://sheerssoft.com" style={{ color: "inherit", textDecoration: "none" }} target="_blank" rel="noopener noreferrer">Sheers Software Sdn Bhd</a>. All rights reserved.</p>
         </div>
       </div>
     </footer>
