@@ -1,0 +1,2335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Eden Co-Living — Live Beautifully. Live Freely.</title>
+  <meta name="description" content="Eden offers premium co-living and serviced residences in KLCC, Bangsar, Mont Kiara, and Desa Park City. Fully furnished, bills included, vibrant community." />
+  <!-- Open Graph -->
+  <meta property="og:title" content="Eden Co-Living — Live Beautifully. Live Freely." />
+  <meta property="og:description" content="Premium co-living residences in KL's finest neighbourhoods. Fully furnished, flexible leases, vibrant community." />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=1200" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://eden.co" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌿</text></svg>" />
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;1,9..144,300;1,9..144,400;1,9..144,600&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ===================== RESET & ROOT ===================== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --sage: #7c9a7e;
+      --forest: #2d4a3e;
+      --sand: #e8dcc8;
+      --cream: #faf8f5;
+      --dark: #1a1a18;
+      --white: #ffffff;
+      --sage-light: #b5cdb6;
+      --sage-ultra-light: #eef4ee;
+      --forest-mid: #3d6352;
+      --sand-dark: #d4c4a8;
+      --text-muted: #6b6b65;
+      --radius-sm: 12px;
+      --radius-md: 24px;
+      --radius-lg: 40px;
+      --radius-xl: 60px;
+      --shadow-soft: 0 8px 40px rgba(44, 74, 62, 0.10);
+      --shadow-card: 0 4px 24px rgba(44, 74, 62, 0.08);
+      --transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    html { scroll-behavior: smooth; font-size: 16px; }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: var(--cream);
+      color: var(--dark);
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+
+    img { display: block; max-width: 100%; }
+
+    a { text-decoration: none; color: inherit; }
+
+    /* ===================== BACK LINK ===================== */
+    .back-link-bar {
+      background: var(--forest);
+      padding: 10px 48px;
+      display: flex;
+      align-items: center;
+    }
+
+    .back-link-bar a {
+      color: var(--sage-light);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: var(--transition);
+      letter-spacing: 0.01em;
+    }
+
+    .back-link-bar a:hover { color: var(--sand); }
+
+    .back-arrow {
+      display: inline-block;
+      transition: transform 0.2s;
+    }
+
+    .back-link-bar a:hover .back-arrow { transform: translateX(-3px); }
+
+    /* ===================== NAVIGATION ===================== */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(250, 248, 245, 0.92);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(124, 154, 126, 0.15);
+      padding: 0 48px;
+    }
+
+    .nav-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+    }
+
+    .nav-logo {
+      font-family: 'Fraunces', serif;
+      font-style: italic;
+      font-weight: 400;
+      font-size: 1.75rem;
+      color: var(--forest);
+      letter-spacing: -0.02em;
+    }
+
+    .nav-logo span {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      background: var(--sage);
+      border-radius: 50%;
+      margin-left: 2px;
+      margin-bottom: 4px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--dark);
+      opacity: 0.75;
+      transition: var(--transition);
+      letter-spacing: 0.01em;
+    }
+
+    .nav-links a:hover { opacity: 1; color: var(--forest); }
+
+    .nav-cta {
+      background: var(--forest);
+      color: var(--cream) !important;
+      opacity: 1 !important;
+      padding: 10px 22px;
+      border-radius: 50px;
+      font-weight: 600 !important;
+      transition: var(--transition) !important;
+    }
+
+    .nav-cta:hover { background: var(--forest-mid) !important; transform: translateY(-1px); box-shadow: 0 6px 20px rgba(44,74,62,0.25); }
+
+    /* Hamburger */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+      background: none;
+      border: none;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--forest);
+      border-radius: 2px;
+      transition: var(--transition);
+    }
+
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    .mobile-menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: var(--cream);
+      border-bottom: 1px solid rgba(124,154,126,0.15);
+      padding: 24px 48px 32px;
+      box-shadow: 0 12px 40px rgba(26,26,24,0.08);
+    }
+
+    .mobile-menu.open { display: block; }
+
+    .mobile-menu ul { list-style: none; display: flex; flex-direction: column; gap: 16px; }
+
+    .mobile-menu a {
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--dark);
+      display: block;
+      padding: 4px 0;
+    }
+
+    .mobile-menu .nav-cta {
+      display: inline-block;
+      margin-top: 8px;
+      background: var(--forest);
+      color: var(--cream) !important;
+      padding: 12px 28px;
+      border-radius: 50px;
+    }
+
+    /* ===================== HERO ===================== */
+    .hero {
+      display: grid;
+      grid-template-columns: 55fr 45fr;
+      min-height: calc(100vh - 108px);
+    }
+
+    .hero-image {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .hero-image-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(44,74,62,0.15) 0%, transparent 60%);
+    }
+
+    .hero-content {
+      background: var(--cream);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 80px 72px 80px 64px;
+      position: relative;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--sage-ultra-light);
+      color: var(--forest);
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 7px 16px;
+      border-radius: 50px;
+      margin-bottom: 28px;
+      width: fit-content;
+    }
+
+    .hero-eyebrow::before {
+      content: '';
+      display: block;
+      width: 6px;
+      height: 6px;
+      background: var(--sage);
+      border-radius: 50%;
+    }
+
+    .hero-headline {
+      font-family: 'Fraunces', serif;
+      font-style: italic;
+      font-weight: 400;
+      font-size: clamp(2.6rem, 3.5vw, 4rem);
+      line-height: 1.15;
+      color: var(--forest);
+      letter-spacing: -0.02em;
+      margin-bottom: 20px;
+    }
+
+    .hero-subline {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      margin-bottom: 44px;
+      max-width: 380px;
+      line-height: 1.7;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 56px;
+    }
+
+    .btn-primary {
+      background: var(--forest);
+      color: var(--cream);
+      padding: 14px 32px;
+      border-radius: 50px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      transition: var(--transition);
+      border: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-primary:hover { background: var(--forest-mid); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(44,74,62,0.28); }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--forest);
+      padding: 14px 28px;
+      border-radius: 50px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      transition: var(--transition);
+      border: 2px solid rgba(44,74,62,0.25);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-secondary:hover { border-color: var(--forest); background: rgba(44,74,62,0.04); transform: translateY(-2px); }
+
+    /* Floating badges */
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .badge-pill {
+      background: var(--white);
+      border: 1.5px solid rgba(124,154,126,0.3);
+      color: var(--forest);
+      font-size: 0.78rem;
+      font-weight: 600;
+      padding: 7px 16px;
+      border-radius: 50px;
+      box-shadow: 0 2px 12px rgba(44,74,62,0.08);
+      animation: floatUp 4s ease-in-out infinite;
+      will-change: transform;
+    }
+
+    .badge-pill:nth-child(1) { animation-delay: 0s; }
+    .badge-pill:nth-child(2) { animation-delay: 0.4s; }
+    .badge-pill:nth-child(3) { animation-delay: 0.8s; }
+    .badge-pill:nth-child(4) { animation-delay: 1.2s; }
+    .badge-pill:nth-child(5) { animation-delay: 1.6s; }
+    .badge-pill:nth-child(6) { animation-delay: 2.0s; }
+
+    @keyframes floatUp {
+      0%, 100% { transform: translateY(0) rotate(-1deg); }
+      50%       { transform: translateY(-12px) rotate(1deg); }
+    }
+
+    /* ===================== SECTION SHARED ===================== */
+    section {
+      padding: 100px 48px;
+    }
+
+    .section-inner {
+      max-width: 1320px;
+      margin: 0 auto;
+    }
+
+    .section-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--sage);
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    .section-tag::before {
+      content: '';
+      display: block;
+      width: 20px;
+      height: 2px;
+      background: var(--sage);
+      border-radius: 2px;
+    }
+
+    .section-title {
+      font-family: 'Fraunces', serif;
+      font-style: italic;
+      font-weight: 400;
+      font-size: clamp(2rem, 2.8vw, 2.8rem);
+      line-height: 1.2;
+      color: var(--forest);
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+    }
+
+    .section-subtitle {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      max-width: 540px;
+      line-height: 1.7;
+      margin-bottom: 60px;
+    }
+
+    /* ===================== UNIT TYPES / CAROUSEL ===================== */
+    .units-section { background: var(--white); }
+
+    .units-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 52px;
+    }
+
+    .units-header-text .section-subtitle { margin-bottom: 0; }
+
+    .carousel-controls {
+      display: flex;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+
+    .carousel-btn {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      border: 2px solid rgba(44,74,62,0.2);
+      background: var(--white);
+      color: var(--forest);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+      font-size: 1.1rem;
+    }
+
+    .carousel-btn:hover { background: var(--forest); color: var(--white); border-color: var(--forest); transform: scale(1.05); }
+
+    .carousel-track-wrapper {
+      overflow: hidden;
+      border-radius: var(--radius-lg);
+    }
+
+    .carousel-track {
+      display: flex;
+      gap: 28px;
+      transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      will-change: transform;
+    }
+
+    .unit-card {
+      flex: 0 0 calc(33.33% - 19px);
+      background: var(--cream);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      transition: var(--transition);
+      box-shadow: var(--shadow-card);
+    }
+
+    .unit-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-soft); }
+
+    .unit-card-image {
+      width: 100%;
+      height: 260px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .unit-card-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+
+    .unit-card:hover .unit-card-image img { transform: scale(1.05); }
+
+    .unit-card-badge {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      background: var(--forest);
+      color: var(--cream);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 5px 12px;
+      border-radius: 50px;
+    }
+
+    .unit-card-body {
+      padding: 28px 28px 32px;
+    }
+
+    .unit-card-type {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--sage);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 8px;
+    }
+
+    .unit-card-name {
+      font-family: 'Fraunces', serif;
+      font-style: italic;
+      font-weight: 400;
+      font-size: 1.5rem;
+      color: var(--forest);
+      margin-bottom: 6px;
+    }
+
+    .unit-card-sqft {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .unit-card-sqft::before {
+      content: '';
+      display: inline-block;
+      width: 14px;
+      height: 14px;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%237c9a7e' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3' y='3' width='18' height='18' rx='2'/%3E%3C/svg%3E");
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
+
+    .unit-amenities {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 24px;
+    }
+
+    .amenity-tag {
+      background: var(--sage-ultra-light);
+      color: var(--forest);
+      font-size: 0.75rem;
+      font-weight: 500;
+      padding: 5px 12px;
+      border-radius: 50px;
+    }
+
+    .unit-card-price {
+      display: flex;
+      align-items: baseline;
+      gap: 4px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(124,154,126,0.15);
+    }
+
+    .price-value {
+      font-family: 'Fraunces', serif;
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: var(--forest);
+    }
+
+    .price-unit {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      font-weight: 400;
+    }
+
+    .carousel-dots {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 36px;
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: rgba(124,154,126,0.3);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .dot.active { background: var(--forest); width: 24px; border-radius: 4px; }
+
+    /* ===================== LOCATIONS ===================== */
+    .locations-section { background: var(--cream); }
+
+    .locations-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+
+    .location-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      cursor: pointer;
+      transition: var(--transition);
+      box-shadow: var(--shadow-card);
+      border: 2px solid transparent;
+    }
+
+    .location-card:hover, .location-card.active {
+      border-color: var(--sage);
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .location-card-top {
+      padding: 32px 28px 24px;
+    }
+
+    .location-pin-icon {
+      width: 44px;
+      height: 44px;
+      background: var(--sage-ultra-light);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .location-pin-icon svg { color: var(--forest); }
+
+    .location-name {
+      font-family: 'Fraunces', serif;
+      font-style: italic;
+      font-size: 1.3rem;
+      color: var(--forest);
+      margin-bottom: 8px;
+    }
+
+    .location-units {
+      font-size: 0.83rem;
+      font-weight: 600;
+      color: var(--sage);
+      margin-bottom: 6px;
+    }
+
+    .location-desc {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .location-toggle {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 28px;
+      background: var(--sage-ultra-light);
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--forest);
+      border-top: 1px solid rgba(124,154,126,0.15);
+    }
+
+    .location-toggle-icon {
+      width: 20px;
+      height: 20px;
+      border: 2px solid var(--sage);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      transition: var(--transition);
+      color: var(--forest);
+    }
+
+    .location-card.active .location-toggle-icon { background: var(--forest); border-color: var(--forest); color: var(--white); transform: rotate(45deg); }
+
+    .location-details {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s cubic-bezier(0.4,0,0.2,1), padding 0.3s;
+      padding: 0 28px;
+      background: var(--white);
+    }
+
+    .location-card.active .location-details {
+      max-height: 300px;
+      padding: 20px 28px 24px;
+    }
+
+    .location-details-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .location-details-list li {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .location-details-list li::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      background: var(--sage);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    /* ===================== COMMUNITY ===================== */
+    .community-section { background: var(--forest); }
+
+    .community-section .section-tag { color: var(--sage-light); }
+    .community-section .section-tag::before { background: var(--sage-light); }
+    .community-section .section-title { color: var(--cream); }
+    .community-section .section-subtitle { color: rgba(250,248,245,0.65); }
+
+    .community-features {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-bottom: 80px;
+    }
+
+    .feature-card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: var(--radius-lg);
+      padding: 36px 32px;
+      transition: var(--transition);
+    }
+
+    .feature-card:hover { background: rgba(255,255,255,0.10); transform: translateY(-4px); }
+
+    .feature-icon {
+      width: 52px;
+      height: 52px;
+      background: rgba(124,154,126,0.2);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 22px;
+    }
+
+    .feature-title {
+      font-family: 'Fraunces', serif;
+      font-style: italic;
+      font-size: 1.3rem;
+      color: var(--cream);
+      margin-bottom: 12px;
+    }
+
+    .feature-desc { font-size: 0.9rem; color: rgba(250,248,245,0.65); line-height: 1.7; }
+
+    .testimonials-title {
+      font-family: 'Fraunces', serif;
+      font-style: italic;
+      font-weight: 400;
+      font-size: 1.6rem;
+      color: var(--cream);
+      margin-bottom: 32px;
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .testimonial-card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: var(--radius-md);
+      padding: 32px;
+      transition: var(--transition);
+    }
+
+    .testimonial-card:hover { background: rgba(255,255,255,0.10); }
+
+    .testimonial-stars {
+      color: var(--sand);
+      font-size: 0.9rem;
+      letter-spacing: 2px;
+      margin-bottom: 18px;
+    }
+
+    .testimonial-text {
+      font-size: 0.95rem;
+      color: rgba(250,248,245,0.8);
+      line-height: 1.7;
+      font-style: italic;
+      margin-bottom: 24px;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .testimonial-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--sage);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Fraunces', serif;
+      font-style: italic;
+      font-size: 1rem;
+      color: var(--white);
+      flex-shrink: 0;
+    }
+
+    .testimonial-name {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--cream);
+    }
+
+    .testimonial-role {
+      font-size: 0.78rem;
+      color: rgba(250,248,245,0.5);
+      margin-top: 2px;
+    }
+
+    /* ===================== AMENITIES ===================== */
+    .amenities-section { background: var(--sand); padding: 100px 0; }
+
+    .amenities-section .section-inner { padding: 0 48px; }
+
+    .amenities-scroll-wrapper { overflow: hidden; margin-top: 8px; }
+
+    .amenities-track {
+      display: flex;
+      gap: 20px;
+      overflow-x: auto;
+      padding: 16px 48px 24px;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      scroll-snap-type: x mandatory;
+    }
+
+    .amenities-track::-webkit-scrollbar { display: none; }
+
+    .amenity-card {
+      flex: 0 0 220px;
+      background: var(--white);
+      border-radius: var(--radius-md);
+      padding: 28px 24px;
+      text-align: center;
+      box-shadow: var(--shadow-card);
+      transition: var(--transition);
+      scroll-snap-align: start;
+    }
+
+    .amenity-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-soft); }
+
+    .amenity-icon-wrap {
+      width: 56px;
+      height: 56px;
+      background: var(--sage-ultra-light);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 18px;
+    }
+
+    .amenity-card-title {
+      font-family: 'Fraunces', serif;
+      font-style: italic;
+      font-size: 1rem;
+      color: var(--forest);
+      margin-bottom: 8px;
+    }
+
+    .amenity-card-desc { font-size: 0.8rem; color: var(--text-muted); line-height: 1.5; }
+
+    /* ===================== HOW IT WORKS ===================== */
+    .how-section { background: var(--cream); }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 28px;
+      position: relative;
+    }
+
+    .steps-grid::before {
+      content: '';
+      position: absolute;
+      top: 38px;
+      left: calc(12.5% + 14px);
+      right: calc(12.5% + 14px);
+      height: 2px;
+      background: linear-gradient(90deg, var(--sage-light), var(--sage));
+      z-index: 0;
+    }
+
+    .step-item {
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .step-number {
+      width: 76px;
+      height: 76px;
+      background: var(--forest);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 24px;
+      font-family: 'Fraunces', serif;
+      font-style: italic;
+      font-size: 1.6rem;
+      color: var(--cream);
+      box-shadow: 0 8px 24px rgba(44,74,62,0.25);
+      transition: var(--transition);
+    }
+
+    .step-item:hover .step-number { transform: scale(1.08); background: var(--forest-mid); }
+
+    .step-title {
+      font-family: 'Fraunces', serif;
+      font-style: italic;
+      font-size: 1.15rem;
+      color: var(--forest);
+      margin-bottom: 10px;
+    }
+
+    .step-desc { font-size: 0.875rem; color: var(--text-muted); line-height: 1.6; max-width: 200px; margin: 0 auto; }
+
+    /* ===================== FAQ ===================== */
+    .faq-section { background: var(--white); }
+
+    .faq-layout {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .faq-sidebar { position: sticky; top: 100px; }
+
+    .faq-sidebar-text {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 28px;
+    }
+
+    .faq-contact-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--forest);
+      font-size: 0.88rem;
+      font-weight: 600;
+      border-bottom: 2px solid var(--sage);
+      padding-bottom: 2px;
+      transition: var(--transition);
+    }
+
+    .faq-contact-link:hover { color: var(--sage); border-color: var(--sage-light); }
+
+    .faq-list { display: flex; flex-direction: column; gap: 0; }
+
+    .faq-item {
+      border-bottom: 1px solid rgba(124,154,126,0.15);
+      overflow: hidden;
+    }
+
+    .faq-item:first-child { border-top: 1px solid rgba(124,154,126,0.15); }
+
+    .faq-question {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 22px 0;
+      cursor: pointer;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--dark);
+      transition: color 0.25s;
+      gap: 16px;
+      user-select: none;
+    }
+
+    .faq-question:hover { color: var(--forest); }
+
+    .faq-icon {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      border: 2px solid rgba(124,154,126,0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      color: var(--sage);
+      flex-shrink: 0;
+      transition: var(--transition);
+      line-height: 1;
+    }
+
+    .faq-item.open .faq-icon {
+      background: var(--forest);
+      border-color: var(--forest);
+      color: var(--white);
+      transform: rotate(45deg);
+    }
+
+    .faq-item.open .faq-question { color: var(--forest); }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s cubic-bezier(0.4,0,0.2,1);
+    }
+
+    .faq-item.open .faq-answer { max-height: 200px; }
+
+    .faq-answer-inner {
+      padding-bottom: 20px;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.75;
+    }
+
+    /* ===================== APPLICATION / FOOTER ===================== */
+    .apply-section { background: var(--cream); }
+
+    .apply-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .apply-left .section-subtitle { margin-bottom: 40px; }
+
+    .apply-perks {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .apply-perk {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+    }
+
+    .apply-perk-icon {
+      width: 36px;
+      height: 36px;
+      background: var(--sage-ultra-light);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .apply-perk-text { font-size: 0.9rem; color: var(--text-muted); line-height: 1.6; }
+    .apply-perk-text strong { color: var(--dark); display: block; margin-bottom: 2px; font-size: 0.92rem; }
+
+    .apply-form {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 44px 40px;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .form-title {
+      font-family: 'Fraunces', serif;
+      font-style: italic;
+      font-size: 1.5rem;
+      color: var(--forest);
+      margin-bottom: 6px;
+    }
+
+    .form-subtitle { font-size: 0.88rem; color: var(--text-muted); margin-bottom: 32px; }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+
+    .form-group { display: flex; flex-direction: column; gap: 6px; }
+
+    .form-group.full { grid-column: 1 / -1; }
+
+    .form-label { font-size: 0.78rem; font-weight: 600; color: var(--dark); letter-spacing: 0.05em; text-transform: uppercase; }
+
+    .form-input, .form-select {
+      background: var(--cream);
+      border: 1.5px solid rgba(124,154,126,0.2);
+      border-radius: var(--radius-sm);
+      padding: 13px 16px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.9rem;
+      color: var(--dark);
+      outline: none;
+      transition: var(--transition);
+      width: 100%;
+    }
+
+    .form-input:focus, .form-select:focus {
+      border-color: var(--sage);
+      background: var(--white);
+      box-shadow: 0 0 0 3px rgba(124,154,126,0.12);
+    }
+
+    .form-input::placeholder { color: var(--text-muted); opacity: 0.7; }
+
+    .form-select { appearance: none; cursor: pointer; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%237c9a7e' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; background-size: 16px; padding-right: 40px; }
+
+    .form-error { font-size: 0.75rem; color: #c0392b; margin-top: 2px; display: none; }
+
+    .form-group.error .form-input,
+    .form-group.error .form-select { border-color: #c0392b; }
+    .form-group.error .form-error { display: block; }
+
+    .form-submit {
+      width: 100%;
+      background: var(--forest);
+      color: var(--cream);
+      border: none;
+      border-radius: 50px;
+      padding: 15px 24px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+      margin-top: 8px;
+    }
+
+    .form-submit:hover { background: var(--forest-mid); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(44,74,62,0.28); }
+
+    .form-success {
+      display: none;
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    .form-success.show { display: block; }
+    .form-success.show ~ * { display: none; }
+
+    .form-success-icon {
+      width: 64px;
+      height: 64px;
+      background: var(--sage-ultra-light);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+    }
+
+    .form-success-title {
+      font-family: 'Fraunces', serif;
+      font-style: italic;
+      font-size: 1.4rem;
+      color: var(--forest);
+      margin-bottom: 10px;
+    }
+
+    .form-success-text { font-size: 0.9rem; color: var(--text-muted); line-height: 1.6; }
+
+    /* ===================== FOOTER ===================== */
+    footer {
+      background: var(--sage);
+      padding: 72px 48px 40px;
+    }
+
+    .footer-inner { max-width: 1320px; margin: 0 auto; }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 56px;
+      padding-bottom: 56px;
+      border-bottom: 1px solid rgba(255,255,255,0.2);
+      margin-bottom: 36px;
+    }
+
+    .footer-logo {
+      font-family: 'Fraunces', serif;
+      font-style: italic;
+      font-size: 1.8rem;
+      color: var(--white);
+      margin-bottom: 14px;
+    }
+
+    .footer-tagline { font-size: 0.88rem; color: rgba(255,255,255,0.7); line-height: 1.65; margin-bottom: 24px; max-width: 240px; }
+
+    .footer-social { display: flex; gap: 10px; }
+
+    .social-btn {
+      width: 36px;
+      height: 36px;
+      background: rgba(255,255,255,0.15);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+      color: var(--white);
+      font-size: 0.75rem;
+      font-weight: 700;
+    }
+
+    .social-btn:hover { background: var(--white); color: var(--forest); transform: translateY(-2px); }
+
+    .footer-col-title {
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 20px;
+    }
+
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+
+    .footer-links a {
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.75);
+      transition: var(--transition);
+    }
+
+    .footer-links a:hover { color: var(--white); }
+
+    .footer-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .footer-copy { font-size: 0.8rem; color: rgba(255,255,255,0.5); }
+
+    .footer-legal { display: flex; gap: 24px; }
+
+    .footer-legal a { font-size: 0.8rem; color: rgba(255,255,255,0.5); transition: color 0.2s; }
+    .footer-legal a:hover { color: rgba(255,255,255,0.85); }
+
+    /* ===================== RESPONSIVE ===================== */
+    @media (max-width: 1200px) {
+      .locations-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer-top { grid-template-columns: 1fr 1fr; gap: 40px; }
+      .steps-grid::before { display: none; }
+    }
+
+    @media (max-width: 1024px) {
+      .hero { grid-template-columns: 1fr; min-height: auto; }
+      .hero-image { height: 55vw; min-height: 380px; }
+      .hero-content { padding: 60px 48px; }
+      .community-features { grid-template-columns: 1fr; }
+      .testimonials-grid { grid-template-columns: 1fr 1fr; }
+      .faq-layout { grid-template-columns: 1fr; gap: 48px; }
+      .faq-sidebar { position: static; }
+      .apply-layout { grid-template-columns: 1fr; gap: 48px; }
+      .steps-grid { grid-template-columns: repeat(2, 1fr); gap: 32px; }
+      .units-header { flex-direction: column; align-items: flex-start; gap: 24px; }
+      .unit-card { flex: 0 0 calc(50% - 14px); }
+    }
+
+    @media (max-width: 768px) {
+      nav { padding: 0 24px; }
+      .back-link-bar { padding: 10px 24px; }
+      section { padding: 72px 24px; }
+      .amenities-section { padding: 72px 0; }
+      .amenities-section .section-inner { padding: 0 24px; }
+      .amenities-track { padding: 16px 24px 24px; }
+
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+
+      .hero-content { padding: 48px 24px; }
+      .hero-headline { font-size: 2.2rem; }
+      .hero-badges { gap: 8px; }
+
+      .locations-grid { grid-template-columns: 1fr 1fr; }
+
+      .testimonials-grid { grid-template-columns: 1fr; }
+
+      .unit-card { flex: 0 0 calc(85vw - 28px); }
+
+      .steps-grid { grid-template-columns: 1fr 1fr; }
+
+      .form-row { grid-template-columns: 1fr; }
+
+      .footer-top { grid-template-columns: 1fr; gap: 32px; }
+      footer { padding: 56px 24px 32px; }
+
+      .footer-bottom { flex-direction: column; align-items: flex-start; }
+    }
+
+    @media (max-width: 480px) {
+      .hero-actions { flex-direction: column; }
+      .btn-primary, .btn-secondary { width: 100%; justify-content: center; }
+      .locations-grid { grid-template-columns: 1fr; }
+      .steps-grid { grid-template-columns: 1fr; }
+      .community-features { grid-template-columns: 1fr; }
+      .apply-form { padding: 32px 24px; }
+    }
+
+    /* ===================== SCROLL REVEAL ===================== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity 0.7s cubic-bezier(0.4,0,0.2,1), transform 0.7s cubic-bezier(0.4,0,0.2,1);
+    }
+
+    .reveal.revealed {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+
+    /* ===================== MISC ===================== */
+    .text-gradient {
+      background: linear-gradient(135deg, var(--forest), var(--sage));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    hr.divider {
+      border: none;
+      height: 1px;
+      background: rgba(124,154,126,0.15);
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Back to Portfolio -->
+  <div class="back-link-bar">
+    <a href="/portfolio/">
+      <span class="back-arrow">&#8592;</span>
+      Back to Portfolio
+    </a>
+  </div>
+
+  <!-- Navigation -->
+  <nav role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">Eden<span></span></a>
+      <ul class="nav-links">
+        <li><a href="#units">Units</a></li>
+        <li><a href="#locations">Locations</a></li>
+        <li><a href="#community">Community</a></li>
+        <li><a href="#amenities">Amenities</a></li>
+        <li><a href="#how-it-works">How It Works</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#apply" class="nav-cta">Apply Now</a></li>
+      </ul>
+      <button class="hamburger" id="hamburgerBtn" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="mobile-menu" id="mobileMenu" role="menu">
+      <ul>
+        <li><a href="#units">Units</a></li>
+        <li><a href="#locations">Locations</a></li>
+        <li><a href="#community">Community</a></li>
+        <li><a href="#amenities">Amenities</a></li>
+        <li><a href="#how-it-works">How It Works</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#apply" class="nav-cta">Apply Now</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- ===================== HERO ===================== -->
+    <section id="hero" class="hero" aria-label="Hero" style="padding: 0;">
+      <div class="hero-image">
+        <img
+          src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=1600"
+          alt="Light-filled Eden co-living interior with natural materials and green accents"
+          width="1600"
+          height="1067"
+          fetchpriority="high"
+          style="width:100%;height:100%;object-fit:cover;"
+        />
+        <div class="hero-image-overlay"></div>
+      </div>
+      <div class="hero-content">
+        <span class="hero-eyebrow">Premium Co-Living · Kuala Lumpur</span>
+        <h1 class="hero-headline">Live beautifully.<br />Live freely.</h1>
+        <p class="hero-subline">Fully furnished residences in KL's most sought-after neighbourhoods. Flexible leases, vibrant community, zero hassle.</p>
+        <div class="hero-actions">
+          <a href="#units" class="btn-primary">
+            Explore Units
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </a>
+          <a href="#apply" class="btn-secondary">Book a Tour</a>
+        </div>
+        <div class="hero-badges" role="list" aria-label="Key features">
+          <span class="badge-pill" role="listitem">&#10003; Fully Furnished</span>
+          <span class="badge-pill" role="listitem">&#10003; Bills Included</span>
+          <span class="badge-pill" role="listitem">&#10003; Community Events</span>
+          <span class="badge-pill" role="listitem">&#10003; Flexible Lease</span>
+          <span class="badge-pill" role="listitem">&#10003; Pet Friendly</span>
+          <span class="badge-pill" role="listitem">&#10003; High-Speed WiFi</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== UNIT TYPES ===================== -->
+    <section id="units" class="units-section">
+      <div class="section-inner">
+        <div class="units-header">
+          <div class="units-header-text">
+            <div class="section-tag">Our Residences</div>
+            <h2 class="section-title">Find your perfect space</h2>
+            <p class="section-subtitle">Every unit is thoughtfully designed and fully equipped — move in with just your suitcase.</p>
+          </div>
+          <div class="carousel-controls">
+            <button class="carousel-btn" id="prevBtn" aria-label="Previous units">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+            </button>
+            <button class="carousel-btn" id="nextBtn" aria-label="Next units">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="carousel-track-wrapper">
+          <div class="carousel-track" id="carouselTrack">
+
+            <!-- Studio -->
+            <article class="unit-card reveal">
+              <div class="unit-card-image">
+                <img
+                  src="https://images.unsplash.com/photo-1555854877-bab0e564b8d5?w=1200"
+                  alt="Eden Studio apartment — bright and modern"
+                  loading="lazy"
+                  width="1200"
+                  height="800"
+                />
+                <span class="unit-card-badge">Available Now</span>
+              </div>
+              <div class="unit-card-body">
+                <div class="unit-card-type">Studio</div>
+                <div class="unit-card-name">The Haven</div>
+                <div class="unit-card-sqft">450 sqft · Studio</div>
+                <div class="unit-amenities">
+                  <span class="amenity-tag">Fully Furnished</span>
+                  <span class="amenity-tag">Open Kitchen</span>
+                  <span class="amenity-tag">Private Bathroom</span>
+                  <span class="amenity-tag">City View</span>
+                </div>
+                <div class="unit-card-price">
+                  <span class="price-value">RM 2,200</span>
+                  <span class="price-unit">/ month, all-in</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- 1BR -->
+            <article class="unit-card reveal reveal-delay-1">
+              <div class="unit-card-image">
+                <img
+                  src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=1200"
+                  alt="Eden one-bedroom apartment — serene and spacious"
+                  loading="lazy"
+                  width="1200"
+                  height="800"
+                />
+                <span class="unit-card-badge">Popular</span>
+              </div>
+              <div class="unit-card-body">
+                <div class="unit-card-type">1 Bedroom</div>
+                <div class="unit-card-name">The Retreat</div>
+                <div class="unit-card-sqft">680 sqft · 1 Bedroom</div>
+                <div class="unit-amenities">
+                  <span class="amenity-tag">Fully Furnished</span>
+                  <span class="amenity-tag">Full Kitchen</span>
+                  <span class="amenity-tag">En-suite Bath</span>
+                  <span class="amenity-tag">Balcony</span>
+                </div>
+                <div class="unit-card-price">
+                  <span class="price-value">RM 3,100</span>
+                  <span class="price-unit">/ month, all-in</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- 2BR -->
+            <article class="unit-card reveal reveal-delay-2">
+              <div class="unit-card-image">
+                <img
+                  src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=1200"
+                  alt="Eden two-bedroom apartment — spacious family living"
+                  loading="lazy"
+                  width="1200"
+                  height="800"
+                />
+                <span class="unit-card-badge">Best Value</span>
+              </div>
+              <div class="unit-card-body">
+                <div class="unit-card-type">2 Bedroom</div>
+                <div class="unit-card-name">The Sanctuary</div>
+                <div class="unit-card-sqft">950 sqft · 2 Bedrooms</div>
+                <div class="unit-amenities">
+                  <span class="amenity-tag">Fully Furnished</span>
+                  <span class="amenity-tag">Full Kitchen</span>
+                  <span class="amenity-tag">2 Bathrooms</span>
+                  <span class="amenity-tag">Large Balcony</span>
+                </div>
+                <div class="unit-card-price">
+                  <span class="price-value">RM 4,800</span>
+                  <span class="price-unit">/ month, all-in</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- Penthouse -->
+            <article class="unit-card reveal reveal-delay-3">
+              <div class="unit-card-image">
+                <img
+                  src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1200"
+                  alt="Eden Penthouse — luxury living with panoramic city views"
+                  loading="lazy"
+                  width="1200"
+                  height="800"
+                />
+                <span class="unit-card-badge" style="background: var(--sand); color: var(--forest);">Penthouse</span>
+              </div>
+              <div class="unit-card-body">
+                <div class="unit-card-type">Penthouse</div>
+                <div class="unit-card-name">The Pinnacle</div>
+                <div class="unit-card-sqft">1,800 sqft · 3 Bedrooms</div>
+                <div class="unit-amenities">
+                  <span class="amenity-tag">Fully Furnished</span>
+                  <span class="amenity-tag">Designer Kitchen</span>
+                  <span class="amenity-tag">3 Bathrooms</span>
+                  <span class="amenity-tag">Private Rooftop</span>
+                </div>
+                <div class="unit-card-price">
+                  <span class="price-value">RM 8,500</span>
+                  <span class="price-unit">/ month, all-in</span>
+                </div>
+              </div>
+            </article>
+
+          </div>
+        </div>
+
+        <div class="carousel-dots" role="tablist" aria-label="Carousel navigation">
+          <div class="dot active" data-index="0" role="tab" aria-selected="true" aria-label="Slide 1"></div>
+          <div class="dot" data-index="1" role="tab" aria-selected="false" aria-label="Slide 2"></div>
+          <div class="dot" data-index="2" role="tab" aria-selected="false" aria-label="Slide 3"></div>
+          <div class="dot" data-index="3" role="tab" aria-selected="false" aria-label="Slide 4"></div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- ===================== LOCATIONS ===================== -->
+    <section id="locations" class="locations-section">
+      <div class="section-inner">
+        <div class="section-tag">Where We Are</div>
+        <h2 class="section-title">Four prime neighbourhoods</h2>
+        <p class="section-subtitle">Strategically placed in KL's most vibrant areas — close to business, dining, and culture.</p>
+
+        <div class="locations-grid">
+
+          <!-- KLCC -->
+          <div class="location-card" data-location="klcc">
+            <div class="location-card-top">
+              <div class="location-pin-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2d4a3e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+              </div>
+              <div class="location-name">KLCC</div>
+              <div class="location-units">8 units available</div>
+              <p class="location-desc">Steps from the iconic Petronas Twin Towers. Prime connectivity, luxury retail, and the best of urban KL.</p>
+            </div>
+            <div class="location-toggle">
+              <span>View property details</span>
+              <div class="location-toggle-icon">+</div>
+            </div>
+            <div class="location-details">
+              <ul class="location-details-list">
+                <li>Jalan Ampang corridor, 5 min walk to LRT</li>
+                <li>Studios from RM 2,200 · 1BR from RM 3,100</li>
+                <li>24/7 concierge · Sky pool access</li>
+                <li>Surrounded by fine dining and retail</li>
+                <li>Walking distance to KLCC Park</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Bangsar -->
+          <div class="location-card" data-location="bangsar">
+            <div class="location-card-top">
+              <div class="location-pin-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2d4a3e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+              </div>
+              <div class="location-name">Bangsar</div>
+              <div class="location-units">5 units available</div>
+              <p class="location-desc">KL's coolest neighbourhood. Vibrant café culture, independent boutiques, and a strong expat community.</p>
+            </div>
+            <div class="location-toggle">
+              <span>View property details</span>
+              <div class="location-toggle-icon">+</div>
+            </div>
+            <div class="location-details">
+              <ul class="location-details-list">
+                <li>Jalan Telawi area, near Bangsar Village</li>
+                <li>Studios from RM 2,200 · 2BR from RM 4,800</li>
+                <li>Rooftop lounge · Co-working space</li>
+                <li>Walking to Bangsar Baru night market</li>
+                <li>Easy access to MRT Bangsar station</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Mont Kiara -->
+          <div class="location-card" data-location="montkiara">
+            <div class="location-card-top">
+              <div class="location-pin-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2d4a3e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+              </div>
+              <div class="location-name">Mont Kiara</div>
+              <div class="location-units">12 units available</div>
+              <p class="location-desc">KL's expat heartland. Lush greenery, international schools, premium malls, and a relaxed suburban feel.</p>
+            </div>
+            <div class="location-toggle">
+              <span>View property details</span>
+              <div class="location-toggle-icon">+</div>
+            </div>
+            <div class="location-details">
+              <ul class="location-details-list">
+                <li>Solaris Dutamas and Publika surrounds</li>
+                <li>1BR from RM 3,100 · Penthouse from RM 8,500</li>
+                <li>Largest community of all locations</li>
+                <li>On-site gym · Landscaped gardens</li>
+                <li>Minutes from major international schools</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Desa Park City -->
+          <div class="location-card" data-location="desaparkcity">
+            <div class="location-card-top">
+              <div class="location-pin-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2d4a3e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+              </div>
+              <div class="location-name">Desa Park City</div>
+              <div class="location-units">6 units available</div>
+              <p class="location-desc">A masterplanned urban sanctuary. Lakeside living, weekend farmers' markets, and a genuine neighbourhood feel.</p>
+            </div>
+            <div class="location-toggle">
+              <span>View property details</span>
+              <div class="location-toggle-icon">+</div>
+            </div>
+            <div class="location-details">
+              <ul class="location-details-list">
+                <li>Facing Central Park lake and jogging path</li>
+                <li>Studios from RM 2,200 · 2BR from RM 4,800</li>
+                <li>Pet-friendly grounds · EV charging</li>
+                <li>Saturday farmers' market on-site</li>
+                <li>Quiet residential feel, 20 min to city</li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== COMMUNITY ===================== -->
+    <section id="community" class="community-section">
+      <div class="section-inner">
+        <div class="section-tag">The Eden Life</div>
+        <h2 class="section-title" style="max-width: 480px;">More than a home.</h2>
+        <p class="section-subtitle">We've built a place where life happens beyond your front door.</p>
+
+        <div class="community-features">
+
+          <div class="feature-card reveal">
+            <div class="feature-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#7c9a7e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <div class="feature-title">Monthly Events</div>
+            <p class="feature-desc">From rooftop BBQs at sunset to guided yoga sessions and art nights — something's always on. Our community calendar keeps you connected and inspired every single month.</p>
+          </div>
+
+          <div class="feature-card reveal reveal-delay-1">
+            <div class="feature-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#7c9a7e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="20" x="5" y="2" rx="2"/><path d="M12 18h.01"/><path d="M8 6h8"/><path d="M8 10h8"/><path d="M8 14h4"/></svg>
+            </div>
+            <div class="feature-title">Members-Only App</div>
+            <p class="feature-desc">Book facilities, pay rent, raise maintenance requests, and connect with neighbours — all from your phone. Our app makes managing your home effortless and your community accessible.</p>
+          </div>
+
+          <div class="feature-card reveal reveal-delay-2">
+            <div class="feature-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#7c9a7e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12s2.545-5 7-5c4.454 0 7 5 7 5s-2.546 5-7 5c-4.455 0-7-5-7-5z"/><path d="M12 13a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/><path d="M21 17v2a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-2"/><path d="M21 7V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v2"/></svg>
+            </div>
+            <div class="feature-title">Concierge Service</div>
+            <p class="feature-desc">Your personal concierge handles weekly cleaning, laundry pickup, grocery delivery, and restaurant bookings. Live the life you want — we'll handle the rest.</p>
+          </div>
+
+        </div>
+
+        <!-- Testimonials -->
+        <div class="testimonials-title">What our residents say</div>
+        <div class="testimonials-grid">
+
+          <div class="testimonial-card reveal">
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-text">"Moving to Eden was the best decision I made when relocating to KL. The community is incredible — I met my closest friends here, and moving in was the easiest thing I've ever done."</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">S</div>
+              <div>
+                <div class="testimonial-name">Sarah L.</div>
+                <div class="testimonial-role">UX Designer at Grab</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card reveal reveal-delay-1">
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-text">"As a digital nomad, I've stayed in co-living spaces worldwide. Eden is easily top tier. The rooms are stunning, the WiFi is lightning fast, and the concierge team is genuinely brilliant."</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">M</div>
+              <div>
+                <div class="testimonial-name">Marcus T.</div>
+                <div class="testimonial-role">Freelance Product Strategist</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card reveal reveal-delay-2">
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-text">"I was nervous about the flexible lease but it turned out to be perfect. Renewed three times now. The KLCC views never get old and the monthly events keep me from ever working late."</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">A</div>
+              <div>
+                <div class="testimonial-name">Aisha R.</div>
+                <div class="testimonial-role">Associate at McKinsey &amp; Company</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== AMENITIES ===================== -->
+    <section id="amenities" class="amenities-section">
+      <div class="section-inner">
+        <div class="section-tag">What's Included</div>
+        <h2 class="section-title">Everything you need</h2>
+        <p class="section-subtitle">World-class amenities shared across all Eden properties — because you deserve more than four walls.</p>
+      </div>
+      <div class="amenities-scroll-wrapper">
+        <div class="amenities-track" role="list">
+
+          <div class="amenity-card" role="listitem">
+            <div class="amenity-icon-wrap">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#2d4a3e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22V12a8 8 0 0 1 16 0v10"/><path d="M4 22h16"/><path d="M12 2v4"/><path d="M8 6l4-4 4 4"/></svg>
+            </div>
+            <div class="amenity-card-title">Rooftop Pool</div>
+            <p class="amenity-card-desc">Infinity-edge rooftop pool with panoramic city views. Open 6am–11pm daily.</p>
+          </div>
+
+          <div class="amenity-card" role="listitem">
+            <div class="amenity-icon-wrap">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#2d4a3e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="7" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+            </div>
+            <div class="amenity-card-title">Co-working Lounge</div>
+            <p class="amenity-card-desc">Dedicated hot desks, private pods, and meeting rooms. Bookable via the app.</p>
+          </div>
+
+          <div class="amenity-card" role="listitem">
+            <div class="amenity-icon-wrap">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#2d4a3e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+            </div>
+            <div class="amenity-card-title">Gym</div>
+            <p class="amenity-card-desc">Fully equipped gym with Technogym cardio, free weights, and stretching zones.</p>
+          </div>
+
+          <div class="amenity-card" role="listitem">
+            <div class="amenity-icon-wrap">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#2d4a3e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8Z"/><line x1="6" x2="6" y1="1" y2="4"/><line x1="10" x2="10" y1="1" y2="4"/><line x1="14" x2="14" y1="1" y2="4"/></svg>
+            </div>
+            <div class="amenity-card-title">Café On-site</div>
+            <p class="amenity-card-desc">Specialty coffee, açaí bowls, and healthy bites. Residents get 15% off every visit.</p>
+          </div>
+
+          <div class="amenity-card" role="listitem">
+            <div class="amenity-icon-wrap">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#2d4a3e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m7.5 4.27 9 5.15"/><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></svg>
+            </div>
+            <div class="amenity-card-title">Package Room</div>
+            <p class="amenity-card-desc">Secure 24/7 parcel lockers with app notifications. Never miss a delivery again.</p>
+          </div>
+
+          <div class="amenity-card" role="listitem">
+            <div class="amenity-icon-wrap">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#2d4a3e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="18.5" cy="17.5" r="3.5"/><circle cx="5.5" cy="17.5" r="3.5"/><circle cx="15" cy="5" r="1"/><path d="M12 17.5V14l-3-3 4-3 2 3h2"/></svg>
+            </div>
+            <div class="amenity-card-title">Bike Storage</div>
+            <p class="amenity-card-desc">Secure bike racks and a DIY repair station for the eco-conscious commuter.</p>
+          </div>
+
+          <div class="amenity-card" role="listitem">
+            <div class="amenity-icon-wrap">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#2d4a3e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 5.172C10 3.782 8.423 2.679 6.5 3c-2.823.47-4.113 6.006-4 7 .08.703 1.725 1.722 3.656 1 1.261-.472 1.96-1.1 2.344-1.59"/><path d="M14.267 5.172c0-1.39 1.577-2.493 3.5-2.172 2.823.47 4.113 6.006 4 7-.08.703-1.725 1.722-3.656 1-1.261-.472-1.855-1.1-2.239-1.59"/><path d="M8 14v.5"/><path d="M16 14v.5"/><path d="M11.25 16.25h1.5L12 17l-.75-.75Z"/><path d="M4.42 20A8 8 0 0 0 12 22a8 8 0 0 0 7.58-2"/><path d="M12 22v-4"/></svg>
+            </div>
+            <div class="amenity-card-title">Pet Friendly</div>
+            <p class="amenity-card-desc">Designated pet areas and a weekly pet wash station. Your furry family is welcome here.</p>
+          </div>
+
+          <div class="amenity-card" role="listitem">
+            <div class="amenity-icon-wrap">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#2d4a3e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" x2="12" y1="20" y2="20"/></svg>
+            </div>
+            <div class="amenity-card-title">EV Charging</div>
+            <p class="amenity-card-desc">Level 2 EV chargers in the carpark. Book a bay via the Eden app for hassle-free charging.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== HOW IT WORKS ===================== -->
+    <section id="how-it-works" class="how-section">
+      <div class="section-inner">
+        <div class="section-tag">The Process</div>
+        <h2 class="section-title">Move in, in four steps</h2>
+        <p class="section-subtitle">We've stripped away the complexity of renting. From browsing to move-in day, we're with you every step.</p>
+
+        <div class="steps-grid">
+
+          <div class="step-item reveal">
+            <div class="step-number">1</div>
+            <div class="step-title">Browse</div>
+            <p class="step-desc">Explore unit types, locations, and availability. Filter by budget, size, and move-in date.</p>
+          </div>
+
+          <div class="step-item reveal reveal-delay-1">
+            <div class="step-number">2</div>
+            <div class="step-title">Book a Tour</div>
+            <p class="step-desc">Schedule an in-person or virtual tour. Our team will walk you through your favourite options.</p>
+          </div>
+
+          <div class="step-item reveal reveal-delay-2">
+            <div class="step-number">3</div>
+            <div class="step-title">Sign Your Lease</div>
+            <p class="step-desc">Fully digital signing. Pay your deposit online. All paperwork handled in under 24 hours.</p>
+          </div>
+
+          <div class="step-item reveal reveal-delay-3">
+            <div class="step-number">4</div>
+            <div class="step-title">Move In</div>
+            <p class="step-desc">Show up with your suitcase. Your home is fully furnished, stocked, and ready to love.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- ===================== FAQ ===================== -->
+    <section id="faq" class="faq-section">
+      <div class="section-inner">
+        <div class="faq-layout">
+
+          <div class="faq-sidebar">
+            <div class="section-tag">FAQ</div>
+            <h2 class="section-title">Questions?<br />We've got answers.</h2>
+            <p class="faq-sidebar-text">Can't find what you're looking for? Our team is happy to help — we typically respond within a few hours.</p>
+            <a href="#apply" class="faq-contact-link">
+              Contact us directly
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
+          </div>
+
+          <div class="faq-list">
+
+            <div class="faq-item">
+              <div class="faq-question">
+                What is the minimum stay at Eden?
+                <span class="faq-icon">+</span>
+              </div>
+              <div class="faq-answer">
+                <p class="faq-answer-inner">Our minimum lease term is 3 months. After the initial period, you can extend on a monthly rolling basis — giving you the flexibility to stay as long as you love it. We also offer 6-month and 12-month packages with discounted rates.</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question">
+                How much is the security deposit?
+                <span class="faq-icon">+</span>
+              </div>
+              <div class="faq-answer">
+                <p class="faq-answer-inner">We require a refundable security deposit of 2 months' rent, paid alongside your first month's rent at signing. Deposits are fully refunded within 14 business days of move-out, provided there are no outstanding damages or charges.</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question">
+                Are all units fully furnished?
+                <span class="faq-icon">+</span>
+              </div>
+              <div class="faq-answer">
+                <p class="faq-answer-inner">Yes — every Eden unit comes fully furnished to a premium standard. Think quality bed frames, mattresses, sofa, dining table, smart TV, and full kitchen setup. All you need to bring are your personal belongings. We can also accommodate requests for additional items.</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question">
+                What is the guest policy?
+                <span class="faq-icon">+</span>
+              </div>
+              <div class="faq-answer">
+                <p class="faq-answer-inner">Residents are welcome to host guests in their units. For overnight guests staying more than 7 consecutive nights, we ask that you register them with reception. Guests must adhere to our community guidelines and common area rules at all times.</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question">
+                Are pets allowed?
+                <span class="faq-icon">+</span>
+              </div>
+              <div class="faq-answer">
+                <p class="faq-answer-inner">We're a proudly pet-friendly community. Cats and dogs up to 15kg are welcome in all units. There's a small refundable pet deposit of RM 500. We have designated pet areas, a weekly pet wash station, and waste bag dispensers throughout the property.</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question">
+                What utilities are included in the rent?
+                <span class="faq-icon">+</span>
+              </div>
+              <div class="faq-answer">
+                <p class="faq-answer-inner">Your monthly rent includes high-speed fibre WiFi (500Mbps), water, electricity (up to a fair use limit of RM 150/month — excess billed separately), building maintenance, and weekly common area cleaning. Residents in our all-inclusive packages also get weekly unit cleaning included.</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question">
+                Is parking available?
+                <span class="faq-icon">+</span>
+              </div>
+              <div class="faq-answer">
+                <p class="faq-answer-inner">Parking bays are available at an additional RM 150/month per bay. EV charging bays are RM 200/month. Bays are subject to availability — we recommend reserving yours when you sign your lease. Monthly reserved parking is booked via the Eden app.</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question">
+                Can I work from home comfortably?
+                <span class="faq-icon">+</span>
+              </div>
+              <div class="faq-answer">
+                <p class="faq-answer-inner">Absolutely — we're built for it. Every unit has 500Mbps dedicated fibre WiFi, and our co-working lounge offers hot desks, private focus pods, and bookable meeting rooms. Many of our residents are remote workers and digital nomads. It's in our DNA.</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== APPLY ===================== -->
+    <section id="apply" class="apply-section">
+      <div class="section-inner">
+        <div class="apply-layout">
+
+          <div class="apply-left">
+            <div class="section-tag">Apply Now</div>
+            <h2 class="section-title">Ready to call Eden home?</h2>
+            <p class="section-subtitle">Tell us a little about yourself and we'll match you with the perfect unit. Our team will be in touch within 24 hours.</p>
+            <div class="apply-perks">
+              <div class="apply-perk">
+                <div class="apply-perk-icon">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2d4a3e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <div class="apply-perk-text">
+                  <strong>No agency fees</strong>
+                  Work directly with Eden. No middlemen, no hidden commissions.
+                </div>
+              </div>
+              <div class="apply-perk">
+                <div class="apply-perk-icon">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2d4a3e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <div class="apply-perk-text">
+                  <strong>Move in within 48 hours</strong>
+                  Fast-track lease signing with fully digital paperwork.
+                </div>
+              </div>
+              <div class="apply-perk">
+                <div class="apply-perk-icon">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2d4a3e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <div class="apply-perk-text">
+                  <strong>Flexible lease, no lock-in</strong>
+                  Start from 3 months. Extend or leave on your terms.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="apply-form" role="form" aria-label="Application form">
+            <div class="form-success" id="formSuccess">
+              <div class="form-success-icon">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#2d4a3e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <div class="form-success-title">You're in!</div>
+              <p class="form-success-text">Thank you! We'll be in touch within 24 hours to arrange your tour and answer any questions.</p>
+            </div>
+            <div class="form-title">Get Started</div>
+            <p class="form-subtitle">Free tour &mdash; no obligation. Book yours today.</p>
+            <form id="applyForm" novalidate>
+              <div class="form-row">
+                <div class="form-group" id="groupName">
+                  <label class="form-label" for="fieldName">Full Name</label>
+                  <input class="form-input" type="text" id="fieldName" name="name" placeholder="Your full name" autocomplete="name" />
+                  <span class="form-error">Please enter your name.</span>
+                </div>
+                <div class="form-group" id="groupEmail">
+                  <label class="form-label" for="fieldEmail">Email Address</label>
+                  <input class="form-input" type="email" id="fieldEmail" name="email" placeholder="you@example.com" autocomplete="email" />
+                  <span class="form-error">Please enter a valid email.</span>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group" id="groupWhatsapp">
+                  <label class="form-label" for="fieldWhatsapp">WhatsApp Number</label>
+                  <input class="form-input" type="tel" id="fieldWhatsapp" name="whatsapp" placeholder="+60 12 345 6789" autocomplete="tel" />
+                  <span class="form-error">Please enter your WhatsApp number.</span>
+                </div>
+                <div class="form-group" id="groupUnit">
+                  <label class="form-label" for="fieldUnit">Unit Preference</label>
+                  <select class="form-select" id="fieldUnit" name="unit">
+                    <option value="" disabled selected>Select a unit type</option>
+                    <option value="studio">Studio (RM 2,200/mo)</option>
+                    <option value="1br">1 Bedroom (RM 3,100/mo)</option>
+                    <option value="2br">2 Bedroom (RM 4,800/mo)</option>
+                    <option value="penthouse">Penthouse (RM 8,500/mo)</option>
+                    <option value="unsure">Not sure yet</option>
+                  </select>
+                  <span class="form-error">Please select a unit preference.</span>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group full" id="groupMovein">
+                  <label class="form-label" for="fieldMovein">Preferred Move-in Date</label>
+                  <input class="form-input" type="date" id="fieldMovein" name="movein" />
+                  <span class="form-error">Please select a move-in date.</span>
+                </div>
+              </div>
+              <button type="submit" class="form-submit">
+                Book My Free Tour &rarr;
+              </button>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer role="contentinfo">
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div>
+          <div class="footer-logo">Eden</div>
+          <p class="footer-tagline">Premium co-living and serviced residences in Kuala Lumpur's finest neighbourhoods.</p>
+          <div class="footer-social">
+            <a href="#" class="social-btn" aria-label="Eden on Instagram">IG</a>
+            <a href="#" class="social-btn" aria-label="Eden on LinkedIn">LI</a>
+            <a href="#" class="social-btn" aria-label="Eden on TikTok">TK</a>
+            <a href="#" class="social-btn" aria-label="Eden on Facebook">FB</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">Residences</div>
+          <ul class="footer-links">
+            <li><a href="#units">Studios</a></li>
+            <li><a href="#units">1 Bedroom</a></li>
+            <li><a href="#units">2 Bedroom</a></li>
+            <li><a href="#units">Penthouse</a></li>
+            <li><a href="#apply">Virtual Tour</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-title">Locations</div>
+          <ul class="footer-links">
+            <li><a href="#locations">KLCC</a></li>
+            <li><a href="#locations">Bangsar</a></li>
+            <li><a href="#locations">Mont Kiara</a></li>
+            <li><a href="#locations">Desa Park City</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-title">Company</div>
+          <ul class="footer-links">
+            <li><a href="#">About Eden</a></li>
+            <li><a href="#community">Community</a></li>
+            <li><a href="#amenities">Amenities</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#apply">Contact Us</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copy">&copy; 2025 Eden Co-Living Sdn. Bhd. All rights reserved.</p>
+        <div class="footer-legal">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Cookie Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===================== JAVASCRIPT ===================== -->
+  <script defer>
+    // Hamburger menu
+    const hamburger = document.getElementById('hamburgerBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    hamburger.addEventListener('click', () => {
+      const isOpen = hamburger.classList.toggle('open');
+      mobileMenu.classList.toggle('open', isOpen);
+      hamburger.setAttribute('aria-expanded', isOpen);
+    });
+
+    // Close mobile menu on link click
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('open');
+        mobileMenu.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    // Carousel
+    const track = document.getElementById('carouselTrack');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const dots = document.querySelectorAll('.dot');
+    let currentIndex = 0;
+
+    function getVisibleCount() {
+      if (window.innerWidth <= 768) return 1;
+      if (window.innerWidth <= 1024) return 2;
+      return 3;
+    }
+
+    function getTotalCards() {
+      return track.children.length;
+    }
+
+    function getMaxIndex() {
+      return Math.max(0, getTotalCards() - getVisibleCount());
+    }
+
+    function getCardWidth() {
+      const card = track.children[0];
+      if (!card) return 0;
+      const style = window.getComputedStyle(track);
+      const gap = parseFloat(style.gap) || 28;
+      return card.offsetWidth + gap;
+    }
+
+    function goTo(index) {
+      const maxIndex = getMaxIndex();
+      currentIndex = Math.min(Math.max(0, index), maxIndex);
+      const offset = currentIndex * getCardWidth();
+      track.style.transform = `translateX(-${offset}px)`;
+
+      dots.forEach((d, i) => {
+        d.classList.toggle('active', i === currentIndex);
+        d.setAttribute('aria-selected', i === currentIndex);
+      });
+    }
+
+    prevBtn.addEventListener('click', () => goTo(currentIndex - 1));
+    nextBtn.addEventListener('click', () => goTo(currentIndex + 1));
+
+    dots.forEach(dot => {
+      dot.addEventListener('click', () => goTo(parseInt(dot.dataset.index)));
+    });
+
+    window.addEventListener('resize', () => goTo(Math.min(currentIndex, getMaxIndex())));
+
+    // Location cards expand/collapse
+    document.querySelectorAll('.location-card').forEach(card => {
+      card.addEventListener('click', () => {
+        const isActive = card.classList.contains('active');
+        document.querySelectorAll('.location-card').forEach(c => c.classList.remove('active'));
+        if (!isActive) card.classList.add('active');
+      });
+    });
+
+    // FAQ accordion
+    document.querySelectorAll('.faq-item').forEach(item => {
+      const question = item.querySelector('.faq-question');
+      question.addEventListener('click', () => {
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+        if (!isOpen) item.classList.add('open');
+      });
+    });
+
+    // Form validation and submission
+    const applyForm = document.getElementById('applyForm');
+    const formSuccess = document.getElementById('formSuccess');
+
+    function validateEmail(email) {
+      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    }
+
+    function setError(groupId, show) {
+      const group = document.getElementById(groupId);
+      if (group) group.classList.toggle('error', show);
+    }
+
+    applyForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      let valid = true;
+
+      const name = document.getElementById('fieldName').value.trim();
+      const email = document.getElementById('fieldEmail').value.trim();
+      const whatsapp = document.getElementById('fieldWhatsapp').value.trim();
+      const unit = document.getElementById('fieldUnit').value;
+      const movein = document.getElementById('fieldMovein').value;
+
+      const nameErr = name.length < 2;
+      const emailErr = !validateEmail(email);
+      const whatsappErr = whatsapp.length < 8;
+      const unitErr = !unit;
+      const moveinErr = !movein;
+
+      setError('groupName', nameErr);
+      setError('groupEmail', emailErr);
+      setError('groupWhatsapp', whatsappErr);
+      setError('groupUnit', unitErr);
+      setError('groupMovein', moveinErr);
+
+      if (nameErr || emailErr || whatsappErr || unitErr || moveinErr) return;
+
+      // Show success
+      applyForm.style.display = 'none';
+      const formTitle = document.querySelector('.form-title');
+      const formSub = document.querySelector('.form-subtitle');
+      if (formTitle) formTitle.style.display = 'none';
+      if (formSub) formSub.style.display = 'none';
+      formSuccess.classList.add('show');
+      formSuccess.style.display = 'block';
+    });
+
+    // Scroll reveal
+    const revealEls = document.querySelectorAll('.reveal');
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    revealEls.forEach(el => revealObserver.observe(el));
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', (e) => {
+        const href = anchor.getAttribute('href');
+        if (href === '#') return;
+        const target = document.querySelector(href);
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>

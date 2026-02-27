@@ -10,7 +10,7 @@ const Footer = () => {
                 <div className="footer-content">
                     {/* Brand */}
                     <div className="footer-brand">
-                        <h3 className="brand-name text-gradient">SheersSoft</h3>
+                        <h3 className="brand-name">Sheers<span className="footer-logo-accent">.</span>Soft</h3>
                         <p className="brand-tagline">
                             Empowering businesses with technology, strategy, and support.
                         </p>

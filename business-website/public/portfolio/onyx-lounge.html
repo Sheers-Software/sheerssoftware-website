@@ -1,0 +1,2042 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ONYX — Cocktail Lounge & Private Events | Petaling Jaya</title>
+  <meta name="description" content="Petaling Jaya's most exclusive private lounge. Premium cocktails, live DJ, cigar lounge, and bespoke private events. Open Tue–Sun, 6PM–3AM." />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="ONYX — Cocktail Lounge & Private Events" />
+  <meta property="og:description" content="Petaling Jaya's most exclusive private lounge. Premium cocktails, live DJ, cigar lounge, and bespoke private events." />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=1200" />
+  <meta property="og:url" content="https://onyx-lounge.com.my" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- SVG Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍸</text></svg>" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ============================================================
+       DESIGN TOKENS
+    ============================================================ */
+    :root {
+      --black: #050505;
+      --surface: #0f0f0f;
+      --surface-2: #161616;
+      --violet: #7c3aed;
+      --violet-bright: #a855f7;
+      --silver: #9ca3af;
+      --white: #f9fafb;
+      --grid-line: rgba(124, 58, 237, 0.15);
+      --font-display: 'Bebas Neue', sans-serif;
+      --font-body: 'IBM Plex Sans', sans-serif;
+    }
+
+    /* ============================================================
+       RESET & BASE
+    ============================================================ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; cursor: none; }
+
+    body {
+      background: var(--black);
+      color: var(--white);
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    img { display: block; max-width: 100%; }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* ============================================================
+       CUSTOM CURSOR
+    ============================================================ */
+    #cursor {
+      position: fixed;
+      top: 0; left: 0;
+      width: 12px; height: 12px;
+      background: radial-gradient(circle, #a855f7, transparent);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 99999;
+      transform: translate(-50%, -50%);
+      transition: transform 0.05s linear;
+      box-shadow: 0 0 8px 4px rgba(168, 85, 247, 0.4), 0 0 20px 8px rgba(124, 58, 237, 0.2);
+    }
+
+    #cursor-trail {
+      position: fixed;
+      top: 0; left: 0;
+      width: 28px; height: 28px;
+      border: 1px solid rgba(168, 85, 247, 0.3);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 99998;
+      transform: translate(-50%, -50%);
+      transition: transform 0.15s ease-out, opacity 0.15s;
+    }
+
+    /* ============================================================
+       BACK LINK
+    ============================================================ */
+    .back-link {
+      position: fixed;
+      top: 20px; left: 20px;
+      z-index: 1000;
+      font-family: var(--font-body);
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--silver);
+      background: rgba(5, 5, 5, 0.85);
+      border: 1px solid var(--grid-line);
+      padding: 8px 14px;
+      backdrop-filter: blur(8px);
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .back-link:hover { color: var(--violet-bright); border-color: rgba(168, 85, 247, 0.4); }
+
+    /* ============================================================
+       NAVIGATION
+    ============================================================ */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 900;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 48px;
+      height: 72px;
+      background: rgba(5, 5, 5, 0.92);
+      border-bottom: 1px solid var(--grid-line);
+      backdrop-filter: blur(12px);
+    }
+
+    .nav-logo {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      letter-spacing: 0.1em;
+      color: var(--white);
+    }
+    .nav-logo span { color: var(--violet-bright); }
+
+    .nav-links {
+      display: flex;
+      gap: 36px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--silver);
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--violet-bright); }
+
+    .nav-cta {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--white);
+      background: var(--violet);
+      padding: 10px 22px;
+      border: none;
+      cursor: none;
+      transition: background 0.2s;
+    }
+    .nav-cta:hover { background: var(--violet-bright); }
+
+    /* Hamburger */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: none;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+    .hamburger span {
+      display: block;
+      width: 24px; height: 2px;
+      background: var(--white);
+      transition: transform 0.3s, opacity 0.3s;
+    }
+    .hamburger.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.active span:nth-child(2) { opacity: 0; }
+    .hamburger.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 72px; left: 0; right: 0;
+      background: rgba(5, 5, 5, 0.98);
+      border-bottom: 1px solid var(--grid-line);
+      padding: 24px 32px 32px;
+      z-index: 899;
+      backdrop-filter: blur(12px);
+    }
+    .mobile-menu.open { display: block; }
+    .mobile-menu ul { list-style: none; }
+    .mobile-menu ul li { border-bottom: 1px solid var(--grid-line); }
+    .mobile-menu ul li a {
+      display: block;
+      padding: 14px 0;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--silver);
+      transition: color 0.2s;
+    }
+    .mobile-menu ul li a:hover { color: var(--violet-bright); }
+    .mobile-menu .mobile-cta {
+      display: inline-block;
+      margin-top: 20px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--white);
+      background: var(--violet);
+      padding: 12px 28px;
+    }
+
+    /* ============================================================
+       SECTION UTILITY
+    ============================================================ */
+    .section-label {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--violet-bright);
+      margin-bottom: 16px;
+    }
+
+    .divider {
+      border: none;
+      border-top: 1px solid var(--grid-line);
+    }
+
+    /* ============================================================
+       HERO
+    ============================================================ */
+    #hero {
+      position: relative;
+      height: 100vh;
+      min-height: 600px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=1600');
+      background-size: cover;
+      background-position: center;
+      z-index: 0;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(to top, rgba(124, 58, 237, 0.18) 0%, transparent 50%),
+        rgba(5, 5, 5, 0.90);
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 0 24px;
+    }
+
+    .hero-wordmark {
+      font-family: var(--font-display);
+      font-size: clamp(6rem, 20vw, 18rem);
+      line-height: 0.9;
+      letter-spacing: 0.04em;
+      color: var(--white);
+      animation: fadeInUp 0.8s ease both;
+    }
+
+    .hero-rule {
+      width: 100%;
+      max-width: 640px;
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--violet-bright), transparent);
+      margin: 16px auto;
+      animation: scaleIn 0.6s 0.6s ease both;
+    }
+
+    .hero-subtitle {
+      font-size: clamp(0.8rem, 1.5vw, 1.1rem);
+      font-weight: 300;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--silver);
+      animation: fadeInUp 0.8s 1.5s ease both;
+      opacity: 0;
+      animation-fill-mode: forwards;
+    }
+
+    .hero-scroll {
+      position: absolute;
+      bottom: 36px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.6rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--silver);
+      animation: fadeIn 1s 2.5s ease both;
+      opacity: 0;
+    }
+    .hero-scroll-line {
+      width: 1px;
+      height: 40px;
+      background: linear-gradient(to bottom, var(--violet-bright), transparent);
+      animation: scrollPulse 2s infinite;
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes scaleIn {
+      from { opacity: 0; transform: scaleX(0); }
+      to { opacity: 1; transform: scaleX(1); }
+    }
+    @keyframes scrollPulse {
+      0%, 100% { opacity: 0.4; }
+      50% { opacity: 1; }
+    }
+
+    /* ============================================================
+       THE EXPERIENCE
+    ============================================================ */
+    #experience {
+      background: var(--black);
+      padding: 120px 48px;
+      border-top: 1px solid var(--grid-line);
+    }
+
+    .experience-header {
+      margin-bottom: 80px;
+    }
+
+    .experience-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      border: 1px solid var(--grid-line);
+    }
+
+    .experience-col {
+      padding: 56px 48px;
+      border-right: 1px solid var(--grid-line);
+      position: relative;
+    }
+    .experience-col:last-child { border-right: none; }
+
+    .experience-num {
+      font-family: var(--font-display);
+      font-size: clamp(3rem, 6vw, 6rem);
+      line-height: 1;
+      color: var(--violet);
+      margin-bottom: 8px;
+    }
+
+    .experience-title {
+      font-family: var(--font-display);
+      font-size: 1.6rem;
+      letter-spacing: 0.12em;
+      color: var(--white);
+      margin-bottom: 24px;
+      border-bottom: 1px solid var(--grid-line);
+      padding-bottom: 20px;
+    }
+
+    .experience-body {
+      font-size: 0.85rem;
+      font-weight: 300;
+      line-height: 1.8;
+      color: var(--silver);
+    }
+
+    .experience-body strong {
+      color: var(--white);
+      font-weight: 600;
+    }
+
+    /* ============================================================
+       PRIVATE EVENTS
+    ============================================================ */
+    #events {
+      background: var(--surface);
+      padding: 120px 48px;
+      border-top: 1px solid var(--grid-line);
+      border-bottom: 1px solid var(--grid-line);
+    }
+
+    .events-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .events-headline {
+      font-family: var(--font-display);
+      font-size: clamp(3rem, 6vw, 7rem);
+      line-height: 0.9;
+      letter-spacing: 0.04em;
+      color: var(--white);
+      margin-bottom: 32px;
+    }
+    .events-headline span { color: var(--violet-bright); }
+
+    .events-desc {
+      font-size: 0.9rem;
+      font-weight: 300;
+      line-height: 1.9;
+      color: var(--silver);
+      margin-bottom: 36px;
+    }
+
+    .events-capacity {
+      display: flex;
+      gap: 48px;
+      margin-bottom: 40px;
+    }
+
+    .capacity-stat {}
+    .capacity-num {
+      font-family: var(--font-display);
+      font-size: 3.5rem;
+      color: var(--violet-bright);
+      line-height: 1;
+    }
+    .capacity-label {
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--silver);
+      margin-top: 4px;
+    }
+
+    .events-features {
+      list-style: none;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px 24px;
+      margin-bottom: 44px;
+    }
+    .events-features li {
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--silver);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .events-features li::before {
+      content: '';
+      display: inline-block;
+      width: 6px; height: 6px;
+      background: var(--violet-bright);
+      flex-shrink: 0;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--white);
+      background: var(--violet);
+      padding: 14px 32px;
+      border: none;
+      cursor: none;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .btn-primary:hover { background: var(--violet-bright); transform: translateY(-2px); }
+
+    .btn-outline {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--violet-bright);
+      background: transparent;
+      padding: 14px 32px;
+      border: 1px solid var(--violet);
+      cursor: none;
+      transition: background 0.2s, color 0.2s;
+    }
+    .btn-outline:hover { background: var(--violet); color: var(--white); }
+
+    .events-image {
+      position: relative;
+    }
+    .events-image img {
+      width: 100%;
+      height: 520px;
+      object-fit: cover;
+    }
+    .events-image::before {
+      content: '';
+      position: absolute;
+      inset: -12px -12px auto auto;
+      width: 60%;
+      height: 60%;
+      border-top: 2px solid var(--violet);
+      border-right: 2px solid var(--violet);
+      z-index: 1;
+      pointer-events: none;
+    }
+    .events-image::after {
+      content: '';
+      position: absolute;
+      inset: auto auto -12px -12px;
+      width: 60%;
+      height: 60%;
+      border-bottom: 2px solid var(--violet);
+      border-left: 2px solid var(--violet);
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    /* ============================================================
+       UPCOMING EVENTS
+    ============================================================ */
+    #upcoming {
+      background: var(--black);
+      padding: 120px 48px;
+      border-top: 1px solid var(--grid-line);
+    }
+
+    .upcoming-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 60px;
+    }
+    .upcoming-title {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4vw, 4rem);
+      letter-spacing: 0.06em;
+      line-height: 1;
+    }
+
+    .events-cards {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: var(--grid-line);
+      border: 1px solid var(--grid-line);
+    }
+
+    .event-card {
+      background: var(--surface);
+      padding: 40px 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      transition: background 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+    .event-card::before {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 2px;
+      background: var(--violet);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s;
+    }
+    .event-card:hover { background: var(--surface-2); }
+    .event-card:hover::before { transform: scaleX(1); }
+
+    .event-day {
+      font-family: var(--font-display);
+      font-size: 3.5rem;
+      line-height: 1;
+      color: var(--violet);
+      margin-bottom: 4px;
+    }
+
+    .event-name {
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      letter-spacing: 0.08em;
+      color: var(--white);
+      margin-bottom: 20px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--grid-line);
+    }
+
+    .event-meta {
+      font-size: 0.72rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--silver);
+      line-height: 2;
+    }
+
+    .event-tag {
+      display: inline-block;
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      margin-top: 16px;
+      margin-bottom: 24px;
+    }
+    .tag-smart-casual { background: rgba(124, 58, 237, 0.2); color: var(--violet-bright); border: 1px solid rgba(124, 58, 237, 0.3); }
+    .tag-glam { background: rgba(212, 175, 55, 0.1); color: #d4af37; border: 1px solid rgba(212, 175, 55, 0.3); }
+    .tag-formal { background: rgba(249, 250, 251, 0.05); color: var(--white); border: 1px solid rgba(249, 250, 251, 0.2); }
+    .tag-casual { background: rgba(156, 163, 175, 0.1); color: var(--silver); border: 1px solid rgba(156, 163, 175, 0.2); }
+
+    .event-rsvp {
+      margin-top: auto;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--violet-bright);
+      background: none;
+      border: 1px solid var(--violet);
+      padding: 10px 20px;
+      cursor: none;
+      transition: background 0.2s, color 0.2s;
+      align-self: flex-start;
+    }
+    .event-rsvp:hover { background: var(--violet); color: var(--white); }
+
+    /* ============================================================
+       THE MENU
+    ============================================================ */
+    #menu {
+      background: var(--surface);
+      padding: 120px 48px;
+      border-top: 1px solid var(--grid-line);
+    }
+
+    .menu-tabs {
+      display: flex;
+      gap: 0;
+      margin-bottom: 60px;
+      border-bottom: 1px solid var(--grid-line);
+    }
+
+    .menu-tab {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--silver);
+      padding: 16px 36px;
+      background: none;
+      border: none;
+      cursor: none;
+      border-bottom: 2px solid transparent;
+      margin-bottom: -1px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .menu-tab.active { color: var(--violet-bright); border-bottom-color: var(--violet-bright); }
+    .menu-tab:hover { color: var(--white); }
+
+    .menu-panel { display: none; }
+    .menu-panel.active { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--grid-line); border: 1px solid var(--grid-line); }
+
+    .menu-card {
+      background: var(--black);
+      padding: 32px 28px;
+      position: relative;
+    }
+
+    .menu-card-name {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      letter-spacing: 0.08em;
+      color: var(--white);
+      margin-bottom: 8px;
+    }
+
+    .menu-card-desc {
+      font-size: 0.78rem;
+      font-weight: 300;
+      color: var(--silver);
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .menu-card-price {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      color: var(--violet-bright);
+      letter-spacing: 0.04em;
+    }
+    .menu-card-price span {
+      font-family: var(--font-body);
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      color: var(--silver);
+      text-transform: uppercase;
+    }
+
+    /* ============================================================
+       MEMBERSHIP
+    ============================================================ */
+    #membership {
+      background: var(--black);
+      padding: 120px 48px;
+      border-top: 1px solid var(--grid-line);
+    }
+
+    .membership-header {
+      text-align: center;
+      margin-bottom: 80px;
+    }
+    .membership-headline {
+      font-family: var(--font-display);
+      font-size: clamp(2.5rem, 5vw, 5rem);
+      letter-spacing: 0.06em;
+      color: var(--white);
+    }
+
+    .membership-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--grid-line);
+      border: 1px solid var(--grid-line);
+      margin-bottom: 80px;
+    }
+
+    .membership-tier {
+      background: var(--surface);
+      padding: 48px 40px;
+      position: relative;
+    }
+    .membership-tier.featured {
+      background: #0d0814;
+      border: 1px solid rgba(124, 58, 237, 0.3);
+    }
+    .membership-tier.featured .tier-badge {
+      display: block;
+    }
+
+    .tier-badge {
+      display: none;
+      position: absolute;
+      top: -1px; right: 32px;
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      background: var(--violet);
+      color: var(--white);
+      padding: 4px 12px;
+    }
+
+    .tier-name {
+      font-family: var(--font-display);
+      font-size: 2.5rem;
+      letter-spacing: 0.1em;
+      margin-bottom: 8px;
+    }
+    .tier-silver .tier-name { color: var(--silver); }
+    .tier-gold .tier-name { color: #d4af37; }
+    .tier-black .tier-name { color: var(--white); }
+
+    .tier-price {
+      font-family: var(--font-display);
+      font-size: 1.8rem;
+      color: var(--violet-bright);
+      margin-bottom: 6px;
+    }
+    .tier-price-note {
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--silver);
+      margin-bottom: 32px;
+      padding-bottom: 32px;
+      border-bottom: 1px solid var(--grid-line);
+    }
+
+    .tier-benefits {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-bottom: 36px;
+    }
+    .tier-benefits li {
+      font-size: 0.82rem;
+      color: var(--silver);
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+    .tier-benefits li .check {
+      color: var(--violet-bright);
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .tier-benefits li.no { opacity: 0.35; }
+    .tier-benefits li.no .check { color: var(--silver); }
+
+    /* Benefits Matrix */
+    .benefits-matrix {
+      overflow-x: auto;
+    }
+    .benefits-matrix table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    .benefits-matrix th,
+    .benefits-matrix td {
+      padding: 14px 20px;
+      border: 1px solid var(--grid-line);
+      text-align: left;
+      font-size: 0.78rem;
+    }
+    .benefits-matrix th {
+      font-family: var(--font-display);
+      font-size: 0.9rem;
+      letter-spacing: 0.12em;
+      background: var(--surface-2);
+      color: var(--white);
+    }
+    .benefits-matrix th.silver-col { color: var(--silver); }
+    .benefits-matrix th.gold-col { color: #d4af37; }
+    .benefits-matrix th.black-col { color: var(--white); background: #0a0a0a; }
+    .benefits-matrix td { color: var(--silver); background: var(--surface); }
+    .benefits-matrix td:first-child { color: var(--white); font-weight: 500; }
+    .benefits-matrix td.check-cell {
+      text-align: center;
+      color: var(--violet-bright);
+      font-size: 1rem;
+    }
+    .benefits-matrix td.no-cell {
+      text-align: center;
+      color: rgba(156, 163, 175, 0.3);
+      font-size: 1rem;
+    }
+    .benefits-matrix tr:nth-child(even) td { background: #0c0c0c; }
+
+    /* ============================================================
+       GALLERY
+    ============================================================ */
+    #gallery {
+      background: var(--black);
+      padding: 120px 48px;
+      border-top: 1px solid var(--grid-line);
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--grid-line);
+      margin-top: 60px;
+    }
+
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: 4/3;
+      background: var(--surface);
+    }
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    .gallery-item::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(124, 58, 237, 0.6), transparent);
+      opacity: 0;
+      transition: opacity 0.4s;
+    }
+    .gallery-item:hover img { transform: scale(1.08); }
+    .gallery-item:hover::after { opacity: 1; }
+
+    /* ============================================================
+       RESERVATIONS
+    ============================================================ */
+    #reservations {
+      background: var(--surface);
+      padding: 120px 48px;
+      border-top: 1px solid var(--grid-line);
+    }
+
+    .reservations-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 100px;
+      align-items: start;
+    }
+
+    .res-info {}
+    .res-headline {
+      font-family: var(--font-display);
+      font-size: clamp(2.5rem, 4vw, 4.5rem);
+      letter-spacing: 0.06em;
+      line-height: 0.95;
+      color: var(--white);
+      margin-bottom: 32px;
+    }
+    .res-hours {
+      margin-bottom: 32px;
+    }
+    .res-hours-label {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--violet-bright);
+      margin-bottom: 8px;
+    }
+    .res-hours-val {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      color: var(--white);
+      letter-spacing: 0.06em;
+    }
+    .res-hours-note {
+      font-size: 0.75rem;
+      color: var(--silver);
+      margin-top: 4px;
+    }
+    .res-contact {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .res-contact-item {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .res-contact-item .label {
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--violet-bright);
+    }
+    .res-contact-item .val {
+      font-size: 0.88rem;
+      color: var(--silver);
+    }
+
+    .res-form-wrap {}
+    .res-form-title {
+      font-family: var(--font-display);
+      font-size: 1.6rem;
+      letter-spacing: 0.1em;
+      color: var(--white);
+      margin-bottom: 32px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .form-group {
+      margin-bottom: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .form-group label {
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--silver);
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      background: var(--black);
+      border: 1px solid var(--grid-line);
+      color: var(--white);
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      padding: 12px 16px;
+      outline: none;
+      transition: border-color 0.2s;
+      -webkit-appearance: none;
+      border-radius: 0;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--violet);
+    }
+    .form-group input::placeholder,
+    .form-group textarea::placeholder { color: rgba(156, 163, 175, 0.4); }
+    .form-group select option { background: var(--black); }
+    .form-group textarea { resize: vertical; min-height: 100px; }
+
+    .form-error {
+      font-size: 0.65rem;
+      color: #ef4444;
+      margin-top: 4px;
+      display: none;
+    }
+    .form-group.has-error input,
+    .form-group.has-error select,
+    .form-group.has-error textarea { border-color: #ef4444; }
+    .form-group.has-error .form-error { display: block; }
+
+    .form-submit {
+      width: 100%;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--white);
+      background: var(--violet);
+      padding: 16px;
+      border: none;
+      cursor: none;
+      margin-top: 8px;
+      transition: background 0.2s;
+    }
+    .form-submit:hover { background: var(--violet-bright); }
+
+    .form-success {
+      display: none;
+      text-align: center;
+      padding: 48px 24px;
+      border: 1px solid rgba(124, 58, 237, 0.3);
+      background: rgba(124, 58, 237, 0.05);
+    }
+    .form-success-icon {
+      font-family: var(--font-display);
+      font-size: 3rem;
+      color: var(--violet-bright);
+      margin-bottom: 16px;
+    }
+    .form-success-msg {
+      font-size: 0.85rem;
+      font-weight: 300;
+      color: var(--silver);
+      line-height: 1.8;
+    }
+
+    /* ============================================================
+       FOOTER
+    ============================================================ */
+    footer {
+      background: var(--black);
+      padding: 60px 48px;
+      border-top: 1px solid var(--grid-line);
+    }
+
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 60px;
+      padding-bottom: 48px;
+      border-bottom: 1px solid var(--grid-line);
+      margin-bottom: 32px;
+    }
+
+    .footer-brand-name {
+      font-family: var(--font-display);
+      font-size: 3rem;
+      letter-spacing: 0.1em;
+      color: var(--white);
+      margin-bottom: 12px;
+    }
+    .footer-brand-desc {
+      font-size: 0.8rem;
+      font-weight: 300;
+      color: var(--silver);
+      line-height: 1.7;
+      max-width: 260px;
+    }
+
+    .footer-col-title {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--violet-bright);
+      margin-bottom: 20px;
+    }
+    .footer-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .footer-col ul li a {
+      font-size: 0.8rem;
+      color: var(--silver);
+      transition: color 0.2s;
+    }
+    .footer-col ul li a:hover { color: var(--white); }
+
+    .footer-hours-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.78rem;
+      color: var(--silver);
+      padding: 6px 0;
+      border-bottom: 1px solid rgba(124, 58, 237, 0.08);
+    }
+    .footer-hours-row .day { color: var(--white); font-weight: 500; }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .footer-copy {
+      font-size: 0.72rem;
+      color: rgba(156, 163, 175, 0.5);
+    }
+    .footer-legal {
+      display: flex;
+      gap: 24px;
+    }
+    .footer-legal a {
+      font-size: 0.68rem;
+      color: rgba(156, 163, 175, 0.4);
+      letter-spacing: 0.1em;
+      transition: color 0.2s;
+    }
+    .footer-legal a:hover { color: var(--silver); }
+
+    /* ============================================================
+       SECTION HEADINGS UTILITY
+    ============================================================ */
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4vw, 4rem);
+      letter-spacing: 0.06em;
+      line-height: 1;
+      color: var(--white);
+      margin-bottom: 8px;
+    }
+
+    .max-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* ============================================================
+       SCROLL REVEAL
+    ============================================================ */
+    .reveal {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ============================================================
+       RESPONSIVE
+    ============================================================ */
+    @media (max-width: 1100px) {
+      .footer-top { grid-template-columns: 1fr 1fr; gap: 40px; }
+    }
+
+    @media (max-width: 900px) {
+      nav { padding: 0 24px; }
+      .nav-links, .nav-cta { display: none; }
+      .hamburger { display: flex; }
+
+      #experience { padding: 80px 24px; }
+      .experience-grid { grid-template-columns: 1fr; }
+      .experience-col { border-right: none; border-bottom: 1px solid var(--grid-line); }
+      .experience-col:last-child { border-bottom: none; }
+
+      #events { padding: 80px 24px; }
+      .events-inner { grid-template-columns: 1fr; gap: 48px; }
+      .events-image { order: -1; }
+      .events-image img { height: 360px; }
+
+      #upcoming { padding: 80px 24px; }
+      .events-cards { grid-template-columns: repeat(2, 1fr); }
+
+      #menu { padding: 80px 24px; }
+      .menu-panel.active { grid-template-columns: repeat(2, 1fr); }
+
+      #membership { padding: 80px 24px; }
+      .membership-grid { grid-template-columns: 1fr; }
+
+      #gallery { padding: 80px 24px; }
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+
+      #reservations { padding: 80px 24px; }
+      .reservations-inner { grid-template-columns: 1fr; gap: 60px; }
+
+      footer { padding: 48px 24px; }
+      .footer-top { grid-template-columns: 1fr 1fr; gap: 32px; }
+      .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
+    }
+
+    @media (max-width: 600px) {
+      .back-link { font-size: 0.65rem; padding: 6px 10px; }
+      .events-cards { grid-template-columns: 1fr; }
+      .menu-tabs { overflow-x: auto; }
+      .menu-panel.active { grid-template-columns: 1fr; }
+      .gallery-grid { grid-template-columns: 1fr; }
+      .footer-top { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      .events-capacity { gap: 28px; }
+      .membership-tier { padding: 32px 24px; }
+      .experience-col { padding: 36px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Custom Cursor -->
+  <div id="cursor"></div>
+  <div id="cursor-trail"></div>
+
+  <!-- Back to Portfolio -->
+  <a href="/portfolio/" class="back-link">&#8592; Back to Portfolio</a>
+
+  <!-- Navigation -->
+  <nav>
+    <div class="nav-logo">O<span>.</span>NYX</div>
+    <ul class="nav-links">
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#events">Private Events</a></li>
+      <li><a href="#upcoming">What's On</a></li>
+      <li><a href="#menu">Menu</a></li>
+      <li><a href="#membership">Membership</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+    </ul>
+    <a href="#reservations" class="nav-cta">Reserve</a>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobile-menu" role="navigation" aria-label="Mobile navigation">
+    <ul>
+      <li><a href="#experience" class="mobile-nav-link">Experience</a></li>
+      <li><a href="#events" class="mobile-nav-link">Private Events</a></li>
+      <li><a href="#upcoming" class="mobile-nav-link">What's On</a></li>
+      <li><a href="#menu" class="mobile-nav-link">Menu</a></li>
+      <li><a href="#membership" class="mobile-nav-link">Membership</a></li>
+      <li><a href="#gallery" class="mobile-nav-link">Gallery</a></li>
+    </ul>
+    <a href="#reservations" class="mobile-cta mobile-nav-link">Reserve a Table</a>
+  </div>
+
+  <main>
+
+    <!-- ====================================================
+         SECTION 1: HERO
+    ==================================================== -->
+    <section id="hero" aria-label="Hero">
+      <div class="hero-bg" role="img" aria-label="Onyx Lounge bar interior"></div>
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <h1 class="hero-wordmark">ONYX</h1>
+        <div class="hero-rule"></div>
+        <p class="hero-subtitle">Petaling Jaya's most exclusive private lounge.</p>
+      </div>
+      <div class="hero-scroll" aria-hidden="true">
+        <span>Scroll</span>
+        <div class="hero-scroll-line"></div>
+      </div>
+    </section>
+
+    <!-- ====================================================
+         SECTION 2: THE EXPERIENCE
+    ==================================================== -->
+    <section id="experience" aria-labelledby="exp-heading">
+      <div class="max-container">
+        <div class="experience-header reveal">
+          <p class="section-label">The Experience</p>
+          <h2 id="exp-heading" class="section-title">THREE PILLARS<br>OF THE NIGHT.</h2>
+        </div>
+        <div class="experience-grid reveal">
+          <div class="experience-col">
+            <div class="experience-num">01</div>
+            <div class="experience-title">THE BAR</div>
+            <p class="experience-body">
+              <strong>200+ premium spirits</strong> curated from every corner of the globe. Our resident mixologists craft bespoke cocktails that push the boundaries of flavour. From rare single malts to limited-edition gins, the back bar at Onyx is a monument to craft.
+            </p>
+          </div>
+          <div class="experience-col">
+            <div class="experience-num">02</div>
+            <div class="experience-title">THE SOUND</div>
+            <p class="experience-body">
+              Live DJ <strong>every Friday and Saturday</strong> on a world-class sound system — custom-tuned for the room. Onyx programmes a rotating roster of regional selectors, from deep house to jazz-inflected electronics. Volume, precision, feel.
+            </p>
+          </div>
+          <div class="experience-col">
+            <div class="experience-num">03</div>
+            <div class="experience-title">THE SMOKE</div>
+            <p class="experience-body">
+              A <strong>dedicated cigar lounge</strong> adjoining the main bar. A curated humidor with 30+ premium selections — Cohiba, Montecristo, Arturo Fuente. Paired with aged rum or cognac, it is a ritual unto itself.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================
+         SECTION 3: PRIVATE EVENTS
+    ==================================================== -->
+    <section id="events" aria-labelledby="pe-heading">
+      <div class="events-inner">
+        <div class="reveal">
+          <p class="section-label">Private Events</p>
+          <h2 id="pe-heading" class="events-headline">OWN<br>THE<br><span>NIGHT.</span></h2>
+          <p class="events-desc">
+            From intimate corporate dinners to full venue buyouts — Onyx transforms into yours. Our dedicated events team handles every detail, from bespoke menus to AV production, so you can focus entirely on the moment.
+          </p>
+          <div class="events-capacity">
+            <div class="capacity-stat">
+              <div class="capacity-num">20</div>
+              <div class="capacity-label">Min Pax</div>
+            </div>
+            <div class="capacity-stat">
+              <div class="capacity-num">120</div>
+              <div class="capacity-label">Max Capacity</div>
+            </div>
+            <div class="capacity-stat">
+              <div class="capacity-num">1</div>
+              <div class="capacity-label">Dedicated Host</div>
+            </div>
+          </div>
+          <ul class="events-features">
+            <li>Dedicated event host</li>
+            <li>Bespoke cocktail menu</li>
+            <li>Full AV + DJ booth</li>
+            <li>Valet arrangement</li>
+            <li>Branded glassware</li>
+            <li>Custom lighting rig</li>
+            <li>Private bar access</li>
+            <li>Post-event report</li>
+          </ul>
+          <a href="#reservations" class="btn-primary">Enquire Now</a>
+        </div>
+        <div class="events-image reveal">
+          <img
+            src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800"
+            alt="Onyx private event space — dark ambience, violet lighting"
+            width="800"
+            height="520"
+            loading="lazy"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================
+         SECTION 4: UPCOMING EVENTS
+    ==================================================== -->
+    <section id="upcoming" aria-labelledby="up-heading">
+      <div class="max-container">
+        <div class="upcoming-header reveal">
+          <div>
+            <p class="section-label">What's On</p>
+            <h2 id="up-heading" class="section-title">EVERY WEEK.<br>NO REPEAT.</h2>
+          </div>
+        </div>
+        <div class="events-cards reveal">
+
+          <!-- Jazz Thursday -->
+          <article class="event-card">
+            <div class="event-day">THU</div>
+            <div class="event-name">JAZZ THURSDAY</div>
+            <div class="event-meta">
+              Every Thursday<br>
+              Doors: 8:00 PM<br>
+              No cover charge
+            </div>
+            <span class="event-tag tag-smart-casual">Smart Casual</span>
+            <button class="event-rsvp" onclick="document.getElementById('reservations').scrollIntoView({behavior:'smooth'})">RSVP</button>
+          </article>
+
+          <!-- Ladies Night Friday -->
+          <article class="event-card">
+            <div class="event-day">FRI</div>
+            <div class="event-name">LADIES NIGHT</div>
+            <div class="event-meta">
+              Every Friday<br>
+              Doors: 9:00 PM<br>
+              Free entry before 10PM
+            </div>
+            <span class="event-tag tag-glam">Glam</span>
+            <button class="event-rsvp" onclick="document.getElementById('reservations').scrollIntoView({behavior:'smooth'})">RSVP</button>
+          </article>
+
+          <!-- Resident DJ Saturday -->
+          <article class="event-card">
+            <div class="event-day">SAT</div>
+            <div class="event-name">RESIDENT DJ</div>
+            <div class="event-meta">
+              Every Saturday<br>
+              Doors: 10:00 PM<br>
+              RM 50 cover charge
+            </div>
+            <span class="event-tag tag-formal">Formal Dark</span>
+            <button class="event-rsvp" onclick="document.getElementById('reservations').scrollIntoView({behavior:'smooth'})">RSVP</button>
+          </article>
+
+          <!-- Brunch Sunday -->
+          <article class="event-card">
+            <div class="event-day">SUN</div>
+            <div class="event-name">BRUNCH AT ONYX</div>
+            <div class="event-meta">
+              Every Sunday<br>
+              11:00 AM – 3:00 PM<br>
+              No cover charge
+            </div>
+            <span class="event-tag tag-casual">Smart Casual</span>
+            <button class="event-rsvp" onclick="document.getElementById('reservations').scrollIntoView({behavior:'smooth'})">RSVP</button>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================
+         SECTION 5: THE MENU
+    ==================================================== -->
+    <section id="menu" aria-labelledby="menu-heading">
+      <div class="max-container">
+        <div class="reveal">
+          <p class="section-label">The Menu</p>
+          <h2 id="menu-heading" class="section-title">CRAFT. CURATED.<br>UNCOMPROMISING.</h2>
+        </div>
+        <div class="reveal">
+          <div class="menu-tabs" role="tablist" aria-label="Menu categories">
+            <button class="menu-tab active" role="tab" aria-selected="true" aria-controls="panel-cocktails" id="tab-cocktails" onclick="switchTab('cocktails')">Cocktails</button>
+            <button class="menu-tab" role="tab" aria-selected="false" aria-controls="panel-spirits" id="tab-spirits" onclick="switchTab('spirits')">Spirits</button>
+            <button class="menu-tab" role="tab" aria-selected="false" aria-controls="panel-bottles" id="tab-bottles" onclick="switchTab('bottles')">Bottles</button>
+          </div>
+
+          <!-- Cocktails -->
+          <div class="menu-panel active" id="panel-cocktails" role="tabpanel" aria-labelledby="tab-cocktails">
+            <div class="menu-card">
+              <div class="menu-card-name">ONYX NEGRONI</div>
+              <div class="menu-card-desc">Aged gin, activated charcoal Campari reduction, black vermouth. Served over singular hand-cut ice.</div>
+              <div class="menu-card-price">RM 68 <span>/ glass</span></div>
+            </div>
+            <div class="menu-card">
+              <div class="menu-card-name">VIOLET HOUR</div>
+              <div class="menu-card-desc">Empress 1908 gin, elderflower, yuzu, butterfly pea foam. The signature serve.</div>
+              <div class="menu-card-price">RM 75 <span>/ glass</span></div>
+            </div>
+            <div class="menu-card">
+              <div class="menu-card-name">COAL OLD FASHIONED</div>
+              <div class="menu-card-desc">Knob Creek bourbon, smoked demerara, black walnut bitters. Tableside smoke ritual.</div>
+              <div class="menu-card-price">RM 85 <span>/ glass</span></div>
+            </div>
+            <div class="menu-card">
+              <div class="menu-card-name">NIGHT BLOOM</div>
+              <div class="menu-card-desc">Mezcal, hibiscus, serrano chilli, dark chocolate mole. Complex, haunting, persistent.</div>
+              <div class="menu-card-price">RM 72 <span>/ glass</span></div>
+            </div>
+            <div class="menu-card">
+              <div class="menu-card-name">ELECTRIC SOUR</div>
+              <div class="menu-card-desc">Pisco, Parmesan Sauternes, lemon, salted caramel. Bright acid, long finish.</div>
+              <div class="menu-card-price">RM 55 <span>/ glass</span></div>
+            </div>
+            <div class="menu-card">
+              <div class="menu-card-name">MIDNIGHT SPRITZ</div>
+              <div class="menu-card-desc">Aperol, blackcurrant, prosecco, activated charcoal soda. The opening act.</div>
+              <div class="menu-card-price">RM 38 <span>/ glass</span></div>
+            </div>
+          </div>
+
+          <!-- Spirits -->
+          <div class="menu-panel" id="panel-spirits" role="tabpanel" aria-labelledby="tab-spirits">
+            <div class="menu-card">
+              <div class="menu-card-name">MACALLAN 18</div>
+              <div class="menu-card-desc">Sherry oak cask, Speyside. Notes of dried fruit, ginger, and worn leather. Exceptional.</div>
+              <div class="menu-card-price">RM 120 <span>/ glass</span></div>
+            </div>
+            <div class="menu-card">
+              <div class="menu-card-name">HENNESSY PARADIS</div>
+              <div class="menu-card-desc">A blend of up to 100 eaux-de-vie. Jasmine, candied orange, sandalwood. Quiet opulence.</div>
+              <div class="menu-card-price">RM 95 <span>/ glass</span></div>
+            </div>
+            <div class="menu-card">
+              <div class="menu-card-name">CLASE AZUL REPOSADO</div>
+              <div class="menu-card-desc">100% Blue Weber agave, 8 months ex-whisky barrel. Caramel, vanilla, warm oak.</div>
+              <div class="menu-card-price">RM 85 <span>/ glass</span></div>
+            </div>
+            <div class="menu-card">
+              <div class="menu-card-name">NIKKA FROM THE BARREL</div>
+              <div class="menu-card-desc">Japanese blended malt, high proof. Concentrated, complex, remarkably smooth.</div>
+              <div class="menu-card-price">RM 65 <span>/ glass</span></div>
+            </div>
+            <div class="menu-card">
+              <div class="menu-card-name">MONKEY 47 GIN</div>
+              <div class="menu-card-desc">47 botanicals from the Black Forest. Juniper, cranberry, acacia honey. Gin redefined.</div>
+              <div class="menu-card-price">RM 55 <span>/ glass</span></div>
+            </div>
+            <div class="menu-card">
+              <div class="menu-card-name">DIPLOMATICO RESERVA</div>
+              <div class="menu-card-desc">Venezuelan dark rum, 12 years pot still. Toffee, tropical fruit, long molasses finish.</div>
+              <div class="menu-card-price">RM 45 <span>/ glass</span></div>
+            </div>
+          </div>
+
+          <!-- Bottles -->
+          <div class="menu-panel" id="panel-bottles" role="tabpanel" aria-labelledby="tab-bottles">
+            <div class="menu-card">
+              <div class="menu-card-name">GREY GOOSE</div>
+              <div class="menu-card-desc">Premium French vodka. Includes mixers, ice bucket, and dedicated table service.</div>
+              <div class="menu-card-price">RM 280 <span>/ bottle</span></div>
+            </div>
+            <div class="menu-card">
+              <div class="menu-card-name">JOHNNIE WALKER BLUE</div>
+              <div class="menu-card-desc">The pinnacle blend. Rare Scotch whiskies, impossibly smooth. Statement bottle service.</div>
+              <div class="menu-card-price">RM 380 <span>/ bottle</span></div>
+            </div>
+            <div class="menu-card">
+              <div class="menu-card-name">DOM PÉRIGNON 2013</div>
+              <div class="menu-card-desc">Vintage Champagne. Toast the night in the only appropriate way. Cold on arrival.</div>
+              <div class="menu-card-price">RM 350 <span>/ bottle</span></div>
+            </div>
+            <div class="menu-card">
+              <div class="menu-card-name">PATRON SILVER</div>
+              <div class="menu-card-desc">Ultra-premium tequila blanco. Crisp, citrus-forward. For the table that knows.</div>
+              <div class="menu-card-price">RM 250 <span>/ bottle</span></div>
+            </div>
+            <div class="menu-card">
+              <div class="menu-card-name">BOMBAY SAPPHIRE</div>
+              <div class="menu-card-desc">Classic gin. Light vapour infusion of 10 botanicals. The essential G&T base.</div>
+              <div class="menu-card-price">RM 180 <span>/ bottle</span></div>
+            </div>
+            <div class="menu-card">
+              <div class="menu-card-name">CAPTAIN MORGAN SPICED</div>
+              <div class="menu-card-desc">Dark rum, Caribbean spice blend. Vanilla, cinnamon, warm wood. The nightcap option.</div>
+              <div class="menu-card-price">RM 200 <span>/ bottle</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================
+         SECTION 6: MEMBERSHIP
+    ==================================================== -->
+    <section id="membership" aria-labelledby="mem-heading">
+      <div class="max-container">
+        <div class="membership-header reveal">
+          <p class="section-label">The Inner Circle</p>
+          <h2 id="mem-heading" class="membership-headline">MEMBERSHIP</h2>
+          <p style="font-size:0.85rem;color:var(--silver);margin-top:16px;letter-spacing:0.08em;">Three tiers. No compromise at any level.</p>
+        </div>
+
+        <div class="membership-grid reveal">
+          <!-- Silver -->
+          <div class="membership-tier tier-silver">
+            <div class="tier-name">SILVER</div>
+            <div class="tier-price">RM 2,400</div>
+            <div class="tier-price-note">Per year &nbsp;&mdash;&nbsp; Billed annually</div>
+            <ul class="tier-benefits">
+              <li><span class="check">&#10003;</span> 10% F&amp;B discount, always</li>
+              <li><span class="check">&#10003;</span> Priority reservations</li>
+              <li><span class="check">&#10003;</span> Members-only pre-opening access</li>
+              <li><span class="check">&#10003;</span> 2 guest passes per month</li>
+              <li class="no"><span class="check">&#8212;</span> Dedicated table</li>
+              <li class="no"><span class="check">&#8212;</span> Monthly curated events</li>
+              <li class="no"><span class="check">&#8212;</span> Personal concierge</li>
+            </ul>
+            <a href="#reservations" class="btn-outline">Apply Now</a>
+          </div>
+
+          <!-- Gold -->
+          <div class="membership-tier tier-gold featured">
+            <div class="tier-badge">Most Popular</div>
+            <div class="tier-name">GOLD</div>
+            <div class="tier-price">RM 5,500</div>
+            <div class="tier-price-note">Per year &nbsp;&mdash;&nbsp; Billed annually</div>
+            <ul class="tier-benefits">
+              <li><span class="check">&#10003;</span> 20% F&amp;B discount, always</li>
+              <li><span class="check">&#10003;</span> Priority reservations</li>
+              <li><span class="check">&#10003;</span> Members-only pre-opening access</li>
+              <li><span class="check">&#10003;</span> 5 guest passes per month</li>
+              <li><span class="check">&#10003;</span> Dedicated table (Fri–Sat)</li>
+              <li><span class="check">&#10003;</span> Monthly curated events</li>
+              <li class="no"><span class="check">&#8212;</span> Personal concierge</li>
+            </ul>
+            <a href="#reservations" class="btn-primary">Apply Now</a>
+          </div>
+
+          <!-- Black -->
+          <div class="membership-tier tier-black">
+            <div class="tier-name">BLACK</div>
+            <div class="tier-price">Invite Only</div>
+            <div class="tier-price-note">Annual fee upon invitation</div>
+            <ul class="tier-benefits">
+              <li><span class="check">&#10003;</span> Full F&amp;B privileges</li>
+              <li><span class="check">&#10003;</span> Permanent dedicated table</li>
+              <li><span class="check">&#10003;</span> Unlimited guest passes</li>
+              <li><span class="check">&#10003;</span> All curated event access</li>
+              <li><span class="check">&#10003;</span> 24/7 personal concierge</li>
+              <li><span class="check">&#10003;</span> Private event priority booking</li>
+              <li><span class="check">&#10003;</span> Cellar storage allocation</li>
+            </ul>
+            <a href="#reservations" class="btn-outline">Express Interest</a>
+          </div>
+        </div>
+
+        <!-- Benefits Matrix -->
+        <div class="benefits-matrix reveal">
+          <table>
+            <thead>
+              <tr>
+                <th>Benefit</th>
+                <th class="silver-col">Silver</th>
+                <th class="gold-col">Gold</th>
+                <th class="black-col">Black</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>F&amp;B Discount</td><td>10%</td><td>20%</td><td>Full privileges</td></tr>
+              <tr><td>Priority Reservations</td><td class="check-cell">&#10003;</td><td class="check-cell">&#10003;</td><td class="check-cell">&#10003;</td></tr>
+              <tr><td>Pre-Opening Access</td><td class="check-cell">&#10003;</td><td class="check-cell">&#10003;</td><td class="check-cell">&#10003;</td></tr>
+              <tr><td>Guest Passes / Month</td><td>2</td><td>5</td><td>Unlimited</td></tr>
+              <tr><td>Dedicated Table</td><td class="no-cell">&#8212;</td><td>Fri–Sat</td><td>Permanent</td></tr>
+              <tr><td>Monthly Events</td><td class="no-cell">&#8212;</td><td class="check-cell">&#10003;</td><td class="check-cell">&#10003;</td></tr>
+              <tr><td>Personal Concierge</td><td class="no-cell">&#8212;</td><td class="no-cell">&#8212;</td><td class="check-cell">&#10003;</td></tr>
+              <tr><td>Cellar Storage</td><td class="no-cell">&#8212;</td><td class="no-cell">&#8212;</td><td class="check-cell">&#10003;</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================
+         SECTION 7: GALLERY
+    ==================================================== -->
+    <section id="gallery" aria-labelledby="gal-heading">
+      <div class="max-container">
+        <div class="reveal">
+          <p class="section-label">Gallery</p>
+          <h2 id="gal-heading" class="section-title">THE SPACE.<br>THE ATMOSPHERE.</h2>
+        </div>
+        <div class="gallery-grid reveal">
+          <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=800" alt="Onyx bar interior" loading="lazy" />
+          </div>
+          <div class="gallery-item">
+            <img src="https://www.datocms-assets.com/23708/1625211948-shahzan-hotel.jpg?auto=format&w=800" alt="Onyx lounge ambience" loading="lazy" />
+          </div>
+          <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=800" alt="Premium hotel lounge" loading="lazy" />
+          </div>
+          <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800" alt="Intimate dining space" loading="lazy" />
+          </div>
+          <div class="gallery-item">
+            <img src="https://www.datocms-assets.com/23708/1625212088-southkey.jpg?auto=format&w=800" alt="Southkey venue space" loading="lazy" />
+          </div>
+          <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800" alt="Nightlife venue interior" loading="lazy" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================
+         SECTION 8: RESERVATIONS
+    ==================================================== -->
+    <section id="reservations" aria-labelledby="res-heading">
+      <div class="reservations-inner">
+        <!-- Info Panel -->
+        <div class="res-info reveal">
+          <p class="section-label">Make a Reservation</p>
+          <h2 id="res-heading" class="res-headline">CLAIM<br>YOUR<br>TABLE.</h2>
+          <div class="res-hours">
+            <div class="res-hours-label">Operating Hours</div>
+            <div class="res-hours-val">TUE – SUN</div>
+            <div class="res-hours-note">6:00 PM – 3:00 AM &nbsp;&bull;&nbsp; Closed Mondays</div>
+          </div>
+          <div class="res-contact">
+            <div class="res-contact-item">
+              <span class="label">Address</span>
+              <span class="val">Jalan PJU 5, Damansara Perdana<br>Petaling Jaya, 47810 Selangor</span>
+            </div>
+            <div class="res-contact-item">
+              <span class="label">Reservations</span>
+              <span class="val">+603 7733 0900</span>
+            </div>
+            <div class="res-contact-item">
+              <span class="label">Private Events</span>
+              <span class="val">events@onyxpj.com.my</span>
+            </div>
+            <div class="res-contact-item">
+              <span class="label">Dress Code</span>
+              <span class="val">Smart casual minimum. No shorts, flip-flops, or sleeveless tops.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Form Panel -->
+        <div class="res-form-wrap reveal">
+          <div class="res-form-title">RESERVATION REQUEST</div>
+
+          <form id="reservation-form" novalidate>
+            <div class="form-row">
+              <div class="form-group" id="fg-name">
+                <label for="res-name">Full Name *</label>
+                <input type="text" id="res-name" name="name" placeholder="Alexandra Lim" autocomplete="name" />
+                <span class="form-error">Please enter your full name.</span>
+              </div>
+              <div class="form-group" id="fg-phone">
+                <label for="res-phone">Phone Number *</label>
+                <input type="tel" id="res-phone" name="phone" placeholder="+60 12 345 6789" autocomplete="tel" />
+                <span class="form-error">Please enter a valid phone number.</span>
+              </div>
+            </div>
+
+            <div class="form-group" id="fg-email">
+              <label for="res-email">Email Address *</label>
+              <input type="email" id="res-email" name="email" placeholder="alex@company.com" autocomplete="email" />
+              <span class="form-error">Please enter a valid email address.</span>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group" id="fg-date">
+                <label for="res-date">Preferred Date *</label>
+                <input type="date" id="res-date" name="date" />
+                <span class="form-error">Please select a date.</span>
+              </div>
+              <div class="form-group" id="fg-guests">
+                <label for="res-guests">Number of Guests *</label>
+                <select id="res-guests" name="guests">
+                  <option value="">Select party size</option>
+                  <option>1–2 guests</option>
+                  <option>3–5 guests</option>
+                  <option>6–10 guests</option>
+                  <option>11–20 guests</option>
+                  <option>20+ guests (Private event)</option>
+                </select>
+                <span class="form-error">Please select group size.</span>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="res-type">Occasion</label>
+              <select id="res-type" name="type">
+                <option value="">Select occasion (optional)</option>
+                <option>Casual dinner</option>
+                <option>Birthday celebration</option>
+                <option>Corporate event</option>
+                <option>Anniversary</option>
+                <option>Private buyout enquiry</option>
+                <option>Membership enquiry</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="res-notes">Special Requests</label>
+              <textarea id="res-notes" name="notes" placeholder="Dietary requirements, accessibility needs, bottle service, or any other requests..."></textarea>
+            </div>
+
+            <button type="submit" class="form-submit">Send Reservation Request</button>
+          </form>
+
+          <div class="form-success" id="form-success" role="alert" aria-live="polite">
+            <div class="form-success-icon">&#10003;</div>
+            <p class="form-success-msg">
+              <strong style="color:var(--white);font-size:1rem;display:block;margin-bottom:8px;">Thank you!</strong>
+              We'll be in touch within 24 hours to confirm your reservation at Onyx.<br>
+              We look forward to welcoming you.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ====================================================
+       FOOTER
+  ==================================================== -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-top">
+        <!-- Brand -->
+        <div>
+          <div class="footer-brand-name">ONYX</div>
+          <p class="footer-brand-desc">Petaling Jaya's most exclusive cocktail lounge and private event space. Where the night becomes an experience.</p>
+        </div>
+
+        <!-- Navigation -->
+        <div class="footer-col">
+          <div class="footer-col-title">Navigate</div>
+          <ul>
+            <li><a href="#experience">The Experience</a></li>
+            <li><a href="#events">Private Events</a></li>
+            <li><a href="#upcoming">What's On</a></li>
+            <li><a href="#menu">The Menu</a></li>
+            <li><a href="#membership">Membership</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#reservations">Reservations</a></li>
+          </ul>
+        </div>
+
+        <!-- Hours -->
+        <div class="footer-col">
+          <div class="footer-col-title">Operating Hours</div>
+          <div class="footer-hours-row"><span class="day">Tuesday</span><span>6PM – 3AM</span></div>
+          <div class="footer-hours-row"><span class="day">Wednesday</span><span>6PM – 3AM</span></div>
+          <div class="footer-hours-row"><span class="day">Thursday</span><span>6PM – 3AM</span></div>
+          <div class="footer-hours-row"><span class="day">Friday</span><span>6PM – 3AM</span></div>
+          <div class="footer-hours-row"><span class="day">Saturday</span><span>6PM – 3AM</span></div>
+          <div class="footer-hours-row"><span class="day">Sunday</span><span>11AM – 3AM</span></div>
+          <div class="footer-hours-row" style="opacity:0.3"><span class="day">Monday</span><span>Closed</span></div>
+        </div>
+
+        <!-- Contact -->
+        <div class="footer-col">
+          <div class="footer-col-title">Contact</div>
+          <ul>
+            <li><a href="tel:+60377330900">+603 7733 0900</a></li>
+            <li><a href="mailto:hello@onyxpj.com.my">hello@onyxpj.com.my</a></li>
+            <li><a href="mailto:events@onyxpj.com.my">events@onyxpj.com.my</a></li>
+          </ul>
+          <div style="margin-top:20px;font-size:0.75rem;color:var(--silver);line-height:1.7;">
+            Jalan PJU 5, Damansara Perdana<br>
+            Petaling Jaya, 47810<br>
+            Selangor, Malaysia
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="footer-copy">&copy; 2025 Onyx Lounge Sdn Bhd. All rights reserved.</p>
+        <div class="footer-legal">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms & Conditions</a>
+          <a href="#">Responsible Service of Alcohol</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================================================
+       JAVASCRIPT
+  ============================================================ -->
+  <script>
+    /* ---- Custom Cursor ---- */
+    const cursor = document.getElementById('cursor');
+    const trail = document.getElementById('cursor-trail');
+    let mouseX = 0, mouseY = 0;
+    let trailX = 0, trailY = 0;
+
+    document.addEventListener('mousemove', (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+      cursor.style.transform = `translate(${mouseX}px, ${mouseY}px) translate(-50%, -50%)`;
+    });
+
+    function animateTrail() {
+      trailX += (mouseX - trailX) * 0.12;
+      trailY += (mouseY - trailY) * 0.12;
+      trail.style.transform = `translate(${trailX}px, ${trailY}px) translate(-50%, -50%)`;
+      requestAnimationFrame(animateTrail);
+    }
+    animateTrail();
+
+    document.addEventListener('mousedown', () => {
+      cursor.style.transform += ' scale(0.7)';
+    });
+    document.addEventListener('mouseup', () => {
+      cursor.style.transform = cursor.style.transform.replace(' scale(0.7)', '');
+    });
+
+    /* ---- Hamburger Menu ---- */
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    hamburger.addEventListener('click', () => {
+      const isOpen = hamburger.classList.toggle('active');
+      mobileMenu.classList.toggle('open', isOpen);
+      hamburger.setAttribute('aria-expanded', isOpen);
+    });
+
+    document.querySelectorAll('.mobile-nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        mobileMenu.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', false);
+      });
+    });
+
+    /* ---- Menu Tabs ---- */
+    function switchTab(id) {
+      document.querySelectorAll('.menu-tab').forEach(t => {
+        t.classList.remove('active');
+        t.setAttribute('aria-selected', 'false');
+      });
+      document.querySelectorAll('.menu-panel').forEach(p => p.classList.remove('active'));
+      document.getElementById('tab-' + id).classList.add('active');
+      document.getElementById('tab-' + id).setAttribute('aria-selected', 'true');
+      document.getElementById('panel-' + id).classList.add('active');
+    }
+
+    /* ---- Scroll Reveal ---- */
+    const revealEls = document.querySelectorAll('.reveal');
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    revealEls.forEach(el => revealObserver.observe(el));
+
+    /* ---- Nav: Active link on scroll ---- */
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-links a');
+
+    const navObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          navLinks.forEach(l => l.style.color = '');
+          const active = document.querySelector(`.nav-links a[href="#${entry.target.id}"]`);
+          if (active) active.style.color = 'var(--violet-bright)';
+        }
+      });
+    }, { threshold: 0.4 });
+
+    sections.forEach(s => navObserver.observe(s));
+
+    /* ---- Form Validation ---- */
+    const form = document.getElementById('reservation-form');
+    const successPanel = document.getElementById('form-success');
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      let valid = true;
+
+      function validate(groupId, condition) {
+        const group = document.getElementById(groupId);
+        if (!condition) {
+          group.classList.add('has-error');
+          valid = false;
+        } else {
+          group.classList.remove('has-error');
+        }
+      }
+
+      const name = document.getElementById('res-name').value.trim();
+      const phone = document.getElementById('res-phone').value.trim();
+      const email = document.getElementById('res-email').value.trim();
+      const date = document.getElementById('res-date').value;
+      const guests = document.getElementById('res-guests').value;
+
+      validate('fg-name', name.length >= 2);
+      validate('fg-phone', phone.length >= 8);
+      validate('fg-email', /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email));
+      validate('fg-date', date !== '');
+      validate('fg-guests', guests !== '');
+
+      if (valid) {
+        form.style.display = 'none';
+        successPanel.style.display = 'block';
+        successPanel.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    });
+
+    /* ---- Remove error state on input ---- */
+    document.querySelectorAll('.form-group input, .form-group select, .form-group textarea').forEach(input => {
+      input.addEventListener('input', () => {
+        input.closest('.form-group').classList.remove('has-error');
+      });
+    });
+
+    /* ---- Nav background opacity on scroll ---- */
+    const navEl = document.querySelector('nav');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 80) {
+        navEl.style.borderBottomColor = 'rgba(124, 58, 237, 0.25)';
+      } else {
+        navEl.style.borderBottomColor = 'var(--grid-line)';
+      }
+    }, { passive: true });
+  </script>
+
+</body>
+</html>

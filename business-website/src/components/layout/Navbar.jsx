@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, MessageCircle, ChevronDown, Bot, Building2 } from 'lucide-react';
+import { Menu, X, MessageCircle, ChevronDown, Bot, Building2, Globe, Code, LayoutTemplate } from 'lucide-react';
 import './Navbar.css';
 
 const Navbar = () => {
@@ -15,7 +15,13 @@ const Navbar = () => {
             ]
         },
         { path: '/blog', label: 'Blog', external: false },
-        { path: '/solutions', label: 'Solutions', external: false },
+        {
+            path: '/solutions', label: 'Solutions', external: false, dropdown: [
+                { path: '/portfolio/', label: 'Portfolio', description: 'See our work across 7 industries — restaurants, hotels, real estate & more', icon: <LayoutTemplate size={24} className="text-neon-cyan" />, external: true },
+                { path: '/solutions', label: 'Web & Mobile Solutions', description: 'High-performance websites, PWAs and native apps built for scale', icon: <Globe size={24} className="text-neon-cyan" /> },
+                { path: '/solutions', label: 'Software Engineering', description: 'Robust, maintainable codebases and digital transformation', icon: <Code size={24} className="text-neon-cyan" /> },
+            ]
+        },
         { path: '/about', label: 'About', external: false },
         { path: '/contact', label: 'Contact', external: false },
     ];
@@ -23,12 +29,12 @@ const Navbar = () => {
     const isActive = (path) => location.pathname === path;
 
     return (
-        <nav className="navbar glass-strong">
+        <nav className="navbar">
             <div className="container">
                 <div className="navbar-content">
                     {/* Logo */}
                     <Link to="/" className="navbar-logo">
-                        <span className="text-gradient">SheersSoft</span>
+                        Sheers<span className="nav-logo-accent">.</span>Soft
                     </Link>
 
                     {/* Desktop Navigation */}
@@ -103,6 +109,15 @@ const Navbar = () => {
                                 </Link>
                             )
                         ))}
+                        <a
+                            href="/portfolio/"
+                            className="mobile-link"
+                            onClick={() => setIsOpen(false)}
+                            style={{ display: 'flex', alignItems: 'center', gap: '8px' }}
+                        >
+                            <LayoutTemplate size={16} />
+                            Our Portfolio
+                        </a>
                         <Link
                             to="/contact"
                             className="mobile-contact"

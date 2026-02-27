@@ -1,0 +1,1960 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Skyline Properties — Luxury Real Estate, Kuala Lumpur</title>
+  <meta name="description" content="Skyline Properties is KL's premier luxury real estate agency. Browse exceptional high-end residential listings across KLCC, Bangsar, Mont Kiara and beyond." />
+  <!-- Open Graph -->
+  <meta property="og:title" content="Skyline Properties — Luxury Real Estate, Kuala Lumpur" />
+  <meta property="og:description" content="Exceptional properties for exceptional people. 247 units sold, RM 380M+ transacted across Kuala Lumpur's most prestigious addresses." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://www.datocms-assets.com/23708/1625211761-reizz-residence.jpg?auto=format&w=1200" />
+  <meta property="og:url" content="https://skylineproperties.com.my" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏢</text></svg>" />
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    /* ==================== DESIGN TOKENS ==================== */
+    :root {
+      --bg: #f8f7f5;
+      --dark: #1a1a2e;
+      --blue: #0066ff;
+      --warm: #8c7355;
+      --border: #e0ddd8;
+      --white: #ffffff;
+      --text-muted: #6b6b7b;
+      --card-hover-shadow: 0 24px 64px rgba(26,26,46,0.12);
+      --transition: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+      --radius: 2px;
+      --font-heading: 'Libre Baskerville', Georgia, serif;
+      --font-mono: 'DM Mono', 'Courier New', monospace;
+      --font-body: 'DM Sans', system-ui, sans-serif;
+      --max-w: 1360px;
+      --gutter: clamp(1.25rem, 4vw, 3rem);
+    }
+
+    /* ==================== RESET ==================== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      background: var(--bg);
+      color: var(--dark);
+      font-family: var(--font-body);
+      font-weight: 400;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+    button { cursor: pointer; font-family: inherit; border: none; background: none; }
+    ul, ol { list-style: none; }
+
+    /* ==================== UTILITIES ==================== */
+    .container { max-width: var(--max-w); margin: 0 auto; padding: 0 var(--gutter); }
+    .mono { font-family: var(--font-mono); }
+    .text-blue { color: var(--blue); }
+    .text-muted { color: var(--text-muted); }
+    .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); }
+
+    /* ==================== BACK LINK ==================== */
+    .back-link-bar {
+      background: var(--dark);
+      padding: 0.6rem var(--gutter);
+    }
+    .back-link-bar a {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      color: rgba(255,255,255,0.55);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: color var(--transition);
+    }
+    .back-link-bar a:hover { color: var(--blue); }
+    .back-link-bar a svg { width: 14px; height: 14px; }
+
+    /* ==================== HEADER / NAV ==================== */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(248,247,245,0.96);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+      gap: 2rem;
+    }
+    .nav-logo {
+      display: flex;
+      flex-direction: column;
+      line-height: 1;
+    }
+    .nav-logo-name {
+      font-family: var(--font-heading);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--dark);
+      letter-spacing: 0.01em;
+    }
+    .nav-logo-tag {
+      font-family: var(--font-mono);
+      font-size: 0.62rem;
+      letter-spacing: 0.15em;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      margin-top: 2px;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2.5rem;
+    }
+    .nav-links a {
+      font-size: 0.82rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--dark);
+      opacity: 0.7;
+      transition: opacity var(--transition), color var(--transition);
+      position: relative;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -3px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: var(--blue);
+      transition: width var(--transition);
+    }
+    .nav-links a:hover { opacity: 1; }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-cta {
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--white) !important;
+      background: var(--dark);
+      padding: 0.6rem 1.4rem;
+      opacity: 1 !important;
+      transition: background var(--transition) !important;
+    }
+    .nav-cta::after { display: none !important; }
+    .nav-cta:hover { background: var(--blue) !important; }
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      padding: 4px;
+    }
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 1.5px;
+      background: var(--dark);
+      transition: var(--transition);
+    }
+    .mobile-nav {
+      display: none;
+      flex-direction: column;
+      background: var(--white);
+      border-top: 1px solid var(--border);
+      padding: 1.5rem var(--gutter);
+      gap: 1.25rem;
+    }
+    .mobile-nav.open { display: flex; }
+    .mobile-nav a {
+      font-size: 0.9rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--dark);
+      padding: 0.25rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    /* ==================== HERO ==================== */
+    .hero {
+      display: grid;
+      grid-template-columns: 60fr 40fr;
+      min-height: calc(100vh - 72px - 36px);
+    }
+    .hero-image {
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+    .hero-image-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to right, rgba(26,26,46,0.18) 0%, transparent 100%);
+    }
+    .hero-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 5rem clamp(2rem, 5vw, 5rem);
+      background: var(--white);
+      border-left: 1px solid var(--border);
+    }
+    .hero-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 1.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .hero-eyebrow::before {
+      content: '';
+      display: block;
+      width: 32px;
+      height: 1px;
+      background: var(--blue);
+    }
+    .hero-headline {
+      font-family: var(--font-heading);
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 700;
+      line-height: 1.15;
+      color: var(--dark);
+      margin-bottom: 1.5rem;
+    }
+    .hero-headline em {
+      font-style: italic;
+      color: var(--warm);
+    }
+    .hero-sub {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 3rem;
+      max-width: 36ch;
+    }
+    .hero-counters {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      margin-bottom: 3rem;
+      padding-top: 2.5rem;
+      border-top: 1px solid var(--border);
+    }
+    .hero-counter-item {}
+    .hero-counter-value {
+      font-family: var(--font-mono);
+      font-size: 2rem;
+      font-weight: 500;
+      color: var(--dark);
+      line-height: 1;
+      display: flex;
+      align-items: baseline;
+      gap: 0.15em;
+    }
+    .hero-counter-value .unit {
+      font-size: 1rem;
+      color: var(--blue);
+    }
+    .hero-counter-label {
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-top: 0.3rem;
+    }
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.85rem 2rem;
+      background: var(--dark);
+      color: var(--white);
+      font-size: 0.82rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: background var(--transition);
+    }
+    .btn-primary:hover { background: var(--blue); }
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.85rem 2rem;
+      border: 1px solid var(--dark);
+      color: var(--dark);
+      font-size: 0.82rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: border-color var(--transition), color var(--transition);
+    }
+    .btn-outline:hover { border-color: var(--blue); color: var(--blue); }
+
+    /* ==================== SECTION HEADER ==================== */
+    .section-header {
+      margin-bottom: clamp(2.5rem, 5vw, 4rem);
+    }
+    .section-tag {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .section-tag::before {
+      content: '';
+      display: block;
+      width: 24px;
+      height: 1px;
+      background: var(--blue);
+    }
+    .section-title {
+      font-family: var(--font-heading);
+      font-size: clamp(1.75rem, 3vw, 2.5rem);
+      font-weight: 700;
+      color: var(--dark);
+      line-height: 1.2;
+    }
+    .section-desc {
+      margin-top: 1rem;
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      max-width: 52ch;
+      line-height: 1.7;
+    }
+
+    /* ==================== SEARCH / FILTER ==================== */
+    .search-section {
+      background: var(--dark);
+      padding: clamp(2rem, 4vw, 3rem) 0;
+    }
+    .search-form {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 1px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+    .search-field {
+      background: rgba(255,255,255,0.04);
+      padding: 1.25rem 1.5rem;
+      transition: background var(--transition);
+    }
+    .search-field:hover { background: rgba(255,255,255,0.07); }
+    .search-field label {
+      display: block;
+      font-family: var(--font-mono);
+      font-size: 0.62rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 0.4rem;
+    }
+    .search-field select,
+    .search-field input {
+      width: 100%;
+      background: none;
+      border: none;
+      outline: none;
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      color: var(--white);
+      cursor: pointer;
+    }
+    .search-field select option { background: var(--dark); color: var(--white); }
+    .search-btn {
+      background: var(--blue);
+      color: var(--white);
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 1.25rem 2rem;
+      transition: background var(--transition);
+      white-space: nowrap;
+    }
+    .search-btn:hover { background: #0052cc; }
+
+    /* ==================== LISTINGS ==================== */
+    .listings-section {
+      padding: clamp(4rem, 8vw, 8rem) 0;
+    }
+    .listings-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    /* Card Flip */
+    .property-card {
+      perspective: 1200px;
+      height: 480px;
+      cursor: pointer;
+    }
+    .card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transform-style: preserve-3d;
+      transition: transform 0.65s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .property-card:hover .card-inner {
+      transform: rotateY(180deg);
+    }
+    .card-front,
+    .card-back {
+      position: absolute;
+      inset: 0;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+      border: 1px solid var(--border);
+      overflow: hidden;
+    }
+    .card-back {
+      transform: rotateY(180deg);
+      background: var(--dark);
+      display: flex;
+      flex-direction: column;
+      padding: 2rem;
+      color: var(--white);
+    }
+
+    /* Card Front */
+    .card-photo {
+      height: 260px;
+      overflow: hidden;
+      background: var(--border);
+    }
+    .card-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    .card-info {
+      padding: 1.5rem;
+      background: var(--white);
+      flex: 1;
+    }
+    .card-location {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+    .card-location svg { width: 10px; height: 10px; }
+    .card-name {
+      font-family: var(--font-heading);
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 1rem;
+      line-height: 1.3;
+    }
+    .card-meta {
+      display: flex;
+      gap: 1.25rem;
+      align-items: center;
+      padding-top: 0.85rem;
+      border-top: 1px solid var(--border);
+      flex-wrap: wrap;
+    }
+    .card-meta-item {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+    .card-price {
+      font-family: var(--font-mono);
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: var(--blue);
+      margin-left: auto;
+    }
+
+    /* Card Back */
+    .card-back-badge {
+      font-family: var(--font-mono);
+      font-size: 0.62rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 1rem;
+    }
+    .card-back-title {
+      font-family: var(--font-heading);
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 1.75rem;
+      line-height: 1.25;
+    }
+    .card-specs {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem 1rem;
+      flex: 1;
+    }
+    .card-spec {
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      padding-bottom: 0.6rem;
+    }
+    .card-spec-label {
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+      margin-bottom: 0.2rem;
+    }
+    .card-spec-value {
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      color: var(--white);
+      font-weight: 500;
+    }
+    .card-back-price {
+      font-family: var(--font-mono);
+      font-size: 1.5rem;
+      font-weight: 500;
+      color: var(--blue);
+      margin-top: 1.25rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+    .card-back-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      margin-top: 1rem;
+      padding: 0.7rem 1.5rem;
+      background: var(--blue);
+      color: var(--white);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      transition: background var(--transition);
+    }
+    .card-back-cta:hover { background: #0052cc; }
+    .no-results {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 4rem;
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      letter-spacing: 0.08em;
+      display: none;
+    }
+    .no-results.visible { display: block; }
+
+    /* ==================== WHY SKYLINE ==================== */
+    .stats-section {
+      padding: clamp(4rem, 8vw, 7rem) 0;
+      background: var(--dark);
+    }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+    .stat-item {
+      padding: 3rem 2.5rem;
+      border-right: 1px solid rgba(255,255,255,0.08);
+      transition: background var(--transition);
+    }
+    .stat-item:last-child { border-right: none; }
+    .stat-item:hover { background: rgba(255,255,255,0.03); }
+    .stat-number {
+      font-family: var(--font-mono);
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 500;
+      color: var(--white);
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+    .stat-number span { color: var(--blue); }
+    .stat-label {
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.8);
+    }
+    .stat-desc {
+      margin-top: 1rem;
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.6;
+    }
+
+    /* ==================== SERVICES / TABS ==================== */
+    .services-section {
+      padding: clamp(4rem, 8vw, 8rem) 0;
+    }
+    .tabs-nav {
+      display: flex;
+      gap: 0;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 3.5rem;
+    }
+    .tab-btn {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      padding: 1rem 2rem;
+      border-bottom: 2px solid transparent;
+      margin-bottom: -1px;
+      transition: color var(--transition), border-color var(--transition);
+    }
+    .tab-btn:hover { color: var(--dark); }
+    .tab-btn.active { color: var(--blue); border-bottom-color: var(--blue); }
+    .tab-panel { display: none; }
+    .tab-panel.active { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+    .tab-headline {
+      font-family: var(--font-heading);
+      font-size: clamp(1.4rem, 2.5vw, 2rem);
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 1.5rem;
+      line-height: 1.25;
+    }
+    .tab-bullets {
+      display: flex;
+      flex-direction: column;
+      gap: 1.1rem;
+    }
+    .tab-bullet {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+    .tab-bullet-icon {
+      width: 28px;
+      height: 28px;
+      background: rgba(0,102,255,0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .tab-bullet-icon svg { width: 13px; height: 13px; color: var(--blue); }
+    .tab-bullet-text strong {
+      display: block;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--dark);
+      margin-bottom: 0.15rem;
+    }
+    .tab-bullet-text span {
+      font-size: 0.83rem;
+      color: var(--text-muted);
+    }
+    .tab-image {
+      aspect-ratio: 4/3;
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+    .tab-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* ==================== TESTIMONIALS ==================== */
+    .testimonials-section {
+      padding: clamp(4rem, 8vw, 8rem) 0;
+      background: var(--white);
+    }
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      background: var(--border);
+    }
+    .testimonial-card {
+      background: var(--bg);
+      padding: 2.5rem;
+      transition: background var(--transition);
+    }
+    .testimonial-card:hover { background: var(--white); }
+    .testimonial-quote {
+      font-family: var(--font-heading);
+      font-size: 1rem;
+      font-style: italic;
+      color: var(--dark);
+      line-height: 1.75;
+      margin-bottom: 2rem;
+      position: relative;
+    }
+    .testimonial-quote::before {
+      content: '"';
+      font-family: var(--font-heading);
+      font-size: 4rem;
+      color: var(--blue);
+      opacity: 0.15;
+      position: absolute;
+      top: -1.25rem;
+      left: -0.5rem;
+      line-height: 1;
+    }
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .testimonial-avatar {
+      width: 44px;
+      height: 44px;
+      background: var(--dark);
+      color: var(--white);
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .testimonial-name {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--dark);
+    }
+    .testimonial-detail {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      color: var(--text-muted);
+      margin-top: 0.2rem;
+      letter-spacing: 0.06em;
+    }
+
+    /* ==================== CONTACT ==================== */
+    .contact-section {
+      padding: clamp(4rem, 8vw, 8rem) 0;
+    }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 5rem;
+      align-items: start;
+    }
+    .contact-info-item {
+      display: flex;
+      gap: 1.25rem;
+      align-items: flex-start;
+      padding: 1.5rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .contact-info-item:first-child { padding-top: 0; }
+    .contact-icon {
+      width: 40px;
+      height: 40px;
+      background: rgba(0,102,255,0.07);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .contact-icon svg { width: 18px; height: 18px; color: var(--blue); }
+    .contact-info-label {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 0.35rem;
+    }
+    .contact-info-value {
+      font-size: 0.9rem;
+      color: var(--dark);
+      font-weight: 500;
+    }
+    .contact-info-value a:hover { color: var(--blue); }
+
+    /* Form */
+    .contact-form-wrapper {
+      background: var(--white);
+      border: 1px solid var(--border);
+      padding: 2.5rem;
+    }
+    .form-title {
+      font-family: var(--font-heading);
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 0.5rem;
+    }
+    .form-subtitle {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    .form-group {
+      margin-bottom: 1.25rem;
+    }
+    .form-group label {
+      display: block;
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 0.5rem;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border: 1px solid var(--border);
+      background: var(--bg);
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      color: var(--dark);
+      outline: none;
+      transition: border-color var(--transition);
+      border-radius: 0;
+      -webkit-appearance: none;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus { border-color: var(--blue); background: var(--white); }
+    .form-group textarea { resize: vertical; min-height: 100px; }
+    .form-group.error input,
+    .form-group.error select,
+    .form-group.error textarea { border-color: #e53e3e; }
+    .form-error-msg {
+      font-size: 0.72rem;
+      color: #e53e3e;
+      margin-top: 0.3rem;
+      display: none;
+    }
+    .form-group.error .form-error-msg { display: block; }
+    .form-success {
+      display: none;
+      background: rgba(0,102,255,0.06);
+      border: 1px solid rgba(0,102,255,0.2);
+      padding: 1.5rem;
+      text-align: center;
+    }
+    .form-success.visible { display: block; }
+    .form-success p {
+      font-family: var(--font-heading);
+      font-size: 1rem;
+      color: var(--dark);
+      margin-bottom: 0.5rem;
+    }
+    .form-success span {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+
+    /* ==================== FOOTER ==================== */
+    footer {
+      background: var(--dark);
+      padding: clamp(3rem, 6vw, 5rem) 0 0;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1.5fr;
+      gap: 3rem;
+      padding-bottom: 3rem;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .footer-brand {}
+    .footer-brand-name {
+      font-family: var(--font-heading);
+      font-size: 1.2rem;
+      color: var(--white);
+      margin-bottom: 0.3rem;
+    }
+    .footer-brand-tag {
+      font-family: var(--font-mono);
+      font-size: 0.62rem;
+      letter-spacing: 0.18em;
+      color: rgba(255,255,255,0.3);
+      text-transform: uppercase;
+      margin-bottom: 1.25rem;
+    }
+    .footer-brand-desc {
+      font-size: 0.83rem;
+      color: rgba(255,255,255,0.4);
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+      max-width: 30ch;
+    }
+    .footer-certs {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .footer-cert {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: var(--font-mono);
+      font-size: 0.62rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.25);
+      border: 1px solid rgba(255,255,255,0.1);
+      padding: 0.35rem 0.75rem;
+      width: fit-content;
+    }
+    .footer-cert svg { width: 10px; height: 10px; color: var(--blue); }
+    .footer-col-title {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.3);
+      margin-bottom: 1.5rem;
+    }
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    .footer-links a {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.5);
+      transition: color var(--transition);
+    }
+    .footer-links a:hover { color: var(--white); }
+    .footer-contact-item {
+      display: flex;
+      gap: 0.75rem;
+      align-items: flex-start;
+      margin-bottom: 1rem;
+    }
+    .footer-contact-item svg { width: 14px; height: 14px; color: var(--blue); flex-shrink: 0; margin-top: 3px; }
+    .footer-contact-item span {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.45);
+      line-height: 1.5;
+    }
+    .footer-bottom {
+      padding: 1.5rem 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .footer-bottom p {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      color: rgba(255,255,255,0.2);
+      letter-spacing: 0.05em;
+    }
+
+    /* ==================== SCROLL REVEAL ==================== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ==================== RESPONSIVE ==================== */
+    @media (max-width: 1100px) {
+      .listings-grid { grid-template-columns: repeat(2, 1fr); }
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+      .stat-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); }
+      .stat-item:nth-child(odd) { border-right: 1px solid rgba(255,255,255,0.08); }
+      .stat-item:last-child { border-bottom: none; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; min-height: auto; }
+      .hero-image { height: 55vw; min-height: 280px; }
+      .hero-content { padding: 3rem var(--gutter); border-left: none; border-top: 1px solid var(--border); }
+      .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .testimonials-grid { grid-template-columns: 1fr; }
+      .tab-panel.active { grid-template-columns: 1fr; }
+      .tab-image { display: none; }
+    }
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .listings-grid { grid-template-columns: 1fr; }
+      .stats-grid { grid-template-columns: 1fr 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      .hero-counters { flex-direction: row; flex-wrap: wrap; gap: 2rem; }
+    }
+    @media (max-width: 500px) {
+      .stats-grid { grid-template-columns: 1fr; }
+      .stat-item:nth-child(odd) { border-right: none; }
+      .tabs-nav { overflow-x: auto; }
+      .tab-btn { white-space: nowrap; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- BACK LINK -->
+  <div class="back-link-bar">
+    <a href="/portfolio/">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+      Back to Portfolio
+    </a>
+  </div>
+
+  <!-- HEADER -->
+  <header>
+    <div class="container">
+      <nav class="nav-inner" aria-label="Primary navigation">
+        <a href="#" class="nav-logo" aria-label="Skyline Properties home">
+          <span class="nav-logo-name">Skyline Properties</span>
+          <span class="nav-logo-tag">Luxury Real Estate · KL</span>
+        </a>
+        <ul class="nav-links" role="list">
+          <li><a href="#listings">Listings</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#testimonials">Testimonials</a></li>
+          <li><a href="#contact" class="nav-cta">Book Valuation</a></li>
+        </ul>
+        <button class="hamburger" aria-label="Toggle navigation" aria-expanded="false" onclick="toggleNav(this)">
+          <span></span><span></span><span></span>
+        </button>
+      </nav>
+    </div>
+    <nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
+      <a href="#listings" onclick="closeMobileNav()">Listings</a>
+      <a href="#services" onclick="closeMobileNav()">Services</a>
+      <a href="#about" onclick="closeMobileNav()">About</a>
+      <a href="#testimonials" onclick="closeMobileNav()">Testimonials</a>
+      <a href="#contact" onclick="closeMobileNav()">Book Valuation</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="hero" aria-label="Hero">
+      <div class="hero-image">
+        <img
+          src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1600&q=90"
+          alt="Luxury high-rise residence — Kuala Lumpur skyline"
+          width="1600" height="1067"
+        />
+        <div class="hero-image-overlay" aria-hidden="true"></div>
+      </div>
+      <div class="hero-content">
+        <p class="hero-eyebrow">Kuala Lumpur · Est. 2009</p>
+        <h1 class="hero-headline">Exceptional Properties for <em>Exceptional</em> People.</h1>
+        <p class="hero-sub">We curate KL's finest residential addresses — from KLCC penthouses to Bangsar family homes — for discerning investors and owner-occupiers.</p>
+        <div class="hero-counters" aria-label="Key statistics">
+          <div class="hero-counter-item">
+            <div class="hero-counter-value" aria-label="247 properties sold">
+              <span id="counter1" data-target="247">0</span>
+              <span class="unit">+</span>
+            </div>
+            <div class="hero-counter-label">Properties Sold</div>
+          </div>
+          <div class="hero-counter-item">
+            <div class="hero-counter-value" aria-label="RM 380 million transacted">
+              RM <span id="counter2" data-target="380">0</span><span class="unit">M+</span>
+            </div>
+            <div class="hero-counter-label">Total Transacted</div>
+          </div>
+        </div>
+        <div class="hero-actions">
+          <a href="#listings" class="btn-primary">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+            Browse Listings
+          </a>
+          <a href="#contact" class="btn-outline">Book Valuation</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEARCH -->
+    <section class="search-section" aria-label="Property search">
+      <div class="container">
+        <div class="search-form" role="search">
+          <div class="search-field">
+            <label for="filter-location">Location</label>
+            <select id="filter-location" onchange="filterListings()" aria-label="Filter by location">
+              <option value="">All Locations</option>
+              <option value="KLCC">KLCC</option>
+              <option value="Bangsar">Bangsar</option>
+              <option value="Mont Kiara">Mont Kiara</option>
+              <option value="Ampang">Ampang</option>
+              <option value="Desa Park City">Desa Park City</option>
+              <option value="Damansara Heights">Damansara Heights</option>
+            </select>
+          </div>
+          <div class="search-field">
+            <label for="filter-type">Property Type</label>
+            <select id="filter-type" onchange="filterListings()" aria-label="Filter by property type">
+              <option value="">All Types</option>
+              <option value="condo">Condominium</option>
+              <option value="semi-d">Semi-Detached</option>
+              <option value="bungalow">Bungalow</option>
+            </select>
+          </div>
+          <div class="search-field">
+            <label for="filter-price">Max Price</label>
+            <select id="filter-price" onchange="filterListings()" aria-label="Filter by maximum price">
+              <option value="">Any Price</option>
+              <option value="1000000">Up to RM 1M</option>
+              <option value="2000000">Up to RM 2M</option>
+              <option value="3000000">Up to RM 3M</option>
+              <option value="5000000">Up to RM 5M</option>
+            </select>
+          </div>
+          <div class="search-field">
+            <label for="filter-beds">Bedrooms</label>
+            <select id="filter-beds" onchange="filterListings()" aria-label="Filter by number of bedrooms">
+              <option value="">Any</option>
+              <option value="2">2 Bedrooms</option>
+              <option value="3">3 Bedrooms</option>
+              <option value="4">4+ Bedrooms</option>
+            </select>
+          </div>
+          <button class="search-btn" onclick="filterListings()" type="button">
+            Search
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURED LISTINGS -->
+    <section class="listings-section" id="listings" aria-label="Featured listings">
+      <div class="container">
+        <header class="section-header reveal">
+          <p class="section-tag">Featured Listings</p>
+          <h2 class="section-title">Curated Properties,<br>Exceptional Addresses.</h2>
+          <p class="section-desc">Hover over each card to reveal full specifications. Our curated selection represents the finest available inventory across Kuala Lumpur's most prestigious postcodes.</p>
+        </header>
+        <div class="listings-grid" id="listingsGrid">
+
+          <!-- Card 1: KLCC -->
+          <article class="property-card reveal"
+            data-location="KLCC"
+            data-type="condo"
+            data-price="2800000"
+            data-beds="3"
+            aria-label="The Binjai On The Park, KLCC — RM 2.8M">
+            <div class="card-inner">
+              <div class="card-front">
+                <div class="card-photo">
+                  <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800" alt="KLCC luxury condominium interior" loading="lazy" />
+                </div>
+                <div class="card-info">
+                  <p class="card-location">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                    KLCC
+                  </p>
+                  <h3 class="card-name">The Binjai On The Park</h3>
+                  <div class="card-meta">
+                    <span class="card-meta-item">
+                      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg>
+                      3 BR
+                    </span>
+                    <span class="card-meta-item">1,850 sqft</span>
+                    <span class="card-price">RM 2.8M</span>
+                  </div>
+                </div>
+              </div>
+              <div class="card-back" aria-hidden="true">
+                <p class="card-back-badge">Full Specifications</p>
+                <h3 class="card-back-title">The Binjai On The Park</h3>
+                <div class="card-specs">
+                  <div class="card-spec"><div class="card-spec-label">Location</div><div class="card-spec-value">KLCC</div></div>
+                  <div class="card-spec"><div class="card-spec-label">Built-up</div><div class="card-spec-value">1,850 sqft</div></div>
+                  <div class="card-spec"><div class="card-spec-label">Bedrooms</div><div class="card-spec-value">3 + 1</div></div>
+                  <div class="card-spec"><div class="card-spec-label">Bathrooms</div><div class="card-spec-value">3</div></div>
+                  <div class="card-spec"><div class="card-spec-label">Floor</div><div class="card-spec-value">28F / 38</div></div>
+                  <div class="card-spec"><div class="card-spec-label">Carpark</div><div class="card-spec-value">2 Bays</div></div>
+                  <div class="card-spec"><div class="card-spec-label">Type</div><div class="card-spec-value">Condominium</div></div>
+                  <div class="card-spec"><div class="card-spec-label">Tenure</div><div class="card-spec-value">Freehold</div></div>
+                </div>
+                <div class="card-back-price">RM 2,800,000</div>
+                <a href="#contact" class="card-back-cta">Enquire Now</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 2: Bangsar -->
+          <article class="property-card reveal"
+            data-location="Bangsar"
+            data-type="condo"
+            data-price="1600000"
+            data-beds="2"
+            aria-label="Bangsar South Nexus, Bangsar — RM 1.6M">
+            <div class="card-inner">
+              <div class="card-front">
+                <div class="card-photo">
+                  <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800" alt="Bangsar luxury apartment living area" loading="lazy" />
+                </div>
+                <div class="card-info">
+                  <p class="card-location">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                    Bangsar
+                  </p>
+                  <h3 class="card-name">Bangsar South Nexus</h3>
+                  <div class="card-meta">
+                    <span class="card-meta-item">
+                      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg>
+                      2 BR
+                    </span>
+                    <span class="card-meta-item">1,200 sqft</span>
+                    <span class="card-price">RM 1.6M</span>
+                  </div>
+                </div>
+              </div>
+              <div class="card-back" aria-hidden="true">
+                <p class="card-back-badge">Full Specifications</p>
+                <h3 class="card-back-title">Bangsar South Nexus</h3>
+                <div class="card-specs">
+                  <div class="card-spec"><div class="card-spec-label">Location</div><div class="card-spec-value">Bangsar</div></div>
+                  <div class="card-spec"><div class="card-spec-label">Built-up</div><div class="card-spec-value">1,200 sqft</div></div>
+                  <div class="card-spec"><div class="card-spec-label">Bedrooms</div><div class="card-spec-value">2 + 1</div></div>
+                  <div class="card-spec"><div class="card-spec-label">Bathrooms</div><div class="card-spec-value">2</div></div>
+                  <div class="card-spec"><div class="card-spec-label">Floor</div><div class="card-spec-value">15F / 30</div></div>
+                  <div class="card-spec"><div class="card-spec-label">Carpark</div><div class="card-spec-value">1 Bay</div></div>
+                  <div class="card-spec"><div class="card-spec-label">Type</div><div class="card-spec-value">Condominium</div></div>
+                  <div class="card-spec"><div class="card-spec-label">Tenure</div><div class="card-spec-value">Freehold</div></div>
+                </div>
+                <div class="card-back-price">RM 1,600,000</div>
+                <a href="#contact" class="card-back-cta">Enquire Now</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 3: Mont Kiara -->
+          <article class="property-card reveal"
+            data-location="Mont Kiara"
+            data-type="condo"
+            data-price="1200000"
+            data-beds="2"
+            aria-label="Solaris Mont Kiara — RM 1.2M">
+            <div class="card-inner">
+              <div class="card-front">
+                <div class="card-photo">
+                  <img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=800" alt="Mont Kiara condominium pool deck" loading="lazy" />
+                </div>
+                <div class="card-info">
+                  <p class="card-location">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                    Mont Kiara
+                  </p>
+                  <h3 class="card-name">Solaris Mont Kiara</h3>
+                  <div class="card-meta">
+                    <span class="card-meta-item">
+                      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg>
+                      2 BR
+                    </span>
+                    <span class="card-meta-item">1,100 sqft</span>
+                    <span class="card-price">RM 1.2M</span>
+                  </div>
+                </div>
+              </div>
+              <div class="card-back" aria-hidden="true">
+                <p class="card-back-badge">Full Specifications</p>
+                <h3 class="card-back-title">Solaris Mont Kiara</h3>
+                <div class="card-specs">
+                  <div class="card-spec"><div class="card-spec-label">Location</div><div class="card-spec-value">Mont Kiara</div></div>
+                  <div class="card-spec"><div class="card-spec-label">Built-up</div><div class="card-spec-value">1,100 sqft</div></div>
+                  <div class="card-spec"><div class="card-spec-label">Bedrooms</div><div class="card-spec-value">2 + 1</div></div>
+                  <div class="card-spec"><div class="card-spec-label">Bathrooms</div><div class="card-spec-value">2</div></div>
+                  <div class="card-spec"><div class="card-spec-label">Floor</div><div class="card-spec-value">12F / 25</div></div>
+                  <div class="card-spec"><div class="card-spec-label">Carpark</div><div class="card-spec-value">1 Bay</div></div>
+                  <div class="card-spec"><div class="card-spec-label">Type</div><div class="card-spec-value">Condominium</div></div>
+                  <div class="card-spec"><div class="card-spec-label">Tenure</div><div class="card-spec-value">Freehold</div></div>
+                </div>
+                <div class="card-back-price">RM 1,200,000</div>
+                <a href="#contact" class="card-back-cta">Enquire Now</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 4: Ampang -->
+          <article class="property-card reveal"
+            data-location="Ampang"
+            data-type="condo"
+            data-price="850000"
+            data-beds="2"
+            aria-label="Hampshire Residences, Ampang — RM 850K">
+            <div class="card-inner">
+              <div class="card-front">
+                <div class="card-photo">
+                  <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800" alt="Ampang condominium living room" loading="lazy" />
+                </div>
+                <div class="card-info">
+                  <p class="card-location">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                    Ampang
+                  </p>
+                  <h3 class="card-name">Hampshire Residences</h3>
+                  <div class="card-meta">
+                    <span class="card-meta-item">
+                      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg>
+                      2 BR
+                    </span>
+                    <span class="card-meta-item">980 sqft</span>
+                    <span class="card-price">RM 850K</span>
+                  </div>
+                </div>
+              </div>
+              <div class="card-back" aria-hidden="true">
+                <p class="card-back-badge">Full Specifications</p>
+                <h3 class="card-back-title">Hampshire Residences</h3>
+                <div class="card-specs">
+                  <div class="card-spec"><div class="card-spec-label">Location</div><div class="card-spec-value">Ampang</div></div>
+                  <div class="card-spec"><div class="card-spec-label">Built-up</div><div class="card-spec-value">980 sqft</div></div>
+                  <div class="card-spec"><div class="card-spec-label">Bedrooms</div><div class="card-spec-value">2</div></div>
+                  <div class="card-spec"><div class="card-spec-label">Bathrooms</div><div class="card-spec-value">2</div></div>
+                  <div class="card-spec"><div class="card-spec-label">Floor</div><div class="card-spec-value">8F / 22</div></div>
+                  <div class="card-spec"><div class="card-spec-label">Carpark</div><div class="card-spec-value">1 Bay</div></div>
+                  <div class="card-spec"><div class="card-spec-label">Type</div><div class="card-spec-value">Condominium</div></div>
+                  <div class="card-spec"><div class="card-spec-label">Tenure</div><div class="card-spec-value">Leasehold</div></div>
+                </div>
+                <div class="card-back-price">RM 850,000</div>
+                <a href="#contact" class="card-back-cta">Enquire Now</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 5: Desa Park City -->
+          <article class="property-card reveal"
+            data-location="Desa Park City"
+            data-type="condo"
+            data-price="2100000"
+            data-beds="3"
+            aria-label="10 Semantan, Desa Park City — RM 2.1M">
+            <div class="card-inner">
+              <div class="card-front">
+                <div class="card-photo">
+                  <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800" alt="Desa Park City lakeside condominium" loading="lazy" />
+                </div>
+                <div class="card-info">
+                  <p class="card-location">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                    Desa Park City
+                  </p>
+                  <h3 class="card-name">10 Semantan Desa Park</h3>
+                  <div class="card-meta">
+                    <span class="card-meta-item">
+                      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg>
+                      3 BR
+                    </span>
+                    <span class="card-meta-item">1,650 sqft</span>
+                    <span class="card-price">RM 2.1M</span>
+                  </div>
+                </div>
+              </div>
+              <div class="card-back" aria-hidden="true">
+                <p class="card-back-badge">Full Specifications</p>
+                <h3 class="card-back-title">10 Semantan Desa Park</h3>
+                <div class="card-specs">
+                  <div class="card-spec"><div class="card-spec-label">Location</div><div class="card-spec-value">Desa Park City</div></div>
+                  <div class="card-spec"><div class="card-spec-label">Built-up</div><div class="card-spec-value">1,650 sqft</div></div>
+                  <div class="card-spec"><div class="card-spec-label">Bedrooms</div><div class="card-spec-value">3 + 1</div></div>
+                  <div class="card-spec"><div class="card-spec-label">Bathrooms</div><div class="card-spec-value">3</div></div>
+                  <div class="card-spec"><div class="card-spec-label">Floor</div><div class="card-spec-value">22F / 35</div></div>
+                  <div class="card-spec"><div class="card-spec-label">Carpark</div><div class="card-spec-value">2 Bays</div></div>
+                  <div class="card-spec"><div class="card-spec-label">Type</div><div class="card-spec-value">Condominium</div></div>
+                  <div class="card-spec"><div class="card-spec-label">Tenure</div><div class="card-spec-value">Freehold</div></div>
+                </div>
+                <div class="card-back-price">RM 2,100,000</div>
+                <a href="#contact" class="card-back-cta">Enquire Now</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 6: Damansara Heights -->
+          <article class="property-card reveal"
+            data-location="Damansara Heights"
+            data-type="bungalow"
+            data-price="4200000"
+            data-beds="4"
+            aria-label="Bukit Damansara Bungalow — RM 4.2M">
+            <div class="card-inner">
+              <div class="card-front">
+                <div class="card-photo">
+                  <img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=800" alt="Damansara Heights luxury bungalow exterior" loading="lazy" />
+                </div>
+                <div class="card-info">
+                  <p class="card-location">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                    Damansara Heights
+                  </p>
+                  <h3 class="card-name">Bukit Damansara Villa</h3>
+                  <div class="card-meta">
+                    <span class="card-meta-item">
+                      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg>
+                      4 BR
+                    </span>
+                    <span class="card-meta-item">3,200 sqft</span>
+                    <span class="card-price">RM 4.2M</span>
+                  </div>
+                </div>
+              </div>
+              <div class="card-back" aria-hidden="true">
+                <p class="card-back-badge">Full Specifications</p>
+                <h3 class="card-back-title">Bukit Damansara Villa</h3>
+                <div class="card-specs">
+                  <div class="card-spec"><div class="card-spec-label">Location</div><div class="card-spec-value">Damansara Heights</div></div>
+                  <div class="card-spec"><div class="card-spec-label">Built-up</div><div class="card-spec-value">3,200 sqft</div></div>
+                  <div class="card-spec"><div class="card-spec-label">Bedrooms</div><div class="card-spec-value">4 + 1</div></div>
+                  <div class="card-spec"><div class="card-spec-label">Bathrooms</div><div class="card-spec-value">4</div></div>
+                  <div class="card-spec"><div class="card-spec-label">Land Area</div><div class="card-spec-value">5,200 sqft</div></div>
+                  <div class="card-spec"><div class="card-spec-label">Carpark</div><div class="card-spec-value">4 Bays</div></div>
+                  <div class="card-spec"><div class="card-spec-label">Type</div><div class="card-spec-value">Bungalow</div></div>
+                  <div class="card-spec"><div class="card-spec-label">Tenure</div><div class="card-spec-value">Freehold</div></div>
+                </div>
+                <div class="card-back-price">RM 4,200,000</div>
+                <a href="#contact" class="card-back-cta">Enquire Now</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- No Results -->
+          <p class="no-results" id="noResults" role="status">No properties match your search criteria.</p>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- WHY SKYLINE / STATS -->
+    <section class="stats-section" id="about" aria-label="About Skyline Properties">
+      <div class="container">
+        <header class="section-header reveal" style="margin-bottom: 3rem;">
+          <p class="section-tag" style="color: var(--blue);">Why Skyline</p>
+          <h2 class="section-title" style="color: #fff;">Numbers That<br>Define Our Standard.</h2>
+          <p class="section-desc" style="color: rgba(255,255,255,0.7);">Every metric reflects our unwavering commitment to delivering exceptional outcomes for every client, every time.</p>
+        </header>
+        <div class="stats-grid">
+          <div class="stat-item reveal">
+            <div class="stat-number">15<span>+</span></div>
+            <div class="stat-label">Years Experience</div>
+            <p class="stat-desc">Established in 2009 — through every market cycle KL has seen.</p>
+          </div>
+          <div class="stat-item reveal">
+            <div class="stat-number">247<span>+</span></div>
+            <div class="stat-label">Units Sold</div>
+            <p class="stat-desc">Across KLCC, Bangsar, Mont Kiara and KL's most prestigious postcodes.</p>
+          </div>
+          <div class="stat-item reveal">
+            <div class="stat-number">98<span>%</span></div>
+            <div class="stat-label">Client Retention</div>
+            <p class="stat-desc">Clients return for every subsequent transaction and refer their network.</p>
+          </div>
+          <div class="stat-item reveal">
+            <div class="stat-number">5<span>★</span></div>
+            <div class="stat-label">Service Rating</div>
+            <p class="stat-desc">Consistently rated five-star by investors and owner-occupiers alike.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES / TABS -->
+    <section class="services-section" id="services" aria-label="Our services">
+      <div class="container">
+        <header class="section-header reveal">
+          <p class="section-tag">Services</p>
+          <h2 class="section-title">Full-Spectrum<br>Property Advisory.</h2>
+          <p class="section-desc">Whether you're acquiring your first KL investment or growing a substantial portfolio, our specialists guide every decision.</p>
+        </header>
+        <div class="tabs-nav" role="tablist" aria-label="Service categories">
+          <button class="tab-btn active" role="tab" aria-selected="true" aria-controls="tab-buy" id="btn-buy" onclick="switchTab('buy')">Buy</button>
+          <button class="tab-btn" role="tab" aria-selected="false" aria-controls="tab-sell" id="btn-sell" onclick="switchTab('sell')">Sell</button>
+          <button class="tab-btn" role="tab" aria-selected="false" aria-controls="tab-invest" id="btn-invest" onclick="switchTab('invest')">Invest</button>
+          <button class="tab-btn" role="tab" aria-selected="false" aria-controls="tab-rent" id="btn-rent" onclick="switchTab('rent')">Rent</button>
+        </div>
+        <div id="tab-buy" class="tab-panel active" role="tabpanel" aria-labelledby="btn-buy">
+          <div>
+            <h3 class="tab-headline">Find Your Ideal Home in Kuala Lumpur's Finest Addresses.</h3>
+            <div class="tab-bullets">
+              <div class="tab-bullet">
+                <div class="tab-bullet-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></div>
+                <div class="tab-bullet-text"><strong>Exclusive Off-Market Access</strong><span>Pre-launch and pocket listings unavailable on public portals.</span></div>
+              </div>
+              <div class="tab-bullet">
+                <div class="tab-bullet-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></div>
+                <div class="tab-bullet-text"><strong>End-to-End Transaction Management</strong><span>From offer to S&amp;P signing — fully handled by our legal partners.</span></div>
+              </div>
+              <div class="tab-bullet">
+                <div class="tab-bullet-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></div>
+                <div class="tab-bullet-text"><strong>Mortgage Facilitation</strong><span>Preferred rates with 12 major Malaysian banks and Islamic finance options.</span></div>
+              </div>
+              <div class="tab-bullet">
+                <div class="tab-bullet-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></div>
+                <div class="tab-bullet-text"><strong>Due Diligence Support</strong><span>Title searches, encumbrance checks, and valuation reports.</span></div>
+              </div>
+            </div>
+            <a href="#contact" class="btn-primary" style="margin-top: 2.5rem;">Start Your Search</a>
+          </div>
+          <div class="tab-image">
+            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800" alt="KL luxury property interior" loading="lazy" />
+          </div>
+        </div>
+        <div id="tab-sell" class="tab-panel" role="tabpanel" aria-labelledby="btn-sell">
+          <div>
+            <h3 class="tab-headline">Achieve Maximum Value with Precision Marketing.</h3>
+            <div class="tab-bullets">
+              <div class="tab-bullet">
+                <div class="tab-bullet-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></div>
+                <div class="tab-bullet-text"><strong>Professional Photography &amp; Videography</strong><span>Architectural-grade visuals that command premium positioning.</span></div>
+              </div>
+              <div class="tab-bullet">
+                <div class="tab-bullet-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></div>
+                <div class="tab-bullet-text"><strong>Targeted Buyer Network</strong><span>Direct reach to 3,200+ qualified buyers including expatriates and foreign investors.</span></div>
+              </div>
+              <div class="tab-bullet">
+                <div class="tab-bullet-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></div>
+                <div class="tab-bullet-text"><strong>Comparative Market Analysis</strong><span>Data-driven pricing using recent transacted data from JPPH.</span></div>
+              </div>
+              <div class="tab-bullet">
+                <div class="tab-bullet-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></div>
+                <div class="tab-bullet-text"><strong>Negotiation &amp; Offer Management</strong><span>Experienced negotiators securing best price and optimal terms.</span></div>
+              </div>
+            </div>
+            <a href="#contact" class="btn-primary" style="margin-top: 2.5rem;">List Your Property</a>
+          </div>
+          <div class="tab-image">
+            <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800" alt="Property for sale KL" loading="lazy" />
+          </div>
+        </div>
+        <div id="tab-invest" class="tab-panel" role="tabpanel" aria-labelledby="btn-invest">
+          <div>
+            <h3 class="tab-headline">Build a High-Yield KL Property Portfolio.</h3>
+            <div class="tab-bullets">
+              <div class="tab-bullet">
+                <div class="tab-bullet-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></div>
+                <div class="tab-bullet-text"><strong>Investment Grade Analysis</strong><span>Rental yield, capital appreciation, and liquidity modelling per submarket.</span></div>
+              </div>
+              <div class="tab-bullet">
+                <div class="tab-bullet-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></div>
+                <div class="tab-bullet-text"><strong>MM2H &amp; Foreign Ownership Advisory</strong><span>Full compliance guidance for non-resident and corporate purchasers.</span></div>
+              </div>
+              <div class="tab-bullet">
+                <div class="tab-bullet-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></div>
+                <div class="tab-bullet-text"><strong>Portfolio Diversification Strategy</strong><span>Across KLCC, fringe KL, and emerging growth corridors.</span></div>
+              </div>
+            </div>
+            <a href="#contact" class="btn-primary" style="margin-top: 2.5rem;">Investment Consultation</a>
+          </div>
+          <div class="tab-image">
+            <img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=800" alt="KL investment property" loading="lazy" />
+          </div>
+        </div>
+        <div id="tab-rent" class="tab-panel" role="tabpanel" aria-labelledby="btn-rent">
+          <div>
+            <h3 class="tab-headline">Premium Rentals for Expatriates and Corporates.</h3>
+            <div class="tab-bullets">
+              <div class="tab-bullet">
+                <div class="tab-bullet-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></div>
+                <div class="tab-bullet-text"><strong>Curated Rental Portfolio</strong><span>Fully furnished and semi-furnished options in KLCC, Bangsar, and Mont Kiara.</span></div>
+              </div>
+              <div class="tab-bullet">
+                <div class="tab-bullet-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></div>
+                <div class="tab-bullet-text"><strong>Corporate Relocation Support</strong><span>School catchment, commute analysis, and community guidance for new arrivals.</span></div>
+              </div>
+              <div class="tab-bullet">
+                <div class="tab-bullet-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></div>
+                <div class="tab-bullet-text"><strong>Tenancy Agreement Drafting</strong><span>Bilingual (EN/BM) TA reviewed by qualified solicitors.</span></div>
+              </div>
+            </div>
+            <a href="#contact" class="btn-primary" style="margin-top: 2.5rem;">Find a Rental</a>
+          </div>
+          <div class="tab-image">
+            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800" alt="Rental property KL" loading="lazy" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="testimonials-section" id="testimonials" aria-label="Client testimonials">
+      <div class="container">
+        <header class="section-header reveal">
+          <p class="section-tag">Testimonials</p>
+          <h2 class="section-title">Trusted by KL's<br>Most Discerning Buyers.</h2>
+        </header>
+        <div class="testimonials-grid">
+          <blockquote class="testimonial-card reveal">
+            <p class="testimonial-quote">Skyline found us our KLCC penthouse off-market, handled every detail from offer to handover, and the entire process felt effortless. I wouldn't transact with anyone else in KL.</p>
+            <footer class="testimonial-author">
+              <div class="testimonial-avatar" aria-hidden="true">RH</div>
+              <div>
+                <div class="testimonial-name">Rahul Harjani</div>
+                <div class="testimonial-detail">Purchased: The Binjai On The Park · KLCC</div>
+              </div>
+            </footer>
+          </blockquote>
+          <blockquote class="testimonial-card reveal">
+            <p class="testimonial-quote">As a Singapore-based investor, I needed absolute confidence in my KL agent. Skyline's due diligence reports and yield analysis were Bloomberg-quality. Three units purchased and counting.</p>
+            <footer class="testimonial-author">
+              <div class="testimonial-avatar" aria-hidden="true">CL</div>
+              <div>
+                <div class="testimonial-name">Christine Lim</div>
+                <div class="testimonial-detail">Purchased: 3 units — Mont Kiara &amp; Desa Park City</div>
+              </div>
+            </footer>
+          </blockquote>
+          <blockquote class="testimonial-card reveal">
+            <p class="testimonial-quote">We relocated from London with two children and Skyline handled everything — school catchment mapping, walkability scores, even recommending our moving firm. Genuinely exceptional service.</p>
+            <footer class="testimonial-author">
+              <div class="testimonial-avatar" aria-hidden="true">JP</div>
+              <div>
+                <div class="testimonial-name">James &amp; Priya Foster</div>
+                <div class="testimonial-detail">Rented: Bangsar South Nexus · Bangsar</div>
+              </div>
+            </footer>
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact-section" id="contact" aria-label="Contact and book valuation">
+      <div class="container">
+        <header class="section-header reveal">
+          <p class="section-tag">Book a Valuation</p>
+          <h2 class="section-title">Let's Begin Your<br>Property Journey.</h2>
+          <p class="section-desc">Whether you're buying, selling, or investing — our specialists respond within 24 hours.</p>
+        </header>
+        <div class="contact-grid">
+          <div class="contact-info reveal">
+            <div class="contact-info-item">
+              <div class="contact-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+              </div>
+              <div>
+                <div class="contact-info-label">Our Office</div>
+                <div class="contact-info-value">Level 28, Menara Citibank<br>165 Jalan Ampang, 50450 KL</div>
+              </div>
+            </div>
+            <div class="contact-info-item">
+              <div class="contact-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 8.91a16 16 0 0 0 6 6l.77-.77a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              </div>
+              <div>
+                <div class="contact-info-label">Phone</div>
+                <div class="contact-info-value"><a href="tel:+60321234567">+603 2123 4567</a></div>
+              </div>
+            </div>
+            <div class="contact-info-item">
+              <div class="contact-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+              </div>
+              <div>
+                <div class="contact-info-label">Email</div>
+                <div class="contact-info-value"><a href="mailto:hello@skylineproperties.com.my">hello@skylineproperties.com.my</a></div>
+              </div>
+            </div>
+            <div class="contact-info-item" style="border-bottom: none;">
+              <div class="contact-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              </div>
+              <div>
+                <div class="contact-info-label">Hours</div>
+                <div class="contact-info-value">Mon – Fri: 9:00 AM – 6:00 PM<br>Sat: 10:00 AM – 3:00 PM</div>
+              </div>
+            </div>
+          </div>
+          <div class="contact-form-wrapper reveal">
+            <h3 class="form-title">Book a Free Valuation</h3>
+            <p class="form-subtitle">Fill in your details and a specialist will contact you within 24 hours.</p>
+            <div class="form-success" id="formSuccess" role="alert">
+              <p>Thank you! We'll be in touch within 24 hours.</p>
+              <span>Our specialist will reach out to arrange a convenient time for your consultation.</span>
+            </div>
+            <form id="contactForm" novalidate onsubmit="submitForm(event)">
+              <div class="form-row">
+                <div class="form-group" id="fg-name">
+                  <label for="f-name">Full Name *</label>
+                  <input type="text" id="f-name" name="name" placeholder="Your full name" autocomplete="name" />
+                  <span class="form-error-msg">Please enter your full name.</span>
+                </div>
+                <div class="form-group" id="fg-email">
+                  <label for="f-email">Email Address *</label>
+                  <input type="email" id="f-email" name="email" placeholder="your@email.com" autocomplete="email" />
+                  <span class="form-error-msg">Please enter a valid email address.</span>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group" id="fg-phone">
+                  <label for="f-phone">Phone Number</label>
+                  <input type="tel" id="f-phone" name="phone" placeholder="+60 12 345 6789" autocomplete="tel" />
+                </div>
+                <div class="form-group" id="fg-interest">
+                  <label for="f-interest">I'm Interested In *</label>
+                  <select id="f-interest" name="interest">
+                    <option value="">Select service</option>
+                    <option value="buy">Buying a Property</option>
+                    <option value="sell">Selling a Property</option>
+                    <option value="invest">Investment Advisory</option>
+                    <option value="rent">Renting</option>
+                    <option value="valuation">Free Valuation</option>
+                  </select>
+                  <span class="form-error-msg">Please select an option.</span>
+                </div>
+              </div>
+              <div class="form-group" id="fg-budget">
+                <label for="f-budget">Budget / Property Value Range</label>
+                <select id="f-budget" name="budget">
+                  <option value="">Select range</option>
+                  <option value="under-1m">Under RM 1M</option>
+                  <option value="1m-2m">RM 1M – RM 2M</option>
+                  <option value="2m-5m">RM 2M – RM 5M</option>
+                  <option value="above-5m">Above RM 5M</option>
+                </select>
+              </div>
+              <div class="form-group" id="fg-message">
+                <label for="f-message">Message</label>
+                <textarea id="f-message" name="message" placeholder="Tell us about your property requirements, preferred locations, or any specific questions…"></textarea>
+              </div>
+              <button type="submit" class="btn-primary" style="width: 100%; justify-content: center;">
+                Send Enquiry
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 2 11 13"/><path d="M22 2 15 22 11 13 2 9l20-7z"/></svg>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-brand-name">Skyline Properties</div>
+          <div class="footer-brand-tag">Luxury Real Estate · Kuala Lumpur</div>
+          <p class="footer-brand-desc">KL's premier luxury property agency — curating exceptional residential addresses for discerning investors and owner-occupiers since 2009.</p>
+          <div class="footer-certs">
+            <span class="footer-cert">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/></svg>
+              LPPEH Registered
+            </span>
+            <span class="footer-cert">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/></svg>
+              BOVAEP Licensed
+            </span>
+            <span class="footer-cert">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
+              MIEA Member
+            </span>
+          </div>
+        </div>
+        <div>
+          <h4 class="footer-col-title">Quick Links</h4>
+          <ul class="footer-links" role="list">
+            <li><a href="#listings">Featured Listings</a></li>
+            <li><a href="#services">Our Services</a></li>
+            <li><a href="#about">About Skyline</a></li>
+            <li><a href="#testimonials">Client Stories</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-col-title">Locations</h4>
+          <ul class="footer-links" role="list">
+            <li><a href="#listings">KLCC</a></li>
+            <li><a href="#listings">Bangsar</a></li>
+            <li><a href="#listings">Mont Kiara</a></li>
+            <li><a href="#listings">Ampang</a></li>
+            <li><a href="#listings">Desa Park City</a></li>
+            <li><a href="#listings">Damansara Heights</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-col-title">Contact</h4>
+          <div class="footer-contact-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>Level 28, Menara Citibank<br>165 Jalan Ampang<br>50450 Kuala Lumpur</span>
+          </div>
+          <div class="footer-contact-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 8.91a16 16 0 0 0 6 6l.77-.77a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <span>+603 2123 4567</span>
+          </div>
+          <div class="footer-contact-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            <span>hello@skylineproperties.com.my</span>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Skyline Properties Sdn. Bhd. (1234567-A). All rights reserved.</p>
+        <p>LPPEH Reg. No. E(1)1234 · BOVAEP Licence No. VE(1)0001</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    /* ==================== NAV ==================== */
+    function toggleNav(btn) {
+      var nav = document.getElementById('mobileNav');
+      var open = nav.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open);
+    }
+    function closeMobileNav() {
+      document.getElementById('mobileNav').classList.remove('open');
+    }
+
+    /* ==================== TABS ==================== */
+    function switchTab(id) {
+      document.querySelectorAll('.tab-btn').forEach(function(b) {
+        b.classList.remove('active');
+        b.setAttribute('aria-selected', 'false');
+      });
+      document.querySelectorAll('.tab-panel').forEach(function(p) { p.classList.remove('active'); });
+      document.getElementById('btn-' + id).classList.add('active');
+      document.getElementById('btn-' + id).setAttribute('aria-selected', 'true');
+      document.getElementById('tab-' + id).classList.add('active');
+    }
+
+    /* ==================== FILTER ==================== */
+    function filterListings() {
+      var loc = document.getElementById('filter-location').value;
+      var type = document.getElementById('filter-type').value;
+      var price = parseInt(document.getElementById('filter-price').value) || Infinity;
+      var beds = document.getElementById('filter-beds').value;
+      var cards = document.querySelectorAll('.property-card');
+      var visible = 0;
+      cards.forEach(function(card) {
+        var cLoc = card.dataset.location;
+        var cType = card.dataset.type;
+        var cPrice = parseInt(card.dataset.price);
+        var cBeds = parseInt(card.dataset.beds);
+        var show = true;
+        if (loc && cLoc !== loc) show = false;
+        if (type && cType !== type) show = false;
+        if (cPrice > price) show = false;
+        if (beds) {
+          if (beds === '4' && cBeds < 4) show = false;
+          else if (beds !== '4' && cBeds !== parseInt(beds)) show = false;
+        }
+        card.style.display = show ? '' : 'none';
+        if (show) visible++;
+      });
+      var noRes = document.getElementById('noResults');
+      noRes.classList.toggle('visible', visible === 0);
+    }
+
+    /* ==================== ANIMATED COUNTERS ==================== */
+    function animateCounter(el, target, duration) {
+      var start = 0;
+      var increment = target / (duration / 16);
+      var timer = setInterval(function() {
+        start += increment;
+        if (start >= target) { start = target; clearInterval(timer); }
+        el.textContent = Math.floor(start);
+      }, 16);
+    }
+    var countersStarted = false;
+    function startCounters() {
+      if (countersStarted) return;
+      var hero = document.querySelector('.hero-counters');
+      if (!hero) return;
+      var rect = hero.getBoundingClientRect();
+      if (rect.top < window.innerHeight) {
+        countersStarted = true;
+        animateCounter(document.getElementById('counter1'), 247, 1600);
+        animateCounter(document.getElementById('counter2'), 380, 1800);
+      }
+    }
+
+    /* ==================== SCROLL REVEAL ==================== */
+    var revealObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.reveal').forEach(function(el) {
+      revealObserver.observe(el);
+    });
+
+    window.addEventListener('scroll', startCounters, { passive: true });
+    startCounters();
+
+    /* ==================== FORM VALIDATION ==================== */
+    function submitForm(e) {
+      e.preventDefault();
+      var valid = true;
+      function validate(fgId, fieldId, checkFn) {
+        var fg = document.getElementById(fgId);
+        var val = document.getElementById(fieldId).value.trim();
+        if (!checkFn(val)) { fg.classList.add('error'); valid = false; }
+        else { fg.classList.remove('error'); }
+      }
+      validate('fg-name', 'f-name', function(v) { return v.length >= 2; });
+      validate('fg-email', 'f-email', function(v) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); });
+      validate('fg-interest', 'f-interest', function(v) { return v !== ''; });
+      if (!valid) return;
+      document.getElementById('contactForm').style.display = 'none';
+      document.getElementById('formSuccess').classList.add('visible');
+      document.getElementById('formSuccess').scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  </script>
+</body>
+</html>

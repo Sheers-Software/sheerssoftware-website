@@ -1,0 +1,2053 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GLOSS Detailing Studio — Premium Auto Detailing, Petaling Jaya</title>
+  <meta name="description" content="Precision detailing for vehicles that demand perfection. Paint correction, ceramic coating, interior deep clean. Petaling Jaya's premier auto detailing studio." />
+  <!-- Open Graph -->
+  <meta property="og:title" content="GLOSS Detailing Studio — Premium Auto Detailing" />
+  <meta property="og:description" content="Precision detailing for vehicles that demand perfection. Paint correction, ceramic coating, and more in Petaling Jaya." />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1550355291-bbee04a92027?w=1200" />
+  <meta property="og:type" content="website" />
+  <!-- SVG Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚗</text></svg>" />
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Space+Mono:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ─── DESIGN TOKENS ─── */
+    :root {
+      --carbon: #0a0a0a;
+      --surface: #111111;
+      --red: #dc2626;
+      --chrome: #8b9196;
+      --white: #f1f5f9;
+      --data: #22d3ee;
+      --border: rgba(139,145,150,0.2);
+      --red-glow: rgba(220,38,38,0.3);
+      --data-glow: rgba(34,211,238,0.2);
+    }
+
+    /* ─── RESET ─── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      background-color: var(--carbon);
+      color: var(--white);
+      font-family: 'Inter', sans-serif;
+      font-weight: 400;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+    ul { list-style: none; }
+    button { cursor: pointer; border: none; background: none; font-family: inherit; }
+
+    /* ─── CARBON FIBRE TEXTURE ─── */
+    .carbon-bg {
+      background-color: var(--carbon);
+      background-image:
+        repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(255,255,255,.03) 2px, rgba(255,255,255,.03) 4px),
+        repeating-linear-gradient(-45deg, transparent, transparent 2px, rgba(255,255,255,.03) 2px, rgba(255,255,255,.03) 4px);
+    }
+    .surface-bg {
+      background-color: var(--surface);
+      background-image:
+        repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(255,255,255,.02) 2px, rgba(255,255,255,.02) 4px),
+        repeating-linear-gradient(-45deg, transparent, transparent 2px, rgba(255,255,255,.02) 2px, rgba(255,255,255,.02) 4px);
+    }
+
+    /* ─── TYPOGRAPHY ─── */
+    .font-rajdhani { font-family: 'Rajdhani', sans-serif; }
+    .font-mono { font-family: 'Space Mono', monospace; }
+    h1, h2, h3, h4, h5, h6 { font-family: 'Rajdhani', sans-serif; font-weight: 700; line-height: 1.1; letter-spacing: 0.05em; }
+    .section-label {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.7rem;
+      color: var(--data);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 0.75rem;
+    }
+    .section-label::before {
+      content: '';
+      display: block;
+      width: 2rem;
+      height: 1px;
+      background: var(--data);
+    }
+    .section-title {
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--white);
+    }
+    .section-title span { color: var(--red); }
+
+    /* ─── BACK LINK ─── */
+    .back-link-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 200;
+      padding: 0.5rem 2rem;
+      background: rgba(10,10,10,0.95);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+    .back-link {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.7rem;
+      color: var(--chrome);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .back-link:hover { color: var(--white); }
+    .back-link svg { width: 12px; height: 12px; }
+
+    /* ─── NAV ─── */
+    nav {
+      position: fixed;
+      top: 33px;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 0 2rem;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(10,10,10,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      transition: background 0.3s;
+    }
+    .nav-logo {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--white);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .nav-logo .logo-dot {
+      width: 8px; height: 8px;
+      background: var(--red);
+      border-radius: 50%;
+      box-shadow: 0 0 8px var(--red);
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+    .nav-links a {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--chrome);
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--white); }
+    .nav-cta {
+      background: var(--red) !important;
+      color: var(--white) !important;
+      padding: 0.5rem 1.25rem !important;
+      font-size: 0.7rem !important;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      transition: background 0.2s, box-shadow 0.2s !important;
+      border: none;
+    }
+    .nav-cta:hover { background: #b91c1c !important; box-shadow: 0 0 16px var(--red-glow) !important; }
+
+    /* Hamburger */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      padding: 4px;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--white);
+      transition: transform 0.3s, opacity 0.3s;
+    }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 97px;
+      left: 0;
+      right: 0;
+      background: rgba(10,10,10,0.98);
+      border-bottom: 1px solid var(--border);
+      padding: 1.5rem 2rem;
+      z-index: 99;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.8rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--chrome);
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .mobile-menu a:last-child { border-bottom: none; }
+
+    /* ─── HERO ─── */
+    .hero {
+      position: relative;
+      min-height: 100svh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      padding-top: 97px;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('https://images.unsplash.com/photo-1550355291-bbee04a92027?w=1600');
+      background-size: cover;
+      background-position: center;
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(10,10,10,0.92) 0%, rgba(10,10,10,0.75) 50%, rgba(10,10,10,0.88) 100%);
+    }
+    .hero-carbon {
+      position: absolute;
+      inset: 0;
+      background-image:
+        repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(255,255,255,.025) 2px, rgba(255,255,255,.025) 4px),
+        repeating-linear-gradient(-45deg, transparent, transparent 2px, rgba(255,255,255,.025) 2px, rgba(255,255,255,.025) 4px);
+    }
+    /* HUD scan line */
+    .hero-scan {
+      position: absolute;
+      left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--data), transparent);
+      opacity: 0.4;
+      animation: scan 8s linear infinite;
+      top: 0;
+    }
+    @keyframes scan {
+      0% { top: 0; opacity: 0; }
+      10% { opacity: 0.4; }
+      90% { opacity: 0.4; }
+      100% { top: 100%; opacity: 0; }
+    }
+    /* HUD Corner brackets */
+    .hud-corner {
+      position: absolute;
+      width: 60px;
+      height: 60px;
+    }
+    .hud-corner::before, .hud-corner::after {
+      content: '';
+      position: absolute;
+      background: var(--data);
+    }
+    .hud-corner.tl { top: 80px; left: 40px; }
+    .hud-corner.tl::before { top: 0; left: 0; width: 1px; height: 40px; }
+    .hud-corner.tl::after { top: 0; left: 0; width: 40px; height: 1px; }
+    .hud-corner.tr { top: 80px; right: 40px; }
+    .hud-corner.tr::before { top: 0; right: 0; width: 1px; height: 40px; }
+    .hud-corner.tr::after { top: 0; right: 0; width: 40px; height: 1px; }
+    .hud-corner.bl { bottom: 40px; left: 40px; }
+    .hud-corner.bl::before { bottom: 0; left: 0; width: 1px; height: 40px; }
+    .hud-corner.bl::after { bottom: 0; left: 0; width: 40px; height: 1px; }
+    .hud-corner.br { bottom: 40px; right: 40px; }
+    .hud-corner.br::before { bottom: 0; right: 0; width: 1px; height: 40px; }
+    .hud-corner.br::after { bottom: 0; right: 0; width: 40px; height: 1px; }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 2rem;
+      max-width: 860px;
+    }
+    .hero-eyebrow {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.3em;
+      color: var(--data);
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+    }
+    .hero-eyebrow::before, .hero-eyebrow::after {
+      content: '';
+      width: 40px;
+      height: 1px;
+      background: var(--data);
+    }
+    .hero-title {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: clamp(3rem, 8vw, 7rem);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      line-height: 0.95;
+      color: var(--white);
+      margin-bottom: 1.5rem;
+    }
+    .hero-title .accent { color: var(--red); }
+    .hero-sub {
+      font-family: 'Inter', sans-serif;
+      font-size: clamp(0.95rem, 1.5vw, 1.15rem);
+      color: var(--chrome);
+      letter-spacing: 0.02em;
+      margin-bottom: 2.5rem;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .hero-ctas {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--red);
+      color: var(--white);
+      font-family: 'Rajdhani', sans-serif;
+      font-weight: 600;
+      font-size: 0.9rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 0.9rem 2rem;
+      transition: background 0.2s, box-shadow 0.2s, transform 0.15s;
+      clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
+    }
+    .btn-primary:hover {
+      background: #b91c1c;
+      box-shadow: 0 0 24px var(--red-glow);
+      transform: translateY(-1px);
+    }
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: transparent;
+      color: var(--white);
+      font-family: 'Rajdhani', sans-serif;
+      font-weight: 600;
+      font-size: 0.9rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 0.9rem 2rem;
+      border: 1px solid var(--border);
+      transition: border-color 0.2s, color 0.2s, transform 0.15s;
+      clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
+    }
+    .btn-secondary:hover {
+      border-color: var(--chrome);
+      color: var(--white);
+      transform: translateY(-1px);
+    }
+
+    /* Hero stats */
+    .hero-stats {
+      position: absolute;
+      bottom: 3rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      display: flex;
+      gap: 3rem;
+    }
+    .hero-stat {
+      text-align: center;
+    }
+    .hero-stat-num {
+      font-family: 'Space Mono', monospace;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--red);
+    }
+    .hero-stat-label {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.15em;
+      color: var(--chrome);
+      text-transform: uppercase;
+      margin-top: 0.25rem;
+    }
+
+    /* ─── SECTION WRAPPER ─── */
+    .section-wrapper {
+      padding: 6rem 2rem;
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+    .section-header {
+      margin-bottom: 3.5rem;
+    }
+
+    /* ─── SERVICES ─── */
+    #services { background-color: var(--surface); }
+    #services .section-bg {
+      background-color: var(--surface);
+      background-image:
+        repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(255,255,255,.015) 2px, rgba(255,255,255,.015) 4px),
+        repeating-linear-gradient(-45deg, transparent, transparent 2px, rgba(255,255,255,.015) 2px, rgba(255,255,255,.015) 4px);
+    }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5px;
+      border: 1.5px solid var(--border);
+    }
+    .service-card {
+      background: var(--carbon);
+      background-image:
+        repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(255,255,255,.02) 2px, rgba(255,255,255,.02) 4px),
+        repeating-linear-gradient(-45deg, transparent, transparent 2px, rgba(255,255,255,.02) 2px, rgba(255,255,255,.02) 4px);
+      padding: 2rem;
+      border: 1px solid var(--border);
+      position: relative;
+      overflow: hidden;
+      transition: border-color 0.3s;
+      display: flex;
+      flex-direction: column;
+    }
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--red), transparent);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .service-card:hover { border-color: rgba(220,38,38,0.3); }
+    .service-card:hover::before { opacity: 1; }
+
+    .service-index {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.6rem;
+      color: var(--chrome);
+      letter-spacing: 0.2em;
+      margin-bottom: 1rem;
+      opacity: 0.5;
+    }
+    .service-name {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 0.5rem;
+    }
+    .service-price {
+      font-family: 'Space Mono', monospace;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--red);
+      margin-bottom: 0.25rem;
+    }
+    .service-price span {
+      font-size: 0.7rem;
+      color: var(--chrome);
+      font-weight: 400;
+    }
+    .service-time {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.7rem;
+      color: var(--data);
+      letter-spacing: 0.1em;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .service-time::before {
+      content: '//';
+      opacity: 0.5;
+    }
+    .service-checklist {
+      flex: 1;
+      margin-bottom: 1.5rem;
+    }
+    .service-checklist li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.6rem;
+      font-size: 0.85rem;
+      color: var(--chrome);
+      padding: 0.35rem 0;
+      border-bottom: 1px solid rgba(139,145,150,0.1);
+    }
+    .service-checklist li:last-child { border-bottom: none; }
+    .service-checklist li::before {
+      content: '▸';
+      color: var(--red);
+      flex-shrink: 0;
+      font-size: 0.7rem;
+      margin-top: 0.1rem;
+    }
+    .btn-configure {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      background: transparent;
+      border: 1px solid var(--red);
+      color: var(--red);
+      font-family: 'Rajdhani', sans-serif;
+      font-weight: 600;
+      font-size: 0.85rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 0.7rem 1.5rem;
+      transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+      clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px));
+      width: 100%;
+    }
+    .btn-configure:hover {
+      background: var(--red);
+      color: var(--white);
+      box-shadow: 0 0 16px var(--red-glow);
+    }
+
+    /* ─── CONFIGURATOR ─── */
+    #configurator { background-color: var(--carbon); }
+    .config-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+    .config-panel {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 2rem;
+      position: relative;
+    }
+    .config-panel::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--red), transparent);
+    }
+    .config-label {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.65rem;
+      color: var(--data);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 1.25rem;
+    }
+    .size-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+      margin-bottom: 2rem;
+    }
+    .size-btn {
+      position: relative;
+      padding: 0;
+    }
+    .size-btn input[type="radio"] {
+      position: absolute;
+      opacity: 0;
+      width: 0; height: 0;
+    }
+    .size-btn label {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 1rem;
+      border: 1px solid var(--border);
+      cursor: pointer;
+      transition: border-color 0.2s, background 0.2s;
+      background: var(--carbon);
+      clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 0 100%);
+    }
+    .size-btn input[type="radio"]:checked + label {
+      border-color: var(--red);
+      background: rgba(220,38,38,0.08);
+    }
+    .size-btn label:hover { border-color: rgba(220,38,38,0.4); }
+    .size-name {
+      font-family: 'Rajdhani', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--white);
+    }
+    .size-mult {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.6rem;
+      color: var(--chrome);
+      margin-top: 0.2rem;
+    }
+    .size-example {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.7rem;
+      color: var(--chrome);
+      opacity: 0.6;
+      margin-top: 0.25rem;
+    }
+
+    .service-select-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      margin-bottom: 2rem;
+    }
+    .service-radio {
+      position: relative;
+    }
+    .service-radio input[type="radio"] {
+      position: absolute;
+      opacity: 0;
+      width: 0; height: 0;
+    }
+    .service-radio label {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.9rem 1rem;
+      border: 1px solid var(--border);
+      cursor: pointer;
+      transition: border-color 0.2s, background 0.2s;
+      background: var(--carbon);
+    }
+    .service-radio input[type="radio"]:checked + label {
+      border-color: var(--red);
+      background: rgba(220,38,38,0.05);
+    }
+    .service-radio label:hover { border-color: rgba(220,38,38,0.3); }
+    .sr-name {
+      font-family: 'Rajdhani', sans-serif;
+      font-weight: 600;
+      font-size: 0.95rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--white);
+    }
+    .sr-base {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.7rem;
+      color: var(--chrome);
+    }
+
+    /* Price display */
+    .price-display {
+      background: var(--carbon);
+      border: 1px solid var(--border);
+      padding: 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .price-display::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--data), transparent);
+    }
+    .price-display-label {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.65rem;
+      color: var(--chrome);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+    .price-amount {
+      font-family: 'Space Mono', monospace;
+      font-size: 3rem;
+      font-weight: 700;
+      color: var(--red);
+      position: relative;
+      display: inline-block;
+      transition: color 0.1s;
+    }
+    .price-amount.updated {
+      color: var(--white);
+      text-shadow: 0 0 20px var(--red);
+    }
+    .price-currency {
+      font-size: 1.2rem;
+      color: var(--chrome);
+      vertical-align: super;
+    }
+    .price-tag-updated {
+      display: inline-block;
+      font-family: 'Space Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      background: var(--red);
+      color: var(--white);
+      padding: 0.15rem 0.5rem;
+      margin-left: 0.75rem;
+      vertical-align: middle;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .price-tag-updated.show { opacity: 1; }
+    .config-summary {
+      margin-top: 1.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+    }
+    .config-summary-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid rgba(139,145,150,0.08);
+    }
+    .config-summary-row:last-child { border-bottom: none; }
+    .csr-key {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.65rem;
+      color: var(--chrome);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .csr-val {
+      font-family: 'Rajdhani', sans-serif;
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: var(--white);
+      letter-spacing: 0.05em;
+    }
+    .config-book-btn {
+      display: block;
+      width: 100%;
+      background: var(--red);
+      color: var(--white);
+      font-family: 'Rajdhani', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      padding: 1rem;
+      margin-top: 1.5rem;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s, box-shadow 0.2s;
+      clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px));
+    }
+    .config-book-btn:hover {
+      background: #b91c1c;
+      box-shadow: 0 0 24px var(--red-glow);
+    }
+
+    /* ─── PROCESS ─── */
+    #process { background: var(--surface); }
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      border: 1px solid var(--border);
+      background: var(--border);
+    }
+    .process-step {
+      background: var(--carbon);
+      padding: 2rem 1.75rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .process-step::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(220,38,38,0.2), transparent);
+    }
+    .step-number {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 3.5rem;
+      font-weight: 700;
+      color: var(--red);
+      opacity: 0.15;
+      position: absolute;
+      top: 1rem;
+      right: 1.5rem;
+      line-height: 1;
+    }
+    .step-index {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.6rem;
+      color: var(--red);
+      letter-spacing: 0.2em;
+      margin-bottom: 0.75rem;
+    }
+    .step-name {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 0.5rem;
+    }
+    .step-time {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.65rem;
+      color: var(--data);
+      letter-spacing: 0.1em;
+      margin-bottom: 0.75rem;
+    }
+    .step-desc {
+      font-size: 0.85rem;
+      color: var(--chrome);
+      line-height: 1.6;
+    }
+
+    /* ─── OUR WORK ─── */
+    #work { background: var(--carbon); }
+    .work-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 1.5rem;
+    }
+    .work-card {
+      position: relative;
+      border: 1px solid var(--border);
+      overflow: hidden;
+    }
+    .ba-container {
+      position: relative;
+      height: 280px;
+      cursor: col-resize;
+      overflow: hidden;
+      user-select: none;
+    }
+    .ba-after {
+      position: absolute;
+      inset: 0;
+    }
+    .ba-after img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .ba-before {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+    }
+    .ba-before img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: grayscale(80%) brightness(0.55) contrast(1.1);
+    }
+    .ba-divider {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: var(--white);
+      cursor: col-resize;
+      transform: translateX(-50%);
+      z-index: 3;
+    }
+    .ba-divider::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 36px;
+      height: 36px;
+      background: var(--white);
+      border-radius: 50%;
+    }
+    .ba-divider::after {
+      content: '◀ ▶';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 0.6rem;
+      color: var(--carbon);
+      white-space: nowrap;
+      letter-spacing: -0.1em;
+    }
+    .ba-label-before, .ba-label-after {
+      position: absolute;
+      bottom: 0.75rem;
+      font-family: 'Space Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 0.25rem 0.6rem;
+      z-index: 2;
+    }
+    .ba-label-before {
+      left: 0.75rem;
+      background: rgba(0,0,0,0.7);
+      color: var(--chrome);
+    }
+    .ba-label-after {
+      right: 0.75rem;
+      background: rgba(220,38,38,0.8);
+      color: var(--white);
+    }
+    .work-card-info {
+      padding: 1.25rem 1.5rem;
+      background: var(--surface);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid var(--border);
+    }
+    .work-vehicle {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--white);
+    }
+    .work-service {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.6rem;
+      color: var(--data);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-top: 0.2rem;
+    }
+    .work-tag {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.55rem;
+      letter-spacing: 0.15em;
+      padding: 0.3rem 0.6rem;
+      border: 1px solid rgba(34,211,238,0.3);
+      color: var(--data);
+      text-transform: uppercase;
+    }
+
+    /* ─── CERTIFICATIONS ─── */
+    #certifications {
+      background: var(--surface);
+      padding: 3rem 2rem;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .cert-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+    .cert-label {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.65rem;
+      color: var(--chrome);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-right: 1rem;
+    }
+    .cert-badge {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.6rem 1.25rem;
+      border: 1px solid var(--border);
+      background: var(--carbon);
+      font-family: 'Space Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--white);
+      clip-path: polygon(0 0, calc(100% - 6px) 0, 100% 6px, 100% 100%, 6px 100%, 0 calc(100% - 6px));
+    }
+    .cert-badge::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      background: var(--data);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .cert-sep {
+      color: var(--border);
+      font-family: 'Space Mono', monospace;
+    }
+
+    /* ─── BOOKING FORM ─── */
+    #book { background: var(--carbon); }
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+    .form-group.full { grid-column: 1 / -1; }
+    .form-label {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--chrome);
+    }
+    .form-input, .form-select, .form-textarea {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--white);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      padding: 0.85rem 1rem;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      -webkit-appearance: none;
+      width: 100%;
+    }
+    .form-input:focus, .form-select:focus, .form-textarea:focus {
+      border-color: var(--red);
+      box-shadow: 0 0 0 2px var(--red-glow);
+    }
+    .form-input::placeholder { color: rgba(139,145,150,0.5); }
+    .form-select { cursor: pointer; }
+    .form-select option { background: var(--surface); color: var(--white); }
+    .form-textarea { resize: vertical; min-height: 100px; }
+    .form-note {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.65rem;
+      color: var(--data);
+      letter-spacing: 0.08em;
+      padding: 0.75rem 1rem;
+      border: 1px solid rgba(34,211,238,0.2);
+      background: rgba(34,211,238,0.03);
+      margin-top: 0.5rem;
+    }
+    .form-note::before { content: '// NOTE: '; color: var(--chrome); }
+    .form-submit {
+      display: block;
+      width: 100%;
+      background: var(--red);
+      color: var(--white);
+      font-family: 'Rajdhani', sans-serif;
+      font-weight: 700;
+      font-size: 1.1rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      padding: 1.1rem;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s, box-shadow 0.2s;
+      clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px));
+      margin-top: 1.5rem;
+    }
+    .form-submit:hover {
+      background: #b91c1c;
+      box-shadow: 0 0 28px var(--red-glow);
+    }
+    .form-success {
+      display: none;
+      background: rgba(34,211,238,0.05);
+      border: 1px solid rgba(34,211,238,0.3);
+      padding: 1.5rem;
+      text-align: center;
+      margin-top: 1rem;
+    }
+    .form-success.show { display: block; }
+    .form-success-title {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--data);
+      margin-bottom: 0.5rem;
+    }
+    .form-success p {
+      font-size: 0.9rem;
+      color: var(--chrome);
+    }
+    .form-error {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.6rem;
+      color: var(--red);
+      letter-spacing: 0.05em;
+      margin-top: 0.25rem;
+      display: none;
+    }
+    .form-error.show { display: block; }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      padding: 3rem 2rem;
+    }
+    .footer-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 3rem;
+    }
+    .footer-brand {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .footer-brand .logo-dot {
+      width: 8px; height: 8px;
+      background: var(--red);
+      border-radius: 50%;
+      box-shadow: 0 0 8px var(--red);
+    }
+    .footer-tagline {
+      font-size: 0.85rem;
+      color: var(--chrome);
+      margin-bottom: 1.25rem;
+      max-width: 280px;
+    }
+    .footer-whatsapp {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: #25D366;
+      color: var(--white);
+      font-family: 'Rajdhani', sans-serif;
+      font-weight: 600;
+      font-size: 0.85rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.6rem 1.25rem;
+      transition: background 0.2s, box-shadow 0.2s;
+      clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px));
+    }
+    .footer-whatsapp:hover {
+      background: #128C7E;
+      box-shadow: 0 0 16px rgba(37,211,102,0.3);
+    }
+    .footer-col-title {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--data);
+      margin-bottom: 1rem;
+    }
+    .footer-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+    .footer-list li {
+      font-size: 0.85rem;
+      color: var(--chrome);
+      line-height: 1.5;
+    }
+    .footer-list li a {
+      color: var(--chrome);
+      transition: color 0.2s;
+    }
+    .footer-list li a:hover { color: var(--white); }
+    .footer-hours-item {
+      display: flex;
+      justify-content: space-between;
+      font-family: 'Space Mono', monospace;
+      font-size: 0.65rem;
+      color: var(--chrome);
+      padding: 0.35rem 0;
+      border-bottom: 1px solid rgba(139,145,150,0.08);
+    }
+    .footer-hours-item span:last-child { color: var(--data); }
+    .footer-bottom {
+      max-width: 1280px;
+      margin: 2rem auto 0;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .footer-copy {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.6rem;
+      color: rgba(139,145,150,0.5);
+      letter-spacing: 0.1em;
+    }
+    .footer-address {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.6rem;
+      color: rgba(139,145,150,0.5);
+      letter-spacing: 0.05em;
+      text-align: right;
+    }
+
+    /* ─── DIVIDER ─── */
+    .section-divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--border), transparent);
+    }
+
+    /* ─── SCROLL REVEAL ─── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 1024px) {
+      .footer-inner { grid-template-columns: 1fr 1fr; }
+      .config-wrapper { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .process-grid { grid-template-columns: 1fr 1fr; }
+      .form-grid { grid-template-columns: 1fr; }
+      .form-group.full { grid-column: 1; }
+      .footer-inner { grid-template-columns: 1fr; gap: 2rem; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+      .footer-address { text-align: center; }
+      .hero-stats { gap: 1.5rem; }
+      .hud-corner { display: none; }
+      .size-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 480px) {
+      .process-grid { grid-template-columns: 1fr; }
+      .services-grid { grid-template-columns: 1fr; }
+      .work-grid { grid-template-columns: 1fr; }
+      .hero-stats { flex-direction: column; gap: 1rem; }
+      .cert-inner { flex-direction: column; align-items: flex-start; }
+      .hero-ctas { flex-direction: column; align-items: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- BACK LINK BAR -->
+  <div class="back-link-bar">
+    <a href="/portfolio/" class="back-link">
+      <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M8 2L4 6l4 4"/>
+      </svg>
+      Back to Portfolio
+    </a>
+    <span style="font-family:'Space Mono',monospace;font-size:0.6rem;color:rgba(139,145,150,0.4);letter-spacing:0.15em;text-transform:uppercase;">
+      Demo — Gloss Detailing Studio
+    </span>
+  </div>
+
+  <!-- NAV -->
+  <nav id="main-nav">
+    <a href="#hero" class="nav-logo">
+      <span class="logo-dot"></span>
+      GLOSS
+    </a>
+    <div class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#configurator">Configure</a>
+      <a href="#process">Process</a>
+      <a href="#work">Our Work</a>
+      <a href="#book" class="nav-cta">Book Now</a>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="#services" class="mobile-link">Services</a>
+    <a href="#configurator" class="mobile-link">Configure</a>
+    <a href="#process" class="mobile-link">Process</a>
+    <a href="#work" class="mobile-link">Our Work</a>
+    <a href="#book" class="mobile-link">Book Now</a>
+  </div>
+
+  <main>
+
+    <!-- HERO -->
+    <section id="hero" class="hero">
+      <div class="hero-bg"></div>
+      <div class="hero-overlay"></div>
+      <div class="hero-carbon"></div>
+      <div class="hero-scan"></div>
+
+      <!-- HUD corners -->
+      <div class="hud-corner tl"></div>
+      <div class="hud-corner tr"></div>
+      <div class="hud-corner bl"></div>
+      <div class="hud-corner br"></div>
+
+      <div class="hero-content">
+        <div class="hero-eyebrow">Petaling Jaya · Est. 2018</div>
+        <h1 class="hero-title">
+          GLOSS<br/>
+          <span class="accent">DETAILING</span><br/>
+          STUDIO
+        </h1>
+        <p class="hero-sub">Precision detailing for vehicles that demand perfection.</p>
+        <div class="hero-ctas">
+          <a href="#book" class="btn-primary">Book a Detail</a>
+          <a href="#services" class="btn-secondary">View Packages</a>
+        </div>
+      </div>
+
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <div class="hero-stat-num">1,200+</div>
+          <div class="hero-stat-label">Vehicles Detailed</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">6+</div>
+          <div class="hero-stat-label">Years Experience</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">4.9</div>
+          <div class="hero-stat-label">Google Rating</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services">
+      <div class="section-bg">
+        <div class="section-wrapper">
+          <div class="section-header reveal">
+            <div class="section-label">01 / Services</div>
+            <h2 class="section-title">Precision <span>Services</span></h2>
+            <p style="margin-top:1rem;color:var(--chrome);font-size:0.95rem;max-width:520px;">
+              Each service is engineered to exacting standards — the way performance vehicles deserve.
+            </p>
+          </div>
+          <div class="services-grid">
+
+            <!-- Exterior Detail -->
+            <div class="service-card reveal">
+              <div class="service-index">SVC-01</div>
+              <div class="service-name">Exterior Detail</div>
+              <div class="service-price">RM 280 <span>/ from</span></div>
+              <div class="service-time">3–4 hrs</div>
+              <ul class="service-checklist">
+                <li>pH Neutral Hand Wash</li>
+                <li>Wheel &amp; Tyre Clean</li>
+                <li>Clay Bar Decontamination</li>
+                <li>Machine Polish (1-stage)</li>
+                <li>Carnauba Wax Application</li>
+                <li>Glass &amp; Trim Dress</li>
+              </ul>
+              <a href="#configurator" class="btn-configure">Configure ▸</a>
+            </div>
+
+            <!-- Interior Deep Clean -->
+            <div class="service-card reveal">
+              <div class="service-index">SVC-02</div>
+              <div class="service-name">Interior Deep Clean</div>
+              <div class="service-price">RM 320 <span>/ from</span></div>
+              <div class="service-time">4–5 hrs</div>
+              <ul class="service-checklist">
+                <li>Full Vacuum &amp; Air Blow</li>
+                <li>Steam Clean (all surfaces)</li>
+                <li>Leather Conditioning</li>
+                <li>Dashboard &amp; Console Detail</li>
+                <li>Carpet Shampoo</li>
+                <li>Odour Elimination</li>
+              </ul>
+              <a href="#configurator" class="btn-configure">Configure ▸</a>
+            </div>
+
+            <!-- Paint Correction -->
+            <div class="service-card reveal">
+              <div class="service-index">SVC-03</div>
+              <div class="service-name">Paint Correction</div>
+              <div class="service-price">RM 980 <span>/ from</span></div>
+              <div class="service-time">8–12 hrs</div>
+              <ul class="service-checklist">
+                <li>Multi-Stage Machine Polish</li>
+                <li>Swirl &amp; Scratch Removal</li>
+                <li>Oxidation Correction</li>
+                <li>Paint Depth Measurement</li>
+                <li>Panel Inspection Under Lighting</li>
+                <li>Finishing Glaze Application</li>
+              </ul>
+              <a href="#configurator" class="btn-configure">Configure ▸</a>
+            </div>
+
+            <!-- Ceramic Coating -->
+            <div class="service-card reveal">
+              <div class="service-index">SVC-04</div>
+              <div class="service-name">Ceramic Coating</div>
+              <div class="service-price">RM 1,800 <span>/ from</span></div>
+              <div class="service-time">1–2 days</div>
+              <ul class="service-checklist">
+                <li>9H Ceramic Coat Application</li>
+                <li>3-Year Protection Guarantee</li>
+                <li>Hydrophobic Surface Seal</li>
+                <li>UV &amp; Chemical Resistance</li>
+                <li>Full Paint Correction Prep</li>
+                <li>Maintenance Kit Included</li>
+              </ul>
+              <a href="#configurator" class="btn-configure">Configure ▸</a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONFIGURATOR -->
+    <section id="configurator" class="carbon-bg">
+      <div class="section-wrapper">
+        <div class="section-header reveal">
+          <div class="section-label">02 / Configure</div>
+          <h2 class="section-title">Package <span>Configurator</span></h2>
+          <p style="margin-top:1rem;color:var(--chrome);font-size:0.95rem;max-width:520px;">
+            Select your vehicle class and service tier. Price updates in real-time.
+          </p>
+        </div>
+
+        <div class="config-wrapper">
+
+          <!-- Controls -->
+          <div>
+            <div class="config-panel reveal">
+              <div class="config-label">// Step 1 — Vehicle Class</div>
+              <div class="size-grid">
+                <div class="size-btn">
+                  <input type="radio" name="car-size" id="size-sedan" value="sedan" checked />
+                  <label for="size-sedan">
+                    <span class="size-name">Sedan</span>
+                    <span class="size-mult">MULTIPLIER: 1.0×</span>
+                    <span class="size-example">e.g. BMW 3, Camry</span>
+                  </label>
+                </div>
+                <div class="size-btn">
+                  <input type="radio" name="car-size" id="size-suv" value="suv" />
+                  <label for="size-suv">
+                    <span class="size-name">SUV</span>
+                    <span class="size-mult">MULTIPLIER: 1.2×</span>
+                    <span class="size-example">e.g. Fortuner, X5</span>
+                  </label>
+                </div>
+                <div class="size-btn">
+                  <input type="radio" name="car-size" id="size-mpv" value="mpv" />
+                  <label for="size-mpv">
+                    <span class="size-name">MPV</span>
+                    <span class="size-mult">MULTIPLIER: 1.3×</span>
+                    <span class="size-example">e.g. Alphard, Carnival</span>
+                  </label>
+                </div>
+                <div class="size-btn">
+                  <input type="radio" name="car-size" id="size-supercar" value="supercar" />
+                  <label for="size-supercar">
+                    <span class="size-name">Supercar</span>
+                    <span class="size-mult">MULTIPLIER: 1.8×</span>
+                    <span class="size-example">e.g. Ferrari, Lambo</span>
+                  </label>
+                </div>
+              </div>
+
+              <div class="config-label">// Step 2 — Service Tier</div>
+              <div class="service-select-grid">
+                <div class="service-radio">
+                  <input type="radio" name="svc-tier" id="tier-ext" value="280" data-name="Exterior Detail" checked />
+                  <label for="tier-ext">
+                    <span class="sr-name">Exterior Detail</span>
+                    <span class="sr-base">Base RM 280</span>
+                  </label>
+                </div>
+                <div class="service-radio">
+                  <input type="radio" name="svc-tier" id="tier-int" value="320" data-name="Interior Deep Clean" />
+                  <label for="tier-int">
+                    <span class="sr-name">Interior Deep Clean</span>
+                    <span class="sr-base">Base RM 320</span>
+                  </label>
+                </div>
+                <div class="service-radio">
+                  <input type="radio" name="svc-tier" id="tier-pc" value="980" data-name="Paint Correction" />
+                  <label for="tier-pc">
+                    <span class="sr-name">Paint Correction</span>
+                    <span class="sr-base">Base RM 980</span>
+                  </label>
+                </div>
+                <div class="service-radio">
+                  <input type="radio" name="svc-tier" id="tier-cer" value="1800" data-name="Ceramic Coating" />
+                  <label for="tier-cer">
+                    <span class="sr-name">Ceramic Coating</span>
+                    <span class="sr-base">Base RM 1,800</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Price Display -->
+          <div>
+            <div class="price-display reveal" id="price-display">
+              <div class="price-display-label">// Estimated Price</div>
+              <div>
+                <span class="price-currency">RM</span>
+                <span class="price-amount" id="price-amount">280</span>
+                <span class="price-tag-updated" id="price-updated">UPDATED</span>
+              </div>
+
+              <div class="config-summary">
+                <div class="config-summary-row">
+                  <span class="csr-key">Vehicle Class</span>
+                  <span class="csr-val" id="summary-class">Sedan</span>
+                </div>
+                <div class="config-summary-row">
+                  <span class="csr-key">Service</span>
+                  <span class="csr-val" id="summary-service">Exterior Detail</span>
+                </div>
+                <div class="config-summary-row">
+                  <span class="csr-key">Base Price</span>
+                  <span class="csr-val" id="summary-base">RM 280</span>
+                </div>
+                <div class="config-summary-row">
+                  <span class="csr-key">Multiplier</span>
+                  <span class="csr-val" id="summary-mult">1.0×</span>
+                </div>
+                <div class="config-summary-row">
+                  <span class="csr-key">Total Estimate</span>
+                  <span class="csr-val" id="summary-total" style="color:var(--red);">RM 280</span>
+                </div>
+              </div>
+
+              <button class="config-book-btn" onclick="document.getElementById('book').scrollIntoView({behavior:'smooth'})">
+                Book This Configuration ▸
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section id="process">
+      <div style="background-color:var(--surface);background-image:repeating-linear-gradient(45deg,transparent,transparent 2px,rgba(255,255,255,.015) 2px,rgba(255,255,255,.015) 4px),repeating-linear-gradient(-45deg,transparent,transparent 2px,rgba(255,255,255,.015) 2px,rgba(255,255,255,.015) 4px);">
+        <div class="section-wrapper">
+          <div class="section-header reveal">
+            <div class="section-label">03 / Process</div>
+            <h2 class="section-title">The <span>Process</span></h2>
+            <p style="margin-top:1rem;color:var(--chrome);font-size:0.95rem;max-width:520px;">
+              Six methodical stages. Zero shortcuts.
+            </p>
+          </div>
+          <div class="process-grid">
+
+            <div class="process-step reveal">
+              <div class="step-number">01</div>
+              <div class="step-index">STEP 01 //</div>
+              <div class="step-name">Assessment</div>
+              <div class="step-time">15 MIN</div>
+              <p class="step-desc">Full exterior and interior inspection. Paint thickness measurement. Quote confirmed before any work begins.</p>
+            </div>
+
+            <div class="process-step reveal">
+              <div class="step-number">02</div>
+              <div class="step-index">STEP 02 //</div>
+              <div class="step-name">Wash</div>
+              <div class="step-time">60 MIN</div>
+              <p class="step-desc">pH-neutral two-bucket hand wash. Wheel arches, brake dust removal, tyre scrub. Pressure rinse and air dry.</p>
+            </div>
+
+            <div class="process-step reveal">
+              <div class="step-number">03</div>
+              <div class="step-index">STEP 03 //</div>
+              <div class="step-name">Clay Bar</div>
+              <div class="step-time">45 MIN</div>
+              <p class="step-desc">Full-panel clay bar decontamination. Removes bonded contaminants, rail dust, and industrial fallout from paintwork.</p>
+            </div>
+
+            <div class="process-step reveal">
+              <div class="step-number">04</div>
+              <div class="step-index">STEP 04 //</div>
+              <div class="step-name">Polish</div>
+              <div class="step-time">VARIES</div>
+              <p class="step-desc">Machine polishing with dual-action or rotary depending on defect severity. Swirl, scratch, and oxidation correction.</p>
+            </div>
+
+            <div class="process-step reveal">
+              <div class="step-number">05</div>
+              <div class="step-index">STEP 05 //</div>
+              <div class="step-name">Protect</div>
+              <div class="step-time">VARIES</div>
+              <p class="step-desc">Carnauba wax, sealant, or 9H ceramic coating applied by hand or machine. Protection layer cured under controlled conditions.</p>
+            </div>
+
+            <div class="process-step reveal">
+              <div class="step-number">06</div>
+              <div class="step-index">STEP 06 //</div>
+              <div class="step-name">Inspect</div>
+              <div class="step-time">30 MIN</div>
+              <p class="step-desc">Final quality control under specialist lighting. Panel-by-panel sign-off. Documentation photographed for your records.</p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- OUR WORK -->
+    <section id="work" class="carbon-bg">
+      <div class="section-wrapper">
+        <div class="section-header reveal">
+          <div class="section-label">04 / Portfolio</div>
+          <h2 class="section-title">Our <span>Work</span></h2>
+          <p style="margin-top:1rem;color:var(--chrome);font-size:0.95rem;max-width:520px;">
+            Drag the slider to reveal the before/after transformation. Results speak for themselves.
+          </p>
+        </div>
+
+        <div class="work-grid">
+
+          <div class="work-card reveal">
+            <div class="ba-container" data-ba="0.5">
+              <div class="ba-after">
+                <img src="https://images.unsplash.com/photo-1550355291-bbee04a92027?w=800" alt="BMW M3 after paint correction" loading="lazy" />
+              </div>
+              <div class="ba-before" id="ba-before-0">
+                <img src="https://images.unsplash.com/photo-1550355291-bbee04a92027?w=800" alt="BMW M3 before paint correction" loading="lazy" />
+              </div>
+              <div class="ba-divider" id="ba-divider-0"></div>
+              <div class="ba-label-before">Before</div>
+              <div class="ba-label-after">After</div>
+            </div>
+            <div class="work-card-info">
+              <div>
+                <div class="work-vehicle">BMW M3</div>
+                <div class="work-service">Paint Correction</div>
+              </div>
+              <div class="work-tag">Completed</div>
+            </div>
+          </div>
+
+          <div class="work-card reveal">
+            <div class="ba-container" data-ba="0.5">
+              <div class="ba-after">
+                <img src="https://images.unsplash.com/photo-1550355291-bbee04a92027?w=800" alt="Toyota Alphard after ceramic coating" loading="lazy" />
+              </div>
+              <div class="ba-before" id="ba-before-1">
+                <img src="https://images.unsplash.com/photo-1550355291-bbee04a92027?w=800" alt="Toyota Alphard before ceramic coating" loading="lazy" />
+              </div>
+              <div class="ba-divider" id="ba-divider-1"></div>
+              <div class="ba-label-before">Before</div>
+              <div class="ba-label-after">After</div>
+            </div>
+            <div class="work-card-info">
+              <div>
+                <div class="work-vehicle">Toyota Alphard</div>
+                <div class="work-service">Ceramic Coating</div>
+              </div>
+              <div class="work-tag">Completed</div>
+            </div>
+          </div>
+
+          <div class="work-card reveal">
+            <div class="ba-container" data-ba="0.5">
+              <div class="ba-after">
+                <img src="https://images.unsplash.com/photo-1550355291-bbee04a92027?w=800" alt="Porsche 911 after full detail" loading="lazy" />
+              </div>
+              <div class="ba-before" id="ba-before-2">
+                <img src="https://images.unsplash.com/photo-1550355291-bbee04a92027?w=800" alt="Porsche 911 before full detail" loading="lazy" />
+              </div>
+              <div class="ba-divider" id="ba-divider-2"></div>
+              <div class="ba-label-before">Before</div>
+              <div class="ba-label-after">After</div>
+            </div>
+            <div class="work-card-info">
+              <div>
+                <div class="work-vehicle">Porsche 911</div>
+                <div class="work-service">Full Detail</div>
+              </div>
+              <div class="work-tag">Completed</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CERTIFICATIONS -->
+    <section id="certifications">
+      <div class="cert-inner">
+        <span class="cert-label">Certified By:</span>
+        <span class="cert-badge">GTECHNIQ Certified</span>
+        <span class="cert-sep">·</span>
+        <span class="cert-badge">3M Authorised Centre</span>
+        <span class="cert-sep">·</span>
+        <span class="cert-badge">Gyeon Trusted Detailer</span>
+      </div>
+    </section>
+
+    <!-- BOOKING FORM -->
+    <section id="book" class="carbon-bg">
+      <div class="section-wrapper">
+        <div class="section-header reveal">
+          <div class="section-label">05 / Booking</div>
+          <h2 class="section-title">Book <span>Online</span></h2>
+          <p style="margin-top:1rem;color:var(--chrome);font-size:0.95rem;max-width:520px;">
+            Reserve your slot. Our team will confirm within 24 hours with a finalised quote.
+          </p>
+        </div>
+
+        <div style="max-width:720px;" class="reveal">
+          <form id="booking-form" novalidate>
+            <div class="form-grid">
+
+              <div class="form-group">
+                <label class="form-label" for="f-name">Full Name</label>
+                <input class="form-input" type="text" id="f-name" name="name" placeholder="Ahmad bin Rashid" autocomplete="name" />
+                <span class="form-error" id="err-name">Name is required.</span>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="f-phone">Phone / WhatsApp</label>
+                <input class="form-input" type="tel" id="f-phone" name="phone" placeholder="+60 12-345 6789" autocomplete="tel" />
+                <span class="form-error" id="err-phone">A valid phone number is required.</span>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="f-vehicle">Vehicle Make &amp; Model</label>
+                <input class="form-input" type="text" id="f-vehicle" name="vehicle" placeholder="BMW M3 Competition" />
+                <span class="form-error" id="err-vehicle">Vehicle details are required.</span>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="f-date">Preferred Date</label>
+                <input class="form-input" type="date" id="f-date" name="date" />
+                <span class="form-error" id="err-date">Please select a date.</span>
+              </div>
+
+              <div class="form-group full">
+                <label class="form-label" for="f-service">Service Required</label>
+                <select class="form-select" id="f-service" name="service">
+                  <option value="">— Select a service —</option>
+                  <option value="exterior">Exterior Detail (from RM 280)</option>
+                  <option value="interior">Interior Deep Clean (from RM 320)</option>
+                  <option value="paint">Paint Correction (from RM 980)</option>
+                  <option value="ceramic">Ceramic Coating (from RM 1,800)</option>
+                  <option value="full">Full Detail Package</option>
+                </select>
+                <span class="form-error" id="err-service">Please select a service.</span>
+              </div>
+
+              <div class="form-group full">
+                <label class="form-label" for="f-notes">Additional Notes</label>
+                <textarea class="form-textarea form-input" id="f-notes" name="notes" placeholder="Any specific concerns or requests..."></textarea>
+              </div>
+
+            </div>
+
+            <div class="form-note">
+              Complimentary valet collection available for PJ &amp; KL areas.
+            </div>
+
+            <button type="submit" class="form-submit">Submit Booking Request ▸</button>
+          </form>
+
+          <div class="form-success" id="form-success">
+            <div class="form-success-title">Booking Received</div>
+            <p>Thank you! We'll be in touch within 24 hours to confirm your appointment and finalise the quote.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand">
+          <span class="logo-dot"></span>
+          GLOSS
+        </div>
+        <p class="footer-tagline">Precision detailing for vehicles that demand perfection. Petaling Jaya's premier automotive studio.</p>
+        <a href="https://wa.me/60123456789" class="footer-whatsapp" target="_blank" rel="noopener">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+          WhatsApp Us
+        </a>
+      </div>
+
+      <div>
+        <div class="footer-col-title">// Services</div>
+        <ul class="footer-list">
+          <li><a href="#services">Exterior Detail</a></li>
+          <li><a href="#services">Interior Deep Clean</a></li>
+          <li><a href="#services">Paint Correction</a></li>
+          <li><a href="#services">Ceramic Coating</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="footer-col-title">// Hours</div>
+        <div>
+          <div class="footer-hours-item"><span>Mon–Fri</span><span>9AM–7PM</span></div>
+          <div class="footer-hours-item"><span>Saturday</span><span>9AM–7PM</span></div>
+          <div class="footer-hours-item"><span>Sunday</span><span>Closed</span></div>
+        </div>
+      </div>
+
+      <div>
+        <div class="footer-col-title">// Location</div>
+        <ul class="footer-list">
+          <li style="line-height:1.8;">No. 12, Jalan PJU 1A/20B,<br/>Petaling Jaya,<br/>Selangor 47301</li>
+          <li style="margin-top:0.75rem;"><a href="tel:+60123456789">+60 12-345 6789</a></li>
+          <li><a href="mailto:studio@glossdetailing.my">studio@glossdetailing.my</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2025 Gloss Detailing Studio · All rights reserved</div>
+      <div class="footer-address">No. 12, Jalan PJU 1A/20B, Petaling Jaya, Selangor</div>
+    </div>
+  </footer>
+
+  <script>
+    /* ─── HAMBURGER ─── */
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobile-menu');
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('open');
+      mobileMenu.classList.toggle('open');
+    });
+    document.querySelectorAll('.mobile-link').forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('open');
+        mobileMenu.classList.remove('open');
+      });
+    });
+
+    /* ─── SCROLL REVEAL ─── */
+    const revealEls = document.querySelectorAll('.reveal');
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          revealObserver.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    revealEls.forEach(el => revealObserver.observe(el));
+
+    /* ─── CONFIGURATOR PRICE COUNTER ─── */
+    const multipliers = { sedan: 1, suv: 1.2, mpv: 1.3, supercar: 1.8 };
+    const multLabels  = { sedan: '1.0×', suv: '1.2×', mpv: '1.3×', supercar: '1.8×' };
+    const classLabels = { sedan: 'Sedan', suv: 'SUV', mpv: 'MPV', supercar: 'Supercar' };
+
+    let currentDisplayed = 280;
+    let animFrame = null;
+
+    function animatePrice(from, to, duration) {
+      if (animFrame) cancelAnimationFrame(animFrame);
+      const start = performance.now();
+      const priceEl = document.getElementById('price-amount');
+      const updatedTag = document.getElementById('price-updated');
+
+      priceEl.classList.add('updated');
+      updatedTag.classList.add('show');
+
+      function step(now) {
+        const elapsed = now - start;
+        const progress = Math.min(elapsed / duration, 1);
+        // Ease out cubic
+        const eased = 1 - Math.pow(1 - progress, 3);
+        const current = Math.round(from + (to - from) * eased);
+        priceEl.textContent = current.toLocaleString('en-MY');
+
+        if (progress < 1) {
+          animFrame = requestAnimationFrame(step);
+        } else {
+          priceEl.textContent = to.toLocaleString('en-MY');
+          currentDisplayed = to;
+          priceEl.classList.remove('updated');
+          setTimeout(() => updatedTag.classList.remove('show'), 800);
+        }
+      }
+      animFrame = requestAnimationFrame(step);
+    }
+
+    function updateConfig() {
+      const sizeVal = document.querySelector('input[name="car-size"]:checked').value;
+      const tierEl  = document.querySelector('input[name="svc-tier"]:checked');
+      const base    = parseInt(tierEl.value);
+      const mult    = multipliers[sizeVal];
+      const total   = Math.round(base * mult);
+      const svcName = tierEl.dataset.name;
+
+      // Summary
+      document.getElementById('summary-class').textContent   = classLabels[sizeVal];
+      document.getElementById('summary-service').textContent = svcName;
+      document.getElementById('summary-base').textContent    = `RM ${base.toLocaleString('en-MY')}`;
+      document.getElementById('summary-mult').textContent    = multLabels[sizeVal];
+      document.getElementById('summary-total').textContent   = `RM ${total.toLocaleString('en-MY')}`;
+
+      animatePrice(currentDisplayed, total, 600);
+    }
+
+    document.querySelectorAll('input[name="car-size"], input[name="svc-tier"]').forEach(input => {
+      input.addEventListener('change', updateConfig);
+    });
+
+    /* ─── BEFORE/AFTER SLIDERS ─── */
+    function initBASliders() {
+      document.querySelectorAll('.ba-container').forEach((container, i) => {
+        const divider = container.querySelector('.ba-divider');
+        const beforeEl = container.querySelector('.ba-before');
+        let dragging = false;
+        let pos = 0.5;
+
+        function setPos(p) {
+          pos = Math.max(0.02, Math.min(0.98, p));
+          const pct = (pos * 100).toFixed(2) + '%';
+          divider.style.left = pct;
+          beforeEl.style.clipPath = `inset(0 ${(100 - pos * 100).toFixed(2)}% 0 0)`;
+        }
+
+        setPos(0.5);
+
+        function getPos(e) {
+          const rect = container.getBoundingClientRect();
+          const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+          return (clientX - rect.left) / rect.width;
+        }
+
+        divider.addEventListener('mousedown', e => { dragging = true; e.preventDefault(); });
+        container.addEventListener('touchstart', e => { dragging = true; }, { passive: true });
+
+        document.addEventListener('mousemove', e => {
+          if (!dragging) return;
+          setPos(getPos(e));
+        });
+        document.addEventListener('touchmove', e => {
+          if (!dragging) return;
+          setPos(getPos(e));
+        }, { passive: true });
+        document.addEventListener('mouseup', () => { dragging = false; });
+        document.addEventListener('touchend', () => { dragging = false; });
+
+        container.addEventListener('click', e => {
+          setPos(getPos(e));
+        });
+      });
+    }
+    initBASliders();
+
+    /* ─── FORM VALIDATION ─── */
+    document.getElementById('booking-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      let valid = true;
+
+      function checkField(id, errId, test) {
+        const el  = document.getElementById(id);
+        const err = document.getElementById(errId);
+        if (!test(el.value.trim())) {
+          err.classList.add('show');
+          el.style.borderColor = 'var(--red)';
+          valid = false;
+        } else {
+          err.classList.remove('show');
+          el.style.borderColor = '';
+        }
+      }
+
+      checkField('f-name',    'err-name',    v => v.length > 1);
+      checkField('f-phone',   'err-phone',   v => /^[+\d\s\-()]{7,20}$/.test(v));
+      checkField('f-vehicle', 'err-vehicle', v => v.length > 2);
+      checkField('f-date',    'err-date',    v => v.length > 0);
+      checkField('f-service', 'err-service', v => v !== '');
+
+      if (valid) {
+        document.getElementById('booking-form').style.display = 'none';
+        document.getElementById('form-success').classList.add('show');
+        window.scrollBy({ top: 200, behavior: 'smooth' });
+      }
+    });
+
+    /* ─── NAV ACTIVE STATE ─── */
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
+    const sectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          navLinks.forEach(link => {
+            link.style.color = link.getAttribute('href') === '#' + entry.target.id
+              ? 'var(--white)' : '';
+          });
+        }
+      });
+    }, { threshold: 0.4 });
+    sections.forEach(s => sectionObserver.observe(s));
+  </script>
+
+</body>
+</html>

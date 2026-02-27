@@ -1,0 +1,1238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio — Sheers Software</title>
+  <meta name="description" content="Production-grade web design across 7 industries. Built by Sheers Software Sdn Bhd." />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Portfolio — Sheers Software" />
+  <meta property="og:description" content="Production-grade web design across 7 industries. Built by Sheers Software Sdn Bhd." />
+  <meta property="og:url" content="https://sheerssoft.com/portfolio" />
+
+  <!-- SVG Emoji Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💼</text></svg>" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    /* =====================================================================
+       RESET & ROOT
+    ===================================================================== */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --bg: #0a0a0a;
+      --surface: #111111;
+      --border: #1f1f1f;
+      --green: #22c55e;
+      --white: #f9fafb;
+      --gray: #6b7280;
+      --card-bg: #161616;
+
+      --font-body: 'Inter', system-ui, sans-serif;
+      --font-heading: 'Outfit', system-ui, sans-serif;
+
+      --radius-sm: 6px;
+      --radius-md: 12px;
+      --radius-lg: 18px;
+
+      --transition-base: 0.25s ease;
+      --transition-slow: 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--white);
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    /* =====================================================================
+       LAYOUT UTILITIES
+    ===================================================================== */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* =====================================================================
+       HEADER / NAV
+    ===================================================================== */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(10, 10, 10, 0.88);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+
+    .nav-wordmark {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 1.15rem;
+      letter-spacing: -0.02em;
+      color: var(--white);
+      transition: opacity var(--transition-base);
+    }
+
+    .nav-wordmark:hover {
+      opacity: 0.75;
+    }
+
+    .nav-wordmark span {
+      color: var(--green);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--gray);
+      padding: 6px 12px;
+      border-radius: var(--radius-sm);
+      transition: color var(--transition-base), background var(--transition-base);
+    }
+
+    .nav-links a:hover {
+      color: var(--white);
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .nav-links a.active {
+      color: var(--white);
+      background: rgba(34, 197, 94, 0.12);
+      border: 1px solid rgba(34, 197, 94, 0.2);
+    }
+
+    .nav-cta {
+      font-size: 0.875rem;
+      font-weight: 600;
+      background: var(--green);
+      color: #000 !important;
+      padding: 8px 16px !important;
+      border-radius: var(--radius-sm) !important;
+      transition: opacity var(--transition-base), background var(--transition-base) !important;
+    }
+
+    .nav-cta:hover {
+      background: #16a34a !important;
+      color: #000 !important;
+    }
+
+    /* Mobile nav hamburger */
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+      background: none;
+      border: none;
+    }
+
+    .nav-toggle span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--white);
+      border-radius: 2px;
+      transition: all var(--transition-base);
+    }
+
+    /* =====================================================================
+       HERO
+    ===================================================================== */
+    .hero {
+      padding: 100px 0 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -200px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 800px;
+      height: 600px;
+      background: radial-gradient(ellipse at center, rgba(34, 197, 94, 0.07) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.8125rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 24px;
+    }
+
+    .hero-eyebrow::before {
+      content: '';
+      display: inline-block;
+      width: 24px;
+      height: 2px;
+      background: var(--green);
+      border-radius: 2px;
+    }
+
+    .hero-headline {
+      font-family: var(--font-heading);
+      font-size: clamp(3rem, 6vw, 5.5rem);
+      font-weight: 800;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      color: var(--white);
+      margin-bottom: 28px;
+      white-space: pre-line;
+    }
+
+    .hero-headline em {
+      font-style: normal;
+      background: linear-gradient(135deg, #22c55e, #86efac);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-subtext {
+      font-size: clamp(1rem, 1.5vw, 1.125rem);
+      color: var(--gray);
+      max-width: 600px;
+      margin-bottom: 44px;
+      line-height: 1.75;
+    }
+
+    .hero-stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .stat-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 8px 18px;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--white);
+    }
+
+    .stat-pill::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--green);
+      flex-shrink: 0;
+    }
+
+    /* =====================================================================
+       SECTION LABEL
+    ===================================================================== */
+    .section-label {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 56px;
+    }
+
+    .section-label-text {
+      font-family: var(--font-heading);
+      font-size: 0.8125rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gray);
+    }
+
+    .section-label-line {
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    /* =====================================================================
+       PROJECT GRID
+    ===================================================================== */
+    .projects-section {
+      padding: 0 0 100px;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    /* =====================================================================
+       PROJECT CARD
+    ===================================================================== */
+    .project-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform var(--transition-slow),
+                  box-shadow var(--transition-slow),
+                  border-color var(--transition-base);
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      flex-direction: column;
+
+      /* Scroll animation initial state */
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    .project-card.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .project-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.6);
+    }
+
+    .card-thumbnail {
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: 16 / 10;
+      background: var(--surface);
+    }
+
+    .card-thumbnail img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .project-card:hover .card-thumbnail img {
+      transform: scale(1.04);
+    }
+
+    .card-thumbnail-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, transparent 40%, rgba(0,0,0,0.55) 100%);
+      opacity: 0;
+      transition: opacity var(--transition-slow);
+    }
+
+    .project-card:hover .card-thumbnail-overlay {
+      opacity: 1;
+    }
+
+    .card-industry-badge {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      font-size: 0.6875rem;
+      font-weight: 600;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(10, 10, 10, 0.75);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: var(--white);
+    }
+
+    .card-body {
+      padding: 22px 24px 24px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .card-brand {
+      font-family: var(--font-heading);
+      font-size: 1.25rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--white);
+      margin-bottom: 8px;
+    }
+
+    .card-desc {
+      font-size: 0.875rem;
+      color: var(--gray);
+      line-height: 1.65;
+      flex: 1;
+      margin-bottom: 20px;
+    }
+
+    .card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .card-view-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.8125rem;
+      font-weight: 600;
+      padding: 8px 16px;
+      border-radius: var(--radius-sm);
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--gray);
+      transition: background var(--transition-base),
+                  border-color var(--transition-base),
+                  color var(--transition-base);
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .project-card:hover .card-view-btn {
+      background: var(--accent-color, var(--green));
+      border-color: var(--accent-color, var(--green));
+      color: #000;
+    }
+
+    .card-view-btn svg {
+      width: 13px;
+      height: 13px;
+      transition: transform var(--transition-base);
+    }
+
+    .project-card:hover .card-view-btn svg {
+      transform: translateX(3px);
+    }
+
+    .card-accent-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--accent-color, var(--green));
+      opacity: 0.6;
+      flex-shrink: 0;
+    }
+
+    /* =====================================================================
+       ABOUT / WHY US SECTION
+    ===================================================================== */
+    .about-section {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 100px 0;
+    }
+
+    .about-header {
+      text-align: center;
+      margin-bottom: 64px;
+    }
+
+    .about-headline {
+      font-family: var(--font-heading);
+      font-size: clamp(1.75rem, 3vw, 2.5rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: var(--white);
+      margin-bottom: 16px;
+    }
+
+    .about-sub {
+      font-size: 1rem;
+      color: var(--gray);
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+
+    .about-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 36px 32px;
+      transition: border-color var(--transition-base), transform var(--transition-slow);
+    }
+
+    .about-card:hover {
+      border-color: rgba(34, 197, 94, 0.3);
+      transform: translateY(-4px);
+    }
+
+    .about-card-icon {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      line-height: 1;
+    }
+
+    .about-card-title {
+      font-family: var(--font-heading);
+      font-size: 1.125rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 12px;
+      letter-spacing: -0.02em;
+    }
+
+    .about-card-body {
+      font-size: 0.9375rem;
+      color: var(--gray);
+      line-height: 1.7;
+    }
+
+    /* =====================================================================
+       CTA SECTION
+    ===================================================================== */
+    .cta-section {
+      background: linear-gradient(160deg, #0f1f0f 0%, #0a0a0a 100%);
+      padding: 120px 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 700px;
+      height: 500px;
+      background: radial-gradient(ellipse at center, rgba(34, 197, 94, 0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .cta-inner {
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .cta-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.8125rem;
+      font-weight: 600;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 24px;
+      background: rgba(34, 197, 94, 0.08);
+      border: 1px solid rgba(34, 197, 94, 0.2);
+      padding: 6px 14px;
+      border-radius: 999px;
+    }
+
+    .cta-badge::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--green);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+
+    .cta-headline {
+      font-family: var(--font-heading);
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: var(--white);
+      margin-bottom: 20px;
+      line-height: 1.1;
+    }
+
+    .cta-subtext {
+      font-size: clamp(0.9375rem, 1.5vw, 1.0625rem);
+      color: var(--gray);
+      max-width: 560px;
+      margin: 0 auto 44px;
+      line-height: 1.75;
+    }
+
+    .cta-buttons {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--green);
+      color: #000;
+      font-family: var(--font-body);
+      font-size: 0.9375rem;
+      font-weight: 600;
+      padding: 14px 28px;
+      border-radius: var(--radius-md);
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background var(--transition-base), transform var(--transition-base);
+    }
+
+    .btn-primary:hover {
+      background: #16a34a;
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: transparent;
+      color: var(--white);
+      font-family: var(--font-body);
+      font-size: 0.9375rem;
+      font-weight: 600;
+      padding: 14px 28px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border);
+      cursor: pointer;
+      text-decoration: none;
+      transition: background var(--transition-base),
+                  border-color var(--transition-base),
+                  transform var(--transition-base);
+    }
+
+    .btn-outline:hover {
+      background: rgba(255, 255, 255, 0.06);
+      border-color: rgba(255, 255, 255, 0.2);
+      transform: translateY(-2px);
+    }
+
+    /* =====================================================================
+       FOOTER
+    ===================================================================== */
+    .site-footer {
+      background: var(--bg);
+      border-top: 1px solid var(--border);
+      padding: 28px 0;
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .footer-copy {
+      font-size: 0.8125rem;
+      color: var(--gray);
+    }
+
+    .footer-copy a {
+      color: var(--green);
+      text-decoration: none;
+      transition: opacity var(--transition-base);
+    }
+
+    .footer-copy a:hover {
+      opacity: 0.75;
+    }
+
+    .footer-note {
+      font-size: 0.75rem;
+      color: #3f3f46;
+    }
+
+    /* =====================================================================
+       SCROLL DIVIDER
+    ===================================================================== */
+    .scroll-divider {
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--border), transparent);
+    }
+
+    /* =====================================================================
+       RESPONSIVE
+    ===================================================================== */
+    @media (max-width: 1024px) {
+      .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .about-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 64px;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        gap: 2px;
+        background: var(--surface);
+        border-bottom: 1px solid var(--border);
+        padding: 12px 16px;
+      }
+
+      .nav-links.is-open {
+        display: flex;
+      }
+
+      .nav-links a {
+        width: 100%;
+        padding: 10px 14px;
+      }
+
+      .nav-toggle {
+        display: flex;
+      }
+
+      .hero {
+        padding: 72px 0 60px;
+      }
+
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-stats {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ====================================================================
+       HEADER
+  ===================================================================== -->
+  <header class="site-header">
+    <nav class="container nav-inner">
+      <a href="/" class="nav-wordmark">Sheers<span>.</span>Software</a>
+
+      <ul class="nav-links" id="nav-links" role="list">
+        <li><a href="/">Home</a></li>
+        <li><a href="/#solutions">Solutions</a></li>
+        <li><a href="/portfolio/" class="active">Portfolio</a></li>
+        <li><a href="/contact" class="nav-cta">Contact</a></li>
+      </ul>
+
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- ====================================================================
+       HERO
+  ===================================================================== -->
+  <section class="hero" aria-labelledby="hero-headline">
+    <div class="container">
+      <p class="hero-eyebrow">Client Work</p>
+
+      <h1 class="hero-headline" id="hero-headline">Our Work Speaks<br><em>For Itself.</em></h1>
+
+      <p class="hero-subtext">
+        From fine dining to luxury real estate, we design digital experiences that convert browsers into buyers.
+        Every project is built from scratch — no templates, no shortcuts.
+      </p>
+
+      <div class="hero-stats" role="list">
+        <div class="stat-pill" role="listitem">7 Industries</div>
+        <div class="stat-pill" role="listitem">Production-Ready Code</div>
+        <div class="stat-pill" role="listitem">Delivered Fast</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================================================================
+       PROJECT GRID
+  ===================================================================== -->
+  <section class="projects-section" aria-labelledby="projects-label">
+    <div class="container">
+
+      <div class="section-label" id="projects-label">
+        <span class="section-label-text">Selected Projects</span>
+        <div class="section-label-line" role="presentation"></div>
+      </div>
+
+      <div class="projects-grid">
+
+        <!-- 1. Aroha Restaurant -->
+        <a
+          href="aroha-restaurant.html"
+          class="project-card"
+          id="aroha-restaurant"
+          style="--accent-color: #c9a96e"
+          aria-label="View Aroha demo — F&B Fine Dining"
+        >
+          <div class="card-thumbnail">
+            <img
+              src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&q=80"
+              alt="Aroha fine dining restaurant interior"
+              loading="lazy"
+              width="800"
+              height="500"
+            />
+            <div class="card-thumbnail-overlay"></div>
+            <span class="card-industry-badge">F&amp;B · Fine Dining</span>
+          </div>
+          <div class="card-body">
+            <h2 class="card-brand">Aroha</h2>
+            <p class="card-desc">Award-winning Thai-fusion restaurant, Bangsar KL. Editorial luxury with cinematic scroll.</p>
+            <div class="card-footer">
+              <span class="card-view-btn" aria-hidden="true">
+                View Demo
+                <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+              <div class="card-accent-dot" style="background: #c9a96e;" aria-hidden="true"></div>
+            </div>
+          </div>
+        </a>
+
+        <!-- 2. Skyline Properties -->
+        <a
+          href="skyline-properties.html"
+          class="project-card"
+          id="skyline-properties"
+          style="--accent-color: #0066ff"
+          aria-label="View Skyline Properties demo — Real Estate Luxury"
+        >
+          <div class="card-thumbnail">
+            <img
+              src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800&q=80"
+              alt="Skyline Properties luxury apartment building"
+              loading="lazy"
+              width="800"
+              height="500"
+            />
+            <div class="card-thumbnail-overlay"></div>
+            <span class="card-industry-badge">Real Estate · Luxury</span>
+          </div>
+          <div class="card-body">
+            <h2 class="card-brand">Skyline Properties</h2>
+            <p class="card-desc">High-end property agency, KL. Interactive listings with 3D card flip and live filter.</p>
+            <div class="card-footer">
+              <span class="card-view-btn" aria-hidden="true">
+                View Demo
+                <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+              <div class="card-accent-dot" style="background: #0066ff;" aria-hidden="true"></div>
+            </div>
+          </div>
+        </a>
+
+        <!-- 3. The Mosaic Hotel -->
+        <a
+          href="mosaic-hotel.html"
+          class="project-card"
+          id="mosaic-hotel"
+          style="--accent-color: #b8962e"
+          aria-label="View The Mosaic demo — Hospitality Hotel"
+        >
+          <div class="card-thumbnail">
+            <img
+              src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=800&q=80"
+              alt="The Mosaic boutique hotel interior"
+              loading="lazy"
+              width="800"
+              height="500"
+            />
+            <div class="card-thumbnail-overlay"></div>
+            <span class="card-industry-badge">Hospitality · Hotel</span>
+          </div>
+          <div class="card-body">
+            <h2 class="card-brand">The Mosaic</h2>
+            <p class="card-desc">Boutique hotel, Johor Bahru. Art deco maximalism with Ken Burns hero and live booking panel.</p>
+            <div class="card-footer">
+              <span class="card-view-btn" aria-hidden="true">
+                View Demo
+                <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+              <div class="card-accent-dot" style="background: #b8962e;" aria-hidden="true"></div>
+            </div>
+          </div>
+        </a>
+
+        <!-- 4. Leafy Co. -->
+        <a
+          href="leafy-co.html"
+          class="project-card"
+          id="leafy-co"
+          style="--accent-color: #a8e6cf"
+          aria-label="View Leafy Co. demo — F&B Franchise"
+        >
+          <div class="card-thumbnail">
+            <img
+              src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=800&q=80"
+              alt="Leafy Co. bubble tea drinks"
+              loading="lazy"
+              width="800"
+              height="500"
+            />
+            <div class="card-thumbnail-overlay"></div>
+            <span class="card-industry-badge">F&amp;B · Franchise</span>
+          </div>
+          <div class="card-body">
+            <h2 class="card-brand">Leafy Co.</h2>
+            <p class="card-desc">Bubble tea chain across 3 countries. Gen Z-forward design with animated menus and franchise funnel.</p>
+            <div class="card-footer">
+              <span class="card-view-btn" aria-hidden="true">
+                View Demo
+                <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+              <div class="card-accent-dot" style="background: #a8e6cf;" aria-hidden="true"></div>
+            </div>
+          </div>
+        </a>
+
+        <!-- 5. Onyx Lounge -->
+        <a
+          href="onyx-lounge.html"
+          class="project-card"
+          id="onyx-lounge"
+          style="--accent-color: #a855f7"
+          aria-label="View Onyx Lounge demo — Nightlife Events"
+        >
+          <div class="card-thumbnail">
+            <img
+              src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=800&q=80"
+              alt="Onyx Lounge cocktail bar atmosphere"
+              loading="lazy"
+              width="800"
+              height="500"
+            />
+            <div class="card-thumbnail-overlay"></div>
+            <span class="card-industry-badge">Nightlife · Events</span>
+          </div>
+          <div class="card-body">
+            <h2 class="card-brand">Onyx Lounge</h2>
+            <p class="card-desc">Exclusive cocktail lounge, Petaling Jaya. Dark brutalist luxury with custom cursor and membership tiers.</p>
+            <div class="card-footer">
+              <span class="card-view-btn" aria-hidden="true">
+                View Demo
+                <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+              <div class="card-accent-dot" style="background: #a855f7;" aria-hidden="true"></div>
+            </div>
+          </div>
+        </a>
+
+        <!-- 6. Eden Co-Living -->
+        <a
+          href="eden-coliving.html"
+          class="project-card"
+          id="eden-coliving"
+          style="--accent-color: #7c9a7e"
+          aria-label="View Eden demo — Real Estate Co-Living"
+        >
+          <div class="card-thumbnail">
+            <img
+              src="https://images.unsplash.com/photo-1555854877-bab0e564b8d5?w=800&q=80"
+              alt="Eden co-living modern apartment space"
+              loading="lazy"
+              width="800"
+              height="500"
+            />
+            <div class="card-thumbnail-overlay"></div>
+            <span class="card-industry-badge">Real Estate · Co-Living</span>
+          </div>
+          <div class="card-body">
+            <h2 class="card-brand">Eden</h2>
+            <p class="card-desc">Premium co-living residences, KLCC &amp; Bangsar. Biophilic design with animated floating badges.</p>
+            <div class="card-footer">
+              <span class="card-view-btn" aria-hidden="true">
+                View Demo
+                <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+              <div class="card-accent-dot" style="background: #7c9a7e;" aria-hidden="true"></div>
+            </div>
+          </div>
+        </a>
+
+        <!-- 7. Gloss Studio -->
+        <a
+          href="gloss-studio.html"
+          class="project-card"
+          id="gloss-studio"
+          style="--accent-color: #dc2626"
+          aria-label="View Gloss Studio demo — Automotive Services"
+        >
+          <div class="card-thumbnail">
+            <img
+              src="https://images.unsplash.com/photo-1550355291-bbee04a92027?w=800&q=80"
+              alt="Gloss Studio premium auto detailing"
+              loading="lazy"
+              width="800"
+              height="500"
+            />
+            <div class="card-thumbnail-overlay"></div>
+            <span class="card-industry-badge">Automotive · Services</span>
+          </div>
+          <div class="card-body">
+            <h2 class="card-brand">Gloss Studio</h2>
+            <p class="card-desc">Premium auto detailing, PJ. Technical HUD aesthetic with interactive package configurator.</p>
+            <div class="card-footer">
+              <span class="card-view-btn" aria-hidden="true">
+                View Demo
+                <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+              <div class="card-accent-dot" style="background: #dc2626;" aria-hidden="true"></div>
+            </div>
+          </div>
+        </a>
+
+      </div><!-- /.projects-grid -->
+    </div><!-- /.container -->
+  </section>
+
+  <div class="scroll-divider" role="presentation"></div>
+
+  <!-- ====================================================================
+       ABOUT / WHY SHEERS SOFTWARE
+  ===================================================================== -->
+  <section class="about-section" aria-labelledby="about-headline">
+    <div class="container">
+
+      <div class="about-header">
+        <h2 class="about-headline" id="about-headline">Why clients choose Sheers Software</h2>
+        <p class="about-sub">We don't just build websites. We build growth engines for businesses that take their digital presence seriously.</p>
+      </div>
+
+      <div class="about-grid">
+
+        <article class="about-card">
+          <div class="about-card-icon" aria-hidden="true">🎨</div>
+          <h3 class="about-card-title">Design-First</h3>
+          <p class="about-card-body">Every pixel is intentional. We obsess over typography, spacing, and interaction — not just making things look good, but making them feel right.</p>
+        </article>
+
+        <article class="about-card">
+          <div class="about-card-icon" aria-hidden="true">⚡</div>
+          <h3 class="about-card-title">Fast Delivery</h3>
+          <p class="about-card-body">Most websites live within 2 weeks. We use modern tooling and a lean process to move fast without cutting corners.</p>
+        </article>
+
+        <article class="about-card">
+          <div class="about-card-icon" aria-hidden="true">📈</div>
+          <h3 class="about-card-title">Revenue-Focused</h3>
+          <p class="about-card-body">A beautiful website that doesn't convert is just expensive decoration. Every site we build has clear calls-to-action and lead capture built in.</p>
+        </article>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ====================================================================
+       CTA
+  ===================================================================== -->
+  <section class="cta-section" aria-labelledby="cta-headline">
+    <div class="container">
+      <div class="cta-inner">
+
+        <div class="cta-badge">Available for new projects</div>
+
+        <h2 class="cta-headline" id="cta-headline">Ready to build something<br>extraordinary?</h2>
+
+        <p class="cta-subtext">
+          Let's talk about your project. We'll review your current website, understand your goals, and propose a solution that actually works.
+        </p>
+
+        <div class="cta-buttons">
+          <a href="https://sheerssoft.com/contact" class="btn-primary">
+            Get in Touch
+            <svg width="15" height="15" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+          <a href="/" class="btn-outline">
+            Back to sheerssoft.com
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================================================================
+       FOOTER
+  ===================================================================== -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p class="footer-copy">
+        &copy; 2025 Sheers Software Sdn Bhd &middot;
+        <a href="https://sheerssoft.com" target="_blank" rel="noopener">sheerssoft.com</a>
+      </p>
+      <p class="footer-note">All demos are original designs by Sheers Software</p>
+    </div>
+  </footer>
+
+  <!-- ====================================================================
+       JAVASCRIPT
+  ===================================================================== -->
+  <script>
+    // -----------------------------------------------------------------------
+    // Mobile nav toggle
+    // -----------------------------------------------------------------------
+    const navToggle = document.getElementById('nav-toggle');
+    const navLinks  = document.getElementById('nav-links');
+
+    navToggle.addEventListener('click', () => {
+      const isOpen = navLinks.classList.toggle('is-open');
+      navToggle.setAttribute('aria-expanded', String(isOpen));
+    });
+
+    // Close nav when a link is clicked
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('is-open');
+        navToggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    // -----------------------------------------------------------------------
+    // Scroll-reveal: IntersectionObserver for project cards
+    // Fade-in + slide-up, staggered by card index * 100ms
+    // -----------------------------------------------------------------------
+    const cards = document.querySelectorAll('.project-card');
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+
+        const card  = entry.target;
+        const index = Number(card.dataset.cardIndex) || 0;
+
+        setTimeout(() => {
+          card.style.transition =
+            `opacity 600ms ease-out ${index * 100}ms, transform 600ms cubic-bezier(0.16, 1, 0.3, 1) ${index * 100}ms`;
+          card.classList.add('is-visible');
+        }, 0);
+
+        revealObserver.unobserve(card);
+      });
+    }, {
+      threshold: 0.08,
+      rootMargin: '0px 0px -40px 0px'
+    });
+
+    cards.forEach((card, i) => {
+      card.dataset.cardIndex = i;
+      revealObserver.observe(card);
+    });
+
+    // -----------------------------------------------------------------------
+    // Reduced motion: skip animations if user prefers
+    // -----------------------------------------------------------------------
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      cards.forEach(card => {
+        card.style.opacity   = '1';
+        card.style.transform = 'none';
+        card.classList.add('is-visible');
+      });
+    }
+  </script>
+
+</body>
+</html>

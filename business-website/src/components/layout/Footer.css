@@ -1,6 +1,6 @@
 .footer {
-    background: var(--bg-secondary);
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    background: var(--bg-primary);
+    border-top: 1px solid #1f1f1f;
     padding: var(--space-3xl) 0 var(--space-lg);
     margin-top: var(--space-3xl);
 }
@@ -20,6 +20,12 @@
     font-size: var(--font-size-2xl);
     font-weight: 900;
     margin-bottom: var(--space-sm);
+    color: var(--text-primary);
+    letter-spacing: -0.02em;
+}
+
+.footer-logo-accent {
+    color: #22c55e;
 }
 
 .brand-tagline {
@@ -48,10 +54,10 @@
 }
 
 .social-link:hover {
-    background: rgba(0, 255, 255, 0.1);
-    border-color: var(--neon-cyan);
-    color: var(--neon-cyan);
-    box-shadow: 0 0 15px var(--glow-cyan);
+    background: rgba(34, 197, 94, 0.1);
+    border-color: #22c55e;
+    color: #22c55e;
+    box-shadow: 0 0 15px rgba(34, 197, 94, 0.25);
 }
 
 .footer-column {
@@ -63,7 +69,7 @@
 .footer-title {
     font-size: var(--font-size-sm);
     font-weight: 700;
-    color: var(--neon-cyan);
+    color: #22c55e;
     text-transform: uppercase;
     letter-spacing: 1.5px;
     margin-bottom: var(--space-xs);
@@ -80,7 +86,7 @@
 }
 
 .footer-link:hover {
-    color: var(--neon-cyan);
+    color: #22c55e;
 }
 
 .footer-bottom {
@@ -111,7 +117,7 @@
 }
 
 .legal-link:hover {
-    color: var(--neon-cyan);
+    color: #22c55e;
 }
 
 .legal-divider {
