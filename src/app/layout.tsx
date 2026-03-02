@@ -12,11 +12,11 @@ export const metadata: Metadata = {
   },
   description:
     "Stop losing bookings after 6pm. Nocturn AI captures every WhatsApp, web & email inquiry 24/7 and proves revenue recovered. Free 30-day pilot for Malaysian hotels.",
-  metadataBase: new URL("https://sheerssoft.com"),
+  metadataBase: new URL("https://ai.sheerssoft.com"),
   openGraph: {
     type: "website",
     locale: "en_MY",
-    url: "https://sheerssoft.com",
+    url: "https://ai.sheerssoft.com",
     siteName: "Nocturn AI | Sheers Software",
     title: "Hotel AI Concierge — Capture Every Inquiry 24/7 | Nocturn AI",
     description: "Stop losing bookings after 6pm. Nocturn AI captures every WhatsApp, web & email inquiry 24/7 and proves revenue recovered. Free 30-day pilot for Malaysian hotels.",
