@@ -50,8 +50,9 @@ export default function ApplyPage() {
                     <div className="apply-grid">
                         {/* Left Column: Value */}
                         <div>
-                            <h1 style={{ marginBottom: 24 }}>5 Malaysian hotels.<br />30 days free.<br />We handle everything.</h1>
+                            <h1 style={{ marginBottom: 24 }}>5 Hotels. 30 Days Free. We Handle Everything.</h1>
                             <p style={{ fontSize: "var(--fs-large)", color: "var(--color-gray-600)", marginBottom: 40 }}>
+                                Tell us about your property. Basyir will personally WhatsApp you within 2 hours.
                             </p>
 
                             <div style={{ display: "flex", flexDirection: "column", gap: 24 }}>
@@ -77,15 +78,15 @@ export default function ApplyPage() {
                                 </div>
                             )}
                             <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: 20 }}>
-                                <InputGroup name="hotelNameAndLocation" label="What is your hotel's name and location?" type="text" required placeholder="e.g., Grand Seasons Hotel, Kuala Lumpur" />
-                                <InputGroup name="roomCount" label="How many rooms does your property have?" type="select" options={["Under 50", "50-100", "100-200", "200-300", "300+"]} required />
-                                <InputGroup name="currentHandling" label="How do you currently handle inquiries after 6PM?" type="select" options={[
-                                    "WhatsApp/phone only",
-                                    "Email only",
-                                    "We miss most of them",
-                                    "We have someone on call"
+                                <InputGroup name="hotelNameAndLocation" label="Hotel name + city" type="text" required placeholder="e.g., Grand Seasons Hotel, Kuala Lumpur" />
+                                <InputGroup name="roomCount" label="Number of rooms" type="select" options={["<30", "30-50", "50-150", "150+"]} required />
+                                <InputGroup name="currentHandling" label="Current after-hours process" type="select" options={[
+                                    "WhatsApp/calls only, often missed",
+                                    "Someone on call but inconsistent",
+                                    "We have a system but it's not working",
+                                    "We miss most after-hours inquiries"
                                 ]} required />
-                                <InputGroup name="whatsapp" label="Your WhatsApp Number (we'll message within 2 hours)" type="tel" required placeholder="+60..." />
+                                <InputGroup name="whatsapp" label="Your WhatsApp number" type="tel" required placeholder="+60..." />
 
                                 <button
                                     type="submit"

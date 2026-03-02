@@ -175,6 +175,7 @@ function Footer() {
             <a href="/how-it-works">How It Works</a>
             <a href="/pilot">Pilot Program</a>
             <a href="/apply">Apply</a>
+            <a href="#audit" style={{ marginTop: "12px", border: "1px solid var(--color-gray-600)", padding: "4px 8px", borderRadius: "4px", fontSize: "13px" }}>Download: How Much Is Your Hotel Losing After 6PM?</a>
           </div>
 
           <div className="footer-col">

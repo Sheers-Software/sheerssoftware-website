@@ -2,7 +2,7 @@ import Script from 'next/script';
 
 export default function LinkedInInsightTag() {
     return (
-        <Script id="linkedin-insight-tag" strategy="afterInteractive">
+        <Script id="linkedin-insight-tag" strategy="beforeInteractive">
             {`
         _linkedin_partner_id = "YOUR_PARTNER_ID";
         window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];

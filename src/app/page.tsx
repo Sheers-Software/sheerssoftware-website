@@ -41,6 +41,9 @@ export default function HomePage() {
               <span>·</span>
               <span>✓ No system replacement required</span>
             </div>
+            <div className="hero-trust-badge" style={{ marginTop: 24, padding: "12px 24px", background: "rgba(255,255,255,0.05)", borderRadius: 100, border: "1px solid rgba(255,255,255,0.1)", display: "inline-block", fontSize: 13, color: "rgba(255,255,255,0.7)" }}>
+              🇲🇾 Built in Malaysia · 💬 Running on WhatsApp Business API · 🔒 Compliant with PDPA 2010 · ☁️ Hosted on Google Cloud Singapore
+            </div>
           </div>
           <div className="hero-visual">
             <div className="hero-mockup">
@@ -101,19 +104,19 @@ export default function HomePage() {
           <h2 style={{ marginTop: 12 }}>The Inquiry Graveyard: Where Direct Bookings Go to Die</h2>
           <div className="stat-grid">
             <div className="stat-card">
-              <div className="stat-number" data-target="90" data-suffix="%">0%</div>
+              <div className="stat-number">70%</div>
               <div className="stat-label">of Malaysian hotel bookings come from manual channels</div>
               <div className="stat-sub">WhatsApp, phone calls, emails, walk-ins — not your website.</div>
               <div className="stat-source">Based on industry operator interviews, 2025</div>
             </div>
             <div className="stat-card">
-              <div className="stat-number" data-target="30" data-suffix="+">0</div>
+              <div className="stat-number">30–200</div>
               <div className="stat-label">daily inquiry touchpoints per property</div>
               <div className="stat-sub">And your reservation desk has 3 people to handle them all.</div>
               <div className="stat-source">Malaysian hotel operator data, 2025</div>
             </div>
             <div className="stat-card">
-              <div className="stat-number" data-target="0" data-suffix="%">0%</div>
+              <div className="stat-number">0%</div>
               <div className="stat-label">of inquiries captured after 6PM</div>
               <div className="stat-sub">When your reservations team goes home, every inquiry is dropped.</div>
               <div className="stat-source">Independent hotel operator interviews, 2025</div>
@@ -336,6 +339,17 @@ export default function HomePage() {
           </div>
           <div style={{ textAlign: "center", marginTop: 24, fontSize: 18, fontWeight: 600, color: "var(--color-navy)", maxWidth: 700, marginInline: "auto" }}>
             That lead was captured, logged, and prioritized for your morning team. Without Nocturn AI, Ahmad would have booked on Agoda at midnight. You would have paid 18% commission — RM 50 — on a guest who tried to book direct.
+          </div>
+
+          <div style={{ marginTop: 64, textAlign: "center" }}>
+            <h3 style={{ marginBottom: 24 }}>See the Dashboard in Action</h3>
+            <div style={{ position: "relative", paddingBottom: "56.25%", height: 0, overflow: "hidden", maxWidth: "100%", background: "#111827", borderRadius: 16, boxShadow: "var(--shadow-card)", border: "1px solid var(--color-gray-200)" }}>
+              <div style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", display: "flex", alignItems: "center", justifyContent: "center", color: "white", flexDirection: "column" }}>
+                <div style={{ fontSize: 48, marginBottom: 16 }}>▶️</div>
+                <div style={{ fontSize: 18, fontWeight: 600 }}>2-Minute Real-Time Capture Demo</div>
+                <div style={{ fontSize: 14, color: "rgba(255,255,255,0.7)", marginTop: 8 }}>(Demo Video Coming Soon)</div>
+              </div>
+            </div>
           </div>
         </div>
       </section >
@@ -580,6 +594,9 @@ export default function HomePage() {
           <div style={{ background: "white", padding: "40px", borderRadius: 12, border: "1px solid var(--color-gray-200)", maxWidth: 700, margin: "0 auto", boxShadow: "var(--shadow-card)" }}>
             <h3 style={{ fontSize: 24, marginBottom: 24 }}>Why I Built This</h3>
             <p className="text-gray-600" style={{ marginBottom: 16 }}>
+              <strong>9 operators. 4 countries. 18 months of primary research. This product was designed around their exact words — not a market analysis.</strong>
+            </p>
+            <p className="text-gray-600" style={{ marginBottom: 16 }}>
               I spent the last several months sitting across from Revenue Managers, Reservation Managers, GMs, and consultants who've collectively managed thousands of hotel rooms across Malaysia, Singapore, and the Middle East.
             </p>
             <p className="text-gray-600" style={{ marginBottom: 16 }}>
@@ -614,6 +631,11 @@ export default function HomePage() {
             Hotels like yours typically have RM 3,000-8,000/month in revenue at risk from inquiries that go unanswered or unfollowed. Use this calculator with YOUR numbers.
           </p>
           <LeadMagnetCalculator />
+          <div style={{ marginTop: 40, textAlign: "center" }}>
+            <a href="#audit" className="btn btn-outline">
+              Not ready to apply? Get the Free Inquiry Audit →
+            </a>
+          </div>
         </div>
       </section>
 
@@ -662,6 +684,11 @@ export default function HomePage() {
           </div>
           <div style={{ textAlign: "center", marginTop: 32, fontSize: 14, color: "var(--color-gray-500)" }}>
             * Founding cohort members lock in 30% below these rates forever.
+          </div>
+          <div style={{ textAlign: "center", marginTop: 40 }}>
+            <a href="/apply" className="btn btn-primary btn-lg">
+              Secure Your Founding Rate — Apply Now →
+            </a>
           </div>
         </div>
       </section>
