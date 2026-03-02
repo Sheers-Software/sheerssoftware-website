@@ -16,7 +16,10 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_MY",
-    siteName: "Nocturn AI",
+    url: "https://sheerssoft.com",
+    siteName: "Nocturn AI | Sheers Software",
+    title: "Hotel AI Concierge — Capture Every Inquiry 24/7 | Nocturn AI",
+    description: "Stop losing bookings after 6pm. Nocturn AI captures every WhatsApp, web & email inquiry 24/7 and proves revenue recovered. Free 30-day pilot for Malaysian hotels.",
     images: [
       {
         url: "/og-image.png", // Recommended: 1200x630
@@ -25,6 +28,12 @@ export const metadata: Metadata = {
         alt: "Nocturn AI - Hotel Revenue Recovery",
       },
     ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Hotel AI Concierge — Capture Every Inquiry 24/7 | Nocturn AI",
+    description: "Stop losing bookings after 6pm. Nocturn AI captures every WhatsApp, web & email inquiry 24/7 and proves revenue recovered.",
+    images: ["/og-image.png"],
   },
   robots: {
     index: true,
@@ -55,6 +64,60 @@ export default function RootLayout({
         <MobileCTA />
         <WhatsAppFloatingButton />
         <MetaPixel />
+
+        {/* --- JSON-LD Schema for GEO & SEO --- */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify([
+              {
+                "@context": "https://schema.org",
+                "@type": "Organization",
+                "name": "Sheers Software Sdn Bhd",
+                "url": "https://sheerssoft.com",
+                "logo": "https://sheerssoft.com/og-image.png",
+                "contactPoint": {
+                  "@type": "ContactPoint",
+                  "telephone": "+601163263808",
+                  "contactType": "customer service",
+                  "areaServed": "MY",
+                  "availableLanguage": ["English", "Malay"]
+                }
+              },
+              {
+                "@context": "https://schema.org",
+                "@type": "LocalBusiness",
+                "name": "Sheers Software Sdn Bhd",
+                "image": "https://sheerssoft.com/og-image.png",
+                "url": "https://sheerssoft.com",
+                "telephone": "+601163263808",
+                "address": {
+                  "@type": "PostalAddress",
+                  "addressCountry": "MY",
+                  "addressRegion": "Kuala Lumpur"
+                }
+              },
+              {
+                "@context": "https://schema.org",
+                "@type": "SoftwareApplication",
+                "name": "Nocturn AI",
+                "operatingSystem": "Web, WhatsApp",
+                "applicationCategory": "BusinessApplication",
+                "provider": {
+                  "@type": "Organization",
+                  "name": "Sheers Software Sdn Bhd"
+                },
+                "offers": {
+                  "@type": "Offer",
+                  "price": "0",
+                  "priceCurrency": "MYR",
+                  "description": "30-day free pilot for qualifying Malaysian hotels."
+                },
+                "description": "An AI Concierge for hotels that captures WhatsApp, Web, and Email inquiries 24/7."
+              }
+            ])
+          }}
+        />
 
         {/* Google Analytics - GA4 */}
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>

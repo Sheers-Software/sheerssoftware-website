@@ -2,8 +2,17 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
     title: "Founding Cohort Pilot — 30 Days Free | Nocturn AI",
-    description:
-        "Join 5 Malaysian hotels shaping the future of inquiry capture. 30-day free pilot. No contracts. Direct founder access. Apply now.",
+    description: "Join 5 Malaysian hotels shaping the future of inquiry capture. 30-day free pilot. No contracts. Direct founder access. Apply now.",
+    openGraph: {
+        title: "Founding Cohort Pilot — 30 Days Free | Nocturn AI",
+        description: "Join 5 Malaysian hotels shaping the future of inquiry capture. 30-day free pilot. No contracts. Direct founder access. Apply now.",
+        url: "https://sheerssoft.com/pilot",
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "Founding Cohort Pilot — 30 Days Free | Nocturn AI",
+        description: "Join 5 Malaysian hotels shaping the future of inquiry capture. 30-day free pilot. No contracts.",
+    }
 };
 
 export default function PilotPage() {

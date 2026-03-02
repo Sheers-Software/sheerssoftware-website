@@ -1,9 +1,18 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "How It Works — Live in 48 Hours",
-    description:
-        "3 simple steps: share your property info, connect your channels, watch revenue recover. Setup takes 48 hours. ROI visible in 7 days.",
+    title: "How It Works — Live in 48 Hours | Nocturn AI",
+    description: "3 simple steps: share your property info, connect your channels, watch revenue recover. Setup takes 48 hours. ROI visible in 7 days.",
+    openGraph: {
+        title: "How It Works — Live in 48 Hours | Nocturn AI",
+        description: "3 simple steps: share your property info, connect your channels, watch revenue recover. Setup takes 48 hours.",
+        url: "https://sheerssoft.com/how-it-works",
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "How It Works — Live in 48 Hours | Nocturn AI",
+        description: "3 simple steps: share your property info, connect your channels, watch revenue recover. Setup takes 48 hours.",
+    }
 };
 
 export default function HowItWorksPage() {

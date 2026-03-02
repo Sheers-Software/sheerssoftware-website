@@ -69,6 +69,13 @@ This monorepo contains two applications:
 - Design system alignment audit & fixes
 - Cloud Run IAM fix for `ai.sheerssoft.com`
 
+### Sprint 3 — SEO & GEO Optimization ✅
+- Replaced non-crawlable SPA routing with Next.js App Router for the main landing architecture.
+- Migrated domain definitions in `sitemap.ts` and `robots.ts` to `sheerssoft.com`.
+- Implemented comprehensive JSON-LD structured data (`Organization`, `LocalBusiness`, `SoftwareApplication`, and `FAQPage`).
+- Injected specific Open Graph and Twitter cards targeted at Facebook and WhatsApp sharing across funnel pages.
+
+
 ## Deployment
 
 Both apps deploy to **Google Cloud Run** via CI/CD:
