@@ -1,17 +1,19 @@
+"use client";
 import React, { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { Menu, X, MessageCircle, ChevronDown, Bot, Building2, Globe, Code, LayoutTemplate } from 'lucide-react';
 import './Navbar.css';
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
-    const location = useLocation();
+    const pathname = usePathname();
 
     const navLinks = [
         {
             path: 'https://ai.sheerssoft.com', label: 'Product', external: true, dropdown: [
                 { path: 'https://ai.sheerssoft.com', label: 'Nocturn AI', description: 'Autonomously handles bookings - even while you sleep', icon: <Bot size={24} className="text-neon-cyan" /> },
-                { path: '#', label: 'Hotel Genius', description: 'Autonomously handles guest enquiries', icon: <Building2 size={24} className="text-neon-magenta" /> }
+                { path: '#', label: 'Hotel Genius', description: 'Coming Q3 2026 - Autonomously handles guest enquiries', icon: <Building2 size={24} className="text-neon-magenta" /> }
             ]
         },
         { path: '/blog', label: 'Blog', external: false },
@@ -26,14 +28,14 @@ const Navbar = () => {
         { path: '/contact', label: 'Contact', external: false },
     ];
 
-    const isActive = (path) => location.pathname === path;
+    const isActive = (path) => pathname === path;
 
     return (
         <nav className="navbar">
             <div className="container">
                 <div className="navbar-content">
                     {/* Logo */}
-                    <Link to="/" className="navbar-logo">
+                    <Link href="/" className="navbar-logo">
                         Sheers<span className="nav-logo-accent">.</span>Soft
                     </Link>
 
@@ -47,7 +49,7 @@ const Navbar = () => {
                                         {link.dropdown && <ChevronDown size={14} style={{ marginLeft: '4px' }} />}
                                     </a>
                                 ) : (
-                                    <Link to={link.path} className={`nav-link ${isActive(link.path) ? 'active' : ''} dropdown-toggle`}>
+                                    <Link href={link.path} className={`nav-link ${isActive(link.path) ? 'active' : ''} dropdown-toggle`}>
                                         {link.label}
                                         {link.dropdown && <ChevronDown size={14} style={{ marginLeft: '4px' }} />}
                                     </Link>
@@ -70,7 +72,7 @@ const Navbar = () => {
                     </div>
 
                     {/* Contact Us Button */}
-                    <Link to="/contact" className="contact-btn">
+                    <Link href="/contact" className="contact-btn">
                         <MessageCircle size={20} />
                         <span>Contact Us</span>
                     </Link>
@@ -101,7 +103,7 @@ const Navbar = () => {
                             ) : (
                                 <Link
                                     key={link.path}
-                                    to={link.path}
+                                    href={link.path}
                                     className={`mobile-link ${isActive(link.path) ? 'active' : ''}`}
                                     onClick={() => setIsOpen(false)}
                                 >
@@ -119,7 +121,7 @@ const Navbar = () => {
                             Our Portfolio
                         </a>
                         <Link
-                            to="/contact"
+                            href="/contact"
                             className="mobile-contact"
                             onClick={() => setIsOpen(false)}
                         >

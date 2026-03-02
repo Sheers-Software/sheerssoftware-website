@@ -75,6 +75,15 @@ This monorepo contains two applications:
 - Implemented comprehensive JSON-LD structured data (`Organization`, `LocalBusiness`, `SoftwareApplication`, and `FAQPage`).
 - Injected specific Open Graph and Twitter cards targeted at Facebook and WhatsApp sharing across funnel pages.
 
+### Sprint 4 — Marketing & Tracking Connectors ✅
+- Implemented comprehensive marketing telemetry on **both** domains (`ai.sheerssoft.com` and `sheerssoft.com`).
+- Added robust Open Graph tags (including `og:image`) specifically customized for **LinkedIn** sharing.
+- Injected **JSON-LD Schema** (GEO optimization) for proper generative engine indexing.
+- **Connectors Installed**:
+  - `Meta Pixel`: Active (ID: `1456605209169220` and `1224025939902106` via CAPI)
+  - `LinkedIn Insight Tag`: Installed (⚠️ Placeholder `YOUR_PARTNER_ID` must be updated)
+  - `Google Analytics 4`: Installed (⚠️ Placeholder `G-XXXXXXXXXX` must be updated)
+  - `HubSpot Tracking`: Active (Script `js-na2.hs-scripts.com/243983306.js`)
 
 ## Deployment
 

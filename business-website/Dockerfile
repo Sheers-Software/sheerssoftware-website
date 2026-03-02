@@ -1,29 +1,52 @@
-# Build stage
-FROM node:20-alpine AS build
+FROM node:20-alpine AS base
 
+# Install dependencies only when needed
+FROM base AS deps
+RUN apk add --no-cache libc6-compat
 WORKDIR /app
 
+# Install dependencies
 COPY package.json package-lock.json* ./
-
 RUN \
-  if [ -f package-lock.json ]; then npm ci; \
-  else echo "Lockfile not found." && exit 1; \
-  fi
+    if [ -f package-lock.json ]; then npm ci; \
+    else echo "Lockfile not found." && exit 1; \
+    fi
 
+# Rebuild the source code only when needed
+FROM base AS builder
+WORKDIR /app
+COPY --from=deps /app/node_modules ./node_modules
 COPY . .
+
+ENV NEXT_TELEMETRY_DISABLED=1
 
 RUN npm run build
 
-# Serve stage
-FROM nginx:alpine
+# Production image, copy all the files and run next
+FROM base AS runner
+WORKDIR /app
 
-# Copy nginx config
-COPY nginx.conf /etc/nginx/conf.d/default.conf
+ENV NODE_ENV=production
+ENV NEXT_TELEMETRY_DISABLED=1
 
-# Copy build output to replace the default nginx contents.
-COPY --from=build /app/dist /usr/share/nginx/html
+RUN addgroup --system --gid 1001 nodejs
+RUN adduser --system --uid 1001 nextjs
 
-# Expose port (Cloud Run expects 8080 by default)
+COPY --from=builder /app/public ./public
+
+# Set the correct permission for prerender cache
+RUN mkdir .next
+RUN chown nextjs:nodejs .next
+
+# Automatically leverage output traces to reduce image size
+COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
+COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
+
+USER nextjs
+
 EXPOSE 8080
 
-CMD ["nginx", "-g", "daemon off;"]
+ENV PORT=8080
+ENV HOSTNAME="0.0.0.0"
+
+CMD ["node", "server.js"]

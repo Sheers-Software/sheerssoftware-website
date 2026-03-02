@@ -1,69 +1,36 @@
-# Sheers Software — Marketing Website
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-The public-facing marketing site for **Sheers Software Sdn Bhd** (`sheerssoft.com`). Built with React + Vite.
+## Getting Started
 
-## Stack
-
-- **React 19** + **React Router v7** (client-side SPA)
-- **Vite 7** — dev server, HMR, build
-- **Lucide React** — icons
-- Plain CSS with design tokens (no CSS framework)
-
-## Dev
+First, run the development server:
 
 ```bash
-# from this directory
-npm install
-npm run dev        # starts at http://localhost:5173
-npm run build      # outputs to dist/
-npm run preview    # preview production build
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
 ```
 
-## Project Structure
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-```
-src/
-  components/
-    layout/       # Navbar, Footer — shared across all pages
-    ui/           # GlassCard, NeonButton, reusable UI
-    effects/      # AnimatedBackground
-    funnel/       # LostRevenueAudit lead-gen component
-  pages/          # Home, About, Solutions, Blog, Contact, legal pages
-  index.css       # Global design tokens (CSS variables, utility classes)
-public/
-  portfolio/      # Static standalone HTML demo sites (no build step)
-    index.html              # Portfolio showcase — linked from Solutions dropdown
-    aroha-restaurant.html   # Thai-fusion fine dining
-    skyline-properties.html # Luxury real estate, KL
-    mosaic-hotel.html       # Boutique hotel, Johor Bahru
-    leafy-co.html           # Bubble tea franchise
-    onyx-lounge.html        # Cocktail lounge
-    eden-coliving.html      # Co-living brand
-    gloss-studio.html       # Auto detailing
-```
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-## Portfolio
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-Seven standalone single-file HTML demos live in `public/portfolio/`. They are served as static assets — no React, no build step. Each uses inline CSS + JS, Google Fonts CDN, and Unsplash for imagery.
+## Learn More
 
-Access at `/portfolio/` in dev or production. The Solutions dropdown in the navbar links directly to this page.
+To learn more about Next.js, take a look at the following resources:
 
-The custom Vite middleware in `vite.config.js` ensures `public/portfolio/` resolves to `index.html` during development (Vite does not auto-serve subdirectory index files by default).
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-## Design System
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-Defined in `src/index.css`:
+## Deploy on Vercel
 
-| Token | Value |
-|---|---|
-| `--bg-primary` | `#0A0A0A` |
-| `--neon-cyan` | `#00FFFF` |
-| `--neon-magenta` | `#FF00FF` |
-| `--text-primary` | `#EAEAEA` |
-| `--text-secondary` | `#B0B0B0` |
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-The navbar and footer use a green accent (`#22c55e`) consistent with the portfolio page design language.
-
-## Deployment
-
-Deployed to **Netlify** via `netlify.toml` at the repo root. Build command: `npm run build` from `business-website/`. Publish directory: `business-website/dist`.
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.

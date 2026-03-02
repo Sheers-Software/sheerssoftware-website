@@ -1,5 +1,6 @@
+"use client";
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { Mail, Phone, MapPin, MessageCircle, Linkedin, Twitter, Facebook } from 'lucide-react';
 import './Footer.css';
 
@@ -30,19 +31,19 @@ const Footer = () => {
                     {/* Quick Links */}
                     <div className="footer-column">
                         <h4 className="footer-title">Pages</h4>
-                        <Link to="/about" className="footer-link">About</Link>
+                        <Link href="/about" className="footer-link">About</Link>
                         <a href="https://ai.sheerssoft.com" className="footer-link">Product</a>
-                        <Link to="/solutions" className="footer-link">Solutions</Link>
-                        <Link to="/blog" className="footer-link">Blog</Link>
-                        <Link to="/contact" className="footer-link">Contact</Link>
+                        <Link href="/solutions" className="footer-link">Solutions</Link>
+                        <Link href="/blog" className="footer-link">Blog</Link>
+                        <Link href="/contact" className="footer-link">Contact</Link>
                     </div>
 
                     {/* More Links */}
                     <div className="footer-column">
                         <h4 className="footer-title">Resources</h4>
-                        <Link to="/faq" className="footer-link">FAQ</Link>
-                        <Link to="/support" className="footer-link">Support</Link>
-                        <Link to="/career" className="footer-link">Career</Link>
+                        <Link href="/faq" className="footer-link">FAQ</Link>
+                        <Link href="/support" className="footer-link">Support</Link>
+                        <Link href="/career" className="footer-link">Career</Link>
                     </div>
 
                     {/* Contact */}
@@ -69,9 +70,9 @@ const Footer = () => {
                         © {new Date().getFullYear()} Sheers Software Sdn. Bhd. All rights reserved.
                     </p>
                     <div className="footer-legal">
-                        <Link to="/privacy" className="legal-link">Privacy Policy</Link>
+                        <Link href="/privacy" className="legal-link">Privacy Policy</Link>
                         <span className="legal-divider">•</span>
-                        <Link to="/terms" className="legal-link">Terms of Service</Link>
+                        <Link href="/terms" className="legal-link">Terms of Service</Link>
                     </div>
                 </div>
             </div>

@@ -1,0 +1,41 @@
+# Nocturn AI — llms.txt
+
+## What is Nocturn AI?
+Nocturn AI is an autonomous hotel booking assistant built by SheersSoft (Sheers Software Sdn. Bhd.). It handles guest inquiries 24/7 via WhatsApp — even at 11:47 PM — ensuring no booking opportunity is lost.
+
+## Problem Solved
+Independent and boutique hotels in Malaysia lose 15–30% of direct booking revenue because front desk staff cannot respond to inquiries after hours or during peak periods. OTA commissions (15–25%) further erode margins. Nocturn AI eliminates both problems by acting as an always-on revenue recovery agent.
+
+## Ideal Customer Profile (ICP)
+- Independent and boutique hotels in Southeast Asia (initially Malaysia)
+- 20–120 rooms
+- Revenue Managers, General Managers, or Hotel Owners
+- Hotels currently losing revenue to slow response times and OTA dependency
+
+## Key Features
+- 24/7 WhatsApp-native guest communication
+- Autonomous booking capture and confirmation
+- Real-time rate and availability sync
+- Multi-language support (English, Malay, Mandarin)
+- Zero-integration setup (no PMS migration required)
+
+## Pricing (Post-Pilot)
+- Starter: RM 599/month (up to 30 rooms)
+- Growth: RM 899/month (up to 80 rooms, analytics dashboard)
+- Enterprise: RM 1,199/month (unlimited rooms, dedicated success manager)
+
+## Founding Cohort
+Currently onboarding a limited Founding Cohort of 5 hotels at zero cost for 60 days. Apply at: https://ai.sheerssoft.com/apply
+
+## Company
+SheersSoft (Sheers Software Sdn. Bhd.)
+Location: Kuala Lumpur, Malaysia
+Website: https://sheerssoft.com
+Product Site: https://ai.sheerssoft.com
+Contact: a.basyir@sheerssoft.com
+
+## Links
+- Product Page: https://ai.sheerssoft.com
+- Apply for Founding Cohort: https://ai.sheerssoft.com/apply
+- Corporate Site: https://sheerssoft.com
+- Blog: https://sheerssoft.com/blog

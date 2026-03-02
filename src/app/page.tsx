@@ -1,5 +1,6 @@
 import "./home.css";
 import { PricingCard } from "@/components/PricingCard";
+import LeadMagnetCalculator from "@/components/LeadMagnetCalculator";
 
 export default function HomePage() {
   return (
@@ -21,11 +22,16 @@ export default function HomePage() {
               Malaysian hotels lose direct bookings every night to unanswered WhatsApp messages, unfollowed emails, and after-hours silence. Nocturn AI captures every inquiry, responds instantly, follows up automatically, and shows you exactly what you&apos;re converting — 24/7.
             </p>
             <div className="hero-ctas">
-              <a href="/apply" className="btn btn-primary btn-lg">
-                Apply for Founding Cohort →
-              </a>
-              <div className="text-small text-gray-500" style={{ marginTop: 8 }}>
-                30-day free pilot · No setup fee · Live in 48 hours
+              <div style={{ display: "flex", gap: "16px", flexWrap: "wrap", justifyContent: "flex-start" }}>
+                <a href="/apply" className="btn btn-primary btn-lg">
+                  Apply for Founding Cohort — 3 spots remaining
+                </a>
+                <a href="#midnight-test" className="btn btn-outline btn-lg" style={{ background: "rgba(255,255,255,0.1)", color: "white", borderColor: "rgba(255,255,255,0.2)" }}>
+                  See the 11:47PM demo →
+                </a>
+              </div>
+              <div className="text-small text-gray-500" style={{ marginTop: 12 }}>
+                For independent 3–4 star hotels in Malaysia running on WhatsApp, email, and phone — not enterprise software.
               </div>
             </div>
             <div className="hero-proof">
@@ -85,6 +91,8 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+
 
       {/* SECTION 2: Pain Agitation */}
       <section className="section section-white" id="pain">
@@ -287,7 +295,7 @@ export default function HomePage() {
       </section >
 
       {/* SECTION 5: The Midnight Test */}
-      < section className="section section-white" style={{ borderBottom: "1px solid var(--color-gray-200)" }}>
+      <section className="section section-white" id="midnight-test" style={{ borderBottom: "1px solid var(--color-gray-200)" }}>
         <div className="container">
           <div style={{ textAlign: "center", marginBottom: 40 }}>
             <span className="eyebrow">SEE IT IN ACTION</span>
@@ -331,6 +339,66 @@ export default function HomePage() {
           </div>
         </div>
       </section >
+
+      {/* SECTION 4.5: Competitor Comparison */}
+      <section className="section section-gray" style={{ background: "var(--color-gray-50)", borderTop: "1px solid var(--color-gray-200)" }}>
+        <div className="container container-narrow">
+          <div style={{ textAlign: "center", marginBottom: 40 }}>
+            <span className="eyebrow">WHY US</span>
+            <h2 style={{ marginTop: 12 }}>Built for Your Reality, Not Their Enterprise</h2>
+          </div>
+          <div style={{ overflowX: "auto", borderRadius: 12, border: "1px solid var(--color-gray-200)", background: "white", boxShadow: "var(--shadow-card)" }}>
+            <table style={{ width: "100%", borderCollapse: "collapse", minWidth: 600 }}>
+              <thead>
+                <tr style={{ background: "var(--color-navy)", color: "white", textAlign: "left" }}>
+                  <th style={{ padding: "16px 24px", fontWeight: 600, width: "34%" }}>Feature</th>
+                  <th style={{ padding: "16px 24px", fontWeight: 700, width: "22%", background: "var(--color-green)", borderLeft: "1px solid rgba(255,255,255,0.1)", borderRight: "1px solid rgba(255,255,255,0.1)" }}>Nocturn AI</th>
+                  <th style={{ padding: "16px 24px", fontWeight: 600, width: "22%" }}>Enterprise PMS Add-Ons</th>
+                  <th style={{ padding: "16px 24px", fontWeight: 600, width: "22%" }}>Generic Chatbots</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style={{ borderBottom: "1px solid var(--color-gray-100)" }}>
+                  <td style={{ padding: "16px 24px", fontWeight: 500 }}>WhatsApp Native</td>
+                  <td style={{ padding: "16px 24px", background: "rgba(34, 197, 94, 0.05)", fontWeight: 700, color: "var(--color-green)", borderLeft: "1px solid var(--color-gray-200)", borderRight: "1px solid var(--color-gray-200)" }}>✓ Yes</td>
+                  <td style={{ padding: "16px 24px", color: "var(--color-gray-500)" }}>Rarely</td>
+                  <td style={{ padding: "16px 24px", color: "var(--color-gray-500)" }}>Rarely</td>
+                </tr>
+                <tr style={{ borderBottom: "1px solid var(--color-gray-100)" }}>
+                  <td style={{ padding: "16px 24px", fontWeight: 500 }}>Malaysian Market Built</td>
+                  <td style={{ padding: "16px 24px", background: "rgba(34, 197, 94, 0.05)", fontWeight: 700, color: "var(--color-green)", borderLeft: "1px solid var(--color-gray-200)", borderRight: "1px solid var(--color-gray-200)" }}>✓ Yes</td>
+                  <td style={{ padding: "16px 24px", color: "var(--color-red)" }}>✗ No</td>
+                  <td style={{ padding: "16px 24px", color: "var(--color-red)" }}>✗ No</td>
+                </tr>
+                <tr style={{ borderBottom: "1px solid var(--color-gray-100)" }}>
+                  <td style={{ padding: "16px 24px", fontWeight: 500 }}>Setup Time</td>
+                  <td style={{ padding: "16px 24px", background: "rgba(34, 197, 94, 0.05)", fontWeight: 700, color: "var(--color-green)", borderLeft: "1px solid var(--color-gray-200)", borderRight: "1px solid var(--color-gray-200)" }}>48 hours</td>
+                  <td style={{ padding: "16px 24px", color: "var(--color-gray-500)" }}>6–18 months</td>
+                  <td style={{ padding: "16px 24px", color: "var(--color-gray-500)" }}>1–2 weeks</td>
+                </tr>
+                <tr style={{ borderBottom: "1px solid var(--color-gray-100)" }}>
+                  <td style={{ padding: "16px 24px", fontWeight: 500 }}>Contract</td>
+                  <td style={{ padding: "16px 24px", background: "rgba(34, 197, 94, 0.05)", fontWeight: 700, color: "var(--color-green)", borderLeft: "1px solid var(--color-gray-200)", borderRight: "1px solid var(--color-gray-200)" }}>None</td>
+                  <td style={{ padding: "16px 24px", color: "var(--color-gray-500)" }}>12–24 months</td>
+                  <td style={{ padding: "16px 24px", color: "var(--color-gray-500)" }}>Varies</td>
+                </tr>
+                <tr style={{ borderBottom: "1px solid var(--color-gray-100)" }}>
+                  <td style={{ padding: "16px 24px", fontWeight: 500 }}>Works Without PMS Integration</td>
+                  <td style={{ padding: "16px 24px", background: "rgba(34, 197, 94, 0.05)", fontWeight: 700, color: "var(--color-green)", borderLeft: "1px solid var(--color-gray-200)", borderRight: "1px solid var(--color-gray-200)" }}>✓ Yes</td>
+                  <td style={{ padding: "16px 24px", color: "var(--color-red)" }}>✗ No</td>
+                  <td style={{ padding: "16px 24px", color: "var(--color-gray-500)" }}>Sometimes</td>
+                </tr>
+                <tr>
+                  <td style={{ padding: "16px 24px", fontWeight: 500 }}>After-Hours Capture</td>
+                  <td style={{ padding: "16px 24px", background: "rgba(34, 197, 94, 0.05)", fontWeight: 700, color: "var(--color-green)", borderLeft: "1px solid var(--color-gray-200)", borderRight: "1px solid var(--color-gray-200)" }}>✓ Complete</td>
+                  <td style={{ padding: "16px 24px", color: "var(--color-gray-500)" }}>Partial</td>
+                  <td style={{ padding: "16px 24px", color: "var(--color-gray-500)" }}>Partial</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
 
       {/* SECTION 6: Problem Testimony */}
       < section className="section section-gray" style={{ background: "var(--color-gray-50)" }}>
@@ -545,9 +613,58 @@ export default function HomePage() {
           <p style={{ color: "var(--color-gray-600)", maxWidth: 600, margin: "16px auto 32px" }}>
             Hotels like yours typically have RM 3,000-8,000/month in revenue at risk from inquiries that go unanswered or unfollowed. Use this calculator with YOUR numbers.
           </p>
-          <ROICalculator />
+          <LeadMagnetCalculator />
         </div>
-      </section >
+      </section>
+
+      {/* SECTION 6.5: Post-Pilot Pricing */}
+      <section className="section section-gray" style={{ background: "var(--color-gray-50)", borderTop: "1px solid var(--color-gray-200)" }}>
+        <div className="container">
+          <div style={{ textAlign: "center", marginBottom: 40 }}>
+            <span className="eyebrow">TRANSPARENT PRICING</span>
+            <h2 style={{ marginTop: 12 }}>After the 30-Day Pilot</h2>
+            <p className="text-gray-600" style={{ maxWidth: 600, margin: "16px auto 0" }}>
+              If the numbers work (and they typically do), continuing is simple. No contracts. Cancel anytime.
+            </p>
+          </div>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: 24, maxWidth: 1000, margin: "0 auto" }}>
+            <div className="pricing-card" style={{ background: "white", padding: 32, borderRadius: 16, border: "1px solid var(--color-gray-200)", boxShadow: "0 4px 6px rgba(0,0,0,0.02)" }}>
+              <div style={{ fontSize: 18, fontWeight: 700, color: "var(--color-navy)", marginBottom: 8 }}>Boutique</div>
+              <div style={{ color: "var(--color-gray-500)", fontSize: 14, marginBottom: 24 }}>&lt; 50 rooms</div>
+              <div style={{ fontSize: 36, fontWeight: 800, color: "var(--color-navy)", marginBottom: 24 }}>RM 599<span style={{ fontSize: 16, fontWeight: 500, color: "var(--color-gray-400)" }}>/month</span></div>
+              <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: 12 }}>
+                <li style={{ display: "flex", gap: 12, color: "var(--color-gray-700)" }}><span style={{ color: "#22C55E" }}>✓</span> All channels covered</li>
+                <li style={{ display: "flex", gap: 12, color: "var(--color-gray-700)" }}><span style={{ color: "#22C55E" }}>✓</span> Unlimited AI inquiries</li>
+                <li style={{ display: "flex", gap: 12, color: "var(--color-gray-700)" }}><span style={{ color: "#22C55E" }}>✓</span> Daily morning reports</li>
+              </ul>
+            </div>
+            <div className="pricing-card popular" style={{ background: "var(--color-navy)", padding: 32, borderRadius: 16, border: "2px solid var(--color-green)", color: "white", position: "relative", boxShadow: "0 10px 25px rgba(34, 197, 94, 0.15)" }}>
+              <div style={{ position: "absolute", top: -14, left: "50%", transform: "translateX(-50%)", background: "var(--color-green)", color: "white", fontSize: 12, fontWeight: 700, padding: "4px 12px", borderRadius: 20, letterSpacing: "1px" }}>MOST COMMMON</div>
+              <div style={{ fontSize: 18, fontWeight: 700, marginBottom: 8 }}>Independent</div>
+              <div style={{ color: "rgba(255,255,255,0.7)", fontSize: 14, marginBottom: 24 }}>50–150 rooms</div>
+              <div style={{ fontSize: 36, fontWeight: 800, marginBottom: 24 }}>RM 899<span style={{ fontSize: 16, fontWeight: 500, color: "rgba(255,255,255,0.5)" }}>/month</span></div>
+              <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: 12 }}>
+                <li style={{ display: "flex", gap: 12, color: "rgba(255,255,255,0.9)" }}><span style={{ color: "#22C55E" }}>✓</span> Everything in Boutique</li>
+                <li style={{ display: "flex", gap: 12, color: "rgba(255,255,255,0.9)" }}><span style={{ color: "#22C55E" }}>✓</span> Priority WhatsApp support</li>
+                <li style={{ display: "flex", gap: 12, color: "rgba(255,255,255,0.9)" }}><span style={{ color: "#22C55E" }}>✓</span> Weekly performance review</li>
+              </ul>
+            </div>
+            <div className="pricing-card" style={{ background: "white", padding: 32, borderRadius: 16, border: "1px solid var(--color-gray-200)", boxShadow: "0 4px 6px rgba(0,0,0,0.02)" }}>
+              <div style={{ fontSize: 18, fontWeight: 700, color: "var(--color-navy)", marginBottom: 8 }}>Resort / Mid-Scale</div>
+              <div style={{ color: "var(--color-gray-500)", fontSize: 14, marginBottom: 24 }}>150+ rooms</div>
+              <div style={{ fontSize: 36, fontWeight: 800, color: "var(--color-navy)", marginBottom: 24 }}>RM 1,199<span style={{ fontSize: 16, fontWeight: 500, color: "var(--color-gray-400)" }}>/month</span></div>
+              <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: 12 }}>
+                <li style={{ display: "flex", gap: 12, color: "var(--color-gray-700)" }}><span style={{ color: "#22C55E" }}>✓</span> Everything in Independent</li>
+                <li style={{ display: "flex", gap: 12, color: "var(--color-gray-700)" }}><span style={{ color: "#22C55E" }}>✓</span> Dedicated onboarding manager</li>
+                <li style={{ display: "flex", gap: 12, color: "var(--color-gray-700)" }}><span style={{ color: "#22C55E" }}>✓</span> Monthly strategy call</li>
+              </ul>
+            </div>
+          </div>
+          <div style={{ textAlign: "center", marginTop: 32, fontSize: 14, color: "var(--color-gray-500)" }}>
+            * Founding cohort members lock in 30% below these rates forever.
+          </div>
+        </div>
+      </section>
 
       {/* SECTION 7: FAQ */}
       < section className="section section-white" id="faq" >
@@ -581,54 +698,6 @@ export default function HomePage() {
       {/* Scroll animation + counter script */}
       < CounterScript />
     </>
-  );
-}
-
-/* ---- ROI Calculator (client-side interactive) ---- */
-function ROICalculator() {
-  return (
-    <div className="roi-calc" id="roi-calculator-widget">
-      <div className="roi-inputs">
-        <div className="roi-input-group">
-          <label htmlFor="daily-inquiries">Daily inquiries your hotel receives:</label>
-          <input type="range" id="daily-inquiries" min="10" max="100" defaultValue="30" className="roi-slider" />
-          <span className="roi-value" id="daily-inquiries-val">30</span>
-        </div>
-        <div className="roi-input-group">
-          <label htmlFor="adr">Your Average Daily Rate (ADR):</label>
-          <div className="roi-input-wrap">
-            <span>RM</span>
-            <input type="number" id="adr" defaultValue="230" min="50" max="2000" className="roi-number-input" />
-          </div>
-          <p style={{ fontSize: "12px", color: "var(--color-gray-400)", marginTop: "4px" }}>
-            (The average ADR for Malaysian 3-4 star hotels is approximately RM 200-280)
-          </p>
-        </div>
-        <div className="roi-input-group">
-          <label htmlFor="after-hours">% of inquiries after office hours:</label>
-          <input type="range" id="after-hours" min="10" max="50" defaultValue="30" className="roi-slider" />
-          <span className="roi-value" id="after-hours-val">30%</span>
-        </div>
-      </div>
-      <div className="roi-result">
-        <div className="roi-result-card">
-          <div className="roi-result-label">Estimated Monthly Revenue Recovered</div>
-          <div className="roi-result-number" id="roi-revenue">RM 9,315</div>
-        </div>
-        <div className="roi-result-card" style={{ borderColor: "var(--color-amber)" }}>
-          <div className="roi-result-label">OTA Commission Avoided</div>
-          <div className="roi-result-number" id="roi-commission">RM 1,863</div>
-        </div>
-      </div>
-      <p className="roi-note">
-        <span style={{ fontSize: "0.85em", opacity: 0.8 }}>
-          * Estimation based on [Daily Inquiries] × [30 days] × [After-hours %] × [15% industry conversion rate] × [ADR]. Actual results depend on your property type, location, and season. The 30-day pilot will give you your real numbers — not estimates.
-        </span>
-      </p>
-      <a href="/apply" className="btn btn-primary" style={{ marginTop: 16 }}>
-        Apply for Founding Cohort →
-      </a>
-    </div>
   );
 }
 
@@ -763,33 +832,6 @@ function CounterScript() {
     });
   }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
   reveals.forEach(function(r) { revealObs.observe(r); });
-
-  // ---- ROI Calculator ----
-  var dailySlider = document.getElementById('daily-inquiries');
-  var adrInput = document.getElementById('adr');
-  var afterSlider = document.getElementById('after-hours');
-  var dailyVal = document.getElementById('daily-inquiries-val');
-  var afterVal = document.getElementById('after-hours-val');
-  var revenueEl = document.getElementById('roi-revenue');
-  var commissionEl = document.getElementById('roi-commission');
-
-  function calcROI() {
-    if (!dailySlider || !adrInput || !afterSlider) return;
-    var d = parseInt(dailySlider.value);
-    var a = parseInt(adrInput.value) || 230;
-    var h = parseInt(afterSlider.value) / 100;
-    var monthly = d * h * 0.15 * a * 30;
-    var commission = monthly * 0.20;
-    if (dailyVal) dailyVal.textContent = d;
-    if (afterVal) afterVal.textContent = afterSlider.value + '%';
-    if (revenueEl) revenueEl.textContent = 'RM ' + Math.round(monthly).toLocaleString();
-    if (commissionEl) commissionEl.textContent = 'RM ' + Math.round(commission).toLocaleString();
-  }
-
-  if (dailySlider) dailySlider.addEventListener('input', calcROI);
-  if (adrInput) adrInput.addEventListener('input', calcROI);
-  if (afterSlider) afterSlider.addEventListener('input', calcROI);
-  calcROI();
 
   // ---- FAQ Accordion ----
   document.querySelectorAll('.faq-question').forEach(function(btn) {

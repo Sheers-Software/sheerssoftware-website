@@ -4,6 +4,7 @@ import "./layout.css";
 import { Header } from "@/components/Header";
 import { WhatsAppFloatingButton } from "@/components/WhatsAppFloatingButton";
 import MetaPixel from "@/components/MetaPixel";
+import LinkedInInsightTag from "@/components/LinkedInInsightTag";
 
 export const metadata: Metadata = {
   title: {
@@ -64,6 +65,7 @@ export default function RootLayout({
         <MobileCTA />
         <WhatsAppFloatingButton />
         <MetaPixel />
+        <LinkedInInsightTag />
 
         {/* --- JSON-LD Schema for GEO & SEO --- */}
         <script

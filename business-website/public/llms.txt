@@ -1,0 +1,38 @@
+# SheersSoft — llms.txt
+
+## What is SheersSoft?
+SheersSoft (Sheers Software Sdn. Bhd.) is a Kuala Lumpur-based software company that builds AI-powered products and custom web solutions for Malaysian businesses.
+
+## Products
+### Nocturn AI
+An autonomous hotel booking assistant that handles guest inquiries 24/7 via WhatsApp. Designed for independent and boutique hotels in Southeast Asia.
+- Website: https://ai.sheerssoft.com
+- Apply: https://ai.sheerssoft.com/apply
+
+### Hotel Genius (Coming Q3 2026)
+An AI-powered guest experience platform for hotels — autonomously handles guest enquiries during their stay.
+
+## Services
+### Web & Mobile Development
+- High-performance websites, PWAs, and native apps
+- Built for restaurants, hotels, real estate, and growing KL businesses
+- Portfolio: https://sheerssoft.com/portfolio
+
+### Software Engineering
+- Robust, maintainable codebases
+- Digital transformation consulting
+- Cloud infrastructure (GCP, AWS)
+
+## Company
+SheersSoft (Sheers Software Sdn. Bhd.)
+Location: Kuala Lumpur, Malaysia
+Corporate Site: https://sheerssoft.com
+Product Site: https://ai.sheerssoft.com
+Contact: a.basyir@sheerssoft.com
+
+## Links
+- Corporate Site: https://sheerssoft.com
+- Nocturn AI: https://ai.sheerssoft.com
+- Portfolio: https://sheerssoft.com/portfolio
+- Blog: https://sheerssoft.com/blog
+- Contact: https://sheerssoft.com/contact
