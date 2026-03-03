@@ -92,7 +92,7 @@ export default function AboutPage() {
                 <div className="container" style={{ maxWidth: 800, margin: "0 auto" }}>
                     <div style={{ display: "grid", gridTemplateColumns: "1fr 2fr", gap: 48, alignItems: "start" }}>
                         <div style={{ textAlign: "center" }}>
-                            <div style={{ width: 160, height: 160, background: "var(--color-navy)", borderRadius: "50%", margin: "0 auto 16px", display: "flex", alignItems: "center", justifyContent: "center", color: "white", fontSize: 48, fontWeight: 700 }}>B</div>
+                            <img src="/basyir.png" alt="Ahmad Basyir Azahari" style={{ width: 160, height: 160, borderRadius: "50%", objectFit: "cover", margin: "0 auto 16px", display: "block" }} />
                             <h3 style={{ fontSize: 20 }}>Ahmad Basyir Azahari</h3>
                             <p style={{ fontSize: 14, color: "var(--color-gray-500)" }}>Founder & CEO<br />Sheers Software Sdn Bhd</p>
                         </div>

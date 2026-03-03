@@ -612,7 +612,7 @@ export default function HomePage() {
               Nocturn AI is in its founding stage. I can offer you my direct attention and the ability to shape this product around your property's real needs. That's why there's no contract, no setup fee, and a 30-day prove-it-or-pay-nothing guarantee.
             </p>
             <div style={{ display: "flex", alignItems: "center", gap: 16, marginTop: 32 }}>
-              <div style={{ width: 48, height: 48, background: "var(--color-navy)", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", color: "white", fontWeight: 700 }}>B</div>
+              <img src="/basyir.png" alt="Ahmad Basyir Azahari" style={{ width: 48, height: 48, borderRadius: "50%", objectFit: "cover" }} />
               <div>
                 <div style={{ fontWeight: 700, color: "var(--color-navy)" }}>Ahmad Basyir Azahari</div>
                 <div style={{ fontSize: 14, color: "var(--color-gray-500)" }}>Founder, Sheers Software Sdn Bhd</div>
