@@ -100,7 +100,7 @@ export default function ApplyPage() {
                                     <strong>After you apply</strong>, Basyir will personally WhatsApp you within 2 hours. No sales pitch. Just a honest conversation about whether Nocturn AI fits your property.
                                 </p>
                                 <div style={{ display: "flex", alignItems: "center", gap: 12, marginTop: 8 }}>
-                                    <img src="/basyir.png" alt="Ahmad Basyir Azahari" style={{ width: 40, height: 40, borderRadius: "50%", objectFit: "cover" }} />
+                                    <img src="/Basyir.png" alt="Ahmad Basyir Azahari" style={{ width: 40, height: 40, borderRadius: "50%", objectFit: "cover" }} />
                                     <div style={{ fontSize: 14, color: "var(--color-gray-600)" }}>
                                         <strong style={{ color: "var(--color-navy)", display: "block" }}>Ahmad Basyir Azahari</strong>
                                         Founder
