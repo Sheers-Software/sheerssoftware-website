@@ -102,7 +102,7 @@ export default function ApplyPage() {
                                 <div style={{ display: "flex", alignItems: "center", gap: 12, marginTop: 8 }}>
                                     <div style={{ width: 40, height: 40, background: "var(--color-navy)", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", color: "white", fontWeight: 700 }}>B</div>
                                     <div style={{ fontSize: 14, color: "var(--color-gray-600)" }}>
-                                        <strong style={{ color: "var(--color-navy)", display: "block" }}>Basyir Sheers</strong>
+                                        <strong style={{ color: "var(--color-navy)", display: "block" }}>Ahmad Basyir Azahari</strong>
                                         Founder
                                     </div>
                                 </div>

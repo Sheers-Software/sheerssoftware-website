@@ -614,7 +614,7 @@ export default function HomePage() {
             <div style={{ display: "flex", alignItems: "center", gap: 16, marginTop: 32 }}>
               <div style={{ width: 48, height: 48, background: "var(--color-navy)", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", color: "white", fontWeight: 700 }}>B</div>
               <div>
-                <div style={{ fontWeight: 700, color: "var(--color-navy)" }}>Basyir Sheers</div>
+                <div style={{ fontWeight: 700, color: "var(--color-navy)" }}>Ahmad Basyir Azahari</div>
                 <div style={{ fontSize: 14, color: "var(--color-gray-500)" }}>Founder, Sheers Software Sdn Bhd</div>
               </div>
             </div>
