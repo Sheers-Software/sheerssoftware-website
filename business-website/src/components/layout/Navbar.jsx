@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Menu, X, MessageCircle, ChevronDown, Bot, Building2, Globe, Code, LayoutTemplate } from 'lucide-react';
+import { Menu, X, MessageCircle, ChevronDown, Bot, Globe, Code, LayoutTemplate } from 'lucide-react';
 import './Navbar.css';
 
 const Navbar = () => {
@@ -12,8 +12,7 @@ const Navbar = () => {
     const navLinks = [
         {
             path: 'https://ai.sheerssoft.com', label: 'Product', external: true, dropdown: [
-                { path: 'https://ai.sheerssoft.com', label: 'Nocturn AI', description: 'Autonomously handles bookings - even while you sleep', icon: <Bot size={24} className="text-neon-cyan" /> },
-                { path: '#', label: 'Hotel Genius', description: 'Coming Q3 2026 - Autonomously handles guest enquiries', icon: <Building2 size={24} className="text-neon-magenta" /> }
+                { path: 'https://ai.sheerssoft.com', label: 'Nocturn AI', description: 'Captures every inquiry and qualifies every lead — even while you sleep', icon: <Bot size={24} className="text-neon-cyan" /> },
             ]
         },
         { path: '/blog', label: 'Blog', external: false },

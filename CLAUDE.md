@@ -11,7 +11,8 @@ It contains two separate applications:
 | App | Directory | Stack | Live URL |
 |-----|-----------|-------|----------|
 | Product App (Nocturn AI) | `/` (root) | Next.js 16 App Router, TypeScript, React 19 | [ai.sheerssoft.com](https://ai.sheerssoft.com) |
-| Marketing Website (SheersSoft) | `/business-website` | Vite, React 19, React Router v7, Framer Motion | [sheerssoft.com](https://sheerssoft.com) |
+| Marketing Website (SheersSoft) | `/business-website` | Next.js 16 App Router, TypeScript, React 19, Tailwind CSS v4, Framer Motion | [sheerssoft.com](https://sheerssoft.com) |
+| Marketing Website (Legacy Vite) | `/business-website-vite` | Vite, React 19, React Router v7 | (archived, not deployed) |
 
 These are **completely independent apps** with separate `package.json`, `node_modules`, build pipelines, and Docker images. Changes to one do not affect the other.
 
@@ -27,14 +28,14 @@ npm run build
 npm run lint
 ```
 
-### Marketing Website (Vite) — run from /business-website
+### Marketing Website (Next.js) — run from /business-website
 ```bash
 cd business-website
 npm install
-npm run dev      # http://localhost:5173
+npm run dev      # http://localhost:3000
 npm run build
+npm run start    # serve production build
 npm run lint
-npm run preview  # preview production build
 ```
 
 There are no tests in this codebase.
@@ -82,24 +83,33 @@ Additional CSS files: `layout.css` (header/footer/layout), `home.css` (page-spec
 
 ## Marketing Website Architecture (`/business-website/src`)
 
-Single-page application with client-side routing via React Router.
+Next.js 16 App Router application (migrated from Vite/React Router). TypeScript with Tailwind CSS v4.
 
-### Routing (`App.jsx`)
-All routes are defined in `App.jsx`. Pages live in `/business-website/src/pages/`.
-
-Blog articles are individual `.jsx` files in `/business-website/src/pages/blog/`.
+### Pages (`/business-website/src/app`)
+- `/` — Home page
+- `/about` — About page
+- `/blog` — Blog index; articles at `/blog/maximizing-adr`, `/blog/why-ai-is-the-future`
+- `/career` — Careers
+- `/contact` — Contact form (EmailJS)
+- `/faq` — FAQ
+- `/pricing` — Pricing
+- `/privacy`, `/terms` — Legal pages
+- `/solutions` — Solutions
+- `/support` — Support
+- `/services/web-design` — Web design service page
 
 ### Component Structure
-- `components/layout/` — Navbar, Footer, shared layout
-- `components/funnel/` — Lead capture and conversion components
-- `components/ui/` — Reusable UI primitives
-- `components/effects/` — Animation/visual effects
+- `components/layout/` — Navbar, Footer, PageLayout, ScrollToTop
+- `components/funnel/` — Lead capture (HubSpotLeadForm, HubSpotMeeting, LostRevenueAudit)
+- `components/ui/` — Reusable UI primitives (NeonButton, NotificationModal)
+- `components/effects/` — Animation/visual effects (AnimatedBackground)
 
 ### Key integrations
-- **HubSpot** forms for lead capture (tracked via HubSpot script in Next.js layout)
-- **EmailJS** for contact form in the marketing site
-- **Meta Pixel** / Facebook CAPI for ad attribution
-- **Google Analytics (GA4)** — placeholder ID (`G-XXXXXXXXXX`) in root layout
+- **HubSpot** forms for lead capture (script in `layout.tsx`)
+- **EmailJS** for contact form
+- **Meta Pixel** via `MetaPixel.tsx` component
+- **LinkedIn Insight Tag** via `LinkedInInsightTag.tsx` component
+- **Google Analytics (GA4)** — placeholder ID (`G-XXXXXXXXXX`) in `layout.tsx`
 
 ---
 
@@ -117,4 +127,4 @@ Blog articles are individual `.jsx` files in `/business-website/src/pages/blog/`
 Both apps deploy to **Google Cloud Run** (`asia-southeast1`, project `sheers-software`) via Google Cloud Build (`cloudbuild.yaml`). CI/CD triggers automatically on push.
 
 - Product app: built from root `Dockerfile` using Next.js standalone output
-- Marketing site: built from `business-website/Dockerfile` (Vite build served via nginx)
+- Marketing site: built from `business-website/Dockerfile` (Next.js standalone output)

@@ -104,10 +104,10 @@ export default function HomePage() {
           <h2 style={{ marginTop: 12 }}>The Inquiry Graveyard: Where Direct Bookings Go to Die</h2>
           <div className="stat-grid">
             <div className="stat-card">
-              <div className="stat-number">70%</div>
+              <div className="stat-number">90%</div>
               <div className="stat-label">of Malaysian hotel bookings come from manual channels</div>
               <div className="stat-sub">WhatsApp, phone calls, emails, walk-ins — not your website.</div>
-              <div className="stat-source">Based on industry operator interviews, 2025</div>
+              <div className="stat-source">Reservation Manager interview, Kuala Lumpur, 2026</div>
             </div>
             <div className="stat-card">
               <div className="stat-number">30–200</div>
@@ -116,9 +116,9 @@ export default function HomePage() {
               <div className="stat-source">Malaysian hotel operator data, 2025</div>
             </div>
             <div className="stat-card">
-              <div className="stat-number">0%</div>
-              <div className="stat-label">of inquiries captured after 6PM</div>
-              <div className="stat-sub">When your reservations team goes home, every inquiry is dropped.</div>
+              <div className="stat-number">6PM</div>
+              <div className="stat-label">Reservations closes. Inquiries keep coming.</div>
+              <div className="stat-sub">When your reservations team goes home, every after-hours inquiry is dropped.</div>
               <div className="stat-source">Independent hotel operator interviews, 2025</div>
             </div>
           </div>
@@ -288,7 +288,7 @@ export default function HomePage() {
                   <span className="feature-icon">🤝</span>
                   <div>
                     <strong>Smart Human Handoff</strong>
-                    <p>AI transfers complex requests to staff with full context instantly.</p>
+                    <p>When the AI can&apos;t help, it transfers to your team with full conversation context. Staff reply directly from the dashboard — the guest gets your message instantly on WhatsApp or web chat.</p>
                   </div>
                 </div>
               </div>
@@ -558,7 +558,7 @@ export default function HomePage() {
                   </li>
                   <li style={{ display: "flex", gap: 12, color: "rgba(255,255,255,0.9)" }}>
                     <span style={{ color: "#22C55E" }}>✅</span>
-                    <span><strong>Guest Insight Report (Day 30)</strong> — Keyword analysis of what guests are asking.</span>
+                    <span><strong>Guest Insight Report (Day 30)</strong> — AI-compiled analysis of 30 days of real guest conversations: what they&apos;re asking, recurring objections, sentiment, and the topics that lost you bookings. Written for your GM.</span>
                   </li>
                   <li style={{ display: "flex", gap: 12, color: "rgba(255,255,255,0.9)" }}>
                     <span style={{ color: "#22C55E" }}>✅</span>
@@ -594,7 +594,7 @@ export default function HomePage() {
           <div style={{ background: "white", padding: "40px", borderRadius: 12, border: "1px solid var(--color-gray-200)", maxWidth: 700, margin: "0 auto", boxShadow: "var(--shadow-card)" }}>
             <h3 style={{ fontSize: 24, marginBottom: 24 }}>Why I Built This</h3>
             <p className="text-gray-600" style={{ marginBottom: 16 }}>
-              <strong>9 operators. 4 countries. 18 months of primary research. This product was designed around their exact words — not a market analysis.</strong>
+              <strong>9 operators. Malaysia, Singapore, and the Middle East. This product was designed around their exact words — not a market analysis.</strong>
             </p>
             <p className="text-gray-600" style={{ marginBottom: 16 }}>
               I spent the last several months sitting across from Revenue Managers, Reservation Managers, GMs, and consultants who've collectively managed thousands of hotel rooms across Malaysia, Singapore, and the Middle East.
@@ -651,43 +651,51 @@ export default function HomePage() {
           </div>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: 24, maxWidth: 1000, margin: "0 auto" }}>
             <div className="pricing-card" style={{ background: "white", padding: 32, borderRadius: 16, border: "1px solid var(--color-gray-200)", boxShadow: "0 4px 6px rgba(0,0,0,0.02)" }}>
-              <div style={{ fontSize: 18, fontWeight: 700, color: "var(--color-navy)", marginBottom: 8 }}>Boutique</div>
-              <div style={{ color: "var(--color-gray-500)", fontSize: 14, marginBottom: 24 }}>&lt; 50 rooms</div>
-              <div style={{ fontSize: 36, fontWeight: 800, color: "var(--color-navy)", marginBottom: 24 }}>RM 599<span style={{ fontSize: 16, fontWeight: 500, color: "var(--color-gray-400)" }}>/month</span></div>
+              <div style={{ fontSize: 18, fontWeight: 700, color: "var(--color-navy)", marginBottom: 8 }}>Starter</div>
+              <div style={{ color: "var(--color-gray-500)", fontSize: 14, marginBottom: 24 }}>&lt; 100 rooms</div>
+              <div style={{ fontSize: 36, fontWeight: 800, color: "var(--color-navy)", marginBottom: 24 }}>RM 1,500<span style={{ fontSize: 16, fontWeight: 500, color: "var(--color-gray-400)" }}>/month</span></div>
               <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: 12 }}>
-                <li style={{ display: "flex", gap: 12, color: "var(--color-gray-700)" }}><span style={{ color: "#22C55E" }}>✓</span> All channels covered</li>
-                <li style={{ display: "flex", gap: 12, color: "var(--color-gray-700)" }}><span style={{ color: "#22C55E" }}>✓</span> Unlimited AI inquiries</li>
-                <li style={{ display: "flex", gap: 12, color: "var(--color-gray-700)" }}><span style={{ color: "#22C55E" }}>✓</span> Daily morning reports</li>
+                <li style={{ display: "flex", gap: 12, color: "var(--color-gray-700)" }}><span style={{ color: "#22C55E" }}>✓</span> 1 WhatsApp line</li>
+                <li style={{ display: "flex", gap: 12, color: "var(--color-gray-700)" }}><span style={{ color: "#22C55E" }}>✓</span> Web chat widget</li>
+                <li style={{ display: "flex", gap: 12, color: "var(--color-gray-700)" }}><span style={{ color: "#22C55E" }}>✓</span> 500 conversations/month</li>
+                <li style={{ display: "flex", gap: 12, color: "var(--color-gray-700)" }}><span style={{ color: "#22C55E" }}>✓</span> Basic dashboard</li>
+                <li style={{ display: "flex", gap: 12, color: "var(--color-gray-700)" }}><span style={{ color: "#22C55E" }}>✓</span> Email support</li>
               </ul>
             </div>
             <div className="pricing-card popular" style={{ background: "var(--color-navy)", padding: 32, borderRadius: 16, border: "2px solid var(--color-green)", color: "white", position: "relative", boxShadow: "0 10px 25px rgba(34, 197, 94, 0.15)" }}>
-              <div style={{ position: "absolute", top: -14, left: "50%", transform: "translateX(-50%)", background: "var(--color-green)", color: "white", fontSize: 12, fontWeight: 700, padding: "4px 12px", borderRadius: 20, letterSpacing: "1px" }}>MOST COMMMON</div>
-              <div style={{ fontSize: 18, fontWeight: 700, marginBottom: 8 }}>Independent</div>
-              <div style={{ color: "rgba(255,255,255,0.7)", fontSize: 14, marginBottom: 24 }}>50–150 rooms</div>
-              <div style={{ fontSize: 36, fontWeight: 800, marginBottom: 24 }}>RM 899<span style={{ fontSize: 16, fontWeight: 500, color: "rgba(255,255,255,0.5)" }}>/month</span></div>
+              <div style={{ position: "absolute", top: -14, left: "50%", transform: "translateX(-50%)", background: "var(--color-green)", color: "white", fontSize: 12, fontWeight: 700, padding: "4px 12px", borderRadius: 20, letterSpacing: "1px" }}>MOST POPULAR</div>
+              <div style={{ fontSize: 18, fontWeight: 700, marginBottom: 8 }}>Professional</div>
+              <div style={{ color: "rgba(255,255,255,0.7)", fontSize: 14, marginBottom: 24 }}>100–300 rooms</div>
+              <div style={{ fontSize: 36, fontWeight: 800, marginBottom: 24 }}>RM 3,000<span style={{ fontSize: 16, fontWeight: 500, color: "rgba(255,255,255,0.5)" }}>/month</span></div>
               <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: 12 }}>
-                <li style={{ display: "flex", gap: 12, color: "rgba(255,255,255,0.9)" }}><span style={{ color: "#22C55E" }}>✓</span> Everything in Boutique</li>
-                <li style={{ display: "flex", gap: 12, color: "rgba(255,255,255,0.9)" }}><span style={{ color: "#22C55E" }}>✓</span> Priority WhatsApp support</li>
-                <li style={{ display: "flex", gap: 12, color: "rgba(255,255,255,0.9)" }}><span style={{ color: "#22C55E" }}>✓</span> Weekly performance review</li>
+                <li style={{ display: "flex", gap: 12, color: "rgba(255,255,255,0.9)" }}><span style={{ color: "#22C55E" }}>✓</span> 2 WhatsApp lines</li>
+                <li style={{ display: "flex", gap: 12, color: "rgba(255,255,255,0.9)" }}><span style={{ color: "#22C55E" }}>✓</span> Web chat widget</li>
+                <li style={{ display: "flex", gap: 12, color: "rgba(255,255,255,0.9)" }}><span style={{ color: "#22C55E" }}>✓</span> Email auto-handler</li>
+                <li style={{ display: "flex", gap: 12, color: "rgba(255,255,255,0.9)" }}><span style={{ color: "#22C55E" }}>✓</span> 2,000 conversations/month</li>
+                <li style={{ display: "flex", gap: 12, color: "rgba(255,255,255,0.9)" }}><span style={{ color: "#22C55E" }}>✓</span> Full dashboard</li>
+                <li style={{ display: "flex", gap: 12, color: "rgba(255,255,255,0.9)" }}><span style={{ color: "#22C55E" }}>✓</span> Priority support</li>
               </ul>
             </div>
             <div className="pricing-card" style={{ background: "white", padding: 32, borderRadius: 16, border: "1px solid var(--color-gray-200)", boxShadow: "0 4px 6px rgba(0,0,0,0.02)" }}>
-              <div style={{ fontSize: 18, fontWeight: 700, color: "var(--color-navy)", marginBottom: 8 }}>Resort / Mid-Scale</div>
-              <div style={{ color: "var(--color-gray-500)", fontSize: 14, marginBottom: 24 }}>150+ rooms</div>
-              <div style={{ fontSize: 36, fontWeight: 800, color: "var(--color-navy)", marginBottom: 24 }}>RM 1,199<span style={{ fontSize: 16, fontWeight: 500, color: "var(--color-gray-400)" }}>/month</span></div>
+              <div style={{ fontSize: 18, fontWeight: 700, color: "var(--color-navy)", marginBottom: 8 }}>Enterprise</div>
+              <div style={{ color: "var(--color-gray-500)", fontSize: 14, marginBottom: 24 }}>300+ rooms</div>
+              <div style={{ fontSize: 36, fontWeight: 800, color: "var(--color-navy)", marginBottom: 24 }}>RM 5,000<span style={{ fontSize: 16, fontWeight: 500, color: "var(--color-gray-400)" }}>+/month</span></div>
               <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: 12 }}>
-                <li style={{ display: "flex", gap: 12, color: "var(--color-gray-700)" }}><span style={{ color: "#22C55E" }}>✓</span> Everything in Independent</li>
-                <li style={{ display: "flex", gap: 12, color: "var(--color-gray-700)" }}><span style={{ color: "#22C55E" }}>✓</span> Dedicated onboarding manager</li>
-                <li style={{ display: "flex", gap: 12, color: "var(--color-gray-700)" }}><span style={{ color: "#22C55E" }}>✓</span> Monthly strategy call</li>
+                <li style={{ display: "flex", gap: 12, color: "var(--color-gray-700)" }}><span style={{ color: "#22C55E" }}>✓</span> Unlimited WhatsApp lines</li>
+                <li style={{ display: "flex", gap: 12, color: "var(--color-gray-700)" }}><span style={{ color: "#22C55E" }}>✓</span> Web chat widget</li>
+                <li style={{ display: "flex", gap: 12, color: "var(--color-gray-700)" }}><span style={{ color: "#22C55E" }}>✓</span> Email auto-handler</li>
+                <li style={{ display: "flex", gap: 12, color: "var(--color-gray-700)" }}><span style={{ color: "#22C55E" }}>✓</span> Unlimited conversations</li>
+                <li style={{ display: "flex", gap: 12, color: "var(--color-gray-700)" }}><span style={{ color: "#22C55E" }}>✓</span> Full dashboard + API</li>
+                <li style={{ display: "flex", gap: 12, color: "var(--color-gray-700)" }}><span style={{ color: "#22C55E" }}>✓</span> Dedicated account manager</li>
               </ul>
             </div>
           </div>
           <div style={{ textAlign: "center", marginTop: 32, fontSize: 14, color: "var(--color-gray-500)" }}>
-            * Founding cohort members lock in 30% below these rates forever.
+            Every plan starts with a free 30-day pilot. No contracts. Cancel anytime.
           </div>
           <div style={{ textAlign: "center", marginTop: 40 }}>
             <a href="/apply" className="btn btn-primary btn-lg">
-              Secure Your Founding Rate — Apply Now →
+              Start Free Pilot →
             </a>
           </div>
         </div>

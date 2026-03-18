@@ -37,7 +37,7 @@ const Home = () => {
 
                         <p className="hero-subtitle" style={{ fontSize: '1.2rem', maxWidth: '800px', margin: '0 auto 2rem' }}>
                             Every unanswered call or WhatsApp is revenue handed to your competitors. <br />
-                            Our <span className="text-gradient">AI Hotel Concierge</span> answers instantly, 24/7, turning inquiries into confirmed bookings.
+                            Our <span className="text-gradient">AI Hotel Concierge</span> captures every inquiry and qualifies every lead — 24/7, in English and Bahasa Malaysia.
                         </p>
 
                         <div className="hero-cta-group">
@@ -124,18 +124,18 @@ const Home = () => {
                             Introducing <span className="text-gradient">Nocturn AI</span>
                         </h2>
                         <p className="section-subtitle text-center">
-                            Your 24/7 autonomous booking engine and guest concierge.
+                            Captures every inquiry and qualifies every lead — even while you sleep.
                         </p>
                         <div className="solution-grid">
                             <GlassCard variant="green" hover className="solution-card">
                                 <Zap size={40} className="text-neon-green mb-4" />
                                 <h3>Instant Replies 24/7</h3>
-                                <p>Answers WhatsApp, Web Chat, and Email in seconds, in over 50 languages.</p>
+                                <p>Answers WhatsApp, Web Chat, and Email in seconds — in English and Bahasa Malaysia, purpose-built for Malaysian hospitality.</p>
                             </GlassCard>
                             <GlassCard variant="green" hover className="solution-card">
                                 <TrendingUp size={40} className="text-neon-green mb-4" />
-                                <h3>Drives Direct Bookings</h3>
-                                <p>Guides guests through the funnel directly to your booking engine, avoiding OTA fees.</p>
+                                <h3>Captures Every Lead</h3>
+                                <p>Captures every inquiry and qualifies the lead — so your team converts direct bookings before the guest goes to OTA.</p>
                             </GlassCard>
                             <GlassCard variant="green" hover className="solution-card">
                                 <Shield size={40} className="text-neon-green mb-4" />
@@ -156,15 +156,15 @@ const Home = () => {
                         </h2>
                         <div className="benefits-grid">
                             <GlassCard variant="cyan" hover className="benefit-card">
-                                <div className="benefit-icon">🚀</div>
-                                <h3>10x Faster Operations</h3>
-                                <p>Complete tasks in minutes that used to take hours. Our automation handles the heavy lifting.</p>
+                                <div className="benefit-icon">⚡</div>
+                                <h3>Instant Response, Every Time</h3>
+                                <p>From overnight backlog to instant response — replies in under 30 seconds, 24/7. No more leads lost to the morning queue.</p>
                             </GlassCard>
 
                             <GlassCard variant="green" hover className="benefit-card">
-                                <div className="benefit-icon">🌍</div>
-                                <h3>Scale Globally</h3>
-                                <p>Expand to new markets without hiring more staff. Our platform scales with you.</p>
+                                <div className="benefit-icon">🇲🇾</div>
+                                <h3>Built for Malaysia</h3>
+                                <p>The only AI concierge purpose-built for how Malaysian hotels actually operate — WhatsApp-native, Bahasa Malaysia, PDPA 2010 compliant.</p>
                             </GlassCard>
 
                             <GlassCard variant="magenta" hover className="benefit-card">
@@ -235,10 +235,10 @@ const Home = () => {
                     <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}>
                         <GlassCard variant="green" className="guarantee-card">
                             <Shield size={60} className="text-neon-green mb-4 inline-block" />
-                            <h3>100% Satisfaction Guarantee</h3>
+                            <h3>30-Day Prove-It Guarantee</h3>
                             <p>
-                                We're so confident in our solutions that if you're not completely satisfied within the first 30 days,
-                                we'll refund every penny. <strong className="text-neon-green">No questions asked.</strong>
+                                Run Nocturn AI for 30 days — free. If your team doesn&apos;t agree it has measurably improved your inquiry response time and follow-up,
+                                you pay nothing. <strong className="text-neon-green">No contracts. No credit card required to start.</strong>
                             </p>
                         </GlassCard>
                     </motion.div>

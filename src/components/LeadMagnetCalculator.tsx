@@ -74,9 +74,9 @@ export default function LeadMagnetCalculator() {
 
             <div style={{ background: "var(--color-navy)", color: "white", padding: 24, borderRadius: 16, textAlign: "center", position: "relative", overflow: "hidden" }}>
                 <div style={{ position: "absolute", top: 0, left: 0, width: "100%", height: 3, background: "var(--color-green)" }}></div>
-                <h3 style={{ fontSize: 20, marginBottom: 12, color: "white" }}>Nocturn AI typically recovers 40–60% of this.</h3>
+                <h3 style={{ fontSize: 20, marginBottom: 12, color: "white" }}>Hotels like yours typically have RM 3,000–8,000/month in revenue at risk.</h3>
                 <p style={{ color: "rgba(255,255,255,0.8)", marginBottom: 24, fontSize: 15 }}>
-                    Get the full breakdown for your specific property type, or apply for the Founding Cohort to recover it right now.
+                    These estimates use a conservative 20% conversion rate on captured leads — the same rate used by revenue managers when forecasting direct bookings.
                 </p>
                 <div style={{ display: "flex", gap: 16, justifyContent: "center", flexWrap: "wrap" }}>
                     <a href="/apply" className="btn btn-primary btn-glow">Apply for Cohort →</a>

@@ -17,8 +17,9 @@ steps:
       - '--all-tags'
       - 'gcr.io/$PROJECT_ID/sheersdigital-product'
     id: 'push-product-image'
+    waitFor: ['build-product-image']
 
-  # 3. Deploy Product to Cloud Run
+  # 3. Deploy Product to Cloud Run (secrets injected from Secret Manager)
   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
     entrypoint: gcloud
     args:
@@ -36,7 +37,10 @@ steps:
       - '512Mi'
       - '--cpu'
       - '1'
+      - '--set-secrets'
+      - 'RESEND_API_KEY=RESEND_API_KEY:latest,META_CAPI_TOKEN_NOCTURN=META_CAPI_TOKEN_NOCTURN:latest,META_CAPI_TOKEN_SHEERS=META_CAPI_TOKEN_SHEERS:latest,WHATSAPP_WEBHOOK_URL=WHATSAPP_WEBHOOK_URL:latest'
     id: 'deploy-product-cloud-run'
+    waitFor: ['push-product-image']
 
 images:
   - 'gcr.io/$PROJECT_ID/sheersdigital-product:$_COMMIT_SHA'
