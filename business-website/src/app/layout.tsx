@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import "./globals.css";
 import "./App.css";
 import "./Home.css";
 import "./Pages.css";
 import PageLayout from "@/components/layout/PageLayout";
-import MetaPixel from "@/components/MetaPixel";
 import LinkedInInsightTag from "@/components/LinkedInInsightTag";
 
 export const metadata: Metadata = {
@@ -46,12 +46,33 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        {/* Google Tag Manager */}
+        <Script
+          id="gtm-script"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-TSGRML9H');`,
+          }}
+        />
+      </head>
       <body>
+        {/* Google Tag Manager (noscript) */}
+        <noscript>
+          <iframe
+            src="https://www.googletagmanager.com/ns.html?id=GTM-TSGRML9H"
+            height="0" width="0"
+            style={{ display: "none", visibility: "hidden" }}
+          />
+        </noscript>
         <PageLayout>
           {children}
         </PageLayout>
 
-        <MetaPixel />
         <LinkedInInsightTag />
 
         {/* --- JSON-LD Schema for GEO & SEO --- */}
@@ -90,18 +111,7 @@ export default function RootLayout({
           }}
         />
 
-        {/* Google Analytics - GA4 */}
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'G-XXXXXXXXXX');
-            `,
-          }}
-        />
+        {/* GA4 configured via GTM — add GA4 tag in GTM dashboard */}
 
         {/* HubSpot Tracking Code */}
         <script
