@@ -2,6 +2,24 @@
    Layout Styles — Navbar, Footer, MobileCTA
    ============================================ */
 
+/* ---------- Announcement Bar ---------- */
+.announcement-bar {
+    min-height: 40px;
+    height: auto !important;
+    flex-wrap: wrap;
+    gap: 4px;
+    padding: 8px 16px !important;
+    line-height: 1.4;
+}
+
+@media (max-width: 480px) {
+    .announcement-bar {
+        font-size: 12px !important;
+        text-align: center;
+        justify-content: center;
+    }
+}
+
 /* ---------- Navbar ---------- */
 .navbar {
     width: 100%;
@@ -398,5 +416,14 @@
 
     .whatsapp-tooltip {
         display: none;
+    }
+}
+
+/* ---------- Modal Responsive ---------- */
+@media (max-width: 768px) {
+    .modal-content {
+        padding: 1.25rem !important;
+        border-radius: 0.75rem !important;
+        max-height: 85vh !important;
     }
 }

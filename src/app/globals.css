@@ -482,6 +482,28 @@ textarea:focus-visible {
   .hide-mobile {
     display: none !important;
   }
+
+  /* Allow long button text to wrap on mobile */
+  .btn {
+    white-space: normal;
+    text-align: center;
+  }
+
+  /* Slightly reduce large button padding on mobile */
+  .btn-lg {
+    padding: 14px 24px;
+    font-size: var(--fs-body);
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 12px;
+  }
+
+  .btn-lg {
+    padding: 14px 20px;
+  }
 }
 
 @media (min-width: 769px) {
@@ -516,6 +538,39 @@ textarea:focus-visible {
   .apply-grid {
     grid-template-columns: 1fr;
     gap: 40px;
+  }
+}
+
+/* Apply page form card — responsive padding */
+.apply-form-card {
+  padding: 40px;
+  border-radius: 24px;
+}
+
+@media (max-width: 768px) {
+  .apply-form-card {
+    padding: 24px 20px;
+    border-radius: 16px;
+  }
+}
+
+/* About page founder grid — stack on mobile */
+.founder-grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 48px;
+  align-items: start;
+}
+
+@media (max-width: 768px) {
+  .founder-grid {
+    grid-template-columns: 1fr !important;
+    gap: 32px;
+    text-align: center;
+  }
+
+  .founder-grid img {
+    margin: 0 auto;
   }
 }
 

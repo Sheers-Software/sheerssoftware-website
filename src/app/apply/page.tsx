@@ -70,7 +70,7 @@ export default function ApplyPage() {
                         </div>
 
                         {/* Right Column: Form */}
-                        <div style={{ background: "var(--color-gray-50)", padding: 40, borderRadius: 24 }}>
+                        <div className="apply-form-card" style={{ background: "var(--color-gray-50)" }}>
                             <h2 style={{ marginBottom: 24, fontSize: 24 }}>Tell Us About Your Property</h2>
                             {errorMsg && (
                                 <div style={{ color: "red", background: "#fee2e2", padding: "12px", borderRadius: "8px", marginBottom: "16px", fontSize: "14px" }}>

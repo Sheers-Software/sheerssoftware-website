@@ -19,7 +19,7 @@ export default function LeadMagnetCalculator() {
     const results = calculateROI();
 
     return (
-        <div className="roi-calc" style={{ background: "white", padding: 32, borderRadius: 24, boxShadow: "var(--shadow-card)", maxWidth: 800, margin: "0 auto", textAlign: "left" }}>
+        <div className="roi-calc roi-calc-card" style={{ background: "white", borderRadius: 24, boxShadow: "var(--shadow-card)", maxWidth: 800, margin: "0 auto", textAlign: "left" }}>
             <div className="roi-inputs" style={{ display: "grid", gap: 24, marginBottom: 32 }}>
                 <div className="roi-input-group">
                     <label style={{ display: "flex", justifyContent: "space-between", fontWeight: 600, marginBottom: 8 }}>
@@ -64,11 +64,11 @@ export default function LeadMagnetCalculator() {
             <div className="roi-result" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16, marginBottom: 24 }}>
                 <div style={{ background: "var(--color-gray-50)", padding: 24, borderRadius: 12, border: "1px solid var(--color-gray-200)" }}>
                     <div style={{ fontSize: 13, color: "var(--color-gray-500)", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.5px", marginBottom: 8 }}>Est. Monthly Revenue at Risk</div>
-                    <div style={{ fontSize: 32, fontWeight: 800, color: "var(--color-navy)" }}>{results.monthlyRevenue}</div>
+                    <div className="roi-result-number">{results.monthlyRevenue}</div>
                 </div>
                 <div style={{ background: "rgba(34, 197, 94, 0.05)", padding: 24, borderRadius: 12, border: "1px solid rgba(34, 197, 94, 0.2)" }}>
                     <div style={{ fontSize: 13, color: "var(--color-green)", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.5px", marginBottom: 8 }}>OTA Commission Lost</div>
-                    <div style={{ fontSize: 32, fontWeight: 800, color: "var(--color-green)" }}>{results.commissionLost}</div>
+                    <div className="roi-result-number" style={{ color: "var(--color-green)" }}>{results.commissionLost}</div>
                 </div>
             </div>
 

@@ -90,7 +90,7 @@ export default function AboutPage() {
             {/* Founder Section */}
             <section className="section section-white">
                 <div className="container" style={{ maxWidth: 800, margin: "0 auto" }}>
-                    <div style={{ display: "grid", gridTemplateColumns: "1fr 2fr", gap: 48, alignItems: "start" }}>
+                    <div className="founder-grid" style={{ display: "grid", gridTemplateColumns: "1fr 2fr", gap: 48, alignItems: "start" }}>
                         <div style={{ textAlign: "center" }}>
                             <img src="/Basyir.png" alt="Ahmad Basyir Azahari" style={{ width: 160, height: 160, borderRadius: "50%", objectFit: "cover", margin: "0 auto 16px", display: "block" }} />
                             <h3 style={{ fontSize: 20 }}>Ahmad Basyir Azahari</h3>

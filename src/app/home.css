@@ -538,6 +538,16 @@
     text-align: left;
 }
 
+.roi-calc-card {
+    padding: 32px;
+}
+
+@media (max-width: 768px) {
+    .roi-calc-card {
+        padding: 20px;
+    }
+}
+
 .roi-inputs {
     display: flex;
     flex-direction: column;
@@ -751,7 +761,21 @@
         margin-top: 16px;
     }
 
+    /* Hero trust badge: full-width pill → block on mobile */
+    .hero-trust-badge {
+        display: block !important;
+        border-radius: 12px !important;
+        text-align: center;
+        font-size: 11px !important;
+        line-height: 1.6;
+    }
+
     .stat-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Pain cards: 3-col → 1-col */
+    .pain-grid {
         grid-template-columns: 1fr;
     }
 
@@ -761,6 +785,13 @@
 
     .solution-visual {
         order: -1;
+    }
+
+    /* Feature list: 2-col inline grid → 1-col column */
+    .feature-list {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 20px !important;
     }
 
     .proof-stats {
@@ -778,7 +809,38 @@
         max-width: 100%;
     }
 
+    /* ROI calculator: 2-col inline grid → 1-col */
     .roi-result {
+        grid-template-columns: 1fr !important;
+    }
+
+    /* Founding cohort card: 2-col → 1-col */
+    .cohort-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    /* Cohort card padding */
+    .cohort-card {
+        padding: 24px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        padding: 80px 0 40px;
+    }
+
+    .proof-stats {
         grid-template-columns: 1fr;
+    }
+
+    /* Stack hero CTA buttons vertically on very small screens */
+    .hero-ctas > div {
+        flex-direction: column;
+    }
+
+    .hero-ctas .btn {
+        width: 100%;
+        justify-content: center;
     }
 }

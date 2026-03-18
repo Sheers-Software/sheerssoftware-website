@@ -74,7 +74,7 @@ export default function HowItWorksPage() {
             <section className="section section-light">
                 <div className="container" style={{ maxWidth: 900, margin: "0 auto" }}>
                     <h2 style={{ textAlign: "center", marginBottom: 48 }}>What Your Team Actually Does (And What They Don&apos;t)</h2>
-                    <div className="grid-2-cols" style={{ gap: 40 }}>
+                    <div className="grid-2-cols stack-on-mobile" style={{ gap: 40 }}>
                         <div className="card" style={{ height: "100%" }}>
                             <h3 style={{ color: "var(--color-green)", fontSize: 20, marginBottom: 24, paddingBottom: 16, borderBottom: "1px solid var(--color-gray-100)" }}>YOUR TEAM DOES:</h3>
                             <ul style={{ display: "flex", flexDirection: "column", gap: 16 }}>
