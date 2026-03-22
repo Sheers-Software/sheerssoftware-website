@@ -10,6 +10,7 @@ import {
 import GlassCard from '@/components/ui/GlassCard';
 import NeonButton from '@/components/ui/NeonButton';
 import LostRevenueAudit from '@/components/funnel/LostRevenueAudit';
+import UseCases from '@/components/funnel/UseCases';
 import { TrendingDown } from 'lucide-react';
 
 
@@ -31,25 +32,29 @@ const Home = () => {
                         </div>
 
                         {/* ⚡ Hook */}
-                        <h1 className="hero-title" style={{ fontSize: 'min(4rem, 10vw)', lineHeight: 1.2 }}>
-                            Stop Losing Bookings When You Are <span className="text-neon-cyan">Asleep</span> or <span className="text-neon-magenta">Busy</span>
+                        <h1 className="hero-title" style={{ fontSize: 'min(4.5rem, 12vw)', lineHeight: 1.1, textTransform: 'uppercase' }}>
+                            <span style={{ fontSize: '0.5em', display: 'block', marginBottom: '-0.2em', fontWeight: 600, textTransform: 'none' }}>Meet</span>
+                            Nocturn AI
                         </h1>
 
-                        <p className="hero-subtitle" style={{ fontSize: '1.2rem', maxWidth: '800px', margin: '0 auto 2rem' }}>
-                            Every unanswered call or WhatsApp is revenue handed to your competitors. <br />
-                            Our <span className="text-gradient">AI Hotel Concierge</span> captures every inquiry and qualifies every lead — 24/7, in English and Bahasa Malaysia.
+                        <p className="hero-subtitle" style={{ fontSize: '1.2rem', maxWidth: '800px', margin: '0 auto 2rem', lineHeight: 1.4 }}>
+                            AI Concierge proven to recover lost bookings<br />
+                            For the most demanding hotel operations
                         </p>
 
                         <div className="hero-cta-group">
-                            <a href="#revenue-audit" style={{ textDecoration: 'none' }}>
+                            <a href="#use-cases" style={{ textDecoration: 'none' }}>
                                 <NeonButton variant="primary" size="lg">
-                                    Calculate My Lost Revenue <TrendingDown size={20} style={{ marginLeft: '8px' }} />
+                                    Get Started <TrendingDown size={20} style={{ marginLeft: '8px' }} />
                                 </NeonButton>
                             </a>
                         </div>
                     </motion.div>
                 </div>
             </section >
+
+            {/* 🔍 Use Cases */}
+            <UseCases />
 
             {/* 🎯 Funnel Lead Magnet */}
             < section id="revenue-audit" className="section bg-gradient-subtle" style={{ padding: '4rem 0' }}>
