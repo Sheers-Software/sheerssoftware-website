@@ -97,6 +97,12 @@ This monorepo contains two applications:
 - Scaled up the typography weights and tracking to create aggressive, massive hero hooks.
 - Upgraded primary CTA buttons to sharp 4px borders with blazing Neon Green solid fills and glowing box shadows.
 
+### Sprint 7 — CI/CD Stabilization and GCP Troubleshooting (v0.4.0)
+- Refactored `deploy-gcp.yml` to solve Bash syntax errors with multiline JSON secrets (switched to `env` block injection).
+- Resolved `business-website` build failures by fixing Turbopack workspace root inference and syncing `package-lock.json`.
+- Identified and diagnosed GCP-side IAM permission issues for the Cloud Build service account in Secret Manager.
+- Implemented verbose debug mode in `cloudbuild.yaml` to accelerate deployment troubleshooting.
+
 ## Deployment
 
 Both apps deploy to **Google Cloud Run** via CI/CD:
