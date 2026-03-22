@@ -22,7 +22,7 @@ export default function HomePage() {
               Malaysian hotels lose direct bookings every night to unanswered WhatsApp messages, unfollowed emails, and after-hours silence. Nocturn AI captures every inquiry, responds instantly, follows up automatically, and shows you exactly what you&apos;re converting — 24/7.
             </p>
             <div className="hero-ctas">
-              <div style={{ display: "flex", gap: "16px", flexWrap: "wrap", justifyContent: "flex-start" }}>
+              <div className="hero-ctas-buttons">
                 <a href="/apply" className="btn btn-primary btn-lg">
                   Apply for Founding Cohort — 3 spots remaining
                 </a>
@@ -41,7 +41,7 @@ export default function HomePage() {
               <span>·</span>
               <span>✓ No system replacement required</span>
             </div>
-            <div className="hero-trust-badge" style={{ marginTop: 24, padding: "12px 24px", background: "rgba(255,255,255,0.05)", borderRadius: 100, border: "1px solid rgba(255,255,255,0.1)", display: "inline-block", fontSize: 13, color: "rgba(255,255,255,0.7)" }}>
+            <div className="hero-trust-badge">
               🇲🇾 Built in Malaysia · 💬 Running on WhatsApp Business API · 🔒 Compliant with PDPA 2010 · ☁️ Hosted on Google Cloud Singapore
             </div>
           </div>
@@ -180,7 +180,7 @@ export default function HomePage() {
               If your reservation team juggles WhatsApp, phone calls, emails, and walk-ins — and drops inquiries when the office closes — this is for you.
             </p>
           </div>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: 24 }}>
+          <div className="who-grid">
             <div className="card" style={{ padding: 24, display: "flex", gap: 16 }}>
               <div style={{ fontSize: 32 }}>🛎️</div>
               <div>
@@ -307,7 +307,7 @@ export default function HomePage() {
               It&apos;s 11:47 PM. Your front desk closed 90 minutes ago. A family wants to book for the weekend. Here&apos;s what happens with Nocturn AI.
             </p>
           </div>
-          <div style={{ maxWidth: 480, margin: "0 auto", background: "var(--color-gray-50)", borderRadius: 24, padding: 24, boxShadow: "var(--shadow-card)" }}>
+          <div className="chat-mockup-wrapper">
             <div style={{ background: "#075E54", padding: "16px 20px", borderRadius: "16px 16px 0 0", color: "white", fontWeight: 600, display: "flex", alignItems: "center", gap: 12 }}>
               <div style={{ width: 32, height: 32, background: "rgba(255,255,255,0.2)", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center" }}>🏨</div>
               <div>
@@ -361,7 +361,7 @@ export default function HomePage() {
             <span className="eyebrow">WHY US</span>
             <h2 style={{ marginTop: 12 }}>Built for Your Reality, Not Their Enterprise</h2>
           </div>
-          <div style={{ overflowX: "auto", borderRadius: 12, border: "1px solid var(--color-gray-200)", background: "white", boxShadow: "var(--shadow-card)" }}>
+          <div className="table-wrapper">
             <table style={{ width: "100%", borderCollapse: "collapse", minWidth: 600 }}>
               <thead>
                 <tr style={{ background: "var(--color-navy)", color: "white", textAlign: "left" }}>
@@ -525,10 +525,10 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="cohort-card" style={{ maxWidth: 900, margin: "0 auto", background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)", borderRadius: 24, padding: "40px", backdropFilter: "blur(10px)", position: "relative" }}>
+          <div className="cohort-card">
             <div style={{ position: "absolute", top: 0, left: 0, width: "100%", height: 4, background: "linear-gradient(90deg, #22C55E, #15803d)" }}></div>
 
-            <div className="cohort-grid" style={{ display: "grid", gridTemplateColumns: "1.5fr 1fr", gap: 40 }}>
+            <div className="cohort-grid">
               <div>
                 <h3 style={{ color: "white", fontSize: 20, marginBottom: 24 }}>What You Get As A Founding Partner</h3>
                 <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "grid", gridTemplateColumns: "1fr", gap: 16 }}>

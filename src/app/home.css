@@ -6,10 +6,20 @@
 .hero {
     position: relative;
     overflow: hidden;
-    padding: 120px 0 80px;
-    min-height: 90vh;
+    padding: 80px 0 40px;
     display: flex;
     align-items: center;
+}
+@media (min-width: 481px) {
+    .hero {
+        padding: 100px 0 60px;
+    }
+}
+@media (min-width: 769px) {
+    .hero {
+        padding: 120px 0 80px;
+        min-height: 90vh;
+    }
 }
 
 .hero-gradient-orb {
@@ -26,9 +36,15 @@
 
 .hero-inner {
     display: grid;
-    grid-template-columns: 1.2fr 1fr;
-    gap: 60px;
+    grid-template-columns: 1fr;
+    gap: 40px;
     align-items: center;
+}
+@media (min-width: 769px) {
+    .hero-inner {
+        grid-template-columns: 1.2fr 1fr;
+        gap: 60px;
+    }
 }
 
 .hero-content h1 {
@@ -53,6 +69,28 @@
     flex-wrap: wrap;
 }
 
+.hero-ctas-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+}
+
+.hero-ctas-buttons .btn {
+    width: 100%;
+    justify-content: center;
+}
+
+@media (min-width: 481px) {
+    .hero-ctas-buttons {
+        flex-direction: row;
+        width: auto;
+    }
+    .hero-ctas-buttons .btn {
+        width: auto;
+    }
+}
+
 .hero-proof {
     display: flex;
     align-items: center;
@@ -62,9 +100,37 @@
     flex-wrap: wrap;
 }
 
+.hero-trust-badge {
+    margin-top: 24px;
+    padding: 12px 24px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    display: block;
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.7);
+    text-align: center;
+    line-height: 1.6;
+}
+
+@media (min-width: 769px) {
+    .hero-trust-badge {
+        display: inline-block;
+        border-radius: 100px;
+        font-size: 13px;
+        text-align: left;
+    }
+}
+
 /* Hero Mockup */
 .hero-visual {
     position: relative;
+    order: -1;
+}
+@media (min-width: 769px) {
+    .hero-visual {
+        order: 0;
+    }
 }
 
 .hero-mockup {
@@ -214,15 +280,24 @@
 
 /* WhatsApp Bubble */
 .whatsapp-bubble {
-    position: absolute;
-    bottom: -20px;
-    left: -40px;
+    position: relative;
+    left: 0;
+    bottom: 0;
+    margin-top: 16px;
     background: var(--color-white);
     border-radius: 16px;
     padding: 16px;
     box-shadow: var(--shadow-elevated);
     max-width: 300px;
     z-index: 2;
+}
+@media (min-width: 769px) {
+    .whatsapp-bubble {
+        position: absolute;
+        bottom: -20px;
+        left: -40px;
+        margin-top: 0;
+    }
 }
 
 .wa-header {
@@ -259,12 +334,28 @@
     margin-left: auto;
 }
 
+.who-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+}
+@media (min-width: 769px) {
+    .who-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
 /* ---------- Pain / Stats ---------- */
 .stat-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 1fr;
     gap: 24px;
     margin: 40px 0 32px;
+}
+@media (min-width: 769px) {
+    .stat-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
 }
 
 .stat-card {
@@ -310,10 +401,15 @@
 
 .pain-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 1fr;
     gap: 24px;
     margin-top: 48px;
     margin-bottom: 40px;
+}
+@media (min-width: 769px) {
+    .pain-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
 }
 
 .pain-card {
@@ -379,14 +475,25 @@
 /* ---------- Solution ---------- */
 .solution-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     gap: 60px;
     align-items: center;
+}
+@media (min-width: 769px) {
+    .solution-grid {
+        grid-template-columns: 1fr 1fr;
+    }
 }
 
 .solution-visual {
     display: flex;
     justify-content: center;
+    order: -1;
+}
+@media (min-width: 769px) {
+    .solution-visual {
+        order: 0;
+    }
 }
 
 .solution-content h2 {
@@ -429,6 +536,14 @@
     line-height: 1.5;
 }
 
+.table-wrapper {
+    overflow-x: auto;
+    border-radius: 12px;
+    border: 1px solid var(--color-gray-200);
+    background: white;
+    box-shadow: var(--shadow-card);
+}
+
 /* ---------- Proof Strip ---------- */
 .proof-strip {
     padding: 60px 0;
@@ -436,10 +551,21 @@
 
 .proof-stats {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 32px;
+    grid-template-columns: 1fr;
+    gap: 24px;
     text-align: center;
     margin-bottom: 40px;
+}
+@media (min-width: 481px) {
+    .proof-stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media (min-width: 769px) {
+    .proof-stats {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 32px;
+    }
 }
 
 .proof-stat .stat-number {
@@ -474,10 +600,18 @@
 /* ---------- Steps ---------- */
 .steps-grid {
     display: flex;
-    align-items: flex-start;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
-    gap: 0;
+    gap: 16px;
     margin-top: 48px;
+}
+@media (min-width: 769px) {
+    .steps-grid {
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 0;
+    }
 }
 
 .step-card {
@@ -723,6 +857,34 @@
     padding: 0 0;
 }
 
+/* ---------- Cohort ---------- */
+.cohort-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+}
+@media (min-width: 769px) {
+    .cohort-grid {
+        grid-template-columns: 1.5fr 1fr;
+    }
+}
+
+.cohort-card {
+    max-width: 900px;
+    margin: 0 auto;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 24px;
+    padding: 24px;
+    backdrop-filter: blur(10px);
+    position: relative;
+}
+@media (min-width: 769px) {
+    .cohort-card {
+        padding: 40px;
+    }
+}
+
 /* ---------- Final CTA ---------- */
 .final-cta {
     position: relative;
@@ -737,110 +899,4 @@
     background-size: 24px 24px;
     pointer-events: none;
 }
-
-/* ---------- Responsive ---------- */
-@media (max-width: 768px) {
-    .hero {
-        padding: 100px 0 60px;
-        min-height: auto;
-    }
-
-    .hero-inner {
-        grid-template-columns: 1fr;
-        gap: 40px;
-    }
-
-    .hero-visual {
-        order: -1;
-    }
-
-    .whatsapp-bubble {
-        position: relative;
-        left: 0;
-        bottom: 0;
-        margin-top: 16px;
-    }
-
-    /* Hero trust badge: full-width pill → block on mobile */
-    .hero-trust-badge {
-        display: block !important;
-        border-radius: 12px !important;
-        text-align: center;
-        font-size: 11px !important;
-        line-height: 1.6;
-    }
-
-    .stat-grid {
-        grid-template-columns: 1fr;
-    }
-
-    /* Pain cards: 3-col → 1-col */
-    .pain-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .solution-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .solution-visual {
-        order: -1;
-    }
-
-    /* Feature list: 2-col inline grid → 1-col column */
-    .feature-list {
-        display: flex !important;
-        flex-direction: column !important;
-        gap: 20px !important;
-    }
-
-    .proof-stats {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 24px;
-    }
-
-    .steps-grid {
-        flex-direction: column;
-        align-items: center;
-        gap: 16px;
-    }
-
-    .step-card {
-        max-width: 100%;
-    }
-
-    /* ROI calculator: 2-col inline grid → 1-col */
-    .roi-result {
-        grid-template-columns: 1fr !important;
-    }
-
-    /* Founding cohort card: 2-col → 1-col */
-    .cohort-grid {
-        grid-template-columns: 1fr !important;
-    }
-
-    /* Cohort card padding */
-    .cohort-card {
-        padding: 24px !important;
-    }
-}
-
-@media (max-width: 480px) {
-    .hero {
-        padding: 80px 0 40px;
-    }
-
-    .proof-stats {
-        grid-template-columns: 1fr;
-    }
-
-    /* Stack hero CTA buttons vertically on very small screens */
-    .hero-ctas > div {
-        flex-direction: column;
-    }
-
-    .hero-ctas .btn {
-        width: 100%;
-        justify-content: center;
-    }
-}
+

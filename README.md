@@ -85,6 +85,12 @@ This monorepo contains two applications:
   - `Google Analytics 4`: Installed (⚠️ Placeholder `G-XXXXXXXXXX` must be updated)
   - `HubSpot Tracking`: Active (Script `js-na2.hs-scripts.com/243983306.js`)
 
+### Sprint 5 — Mobile-First Redesign ✅
+- App architecture flipped from desktop-first max-width overrides to native mobile-first progressive rendering.
+- Extracted inline JSX styles into responsive structural CSS grids under `home.css`.
+- Addressed overlap and scroll bugs in the Sticky Navbar and Announcement Bar for phone screens.
+- Validated responsiveness across small viewports (375x812) using programmatic mobile testing.
+
 ## Deployment
 
 Both apps deploy to **Google Cloud Run** via CI/CD:
