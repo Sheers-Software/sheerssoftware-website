@@ -7,26 +7,25 @@ export default function HomePage() {
     <>
       {/* SECTION 1: Hero */}
       <section className="hero section-dark">
-        <div className="hero-gradient-orb" aria-hidden="true"></div>
+        <div className="hero-cyber-grid" aria-hidden="true"></div>
         <div className="container hero-inner">
           <div className="hero-content">
             <span className="badge badge-green-solid">
               Now accepting 5 hotels into our Founding Cohort
             </span>
             <h1 className="hero-title">
-              Your Reservations Team Goes Home at 6PM.
-              <br />
-              Your Guests Don&apos;t Stop Inquiring.
+              Turn After-Hours WhatsApp Inquiries Into <br />
+              <span className="text-gradient">Confirmed Direct Bookings.</span>
             </h1>
-            <p className="hero-sub">
-              Malaysian hotels lose direct bookings every night to unanswered WhatsApp messages, unfollowed emails, and after-hours silence. Nocturn AI captures every inquiry, responds instantly, follows up automatically, and shows you exactly what you&apos;re converting — 24/7.
+            <p className="hero-subtitle">
+              Your reservation team goes home at 6 PM. Your guests don&apos;t. Nocturn AI is an autonomous concierge that answers every question instantly, follows up automatically, and secures direct revenue while you sleep — saving you from 15% OTA commissions.
             </p>
             <div className="hero-ctas">
               <div className="hero-ctas-buttons">
                 <a href="/apply" className="btn btn-primary btn-lg">
                   Apply for Founding Cohort — 3 spots remaining
                 </a>
-                <a href="#midnight-test" className="btn btn-outline btn-lg" style={{ background: "rgba(255,255,255,0.1)", color: "white", borderColor: "rgba(255,255,255,0.2)" }}>
+                <a href="#midnight-test" className="btn btn-outline btn-lg" style={{ background: "var(--glass-bg)", backdropFilter: "var(--glass-blur)", color: "white", border: "1px solid var(--glass-border)" }}>
                   See the 11:47PM demo →
                 </a>
               </div>

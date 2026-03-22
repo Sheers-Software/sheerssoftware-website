@@ -81,14 +81,14 @@ select {
 
 /* ---------- Design Tokens ---------- */
 :root {
-  /* Colors */
-  --color-navy: #0F172A;
-  --color-navy-light: #1E293B;
-  --color-green: #22C55E;
-  --color-green-dark: #16A34A;
-  --color-green-light: #DCFCE7;
-  --color-amber: #F59E0B;
-  --color-red: #EF4444;
+  /* Colors - True Black Brutalism */
+  --color-navy: #000000;
+  --color-navy-light: #0D0D0D;
+  --color-green: #00FF66; /* Aggressive Cyber Neon */
+  --color-green-dark: #00D355;
+  --color-green-light: #80FFB2;
+  --color-amber: #FFD500;
+  --color-red: #FF3333;
   --color-white: #FFFFFF;
   --color-off-white: #FAFBFC;
   --color-gray-50: #F8FAFC;
@@ -97,13 +97,19 @@ select {
   --color-gray-300: #CBD5E1;
   --color-gray-400: #94A3B8;
   --color-gray-500: #64748B;
-  --color-gray-600: #475569;
-  --color-gray-700: #334155;
-  --color-gray-900: #0F172A;
+  --color-gray-600: #2A2A2A;
+  --color-gray-700: #1C1C1C;
+  --color-gray-900: #050505;
 
-  /* Glass */
-  --glass-bg: rgba(255, 255, 255, 0.08);
-  --glass-blur: blur(16px);
+  /* Premium Glass -> Sharp Terminal */
+  --glass-bg: rgba(20, 20, 20, 0.4);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --glass-blur: blur(10px);
+  --glass-highlight: inset 0 1px 1px rgba(255, 255, 255, 0.05);
+
+  /* Gradients */
+  --gradient-glow: linear-gradient(135deg, #00FF66 0%, #00E5FF 100%);
+  --gradient-text: linear-gradient(to right, #FFFFFF, #B0BEC5);
 
   /* Typography */
   --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
@@ -122,9 +128,9 @@ select {
   --section-padding: clamp(64px, 10vw, 120px);
   --container-max: 1200px;
   --container-narrow: 800px;
-  --card-radius: 16px;
-  --button-radius: 12px;
-  --badge-radius: 999px;
+  --card-radius: 4px; /* Sharp edges */
+  --button-radius: 4px; /* Sharp edges */
+  --badge-radius: 4px; /* Sharp edges */
   --gap-sm: 8px;
   --gap-md: 16px;
   --gap-lg: 24px;
@@ -133,9 +139,9 @@ select {
   --gap-3xl: 64px;
 
   /* Shadows */
-  --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.08);
-  --shadow-elevated: 0 8px 40px rgba(0, 0, 0, 0.12);
-  --shadow-subtle: 0 2px 8px rgba(0, 0, 0, 0.04);
+  --shadow-card: 0 4px 12px rgba(0, 0, 0, 0.8);
+  --shadow-elevated: 0 12px 24px rgba(0, 0, 0, 1);
+  --shadow-neon: 0 0 24px rgba(0, 255, 102, 0.4);
 
   /* Transitions */
   --transition-fast: 150ms ease;
@@ -158,7 +164,9 @@ h6 {
 
 h1 {
   font-size: var(--fs-hero);
-  font-weight: 800;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.04em;
 }
 
 h2 {
@@ -259,14 +267,35 @@ h4 {
 
 .btn-primary {
   background: var(--color-green);
-  color: white;
-  box-shadow: 0 4px 14px rgba(34, 197, 94, 0.3);
+  color: #000000;
+  border-radius: var(--button-radius);
+  box-shadow: var(--shadow-neon);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%; right: 0; bottom: 0;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+  transition: all 0.5s ease;
+  z-index: -1;
+}
+
+.btn-primary:hover::before {
+  left: 100%;
 }
 
 .btn-primary:hover {
-  background: var(--color-green-dark);
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(34, 197, 94, 0.4);
+  box-shadow: 0 8px 32px rgba(0, 255, 102, 0.7);
+  background: #00FF66;
 }
 
 .btn-primary:active {

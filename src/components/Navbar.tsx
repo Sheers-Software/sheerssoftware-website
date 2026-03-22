@@ -1,6 +1,21 @@
+"use client";
+
+import { useState, useEffect } from "react";
+
 export function Navbar({ className }: { className?: string }) {
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [scrolled, setScrolled] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = () => setScrolled(window.scrollY > 40);
+        window.addEventListener("scroll", handleScroll, { passive: true });
+        // Set initial state
+        handleScroll();
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
+
     return (
-        <nav className={`navbar ${className || ""}`} id="navbar">
+        <nav className={`navbar ${className || ""} ${scrolled ? "scrolled" : ""}`} id="navbar">
             <div className="container navbar-inner">
                 <a href="/" className="navbar-logo" aria-label="Nocturn AI Home">
                     <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
@@ -28,7 +43,7 @@ export function Navbar({ className }: { className?: string }) {
                 <button
                     className="navbar-hamburger hide-desktop"
                     aria-label="Open navigation menu"
-                    id="nav-toggle"
+                    onClick={() => setIsMenuOpen(!isMenuOpen)}
                 >
                     <span></span>
                     <span></span>
@@ -37,7 +52,7 @@ export function Navbar({ className }: { className?: string }) {
             </div>
 
             {/* Mobile Menu */}
-            <div className="navbar-mobile-menu hide-desktop" id="mobile-menu">
+            <div className={`navbar-mobile-menu hide-desktop ${isMenuOpen ? "open" : ""}`} id="mobile-menu">
                 <a href="https://sheerssoft.com" style={{ color: "var(--color-gray-500)" }}>← Back to SheersSoft</a>
                 <a href="/how-it-works">How It Works</a>
                 <a href="/pilot">Pilot Program</a>

@@ -3,7 +3,6 @@
 import { useEffect, useState } from "react";
 import { AnnouncementBar } from "./AnnouncementBar";
 import { Navbar } from "./Navbar";
-import { NavbarClient } from "./NavbarClient";
 
 export function Header() {
     const [isBannerVisible, setIsBannerVisible] = useState(true);
@@ -27,7 +26,7 @@ export function Header() {
 
     return (
         <header style={{
-            position: "fixed",
+            position: "sticky",
             top: 0,
             left: 0,
             right: 0,
@@ -39,7 +38,6 @@ export function Header() {
             <div style={{ position: "relative", width: "100%" }}>
                 <Navbar className={!isBannerVisible ? "navbar-top" : ""} />
             </div>
-            <NavbarClient />
         </header>
     );
 }

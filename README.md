@@ -91,6 +91,12 @@ This monorepo contains two applications:
 - Addressed overlap and scroll bugs in the Sticky Navbar and Announcement Bar for phone screens.
 - Validated responsiveness across small viewports (375x812) using programmatic mobile testing.
 
+### Sprint 6 — Hyros Performance Redesign ✅
+- Pivoted aesthetic from soft B2B glassmorphism to a high-voltage Cyber Terminal aesthetic inspired by Hyros.
+- Grounded the application in True Black brutalism with stark cyber grid backgrounds.
+- Scaled up the typography weights and tracking to create aggressive, massive hero hooks.
+- Upgraded primary CTA buttons to sharp 4px borders with blazing Neon Green solid fills and glowing box shadows.
+
 ## Deployment
 
 Both apps deploy to **Google Cloud Run** via CI/CD:
