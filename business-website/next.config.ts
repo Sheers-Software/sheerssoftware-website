@@ -4,9 +4,9 @@ import path from "path";
 const nextConfig: NextConfig = {
   output: "standalone",
   reactCompiler: true,
-  turbopack: {
+  /* turbopack: {
     root: path.resolve(__dirname),
-  },
+  }, */
   async rewrites() {
     return [
       {
