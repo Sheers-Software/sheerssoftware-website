@@ -21,13 +21,15 @@ jobs:
 
     - name: Check for GCP credentials
       id: check-credentials
+      env:
+        GCP_SA_KEY: ${{ secrets.GCP_SA_KEY }}
       run: |
-        if [ -n "${{ secrets.GCP_SA_KEY }}" ]; then
+        if [ -n "$GCP_SA_KEY" ]; then
           echo "GCP credentials found"
-          echo "has_credentials=true" >> $GITHUB_OUTPUT
+          echo "has_credentials=true" >> "$GITHUB_OUTPUT"
         else
           echo "GCP credentials not found - skipping deployment"
-          echo "has_credentials=false" >> $GITHUB_OUTPUT
+          echo "has_credentials=false" >> "$GITHUB_OUTPUT"
         fi
     
     - name: Google Auth
