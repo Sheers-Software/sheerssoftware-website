@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Menu, X, MessageCircle, ChevronDown, Bot, Globe, Code, LayoutTemplate } from 'lucide-react';
@@ -7,7 +7,26 @@ import './Navbar.css';
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
+    const [visible, setVisible] = useState(true);
+    const lastScrollY = useRef(0);
     const pathname = usePathname();
+
+    useEffect(() => {
+        const handleScroll = () => {
+            const currentY = Math.max(0, window.scrollY);
+            if (currentY < 80) {
+                setVisible(true);
+            } else if (currentY > lastScrollY.current) {
+                setVisible(false); // scrolling down
+            } else {
+                setVisible(true);  // scrolling up
+            }
+            lastScrollY.current = currentY;
+        };
+
+        window.addEventListener('scroll', handleScroll, { passive: true });
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
 
     const navLinks = [
         {
@@ -30,7 +49,7 @@ const Navbar = () => {
     const isActive = (path) => pathname === path;
 
     return (
-        <nav className="navbar">
+        <nav className={`navbar${!visible && !isOpen ? ' navbar--hidden' : ''}`}>
             <div className="container">
                 <div className="navbar-content">
                     {/* Logo */}
