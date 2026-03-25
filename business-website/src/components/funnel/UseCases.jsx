@@ -38,24 +38,20 @@ const UseCases = () => {
     };
 
     return (
-        <section id="use-cases" className="section" style={{ padding: '4rem 0' }}>
+        <section id="use-cases" className="section use-cases-section">
             <div className="container">
-                <div className="text-center mb-10">
+                <div className="text-center" style={{ marginBottom: '2.5rem' }}>
                     <h2 className="section-title">Choose your use case</h2>
                 </div>
 
-                <div className="use-cases-container w-full max-w-4xl mx-auto">
+                <div className="use-cases-wrapper">
                     {/* Tabs */}
-                    <div className="flex flex-wrap justify-center gap-4 mb-8">
+                    <div className="use-case-tabs">
                         {Object.values(cases).map((c) => (
                             <button
                                 key={c.id}
                                 onClick={() => setActiveTab(c.id)}
-                                className={`flex items-center gap-2 px-6 py-3 rounded-full font-medium transition-all ${
-                                    activeTab === c.id 
-                                        ? 'bg-white/10 border border-neon-cyan text-white shadow-[0_0_15px_rgba(0,255,255,0.2)]' 
-                                        : 'bg-white/5 border border-white/10 text-gray-400 hover:text-white hover:bg-white/10'
-                                }`}
+                                className={`use-case-tab${activeTab === c.id ? ' active' : ''}`}
                             >
                                 {c.icon}
                                 <span>{c.title}</span>
@@ -63,40 +59,35 @@ const UseCases = () => {
                         ))}
                     </div>
 
-                    {/* Content */}
-                    <div className="relative min-h-[300px]">
-                        <AnimatePresence mode="wait">
-                            <motion.div
-                                key={activeTab}
-                                initial={{ opacity: 0, scale: 0.98, y: 10 }}
-                                animate={{ opacity: 1, scale: 1, y: 0 }}
-                                exit={{ opacity: 0, scale: 0.98, y: -10 }}
-                                transition={{ duration: 0.2 }}
-                                className="absolute inset-0 flex flex-col items-center text-center p-8 lg:p-12 rounded-2xl bg-gradient-to-br from-white/5 to-transparent border border-white/10 backdrop-blur-sm"
-                            >
-                                <h3 className="text-2xl font-bold mb-3">{cases[activeTab].title}</h3>
-                                <p className="text-xl text-gray-300 mb-8 max-w-2xl">{cases[activeTab].subtitle}</p>
+                    {/* Content Panel */}
+                    <AnimatePresence mode="wait">
+                        <motion.div
+                            key={activeTab}
+                            initial={{ opacity: 0, scale: 0.98, y: 10 }}
+                            animate={{ opacity: 1, scale: 1, y: 0 }}
+                            exit={{ opacity: 0, scale: 0.98, y: -10 }}
+                            transition={{ duration: 0.2 }}
+                            className="use-case-panel glass"
+                        >
+                            <h3 className="use-case-panel-title">{cases[activeTab].title}</h3>
+                            <p className="use-case-panel-subtitle">{cases[activeTab].subtitle}</p>
 
-                                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-3xl mb-10 text-left">
-                                    <div className="p-5 rounded-xl bg-black/40 border border-white/5">
-                                        <p className="text-sm text-gray-400 uppercase tracking-wider mb-2 font-semibold">Solve</p>
-                                        <p className="text-white">{cases[activeTab].pain}</p>
-                                    </div>
-                                    <div className="p-5 rounded-xl bg-black/40 border border-white/5">
-                                        <p className="text-sm text-gray-400 uppercase tracking-wider mb-2 font-semibold">Track</p>
-                                        <p className="text-white">{cases[activeTab].track}</p>
-                                    </div>
+                            <div className="use-case-metrics">
+                                <div className="use-case-metric-card">
+                                    <p className="use-case-metric-label">Solve</p>
+                                    <p className="use-case-metric-text">{cases[activeTab].pain}</p>
                                 </div>
+                                <div className="use-case-metric-card">
+                                    <p className="use-case-metric-label">Track</p>
+                                    <p className="use-case-metric-text">{cases[activeTab].track}</p>
+                                </div>
+                            </div>
 
-                                <Link 
-                                    href={cases[activeTab].link} 
-                                    className="flex items-center gap-2 text-neon-cyan hover:text-white font-medium text-lg transition-colors"
-                                >
-                                    Learn more <ArrowRight size={20} />
-                                </Link>
-                            </motion.div>
-                        </AnimatePresence>
-                    </div>
+                            <Link href={cases[activeTab].link} className="use-case-link text-neon-cyan">
+                                Learn more <ArrowRight size={20} />
+                            </Link>
+                        </motion.div>
+                    </AnimatePresence>
                 </div>
             </div>
         </section>

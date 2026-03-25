@@ -20,38 +20,36 @@ This monorepo contains two applications:
 
 | App | Directory | Stack | Deployed URL |
 |-----|-----------|-------|-------------|
-| **Product App** (Nocturn AI) | `/src` | Next.js, React, TypeScript, Tailwind CSS | [ai.sheerssoft.com](https://ai.sheerssoft.com) |
-| **Marketing Website** (SheersSoft) | `/business-website` | Vite, React, Framer Motion, Lucide | [sheerssoft.com](https://sheerssoft.com) |
+| **Product App** (Nocturn AI) | `/src` | Next.js 16 App Router, TypeScript, React 19 | [ai.sheerssoft.com](https://ai.sheerssoft.com) |
+| **Marketing Website** (SheersSoft) | `/business-website` | Next.js 16 App Router, TypeScript, React 19, Tailwind CSS v4, Framer Motion | [sheerssoft.com](https://sheerssoft.com) |
 
 ```
 ├── src/                    # Next.js product app (App Router)
 │   ├── app/                # Pages and layouts
 │   └── components/         # Reusable UI components
-├── business-website/       # Vite marketing site
+├── business-website/       # Next.js marketing site (App Router)
 │   ├── src/
-│   │   ├── components/     # Layout, UI, Funnel components
-│   │   ├── pages/          # Route pages
-│   │   └── pages/blog/     # Blog article pages
+│   │   ├── app/            # Route pages (page.jsx per route)
+│   │   └── components/     # Layout, UI, Funnel components
 │   └── public/             # Static assets
 └── docs/                   # Project documentation
 ```
 
 ## Marketing Website Pages
 
-| Route | Component | Description |
-|-------|-----------|-------------|
-| `/` | `Home.jsx` | Hero hook, Lost Revenue Audit calculator, HubSpot funnel |
-| `/about` | `About.jsx` | Company info, mission & vision |
-| `/solutions` | `Solutions.jsx` | Service offerings |
-| `/blog` | `BlogIndex.jsx` | Article index with tiles |
-| `/blog/why-ai-is-the-future` | `WhyAiArticle.jsx` | Feasibility study article |
-| `/blog/maximizing-adr` | `MaximizingAdrArticle.jsx` | ADR upselling article |
-| `/contact` | `Contact.jsx` | Contact form |
-| `/pricing` | `Pricing.jsx` | Pricing tiers |
-| `/faq` | `FAQ.jsx` | Frequently asked questions |
-| `/privacy` | `PrivacyPolicy.jsx` | Privacy policy (PDPA) |
-| `/terms` | `TermsOfService.jsx` | Terms of service |
-| `*` | `NotFound.jsx` | Styled 404 error page |
+| Route | Description |
+|-------|-------------|
+| `/` | Hero, Use Cases (ICP tabs), Lost Revenue Audit calculator, HubSpot funnel |
+| `/about` | Company info, mission & vision |
+| `/solutions` | Service offerings |
+| `/blog` | Article index with tiles |
+| `/blog/why-ai-is-the-future` | Feasibility study article |
+| `/blog/maximizing-adr` | ADR upselling article |
+| `/contact` | Contact form (EmailJS) |
+| `/pricing` | Pricing tiers |
+| `/faq` | Frequently asked questions |
+| `/privacy` | Privacy policy (PDPA) |
+| `/terms` | Terms of service |
 
 ## Sprint Status
 
@@ -102,6 +100,14 @@ This monorepo contains two applications:
 - Resolved `business-website` build failures by fixing Turbopack workspace root inference and syncing `package-lock.json`.
 - Identified and diagnosed GCP-side IAM permission issues for the Cloud Build service account in Secret Manager.
 - Implemented verbose debug mode in `cloudbuild.yaml` to accelerate deployment troubleshooting.
+
+### Sprint 8 — ICP Use Cases & Styling Fix (business-website v0.1.1)
+- Fixed broken styling on the "Choose your use case" section (`UseCases` component on sheerssoft.com home page).
+- Root cause: component used Tailwind CSS utility classes, but the project has no `@import "tailwindcss"` directive — all layout/spacing/color classes silently produced no output.
+- Rewrote component using the project's hand-written CSS system (CSS variables, custom class names).
+- Added all use-case styles to `Home.css` (`use-case-tab`, `use-case-panel`, `use-case-metrics`, etc.) aligned with the existing design system.
+- Removed broken absolute-position layout (content panel now flows naturally).
+- Mobile-responsive: single-column metrics grid on ≤768px viewports.
 
 ## Deployment
 
