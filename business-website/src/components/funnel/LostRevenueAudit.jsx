@@ -9,9 +9,10 @@ import './LostRevenueAudit.css';
 
 const LostRevenueAudit = () => {
     const [step, setStep] = useState(1);
+    const [hotelName, setHotelName] = useState('');
     const [rooms, setRooms] = useState('');
     const [adr, setAdr] = useState('');
-    const [missedCalls, setMissedCalls] = useState('');
+    const [whatsapp, setWhatsapp] = useState('');
     const [isCalculating, setIsCalculating] = useState(false);
 
     const formatCurrency = (amount) => {
@@ -28,181 +29,171 @@ const LostRevenueAudit = () => {
             setTimeout(() => {
                 setIsCalculating(false);
                 setStep(4);
-            }, 1500);
+            }, 1800);
         } else {
             setStep(step + 1);
         }
     };
 
-    // Calculation Logic
-    // Assumption: 30% of missed calls would have booked, average length of stay is 2.5 nights.
-    const weeklyLost = (Number(missedCalls) || 0) * 0.3 * (Number(adr) || 0) * 2.5;
-    const yearlyLost = weeklyLost * 52;
+    // Calculation based on Malaysian hotel industry benchmarks:
+    // 65% avg occupancy, 20% of occupied room-nights generate inquiries,
+    // 35% of inquiries come after 10pm, 30% would convert if answered, 2-night avg stay.
+    const monthlyLost = (() => {
+        const r = Number(rooms) || 0;
+        const d = Number(adr) || 0;
+        const occupiedNights = r * 0.65 * 30;
+        const inquiries = occupiedNights * 0.20;
+        const afterHours = inquiries * 0.35;
+        const missedBookings = afterHours * 0.30;
+        return missedBookings * d * 2;
+    })();
+
+    const weeklyLost = monthlyLost / 4.3;
+    const paybackWeeks = weeklyLost > 0 ? Math.ceil(500 / weeklyLost) : null;
 
     return (
-        <GlassCard variant="gradient" className="audit-card" style={{ maxWidth: '600px', margin: '0 auto', overflow: 'hidden' }}>
-            <div className="audit-header text-center" style={{ marginBottom: '2rem' }}>
-                <Calculator size={40} className="text-neon-cyan mb-4 mx-auto inline-block" />
-                <h3 style={{ fontSize: '1.5rem', fontWeight: 'bold' }}>Lost Revenue Audit</h3>
-                <p style={{ color: 'var(--text-secondary)' }}>Discover how much money is slipping through the cracks.</p>
+        <GlassCard variant="gradient" hover={false} className="audit-card">
+            <div className="audit-header">
+                <Calculator size={40} className="text-neon-cyan audit-icon" />
+                <h3 className="audit-title">Free After-Hours Revenue Audit</h3>
+                <p className="audit-subtitle">Discover exactly how much your hotel is losing overnight.</p>
             </div>
 
-            <div className="audit-progress" style={{ display: 'flex', gap: '8px', marginBottom: '2rem' }}>
+            <div className="audit-progress">
                 {[1, 2, 3, 4, 5].map((i) => (
-                    <div
-                        key={i}
-                        style={{
-                            height: '4px',
-                            flex: 1,
-                            background: i <= step ? 'var(--color-neon-cyan)' : 'rgba(255,255,255,0.1)',
-                            borderRadius: '2px',
-                            transition: 'background 0.3s ease'
-                        }}
-                    />
+                    <div key={i} className={`audit-progress-bar${i <= step ? ' active' : ''}`} />
                 ))}
             </div>
 
             <AnimatePresence mode="wait">
+
+                {/* Step 1 — Hotel Name */}
                 {step === 1 && (
-                    <motion.div
-                        key="step1"
-                        initial={{ opacity: 0, x: 50 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        exit={{ opacity: 0, x: -50 }}
-                        className="audit-step"
-                    >
-                        <h4 style={{ fontSize: '1.2rem', marginBottom: '1rem', color: 'white' }}>1. How many rooms does your property have?</h4>
+                    <motion.div key="step1" initial={{ opacity: 0, x: 50 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -50 }} className="audit-step">
+                        <label className="audit-label">What's your hotel called?</label>
+                        <input
+                            type="text"
+                            className="audit-input"
+                            placeholder="e.g. Grand Millenium KL"
+                            value={hotelName}
+                            onChange={(e) => setHotelName(e.target.value)}
+                            onKeyDown={(e) => e.key === 'Enter' && hotelName && handleNext()}
+                        />
+                        <NeonButton variant="primary" className="audit-btn-full" onClick={handleNext} disabled={!hotelName}>
+                            Next <ArrowRight size={18} />
+                        </NeonButton>
+                    </motion.div>
+                )}
+
+                {/* Step 2 — Room Count */}
+                {step === 2 && (
+                    <motion.div key="step2" initial={{ opacity: 0, x: 50 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -50 }} className="audit-step">
+                        <label className="audit-label">How many rooms does {hotelName} have?</label>
                         <input
                             type="number"
                             className="audit-input"
                             placeholder="e.g. 50"
                             value={rooms}
                             onChange={(e) => setRooms(e.target.value)}
+                            min="1"
+                            onKeyDown={(e) => e.key === 'Enter' && rooms && handleNext()}
                         />
-                        <NeonButton
-                            variant="primary"
-                            style={{ width: '100%', marginTop: '1.5rem' }}
-                            onClick={handleNext}
-                            disabled={!rooms}
-                        >
-                            Next <ArrowRight size={18} />
-                        </NeonButton>
-                    </motion.div>
-                )}
-
-                {step === 2 && (
-                    <motion.div
-                        key="step2"
-                        initial={{ opacity: 0, x: 50 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        exit={{ opacity: 0, x: -50 }}
-                        className="audit-step"
-                    >
-                        <h4 style={{ fontSize: '1.2rem', marginBottom: '1rem', color: 'white' }}>2. What is your Average Daily Rate (ADR)?</h4>
-                        <div style={{ position: 'relative' }}>
-                            <span style={{ position: 'absolute', left: '16px', top: '50%', transform: 'translateY(-50%)', color: 'var(--text-secondary)' }}>RM</span>
-                            <input
-                                type="number"
-                                className="audit-input"
-                                placeholder="e.g. 250"
-                                style={{ paddingLeft: '45px' }}
-                                value={adr}
-                                onChange={(e) => setAdr(e.target.value)}
-                            />
-                        </div>
-                        <div style={{ display: 'flex', gap: '1rem', marginTop: '1.5rem' }}>
-                            <NeonButton variant="outline" onClick={() => setStep(1)}>Back</NeonButton>
-                            <NeonButton
-                                variant="primary"
-                                style={{ flex: 1 }}
-                                onClick={handleNext}
-                                disabled={!adr}
-                            >
+                        <div className="audit-btn-row">
+                            <NeonButton variant="secondary" onClick={() => setStep(1)}>Back</NeonButton>
+                            <NeonButton variant="primary" className="audit-btn-flex" onClick={handleNext} disabled={!rooms}>
                                 Next <ArrowRight size={18} />
                             </NeonButton>
                         </div>
                     </motion.div>
                 )}
 
+                {/* Step 3 — ADR */}
                 {step === 3 && (
-                    <motion.div
-                        key="step3"
-                        initial={{ opacity: 0, x: 50 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        exit={{ opacity: 0, x: -50 }}
-                        className="audit-step"
-                    >
-                        <h4 style={{ fontSize: '1.2rem', marginBottom: '1rem', color: 'white' }}>3. How many inquiries do you estimate missing per week?</h4>
-                        <p style={{ fontSize: '0.9rem', color: 'var(--text-secondary)', marginBottom: '1rem' }}>(Calls after 6 PM, unread WhatsApps during busy hours, ignored DMs)</p>
-                        <input
-                            type="number"
-                            className="audit-input"
-                            placeholder="e.g. 15"
-                            value={missedCalls}
-                            onChange={(e) => setMissedCalls(e.target.value)}
-                        />
-                        <div style={{ display: 'flex', gap: '1rem', marginTop: '1.5rem' }}>
-                            <NeonButton variant="outline" onClick={() => setStep(2)}>Back</NeonButton>
-                            <NeonButton
-                                variant="primary"
-                                style={{ flex: 1 }}
-                                onClick={handleNext}
-                                disabled={!missedCalls || isCalculating}
-                            >
-                                {isCalculating ? <RefreshCcw className="spin" size={18} /> : 'Calculate Loss'}
+                    <motion.div key="step3" initial={{ opacity: 0, x: 50 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -50 }} className="audit-step">
+                        <label className="audit-label">What is your Average Daily Rate?</label>
+                        <p className="audit-hint">The average price you charge per room per night.</p>
+                        <div className="audit-input-prefix">
+                            <span className="audit-prefix">RM</span>
+                            <input
+                                type="number"
+                                className="audit-input"
+                                placeholder="e.g. 250"
+                                value={adr}
+                                onChange={(e) => setAdr(e.target.value)}
+                                min="1"
+                                onKeyDown={(e) => e.key === 'Enter' && adr && !isCalculating && handleNext()}
+                            />
+                        </div>
+                        <div className="audit-btn-row">
+                            <NeonButton variant="secondary" onClick={() => setStep(2)}>Back</NeonButton>
+                            <NeonButton variant="primary" className="audit-btn-flex" onClick={handleNext} disabled={!adr || isCalculating}>
+                                {isCalculating
+                                    ? <><RefreshCcw className="spin" size={18} /> Calculating…</>
+                                    : <><Calculator size={18} /> Calculate Loss</>
+                                }
                             </NeonButton>
                         </div>
                     </motion.div>
                 )}
 
+                {/* Step 4 — Results + What happens next */}
                 {step === 4 && (
-                    <motion.div
-                        key="step4"
-                        initial={{ opacity: 0, scale: 0.95 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        className="audit-step text-center"
-                    >
-                        <TrendingDown size={50} className="text-neon-red mb-4 mx-auto inline-block" />
-                        <h4 style={{ fontSize: '1.2rem', color: 'var(--text-secondary)' }}>You are losing approximately</h4>
-                        <div style={{ fontSize: '3.5rem', fontWeight: '900', color: 'var(--color-neon-red)', textShadow: '0 0 20px rgba(255,0,0,0.3)', margin: '1rem 0' }}>
-                            {formatCurrency(yearlyLost)}
-                        </div>
-                        <p style={{ color: 'white', fontSize: '1.1rem', marginBottom: '2rem' }}>every single year to missed inquiries.</p>
+                    <motion.div key="step4" initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} className="audit-step audit-result">
+                        <p className="audit-result-label">{hotelName} is losing approximately</p>
+                        <div className="audit-result-amount">{formatCurrency(monthlyLost)}</div>
+                        <p className="audit-result-period">every month to missed after-hours inquiries</p>
 
-                        <div style={{ background: 'rgba(255,0,0,0.1)', border: '1px solid rgba(255,0,0,0.2)', padding: '1rem', borderRadius: '8px', marginBottom: '2rem', textAlign: 'left' }}>
-                            <p style={{ fontSize: '0.9rem', color: 'var(--text-secondary)' }}>
-                                *Based on a conservative 30% conversion rate and 2.5 nights average length of stay.
-                            </p>
+                        {paybackWeeks !== null && (
+                            <div className="audit-payback-badge">
+                                <CheckCircle size={15} />
+                                Nocturn AI pays for itself in Week {paybackWeeks}
+                            </div>
+                        )}
+
+                        <div className="audit-process">
+                            <p className="audit-process-title">What happens next</p>
+                            <div className="audit-process-steps">
+                                <div className="audit-process-item">
+                                    <span className="audit-process-num">1</span>
+                                    <span>We set up a 7-day monitoring window on your hotel's after-hours inquiry channels</span>
+                                </div>
+                                <div className="audit-process-item">
+                                    <span className="audit-process-num">2</span>
+                                    <span>Our system tracks every inquiry your hotel receives after 10pm</span>
+                                </div>
+                                <div className="audit-process-item">
+                                    <span className="audit-process-num">3</span>
+                                    <span>You receive a detailed PDF: exact inquiry count, revenue lost, and your personalised recovery plan</span>
+                                </div>
+                            </div>
                         </div>
 
-                        <h4 style={{ fontSize: '1.3rem', fontWeight: 'bold', color: 'white', marginBottom: '1rem' }}>Want to capture this revenue?</h4>
-                        <NeonButton
-                            variant="green"
-                            style={{ width: '100%' }}
-                            onClick={handleNext}
-                        >
-                            Get My Recovery Action Plan <ArrowRight size={18} />
+                        <p className="audit-disclaimer">
+                            * Estimate based on Malaysian hotel benchmarks: 65% avg occupancy, 35% after-hours inquiry rate, 30% conversion rate, 2-night avg stay.
+                        </p>
+
+                        <NeonButton variant="primary" className="audit-btn-full" onClick={handleNext}>
+                            Get My Free Revenue Report <ArrowRight size={18} />
                         </NeonButton>
                     </motion.div>
                 )}
 
+                {/* Step 5 — Contact capture */}
                 {step === 5 && (
-                    <motion.div
-                        key="step5"
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        className="audit-step"
-                    >
-                        <div className="text-center mb-4">
-                            <CheckCircle size={40} className="text-neon-green mb-2 mx-auto inline-block" />
-                            <h4 style={{ fontSize: '1.2rem', color: 'white', fontWeight: 'bold' }}>Audit Complete</h4>
-                            <p style={{ color: 'var(--text-secondary)' }}>Fill out the form below to get your detailed Revenue Recovery Strategy via email.</p>
+                    <motion.div key="step5" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="audit-step">
+                        <div className="audit-contact-header">
+                            <CheckCircle size={40} className="text-neon-green audit-icon" />
+                            <h4 className="audit-contact-title">Almost there</h4>
+                            <p className="audit-contact-subtitle">
+                                Enter your details and we'll send {hotelName}'s personalised revenue report directly to your inbox — no commitment required.
+                            </p>
                         </div>
-                        <div style={{ background: 'white', borderRadius: '8px', overflow: 'hidden' }}>
+                        <div className="audit-hubspot-wrapper">
                             <HubSpotLeadForm onFormSubmit={() => console.log('Form submitted!')} />
                         </div>
                     </motion.div>
                 )}
+
             </AnimatePresence>
         </GlassCard>
     );
