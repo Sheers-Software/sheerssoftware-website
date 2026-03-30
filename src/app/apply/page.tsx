@@ -55,20 +55,20 @@ export default function ApplyPage() {
                             animate={{ opacity: 1, x: 0 }}
                             transition={{ duration: 0.6 }}
                         >
-                            <span className="eyebrow" style={{ textAlign: 'left' }}>JOIN THE COHORT</span>
+                            <span className="eyebrow" style={{ textAlign: 'left' }}>START 48-HOUR IMPLEMENTATION</span>
                             <h1 style={{ marginBottom: 32, fontSize: 'clamp(2.5rem, 5vw, 4rem)', fontFamily: 'var(--font-serif)', lineHeight: 1.1 }}>
-                                5 Hotels. 30 Days Free.<br />
-                                We Handle Everything.
+                                Stop Paying 18%.<br />
+                                Start at 3%.
                             </h1>
                             <p style={{ fontSize: "1.25rem", color: "var(--color-gray-500)", marginBottom: 48, maxWidth: 600 }}>
-                                Tell us about your property. Ahmad Basyir will personally WhatsApp you within 2 hours to confirm your eligibility.
+                                Tell us about your property. Ahmad Basyir will personally WhatsApp you within 2 hours to confirm your onboarding timeline.
                             </p>
 
                             <div style={{ display: "flex", flexDirection: "column", gap: 32 }}>
-                                <CheckItem title="FULL PRODUCT ACCESS" desc="WhatsApp AI + Email + Web Chat + Dashboard. Not a limited trial." />
-                                <CheckItem title="48-HOUR SETUP" desc="We handle everything. Your team spends 30 minutes total." />
-                                <CheckItem title="DIRECT FOUNDER LINE" desc="WhatsApp group with Basyir. Absolute priority support." />
-                                <CheckItem title="ZERO RISK" desc="No credit card. No contracts. If it doesn't work, you walk away." />
+                                <CheckItem title="RM999 ONE-TIME SETUP" desc="Full AI training on your property. WhatsApp + Email + Web. Live in 48 hours." />
+                                <CheckItem title="RM199/MONTH PLATFORM" desc="Unlimited channels, dashboard, GM Morning Report, follow-up engine." />
+                                <CheckItem title="3% PERFORMANCE FEE" desc="Only on confirmed bookings Nocturn AI helped close. You keep the other 15%." />
+                                <CheckItem title="30-DAY GUARANTEE" desc="Measurable revenue recovery in 30 days or we waive the next month." />
                             </div>
                         </motion.div>
 

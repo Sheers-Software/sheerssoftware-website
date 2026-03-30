@@ -5,6 +5,7 @@ import { useState } from "react";
 import { motion, AnimatePresence, Variants } from "framer-motion";
 import { UseCases } from "@/components/UseCases";
 import { BenefitGrid } from "@/components/BenefitGrid";
+import { GMReportMockup } from "@/components/GMReportMockup";
 import { FounderSection } from "@/components/FounderSection";
 import { TruthTracking } from "@/components/TruthTracking";
 import { ScalingTruth } from "@/components/ScalingTruth";
@@ -16,8 +17,10 @@ export default function HomePage() {
       <Hero />
       {/* 4.2 Inquiry Graveyard — pain stats */}
       <InquiryGraveyard />
-      {/* 4.3 Core Pillars (Attribute / Optimize / Ease / Forecast) */}
+      {/* 4.3 Core Pillars (Omni-Channel / GM Report / Local Logic / Human Loop) */}
       <BenefitGrid />
+      {/* 4.3a Daily GM Report Mockup */}
+      <GMReportMockup />
       {/* 4.4 Audience Selection */}
       <UseCases />
       {/* 4.5 Proof of Mechanism — The Midnight Test */}
@@ -66,19 +69,19 @@ function Hero() {
       <div className="container hero-inner">
         <motion.div className="hero-content" variants={containerVariants} initial="hidden" animate="visible">
           <motion.div variants={itemVariants} className="hero-subtitle-hyros">
-            <h1 className="hero-subtitle-main">Your reservations team goes home at 6PM. Your guests don&apos;t.</h1>
-            <p className="hero-subtitle-sub">Nocturn AI keeps your direct bookings flowing after hours. It answers WhatsApp messages, captures guest details, and follows up automatically — all while your front desk is closed.</p>
+            <h1 className="hero-subtitle-main">Stop Paying 18% to OTAs.<br />Capture Direct Revenue for 3%.</h1>
+            <p className="hero-subtitle-sub">Nocturn AI turns your WhatsApp, Email, and Website into a high-converting sales machine. Pay only when you get a confirmed booking. Built specifically for the Malaysian hospitality market.</p>
           </motion.div>
 
           <motion.div variants={itemVariants} className="hero-ctas">
-            <a href="/apply" className="btn btn-solid-white btn-lg">Apply for Founding Cohort →</a>
-            <a href="#demo" className="btn btn-outline-white btn-lg">Watch 2-Min Demo</a>
+            <a href="#calculator" className="btn btn-solid-white btn-lg">Calculate Your Revenue Recovery →</a>
+            <a href="/apply" className="btn btn-outline-white btn-lg">Start 48-Hour Implementation — RM999</a>
           </motion.div>
 
           <motion.div variants={itemVariants} style={{ marginTop: 32, display: 'flex', gap: 32, flexWrap: 'wrap', justifyContent: 'center', opacity: 0.7 }}>
-            <span style={{ fontSize: '0.85rem', color: 'rgba(255,255,255,0.7)' }}>✓ Built for Malaysian hospitality</span>
+            <span style={{ fontSize: '0.85rem', color: 'rgba(255,255,255,0.7)' }}>✓ RM199/mo + 3% on confirmed bookings only</span>
             <span style={{ fontSize: '0.85rem', color: 'rgba(255,255,255,0.7)' }}>✓ WhatsApp + Email + Web</span>
-            <span style={{ fontSize: '0.85rem', color: 'rgba(255,255,255,0.7)' }}>✓ No system replacement required</span>
+            <span style={{ fontSize: '0.85rem', color: 'rgba(255,255,255,0.7)' }}>✓ Live in 48 hours</span>
           </motion.div>
         </motion.div>
       </div>
@@ -116,8 +119,11 @@ function InquiryGraveyard() {
     <section className="section section-white">
       <div className="container">
         <div style={{ textAlign: 'center', marginBottom: 64 }}>
-          <span className="eyebrow" style={{ color: '#EF4444' }}>THE PROBLEM</span>
-          <h2 style={{ marginBottom: 24 }}>The Inquiry Graveyard: Where Direct Bookings Go to Die</h2>
+          <span className="eyebrow" style={{ color: '#EF4444' }}>THE 3 AM GAP</span>
+          <h2 style={{ marginBottom: 24 }}>When Your Staff Is Asleep, Agoda Is Wide Awake</h2>
+          <p style={{ fontSize: '1.1rem', color: 'var(--color-gray-500)', maxWidth: 700, margin: '0 auto' }}>
+            Guests don&apos;t book on business hours. They browse at midnight, decide at 2 AM. When they can&apos;t get an instant answer from your hotel, they go to Agoda — and you pay 18% for a guest who was already trying to find you.
+          </p>
         </div>
 
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 24, marginBottom: 64 }}>
@@ -145,10 +151,10 @@ function InquiryGraveyard() {
           style={{ background: '#fff8f8', border: '1px solid #fde0e0', borderRadius: 24, padding: '40px 48px', maxWidth: 800, margin: '0 auto' }}
         >
           <p style={{ fontSize: '1.1rem', color: 'var(--color-gray-700)', lineHeight: 1.8, marginBottom: 0 }}>
-            ❌ <strong>The WhatsApp message at 9:47 PM</strong> — a family asking about rooms for the weekend. Unanswered until morning. They booked on Agoda instead. You paid 18% commission on a guest who tried to book direct.<br /><br />
+            ❌ <strong>The WhatsApp message at 9:47 PM</strong> — a family asking about rooms for the weekend. Staff is asleep. They go to Agoda for an instant answer. You pay 18% commission on a guest who tried to book direct with you.<br /><br />
             ❌ <strong>The corporate email requesting rates for 10 rooms</strong> — buried under 40 other emails on a Wednesday. No follow-up sent. The RM 15,000 group booking goes silent.<br /><br />
-            ❌ <strong>The phone call during peak check-in</strong> — &ldquo;Can you call back?&rdquo; They never do. You&apos;ll never know what you lost.<br /><br />
-            This isn&apos;t a technology problem. It&apos;s <strong>revenue falling on the floor every day</strong> — and nobody is picking it up.
+            ❌ <strong>The 3 AM inquiry during VMY2026 peak</strong> — a tourist group wanting to book 5 rooms for Hari Raya week. Nocturn AI responds in 2 minutes in BM and English. Without it, they&apos;re on Booking.com by morning.<br /><br />
+            This is <strong>a digital tax you&apos;re paying on your own guests</strong> — guests who were already trying to book direct.
           </p>
         </motion.div>
       </div>
@@ -339,11 +345,34 @@ function FoundingCohortOffer() {
     <section className="section section-gray" id="offer">
       <div className="container">
         <div style={{ textAlign: 'center', marginBottom: 64 }}>
-          <span className="eyebrow" style={{ color: 'var(--color-green)' }}>FOUNDING COHORT</span>
-          <h2 style={{ marginBottom: 16 }}>Be One of the First 5 Hotels to Shape What Comes Next</h2>
+          <span className="eyebrow" style={{ color: 'var(--color-green)' }}>ZERO-RISK REVENUE PARTNER</span>
+          <h2 style={{ marginBottom: 16 }}>We Only Win When You Win</h2>
           <p style={{ fontSize: '1.2rem', color: 'var(--color-gray-500)', maxWidth: 700, margin: '0 auto' }}>
-            We&apos;re selecting 5 properties for our Founding Cohort. You get the product for free for 30 days, direct access to our founding team, and the ability to shape Nocturn AI around YOUR operations. In return, we get your honest feedback and real-world data.
+            This is not a subscription for software you may or may not use. Our model is simple: RM199/mo platform + RM999 one-time setup + 3% only on confirmed, facilitated bookings. You save 12–15% per direct booking versus OTA rates. We share the upside — and none of the downside.
           </p>
+        </div>
+
+        {/* Pricing breakdown */}
+        <div style={{ maxWidth: 700, margin: '0 auto 48px', background: '#fff', borderRadius: 24, border: '1px solid #e9ecef', overflow: 'hidden' }}>
+          <div style={{ background: 'var(--color-navy)', padding: '20px 32px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+            <span style={{ color: 'white', fontWeight: 700, fontSize: '1rem' }}>Nocturn AI Revenue Partner Plan</span>
+            <span style={{ background: 'var(--color-green)', color: 'white', fontSize: '0.75rem', fontWeight: 700, padding: '4px 12px', borderRadius: 20 }}>Only Plan</span>
+          </div>
+          {[
+            { label: 'Platform Fee', value: 'RM 199 / month', note: 'Access to all channels + dashboard' },
+            { label: 'Setup + AI Training', value: 'RM 999 (one-time)', note: '48-hour implementation, we handle everything' },
+            { label: 'Performance Fee', value: '3% of facilitated revenue', note: 'Only on confirmed bookings we helped close' },
+            { label: 'OTA Savings Per Booking', value: '~12%–15%', note: 'Your net gain vs. current OTA commissions' },
+            { label: '30-Day Guarantee', value: 'Revenue Recovery Guarantee', note: 'Measurable results or you don\'t continue' },
+          ].map((row, i) => (
+            <div key={i} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', padding: '16px 32px', borderBottom: i < 4 ? '1px solid #f1f3f5' : 'none', gap: 16 }}>
+              <div>
+                <div style={{ fontWeight: 600, color: 'var(--color-navy)', fontSize: '0.95rem' }}>{row.label}</div>
+                <div style={{ color: 'var(--color-gray-400)', fontSize: '0.8rem', marginTop: 2 }}>{row.note}</div>
+              </div>
+              <div style={{ fontWeight: 700, color: 'var(--color-green)', fontSize: '0.95rem', whiteSpace: 'nowrap' }}>{row.value}</div>
+            </div>
+          ))}
         </div>
 
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 16, maxWidth: 900, margin: '0 auto 48px' }}>
@@ -367,81 +396,110 @@ function FoundingCohortOffer() {
 
         {/* Guarantee box */}
         <div style={{ maxWidth: 700, margin: '0 auto 48px', border: '2px solid var(--color-green)', borderRadius: 24, padding: '40px 48px', background: 'rgba(16,185,129,0.03)' }}>
-          <div style={{ fontWeight: 700, fontSize: '0.85rem', letterSpacing: '0.1em', color: 'var(--color-green)', marginBottom: 20 }}>THE 30-DAY GUARANTEE</div>
+          <div style={{ fontWeight: 700, fontSize: '0.85rem', letterSpacing: '0.1em', color: 'var(--color-green)', marginBottom: 20 }}>THE 30-DAY REVENUE RECOVERY GUARANTEE</div>
           <p style={{ fontSize: '1.1rem', color: 'var(--color-gray-700)', lineHeight: 1.8, marginBottom: 16 }}>
-            Run Nocturn AI for 30 days. If your team doesn&apos;t agree that it has measurably improved your inquiry response time and follow-up consistency, you pay nothing. Not &ldquo;money back.&rdquo; You never pay in the first place.
+            Run Nocturn AI for 30 days. If we don&apos;t demonstrably recover direct booking revenue that exceeds our platform fee, we&apos;ll waive the next month entirely. We stake our performance fee on your results — because that&apos;s what a revenue partner does.
           </p>
-          <p style={{ color: 'var(--color-gray-500)', fontSize: '0.95rem' }}>No contracts. No credit card upfront. No setup fees. The product proves itself or you walk away.</p>
+          <p style={{ color: 'var(--color-gray-500)', fontSize: '0.95rem' }}>30-day review with hard data: inquiries captured, direct bookings closed, OTA commissions saved. Your GM sees the numbers every morning.</p>
         </div>
 
         <div style={{ textAlign: 'center' }}>
           <a href="/apply" className="btn btn-solid-green btn-lg" style={{ fontSize: '1.1rem', padding: '20px 48px' }}>
-            Apply for Founding Cohort — 5 Spots Only →
+            Start 48-Hour Implementation — RM999 →
           </a>
-          <p style={{ marginTop: 16, color: 'var(--color-gray-400)', fontSize: '0.9rem' }}>Application takes 2 minutes. We&apos;ll respond within 24 hours.</p>
+          <p style={{ marginTop: 16, color: 'var(--color-gray-400)', fontSize: '0.9rem' }}>RM199/mo after setup · 3% only on bookings we facilitate · No lock-in contracts</p>
         </div>
       </div>
     </section>
   );
 }
 
-// ─── 4.9 ROI AUDIT CALCULATOR ─────────────────────────────────────────────────
+// ─── 4.9 REVENUE CALCULATOR ───────────────────────────────────────────────────
 function AuditSection() {
-  const [status, setStatus] = useState<'idle' | 'loading' | 'success'>('idle');
+  const [monthlyVolume, setMonthlyVolume] = useState<string>('50000');
 
-  const handleAudit = () => {
-    setStatus('loading');
-    setTimeout(() => setStatus('success'), 1500);
-  };
+  const volume = parseFloat(monthlyVolume) || 0;
+  const otaCost = volume * 0.18;
+  const nocturnCost = volume * 0.03 + 199;
+  const monthlySavings = Math.max(otaCost - nocturnCost, 0);
+  const annualSavings = monthlySavings * 12;
+
+  const fmt = (n: number) =>
+    n >= 1000 ? `RM ${Math.round(n).toLocaleString('en-MY')}` : `RM ${Math.round(n)}`;
 
   return (
-    <section className="section section-gray" id="audit">
+    <section className="section section-gray" id="calculator">
       <div className="container">
         <div style={{ textAlign: 'center', marginBottom: 64 }}>
-          <span className="eyebrow">YOUR NUMBERS</span>
-          <h2 style={{ marginBottom: 16 }}>How Much Revenue Is Your Hotel Leaving on the Table?</h2>
+          <span className="eyebrow">REVENUE CALCULATOR</span>
+          <h2 style={{ marginBottom: 16 }}>How Much Are You Paying Agoda for Your Own Guests?</h2>
           <p style={{ color: 'var(--color-gray-500)', fontSize: '1.2rem', maxWidth: 700, margin: '0 auto' }}>
-            Enter your property details below for an estimate. The 30-day pilot will give you your real numbers.
+            Drag the slider to your monthly booking volume. See exactly what OTAs cost you vs. what Nocturn AI costs.
           </p>
         </div>
 
-        <div className="apply-form-card" style={{ maxWidth: 600, margin: '0 auto' }}>
-          <AnimatePresence mode="wait">
-            {status === 'success' ? (
-              <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} key="success" style={{ textAlign: 'center', padding: '40px 0' }}>
-                <div style={{ fontSize: '3rem', marginBottom: 20 }}>📧</div>
-                <h3 style={{ fontSize: '1.5rem', marginBottom: 12, color: 'var(--color-navy)', fontWeight: 700 }}>Audit Request Received!</h3>
-                <p style={{ color: 'var(--color-gray-500)' }}>We are preparing your custom ROI report. Check your inbox in 2 minutes.</p>
-              </motion.div>
-            ) : (
-              <motion.div exit={{ opacity: 0, y: -10 }} key="form" style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 20 }}>
-                  <div>
-                    <label style={{ display: 'block', fontWeight: 600, marginBottom: 8, fontSize: '0.9rem' }}>Daily Inquiries Your Hotel Receives</label>
-                    <input type="number" className="input-field" placeholder="e.g. 30" />
-                  </div>
-                  <div>
-                    <label style={{ display: 'block', fontWeight: 600, marginBottom: 8, fontSize: '0.9rem' }}>Avg. Daily Rate / ADR (RM)</label>
-                    <input type="number" className="input-field" placeholder="e.g. 230" />
-                  </div>
-                </div>
-                <div>
-                  <label style={{ display: 'block', fontWeight: 600, marginBottom: 8, fontSize: '0.9rem' }}>% of Inquiries After Office Hours</label>
-                  <input type="number" className="input-field" placeholder="e.g. 30" />
-                </div>
-                <div>
-                  <label style={{ display: 'block', fontWeight: 600, marginBottom: 8, fontSize: '0.9rem' }}>Business Email</label>
-                  <input type="email" className="input-field" placeholder="manager@yourhotel.com" />
-                </div>
-                <button onClick={handleAudit} className="btn btn-solid-green btn-lg" style={{ width: '100%', marginTop: 12, justifyContent: 'center' }} disabled={status === 'loading'}>
-                  {status === 'loading' ? 'Calculating...' : 'See Your Real Numbers — Apply for Pilot →'}
-                </button>
-                <div style={{ textAlign: 'center', fontSize: '0.8rem', color: 'var(--color-gray-400)' }}>
-                  * Estimation based on industry conversion benchmarks (15% conversion, 18% OTA avg). Your actual results will depend on property type, location, and season.
-                </div>
-              </motion.div>
-            )}
-          </AnimatePresence>
+        <div style={{ maxWidth: 720, margin: '0 auto' }}>
+          {/* Slider */}
+          <div style={{ background: '#fff', borderRadius: 24, padding: '40px 48px', marginBottom: 24, boxShadow: '0 4px 24px rgba(0,0,0,0.06)' }}>
+            <label style={{ display: 'block', fontWeight: 700, fontSize: '1rem', color: 'var(--color-navy)', marginBottom: 8 }}>
+              Monthly Booking Revenue (RM)
+            </label>
+            <input
+              type="range"
+              min="10000"
+              max="500000"
+              step="5000"
+              value={monthlyVolume}
+              onChange={e => setMonthlyVolume(e.target.value)}
+              style={{ width: '100%', accentColor: 'var(--color-green)', marginBottom: 8, height: 6 }}
+            />
+            <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.85rem', color: 'var(--color-gray-400)' }}>
+              <span>RM 10,000</span>
+              <span style={{ fontWeight: 700, color: 'var(--color-navy)', fontSize: '1.1rem' }}>
+                {fmt(volume)} / month
+              </span>
+              <span>RM 500,000</span>
+            </div>
+          </div>
+
+          {/* Comparison cards */}
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16, marginBottom: 24 }}>
+            <div style={{ background: '#fff8f8', border: '1px solid #fde0e0', borderRadius: 16, padding: '28px 32px' }}>
+              <div style={{ fontSize: '0.75rem', fontWeight: 700, letterSpacing: '0.1em', color: '#EF4444', marginBottom: 12 }}>CURRENT — OTA MODEL</div>
+              <div style={{ fontSize: '2rem', fontWeight: 700, color: '#EF4444', fontFamily: 'var(--font-serif)', marginBottom: 4 }}>{fmt(otaCost)}</div>
+              <div style={{ color: 'var(--color-gray-500)', fontSize: '0.9rem' }}>paid to OTAs monthly (18% avg)</div>
+              <div style={{ marginTop: 16, fontSize: '0.8rem', color: 'var(--color-gray-400)' }}>= {fmt(otaCost * 12)} / year in OTA commissions</div>
+            </div>
+            <div style={{ background: 'rgba(16,185,129,0.04)', border: '2px solid var(--color-green)', borderRadius: 16, padding: '28px 32px' }}>
+              <div style={{ fontSize: '0.75rem', fontWeight: 700, letterSpacing: '0.1em', color: 'var(--color-green)', marginBottom: 12 }}>WITH NOCTURN AI</div>
+              <div style={{ fontSize: '2rem', fontWeight: 700, color: 'var(--color-green)', fontFamily: 'var(--font-serif)', marginBottom: 4 }}>{fmt(nocturnCost)}</div>
+              <div style={{ color: 'var(--color-gray-500)', fontSize: '0.9rem' }}>total cost (3% + RM199/mo)</div>
+              <div style={{ marginTop: 16, fontSize: '0.8rem', color: 'var(--color-gray-400)' }}>= {fmt(nocturnCost * 12)} / year total</div>
+            </div>
+          </div>
+
+          {/* Savings result */}
+          <motion.div
+            key={Math.round(monthlySavings)}
+            initial={{ scale: 0.97 }}
+            animate={{ scale: 1 }}
+            style={{ background: 'var(--color-navy)', borderRadius: 20, padding: '32px 40px', textAlign: 'center' }}
+          >
+            <div style={{ fontSize: '0.8rem', fontWeight: 700, letterSpacing: '0.12em', color: 'rgba(255,255,255,0.5)', marginBottom: 8 }}>ESTIMATED MONTHLY NET PROFIT INCREASE</div>
+            <div style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', fontWeight: 800, color: 'var(--color-green)', fontFamily: 'var(--font-serif)' }}>
+              {fmt(monthlySavings)}
+            </div>
+            <div style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.9rem', marginTop: 8 }}>
+              {fmt(annualSavings)} recovered annually by switching from OTA-first to direct-first
+            </div>
+            <a href="/apply" className="btn btn-solid-white btn-lg" style={{ marginTop: 24, display: 'inline-flex' }}>
+              Capture This Revenue — Start Now →
+            </a>
+          </motion.div>
+
+          <div style={{ textAlign: 'center', fontSize: '0.75rem', color: 'var(--color-gray-400)', marginTop: 16 }}>
+            * Based on 18% average OTA commission (Agoda/Booking.com) vs. 3% Nocturn facilitation fee + RM199/mo platform. Assumes all facilitated bookings are previously OTA-routed. Actual results vary by property.
+          </div>
         </div>
       </div>
     </section>
@@ -532,22 +590,22 @@ function FinalCTASection() {
     <section className="section section-dark" style={{ textAlign: 'center', position: 'relative' }}>
       <div className="noise-overlay" />
       <div className="container" style={{ position: 'relative', zIndex: 10 }}>
-        <span className="eyebrow">FOUNDING COHORT 2026</span>
+        <span className="eyebrow">REVENUE PARTNER — VMY2026</span>
         <h2 style={{ fontSize: 'clamp(2rem, 4vw, 3.5rem)', maxWidth: 900, margin: '0 auto 32px' }}>
-          Every Night Your Hotel Isn&apos;t Capturing Inquiries, You&apos;re Paying for It in OTA Commissions
+          Stop Donating 18% to OTAs.<br />Your Guests Are Already Trying to Book Direct.
         </h2>
         <p style={{ color: 'var(--color-gray-400)', fontSize: '1.25rem', marginBottom: 48, maxWidth: 650, margin: '0 auto 48px' }}>
-          The bookings are already trying to come to you. Through WhatsApp messages at 9PM. Through emails on Wednesday afternoon that get buried. Through phone calls during check-in rush that go to voicemail.
+          Malaysia&apos;s Visit Malaysia Year 2026 will bring the highest inbound tourism volume in a decade. Every hotel that isn&apos;t capturing direct bookings will pay OTA commissions on every one of those guests.
           <br /><br />
-          The question isn&apos;t whether you can afford to try Nocturn AI. It&apos;s how much you&apos;re paying every month because you haven&apos;t.
+          RM199/mo platform. RM999 one-time setup. 3% only when we deliver a confirmed booking. You keep the other 15%.
         </p>
         <div className="hero-ctas" style={{ display: 'flex', justifyContent: 'center', gap: '20px', flexWrap: 'wrap' }}>
-          <a href="/apply" className="btn btn-solid-white btn-lg">Apply for Founding Cohort →</a>
-          <a href="https://wa.me/601163263808" className="btn btn-outline-white btn-lg">Chat with Founder</a>
-          <a href="mailto:a.basyir@sheerssoft.com?subject=Nocturn AI Strategy Inquiry" className="btn btn-outline-white btn-lg" style={{ opacity: 0.8 }}>Email Strategy Desk</a>
+          <a href="/apply" className="btn btn-solid-white btn-lg">Start 48-Hour Implementation →</a>
+          <a href="https://wa.me/601163263808" className="btn btn-outline-white btn-lg">Chat with Founder on WhatsApp</a>
+          <a href="mailto:a.basyir@sheerssoft.com?subject=Nocturn AI Revenue Partner Inquiry" className="btn btn-outline-white btn-lg" style={{ opacity: 0.8 }}>Email Strategy Desk</a>
         </div>
         <p style={{ marginTop: 32, color: 'rgba(255,255,255,0.4)', fontSize: '0.85rem' }}>
-          30-day free pilot · No setup fee · Live in 48 hours · 5 spots remaining
+          RM999 one-time setup · RM199/mo platform · 3% on confirmed bookings only · 30-Day Revenue Recovery Guarantee
         </p>
       </div>
     </section>

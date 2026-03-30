@@ -4,32 +4,32 @@ import { motion } from "framer-motion";
 
 const pillars = [
   {
-    icon: "🎯",
-    eyebrow: "CAPTURE",
-    title: "Catch Every Inquiry Before It Goes Silent",
-    desc: "Nocturn AI connects your WhatsApp Business, reservation email, and website into one unified inbox. Whether it's a 2:14 AM WhatsApp message or a corporate group email, we log the guest's name, intent, and contact details — so nothing falls through the cracks.",
-    includes: ["Instant WhatsApp Responses", "Email Auto-Capture", "Website Chat Widget"]
+    icon: "📲",
+    eyebrow: "OMNI-CHANNEL SALES AGENT",
+    title: "One Revenue Engine Across WhatsApp, Web & Email",
+    desc: "Nocturn AI handles every incoming inquiry — whether it arrives at 2 AM on WhatsApp, via your website chat, or through a corporate email — under one revenue-tracking roof. Every channel is captured, qualified, and followed up on automatically.",
+    includes: ["WhatsApp Business Integration", "Email Inquiry Capture", "Website Chat Widget", "Unified Lead Dashboard"]
   },
   {
-    icon: "⚙️",
-    eyebrow: "OPTIMIZE",
-    title: "Everything Else Scales From There",
-    desc: "Once captured, the AI responds in seconds — in English or Bahasa Malaysia. If they don't book, the system sends branded follow-ups at 24 hours, 72 hours, and 7 days. When a complex request arrives, it hands off to your staff with full context.",
-    includes: ["24/7 AI Interaction", "Automated Follow-Up Engine", "Smart Human Handoff"]
+    icon: "📋",
+    eyebrow: "DAILY GM REPORT",
+    title: "Your 9 AM Revenue Briefing. Every Morning.",
+    desc: "Each morning at 9:00 AM, your General Manager receives an automated email summarising the night's activity: revenue recovered, OTA commissions saved, guest inquiries handled, and key guest sentiment signals. No more guessing — just hard numbers.",
+    includes: ["Revenue Recovered (RM)", "OTA Fees Saved", "Inquiries Handled by Channel", "Guest Sentiment Summary"]
   },
   {
-    icon: "⚡",
-    eyebrow: "EASE OF USE",
-    title: "Zero Integration Tax. Zero Downtime.",
-    desc: "We don't replace your PMS or Opera. We layer over it. Setup takes 45 minutes of your team's time. One line of code on your site, one connection to your WhatsApp. You're live and recovering revenue within 48 hours.",
-    includes: ["No IT Project Required", "No System Replacement", "48-Hour Implementation"]
+    icon: "🇲🇾",
+    eyebrow: "LOCAL HOSPITALITY LOGIC",
+    title: "Pre-Trained on Malaysian Hotel Operations",
+    desc: "Nocturn AI is not a generic chatbot deployed with default settings. It's trained on Malaysian hospitality — SST rates, Tourism Tax, local check-in norms, public holiday surcharges, and responds fluently in BM, English, and common local dialects.",
+    includes: ["SST & Tourism Tax Aware", "BM + English + Local Dialects", "Malaysian Public Holiday Logic", "PDPA 2024/2025 Compliant"]
   },
   {
-    icon: "📊",
-    eyebrow: "FORECAST",
-    title: "Finally Know Your Real Direct Potential",
-    desc: "Every morning, your GM receives a report showing exactly how many inquiries were handled and the estimated revenue captured. No more guessing conversion 'roughly via occupancy.' See your real direct capture ROI daily.",
-    includes: ["Conversion Dashboard", "GM Morning Report", "Revenue Leak Analysis"]
+    icon: "🤝",
+    eyebrow: "HUMAN-IN-THE-LOOP",
+    title: "Escalate VIP Inquiries Without Losing Context",
+    desc: "When a complex booking request or VIP guest needs a human touch, Nocturn AI hands off seamlessly with the full conversation history — so your staff never has to ask a guest to repeat themselves. No lead is ever lost. No context is ever dropped.",
+    includes: ["Instant Staff Escalation", "Full Conversation Handoff", "Priority Lead Flagging", "VIP Guest Routing"]
   }
 ];
 
@@ -38,10 +38,10 @@ export function BenefitGrid() {
     <section className="section section-white snap-section" id="benefits">
       <div className="container">
         <div style={{ textAlign: 'center', marginBottom: 80 }}>
-          <span className="eyebrow" style={{ color: 'var(--color-green)', fontWeight: 600 }}>THE SYSTEM</span>
-          <h2 style={{ fontSize: 'clamp(2.5rem, 4vw, 3.5rem)', marginBottom: 24 }}>Stop Guessing. Start Scaling with Truth.</h2>
+          <span className="eyebrow" style={{ color: 'var(--color-green)', fontWeight: 600 }}>HOW IT WORKS</span>
+          <h2 style={{ fontSize: 'clamp(2.5rem, 4vw, 3.5rem)', marginBottom: 24 }}>Revenue Recovery That Runs Itself.</h2>
           <p style={{ fontSize: '1.25rem', color: 'var(--color-gray-500)', maxWidth: 700, margin: '0 auto' }}>
-            Nocturn AI isn&apos;t just a chatbot. It&apos;s a revenue recovery layer that sits over your existing hotel operations to capture, automate, and prove the value of every single guest inquiry.
+            Nocturn AI is not a chatbot. It&apos;s a revenue recovery layer — an always-on sales partner that sits over your existing hotel operations to capture, convert, and prove the value of every guest inquiry.
           </p>
         </div>
 
@@ -54,7 +54,13 @@ export function BenefitGrid() {
               transition={{ delay: i * 0.1 }}
               viewport={{ once: true }}
               className="hyros-card"
+              style={i === 1 ? { border: '2px solid var(--color-green)', position: 'relative' } : {}}
             >
+              {i === 1 && (
+                <div style={{ position: 'absolute', top: -12, left: 24, background: 'var(--color-green)', color: 'white', fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.08em', padding: '3px 12px', borderRadius: 20 }}>
+                  GM FAVOURITE
+                </div>
+              )}
               <div className="hyros-card-icon">
                 {p.icon}
               </div>

@@ -225,20 +225,35 @@ function Footer() {
             <h4 style={{ color: 'white', fontSize: '0.9rem', marginBottom: '8px', textTransform: 'uppercase', letterSpacing: '0.1em' }}>Legal</h4>
             <a href="/privacy" style={{ color: 'rgba(255,255,255,0.5)', textDecoration: 'none' }}>Privacy Policy</a>
             <a href="/terms" style={{ color: 'rgba(255,255,255,0.5)', textDecoration: 'none' }}>Terms of Service</a>
-            <span style={{ color: 'rgba(255,255,255,0.3)', fontSize: '0.8rem', marginTop: '12px' }}>PDPA Compliant (Malaysia)</span>
+            <span style={{ color: 'rgba(255,255,255,0.3)', fontSize: '0.8rem', marginTop: '12px' }}>PDPA 2024/2025 Compliant</span>
+            <span style={{ color: 'rgba(255,255,255,0.3)', fontSize: '0.8rem' }}>LHDN e-Invoice Ready (Aug 2026)</span>
           </div>
         </div>
 
-        <div className="footer-bottom" style={{ borderTop: '1px solid rgba(255,255,255,0.05)', paddingTop: '48px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '24px' }}>
+        {/* Compliance Bar */}
+        <div style={{ borderTop: '1px solid rgba(255,255,255,0.05)', paddingTop: '32px', marginBottom: '24px' }}>
+          <p style={{ color: 'rgba(255,255,255,0.25)', fontSize: '0.75rem', lineHeight: 1.7, maxWidth: 900 }}>
+            <strong style={{ color: 'rgba(255,255,255,0.4)' }}>Data Protection (PDPA 2024/2025):</strong> Sheers Software Sdn Bhd complies with Malaysia&apos;s Personal Data Protection Act, including mandatory Data Protection Officer (DPO) appointment, 72-hour breach notification, and explicit consent requirements for automated profiling. Guest data is encrypted at rest and in transit. Each property&apos;s data is fully isolated. Full data export available on request.
+            {' | '}
+            <strong style={{ color: 'rgba(255,255,255,0.4)' }}>LHDN e-Invoicing:</strong> Nocturn AI is prepared for Malaysia&apos;s mandatory e-invoicing requirement effective August 2026 (LHDN MyInvois), supporting self-billing and individual e-invoice generation in compliance with IRBM guidelines.
+            {' | '}
+            <strong style={{ color: 'rgba(255,255,255,0.4)' }}>Perlindungan Data Peribadi (PDPA 2024/2025):</strong> Sheers Software Sdn Bhd mematuhi Akta Perlindungan Data Peribadi Malaysia, termasuk pelantikan Pegawai Perlindungan Data (DPO), notifikasi pelanggaran dalam masa 72 jam, dan persetujuan eksplisit untuk pemprosesan profil automatik.
+          </p>
+        </div>
+
+        <div className="footer-bottom" style={{ borderTop: '1px solid rgba(255,255,255,0.05)', paddingTop: '32px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '24px' }}>
           <p style={{ color: 'rgba(255,255,255,0.3)', fontSize: '0.85rem' }}>
             © {new Date().getFullYear()} Sheers Software Sdn Bhd. All rights reserved.
           </p>
-          <div className="footer-meta" style={{ display: 'flex', gap: '32px', fontSize: '0.8rem', color: 'rgba(255,255,255,0.3)' }}>
+          <div className="footer-meta" style={{ display: 'flex', gap: '24px', fontSize: '0.8rem', color: 'rgba(255,255,255,0.3)', flexWrap: 'wrap' }}>
             <span style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                <span style={{ color: 'var(--color-green)' }}>✓</span> 100% Data Sovereignty
+                <span style={{ color: 'var(--color-green)' }}>✓</span> PDPA 2024/2025 Compliant
             </span>
             <span style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                🇲🇾 Built in Malaysia
+                <span style={{ color: 'var(--color-green)' }}>✓</span> LHDN e-Invoice Ready
+            </span>
+            <span style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                🇲🇾 VMY2026 Ready
             </span>
           </div>
         </div>
@@ -252,7 +267,7 @@ function MobileCTA() {
   return (
     <div className="mobile-cta hide-desktop">
       <a href="/apply" className="btn btn-primary" style={{ width: "100%", borderRadius: 0 }}>
-        Apply for Founding Cohort →
+        Start 48-Hour Implementation — RM999 →
       </a>
     </div>
   );
