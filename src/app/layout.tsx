@@ -238,6 +238,8 @@ function Footer() {
             <strong style={{ color: 'rgba(255,255,255,0.4)' }}>LHDN e-Invoicing:</strong> Nocturn AI is prepared for Malaysia&apos;s mandatory e-invoicing requirement effective August 2026 (LHDN MyInvois), supporting self-billing and individual e-invoice generation in compliance with IRBM guidelines.
             {' | '}
             <strong style={{ color: 'rgba(255,255,255,0.4)' }}>Perlindungan Data Peribadi (PDPA 2024/2025):</strong> Sheers Software Sdn Bhd mematuhi Akta Perlindungan Data Peribadi Malaysia, termasuk pelantikan Pegawai Perlindungan Data (DPO), notifikasi pelanggaran dalam masa 72 jam, dan persetujuan eksplisit untuk pemprosesan profil automatik.
+            {' | '}
+            <strong style={{ color: 'rgba(255,255,255,0.4)' }}>E-Invois LHDN:</strong> Nocturn AI sedia untuk keperluan e-invois mandatori Malaysia yang berkuat kuasa Ogos 2026 (LHDN MyInvois), menyokong pengebilan kendiri dan penjanaan e-invois individu mengikut garis panduan LHDN.
           </p>
         </div>
 
