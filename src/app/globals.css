@@ -2,7 +2,7 @@
    NOCTURN AI — Global Design System
    ============================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap');
 
 /* ---------- CSS Reset ---------- */
 *,
@@ -26,6 +26,23 @@ body {
   background: var(--color-white);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  width: 100%;
+}
+
+section, 
+header, 
+footer,
+.snap-section {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  scroll-margin-top: 135px; /* Perfect offset for snapping below navbar */
+}
+
+html {
+  scroll-padding-top: 135px; /* Account for sticky navbar */
 }
 
 img,
@@ -81,73 +98,63 @@ select {
 
 /* ---------- Design Tokens ---------- */
 :root {
-  /* Colors - True Black Brutalism */
-  --color-navy: #000000;
-  --color-navy-light: #0D0D0D;
-  --color-green: #00FF66; /* Aggressive Cyber Neon */
-  --color-green-dark: #00D355;
-  --color-green-light: #80FFB2;
-  --color-amber: #FFD500;
-  --color-red: #FF3333;
-  --color-white: #FFFFFF;
-  --color-off-white: #FAFBFC;
+  /* Colors - Hyros Inspired Premium SaaS */
+  --color-green: #22C55E;
+  --color-green-light: #F0FDF4;
+  --color-navy: #0F172A;
+  --color-navy-light: #1E293B;
+  --color-white: #ffffff;
   --color-gray-50: #F8FAFC;
   --color-gray-100: #F1F5F9;
   --color-gray-200: #E2E8F0;
   --color-gray-300: #CBD5E1;
   --color-gray-400: #94A3B8;
   --color-gray-500: #64748B;
-  --color-gray-600: #2A2A2A;
-  --color-gray-700: #1C1C1C;
-  --color-gray-900: #050505;
+  --color-gray-600: #475569;
+  --color-red: #EF4444;
 
-  /* Premium Glass -> Sharp Terminal */
-  --glass-bg: rgba(20, 20, 20, 0.4);
+  /* Premium Gradients */
+  --rainbow-gradient: linear-gradient(90deg, #ff00cc, #3333ff, #00d4ff);
+  --glass-bg: rgba(255, 255, 255, 0.03);
   --glass-border: rgba(255, 255, 255, 0.1);
-  --glass-blur: blur(10px);
-  --glass-highlight: inset 0 1px 1px rgba(255, 255, 255, 0.05);
-
-  /* Gradients */
-  --gradient-glow: linear-gradient(135deg, #00FF66 0%, #00E5FF 100%);
-  --gradient-text: linear-gradient(to right, #FFFFFF, #B0BEC5);
+  --glass-blur: blur(12px);
 
   /* Typography */
-  --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  --font-display: 'Outfit', 'Inter', sans-serif;
-  --fs-hero: clamp(2.25rem, 5vw, 3.5rem);
-  --fs-h2: clamp(1.75rem, 3.5vw, 2.5rem);
-  --fs-h3: clamp(1.25rem, 2.5vw, 1.75rem);
-  --fs-h4: clamp(1.125rem, 2vw, 1.375rem);
-  --fs-body: 1rem;
-  --fs-large: 1.125rem;
-  --fs-small: 0.875rem;
-  --fs-eyebrow: 0.75rem;
-  --fs-stat: clamp(2.5rem, 6vw, 4rem);
+  --font-primary: 'Inter', system-ui, sans-serif;
+  --font-serif: 'Instrument Serif', serif;
+  --font-display: 'Instrument Serif', serif;
+  --font-body: 'Inter', system-ui, sans-serif;
 
-  /* Spacing */
-  --section-padding: clamp(64px, 10vw, 120px);
+  /* Spacing - Extreme Hyros padding */
   --container-max: 1200px;
   --container-narrow: 800px;
-  --card-radius: 4px; /* Sharp edges */
-  --button-radius: 4px; /* Sharp edges */
-  --badge-radius: 4px; /* Sharp edges */
-  --gap-sm: 8px;
-  --gap-md: 16px;
-  --gap-lg: 24px;
-  --gap-xl: 32px;
-  --gap-2xl: 48px;
-  --gap-3xl: 64px;
+  --section-padding: clamp(100px, 15vw, 180px);
+  --gap-base: 24px;
+  --gap-lg: 32px;
+  --gap-xl: 48px;
+  --gap-2xl: 64px;
 
   /* Shadows */
-  --shadow-card: 0 4px 12px rgba(0, 0, 0, 0.8);
-  --shadow-elevated: 0 12px 24px rgba(0, 0, 0, 1);
-  --shadow-neon: 0 0 24px rgba(0, 255, 102, 0.4);
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+  --shadow-card: 0 20px 40px -10px rgba(0,0,0,0.1);
+  --shadow-elevated: 0 30px 60px -12px rgba(0,0,0,0.15);
+  --shadow-neon: 0 0 20px rgba(34, 197, 94, 0.4);
+
+  /* Typography Scale */
+  --fs-hero: clamp(3rem, 8vw, 6rem);
+  --fs-h2: clamp(2rem, 5vw, 3.5rem);
+  --fs-h4: 1.25rem;
+  --fs-eyebrow: 0.75rem;
+  --fs-stat: clamp(3rem, 8vw, 6rem);
+  --fs-body: 1rem;
+  --fs-large: 1.125rem;
+
+  /* Buttons */
+  --button-radius: 100px;
 
   /* Transitions */
-  --transition-fast: 150ms ease;
-  --transition-base: 200ms ease-out;
-  --transition-slow: 400ms ease-out;
-  --transition-spring: 300ms cubic-bezier(0.34, 1.56, 0.64, 1);
+  --transition-base: 0.2s ease;
+  --transition-spring: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* ---------- Typography ---------- */
@@ -157,24 +164,25 @@ h3,
 h4,
 h5,
 h6 {
-  line-height: 1.2;
+  line-height: 1.15;
   font-weight: 700;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.03em;
+  color: var(--color-navy);
 }
 
 h1 {
   font-size: var(--fs-hero);
   font-weight: 900;
-  text-transform: uppercase;
-  letter-spacing: -0.04em;
 }
 
 h2 {
   font-size: var(--fs-h2);
+  margin-bottom: 24px;
 }
 
 h3 {
-  font-size: var(--fs-h3);
+  font-size: 1.75rem;
+  margin-bottom: 16px;
 }
 
 h4 {
@@ -221,18 +229,19 @@ h4 {
 
 /* ---------- Section ---------- */
 .section {
-  padding: clamp(48px, 8vw, 80px) 0;
-}
-
-@media (min-width: 769px) {
-  .section {
-    padding: var(--section-padding) 0;
-  }
+  padding: var(--section-padding) 0;
+  position: relative;
+  border-bottom: 1px solid rgba(15, 23, 42, 0.05);
 }
 
 .section-dark {
   background: var(--color-navy);
   color: var(--color-white);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.section-dark h2, .section-dark h3 {
+  color: white;
 }
 
 .section-light {
@@ -241,6 +250,10 @@ h4 {
 
 .section-white {
   background: var(--color-white);
+}
+
+.section-no-border {
+  border-bottom: none;
 }
 
 /* ---------- Buttons ---------- */
@@ -406,10 +419,161 @@ h4 {
   }
 }
 
-/* Hide Next.js Dev Overlay */
-body>[data-nextjs-dialog-overlay],
-#nextjs-dev-tools-overlay,
-.nextjs-toast-errors-parent,
-nextjs-portal {
-  display: none !important;
+/* ---------- Hybrid Animations & Background Blobs ---------- */
+.hero-background-wrapper {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: -1;
+  background: var(--color-navy);
 }
+
+.flower-blob {
+  position: absolute;
+  width: 60vw;
+  height: 60vw;
+  filter: blur(100px);
+  opacity: 0.6;
+  border-radius: 50%;
+  animation: float-blob 20s infinite alternate cubic-bezier(0.45, 0, 0.55, 1);
+}
+
+.blob-1 {
+  background: radial-gradient(circle, #5150F7, transparent);
+  top: -10%;
+  left: -10%;
+}
+
+.blob-2 {
+  background: radial-gradient(circle, #FF4D94, transparent);
+  bottom: -10%;
+  right: -10%;
+  animation-delay: -5s;
+}
+
+.blob-3 {
+  background: radial-gradient(circle, #00D26A, transparent);
+  top: 40%;
+  left: 30%;
+  width: 40vw;
+  height: 40vw;
+  animation-delay: -10s;
+}
+
+@keyframes float-blob {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(5%, 5%) scale(1.1); }
+  100% { transform: translate(-5%, 2%) scale(0.9); }
+}
+
+.dot-overlay {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+  background-size: 24px 24px;
+  z-index: 1;
+}
+
+/* ---------- Typography Overrides ---------- */
+.font-serif {
+  font-family: var(--font-serif);
+}
+
+.meet-text {
+  font-family: var(--font-serif);
+  font-size: 42px;
+  font-weight: 400;
+  color: white;
+}
+
+.hyros-style-title {
+  font-family: var(--font-serif);
+  font-size: 110px;
+  line-height: 0.9;
+  letter-spacing: -2px;
+  color: white;
+  margin-top: -10px;
+}
+
+@media (max-width: 768px) {
+  .meet-text { font-size: 32px; }
+  .hyros-style-title { font-size: 64px; }
+}
+
+/* ---------- Buttons Styles ---------- */
+.btn-solid-white {
+  background: white;
+  color: var(--color-navy);
+  border: none;
+}
+
+.btn-solid-white:hover {
+  background: rgba(255, 255, 255, 0.9);
+  transform: translateY(-2px);
+}
+
+.btn-outline-white {
+  background: transparent;
+  color: white;
+  border: 1px solid white;
+}
+
+.btn-outline-white:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+.btn-solid-green {
+  background: var(--color-green);
+  color: #000;
+  border: none;
+  font-weight: 700;
+}
+
+.btn-solid-green:hover {
+  background: #16A34A;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(34, 197, 94, 0.35);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--color-navy);
+  border: 1px solid var(--color-gray-300);
+}
+
+.btn-outline:hover {
+  border-color: var(--color-navy);
+  background: var(--color-gray-50);
+  transform: translateY(-2px);
+}
+
+.card {
+  border-radius: 16px;
+  border: 1px solid var(--color-gray-200);
+  background: white;
+}
+
+.btn-outline-navy {
+  background: transparent;
+  color: var(--color-navy);
+  border: 1px solid var(--color-navy);
+}
+
+.btn-outline-navy:hover {
+  background: var(--color-navy);
+  color: white;
+  transform: translateY(-2px);
+}
+
+.btn-navbar-login {
+  color: white;
+  border: 1px dashed rgba(255, 255, 255, 0.4);
+  padding: 8px 24px;
+}
+
+.btn-navbar-signup {
+  background: white;
+  color: var(--color-navy);
+  padding: 8px 24px;
+}

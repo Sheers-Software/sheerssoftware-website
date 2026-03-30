@@ -1,889 +1,563 @@
+"use client";
+
 import "./home.css";
-import { PricingCard } from "@/components/PricingCard";
-import LeadMagnetCalculator from "@/components/LeadMagnetCalculator";
+import { useState } from "react";
+import { motion, AnimatePresence, Variants } from "framer-motion";
+import { UseCases } from "@/components/UseCases";
+import { BenefitGrid } from "@/components/BenefitGrid";
+import { FounderSection } from "@/components/FounderSection";
+import { TruthTracking } from "@/components/TruthTracking";
+import { ScalingTruth } from "@/components/ScalingTruth";
 
 export default function HomePage() {
   return (
-    <>
-      {/* SECTION 1: Hero */}
-      <section className="hero section-dark">
-        <div className="hero-cyber-grid" aria-hidden="true"></div>
-        <div className="container hero-inner">
-          <div className="hero-content">
-            <span className="badge badge-green-solid">
-              Now accepting 5 hotels into our Founding Cohort
-            </span>
-            <h1 className="hero-title">
-              Turn After-Hours WhatsApp Inquiries Into <br />
-              <span className="text-gradient">Confirmed Direct Bookings.</span>
-            </h1>
-            <p className="hero-subtitle">
-              Your reservation team goes home at 6 PM. Your guests don&apos;t. Nocturn AI is an autonomous concierge that answers every question instantly, follows up automatically, and secures direct revenue while you sleep — saving you from 15% OTA commissions.
-            </p>
-            <div className="hero-ctas">
-              <div className="hero-ctas-buttons">
-                <a href="/apply" className="btn btn-primary btn-lg">
-                  Apply for Founding Cohort — 3 spots remaining
-                </a>
-                <a href="#midnight-test" className="btn btn-outline btn-lg" style={{ background: "var(--glass-bg)", backdropFilter: "var(--glass-blur)", color: "white", border: "1px solid var(--glass-border)" }}>
-                  See the 11:47PM demo →
-                </a>
-              </div>
-              <div className="text-small text-gray-500" style={{ marginTop: 12 }}>
-                For independent 3–4 star hotels in Malaysia running on WhatsApp, email, and phone — not enterprise software.
-              </div>
-            </div>
-            <div className="hero-proof">
-              <span>✓ Built for Malaysian hospitality</span>
-              <span>·</span>
-              <span>✓ WhatsApp + Email + Web</span>
-              <span>·</span>
-              <span>✓ No system replacement required</span>
-            </div>
-            <div className="hero-trust-badge">
-              🇲🇾 Built in Malaysia · 💬 Running on WhatsApp Business API · 🔒 Compliant with PDPA 2010 · ☁️ Hosted on Google Cloud Singapore
-            </div>
-          </div>
-          <div className="hero-visual">
-            <div className="hero-mockup">
-              <div className="mockup-browser">
-                <div className="mockup-dots">
-                  <span></span><span></span><span></span>
-                </div>
-                <div className="mockup-screen">
-                  <div className="mockup-dashboard">
-                    <div className="dash-header">
-                      <span className="dash-logo">Nocturn AI</span>
-                      <span className="dash-status">● Live</span>
-                    </div>
-                    <div className="dash-stats">
-                      <div className="dash-stat"><span className="dash-num">42</span><span className="dash-label">Inquiries Today</span></div>
-                      <div className="dash-stat"><span className="dash-num">28s</span><span className="dash-label">Avg Response</span></div>
-                      <div className="dash-stat"><span className="dash-num">3</span><span className="dash-label">Channels Live</span></div>
-                    </div>
-                    <div className="dash-conversations">
-                      <div className="dash-conv">
-                        <div className="conv-avatar">A</div>
-                        <div><div className="conv-name">Ahmad R.</div><div className="conv-msg">Hi, do you have rooms available for 14-16 Feb?</div></div>
-                        <span className="conv-time">2m ago</span>
-                      </div>
-                      <div className="dash-conv">
-                        <div className="conv-avatar">S</div>
-                        <div><div className="conv-name">Sarah L.</div><div className="conv-msg">What are your corporate rates for 10 rooms?</div></div>
-                        <span className="conv-time">5m ago</span>
-                      </div>
-                      <div className="dash-conv">
-                        <div className="conv-avatar">K</div>
-                        <div><div className="conv-name">Kumar P.</div><div className="conv-msg">Is breakfast included in the package?</div></div>
-                        <span className="conv-time">8m ago</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="whatsapp-bubble animate-float">
-                <div className="wa-header">
-                  <span className="wa-icon">💬</span>
-                  <span>WhatsApp</span>
-                </div>
-                <div className="wa-msg wa-guest">Hi, any rooms for tonight? 2 adults</div>
-                <div className="wa-msg wa-ai">Hello! 😊 Yes, we have availability tonight. Our Deluxe Room is RM 280/night including breakfast. Shall I reserve it for you?</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-
-
-      {/* SECTION 2: Pain Agitation */}
-      <section className="section section-white" id="pain">
-        <div className="container">
-          <span className="eyebrow">THE PROBLEM</span>
-          <h2 style={{ marginTop: 12 }}>The Inquiry Graveyard: Where Direct Bookings Go to Die</h2>
-          <div className="stat-grid">
-            <div className="stat-card">
-              <div className="stat-number">90%</div>
-              <div className="stat-label">of Malaysian hotel bookings come from manual channels</div>
-              <div className="stat-sub">WhatsApp, phone calls, emails, walk-ins — not your website.</div>
-              <div className="stat-source">Reservation Manager interview, Kuala Lumpur, 2026</div>
-            </div>
-            <div className="stat-card">
-              <div className="stat-number">30–200</div>
-              <div className="stat-label">daily inquiry touchpoints per property</div>
-              <div className="stat-sub">And your reservation desk has 3 people to handle them all.</div>
-              <div className="stat-source">Malaysian hotel operator data, 2025</div>
-            </div>
-            <div className="stat-card">
-              <div className="stat-number">6PM</div>
-              <div className="stat-label">Reservations closes. Inquiries keep coming.</div>
-              <div className="stat-sub">When your reservations team goes home, every after-hours inquiry is dropped.</div>
-              <div className="stat-source">Independent hotel operator interviews, 2025</div>
-            </div>
-          </div>
-          <div className="pain-body-container">
-            <p className="pain-body">
-              Here&apos;s what happens every single day at hotels across Malaysia:
-            </p>
-
-            <div className="pain-grid">
-              <div className="pain-card">
-                <div className="pain-icon">📞</div>
-                <div className="pain-title">The 9:47 PM WhatsApp</div>
-                <div className="pain-desc">
-                  A family asking about rooms for the weekend. Unanswered until morning. They booked on Agoda instead.
-                </div>
-                <div className="pain-result">
-                  You paid 18% commission
-                </div>
-              </div>
-
-              <div className="pain-card">
-                <div className="pain-icon">📧</div>
-                <div className="pain-title">The Corporate Email</div>
-                <div className="pain-desc">
-                  Request for 10 rooms buried under 40 other emails. No follow-up sent. The RM 15,000 group booking goes silent.
-                </div>
-                <div className="pain-result">
-                  RM 15,000 revenue lost
-                </div>
-              </div>
-
-              <div className="pain-card">
-                <div className="pain-icon">❌</div>
-                <div className="pain-title">The Peak Hour Call</div>
-                <div className="pain-desc">
-                  &quot;Can you call back?&quot; during check-in chaos. They never do. You&apos;ll never know what you lost.
-                </div>
-                <div className="pain-result">
-                  Permanent missed opportunity
-                </div>
-              </div>
-            </div>
-
-            <p className="pain-body" style={{ fontWeight: 600, marginTop: 16 }}>
-              This isn&apos;t a technology problem. It&apos;s revenue falling on the floor every day — and nobody is picking it up.
-            </p>
-          </div>
-        </div>
-      </section >
-
-      {/* SECTION 2.5: Who This Is For */}
-      < section className="section section-light" style={{ padding: "80px 0", borderBottom: "1px solid var(--color-gray-200)" }
-      }>
-        <div className="container">
-          <div style={{ textAlign: "center", marginBottom: 40 }}>
-            <span className="eyebrow">WHO THIS IS FOR</span>
-            <h2 style={{ marginTop: 12 }}>Built for Hotels That Run on WhatsApp, Not Enterprise Software</h2>
-            <p className="text-gray-600" style={{ maxWidth: 600, margin: "16px auto 0" }}>
-              If your reservation team juggles WhatsApp, phone calls, emails, and walk-ins — and drops inquiries when the office closes — this is for you.
-            </p>
-          </div>
-          <div className="who-grid">
-            <div className="card" style={{ padding: 24, display: "flex", gap: 16 }}>
-              <div style={{ fontSize: 32 }}>🛎️</div>
-              <div>
-                <strong style={{ display: "block", fontSize: 18, marginBottom: 4 }}>The Reservation Manager</strong>
-                <p style={{ fontSize: 14, color: "var(--color-gray-600)" }}>
-                  You handle 30+ daily touchpoints across WhatsApp, email, and phone. On busy days it hits 200-300. Your &quot;primary operational weakness&quot; is follow-up — and you know it.
-                </p>
-              </div>
-            </div>
-            <div className="card" style={{ padding: 24, display: "flex", gap: 16 }}>
-              <div style={{ fontSize: 32 }}>📈</div>
-              <div>
-                <strong style={{ display: "block", fontSize: 18, marginBottom: 4 }}>The Revenue Manager</strong>
-                <p style={{ fontSize: 14, color: "var(--color-gray-600)" }}>
-                  You&apos;re watching 15-25% of every booking go to OTA commissions. You know guests are trying to book direct, but they&apos;re not getting responses fast enough.
-                </p>
-              </div>
-            </div>
-            <div className="card" style={{ padding: 24, display: "flex", gap: 16 }}>
-              <div style={{ fontSize: 32 }}>👔</div>
-              <div>
-                <strong style={{ display: "block", fontSize: 18, marginBottom: 4 }}>The General Manager</strong>
-                <p style={{ fontSize: 14, color: "var(--color-gray-600)" }}>
-                  Your ownership wants higher RevPAR with a flat budget. You need proof that direct bookings are being captured — a morning report you can show the board.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section >
-
-      {/* SECTION 4: The Solution */}
-      < section className="section section-light" >
-        <div className="container">
-          <div className="solution-grid">
-            <div className="solution-visual">
-              <div className="solution-screenshot animate-float">
-                <div className="mockup-browser" style={{ maxWidth: 480 }}>
-                  <div className="mockup-dots"><span></span><span></span><span></span></div>
-                  <div className="mockup-screen">
-                    <div className="mockup-dashboard" style={{ padding: 16 }}>
-                      <div style={{ fontWeight: 700, marginBottom: 12, color: "var(--color-navy)" }}>Live Conversations</div>
-                      <div className="dash-conv" style={{ marginBottom: 8 }}>
-                        <div className="conv-avatar" style={{ background: "#22C55E" }}>W</div>
-                        <div><div className="conv-name">WhatsApp · Room inquiry</div><div className="conv-msg" style={{ color: "#22C55E" }}>✓ Auto-responded in 12s</div></div>
-                      </div>
-                      <div className="dash-conv" style={{ marginBottom: 8 }}>
-                        <div className="conv-avatar" style={{ background: "#3B82F6" }}>E</div>
-                        <div><div className="conv-name">Email · Group booking</div><div className="conv-msg" style={{ color: "#22C55E" }}>✓ Lead captured</div></div>
-                      </div>
-                      <div className="dash-conv">
-                        <div className="conv-avatar" style={{ background: "#8B5CF6" }}>C</div>
-                        <div><div className="conv-name">Web Chat · Rate inquiry</div><div className="conv-msg" style={{ color: "#F59E0B" }}>⟳ Handed off to staff</div></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="solution-content">
-              <span className="eyebrow">THE SOLUTION</span>
-              <h2 style={{ marginTop: 12 }}>
-                One Inbox. Every Channel. Every Inquiry Captured — Even at 3AM.
-              </h2>
-              <p className="text-gray-600" style={{ marginBottom: 24 }}>
-                Nocturn AI connects your WhatsApp Business, reservation email, and website into one unified inbox — then responds to guests instantly with AI, follows up automatically, and tracks every conversion.
-              </p>
-              <div className="feature-list" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "24px 16px" }}>
-                <div className="feature-item">
-                  <span className="feature-icon">⚡</span>
-                  <div>
-                    <strong>Respond in Seconds</strong>
-                    <p>Replies to guest inquiries in under 30 seconds — even at 2am.</p>
-                  </div>
-                </div>
-                <div className="feature-item">
-                  <span className="feature-icon">📧</span>
-                  <div>
-                    <strong>Email Auto-Capture</strong>
-                    <p>Parses incoming emails, responds intelligently, captures the lead.</p>
-                  </div>
-                </div>
-                <div className="feature-item">
-                  <span className="feature-icon">💻</span>
-                  <div>
-                    <strong>Web Chat Widget</strong>
-                    <p>One line of code. Captures visitors before they bounce to OTA.</p>
-                  </div>
-                </div>
-                <div className="feature-item">
-                  <span className="feature-icon">🔄</span>
-                  <div>
-                    <strong>Automated Follow-Up</strong>
-                    <p>Sends branded follow-ups at 24h, 72h, and 7 days. No lead left behind.</p>
-                  </div>
-                </div>
-                <div className="feature-item">
-                  <span className="feature-icon">📊</span>
-                  <div>
-                    <strong>Conversion Dashboard</strong>
-                    <p>See exactly how many inquiries came in and how many converted.</p>
-                  </div>
-                </div>
-                <div className="feature-item">
-                  <span className="feature-icon">🤝</span>
-                  <div>
-                    <strong>Smart Human Handoff</strong>
-                    <p>When the AI can&apos;t help, it transfers to your team with full conversation context. Staff reply directly from the dashboard — the guest gets your message instantly on WhatsApp or web chat.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section >
-
-      {/* SECTION 5: The Midnight Test */}
-      <section className="section section-white" id="midnight-test" style={{ borderBottom: "1px solid var(--color-gray-200)" }}>
-        <div className="container">
-          <div style={{ textAlign: "center", marginBottom: 40 }}>
-            <span className="eyebrow">SEE IT IN ACTION</span>
-            <h2 style={{ marginTop: 12 }}>The Midnight Test</h2>
-            <p className="text-gray-600" style={{ maxWidth: 600, margin: "16px auto 0" }}>
-              It&apos;s 11:47 PM. Your front desk closed 90 minutes ago. A family wants to book for the weekend. Here&apos;s what happens with Nocturn AI.
-            </p>
-          </div>
-          <div className="chat-mockup-wrapper">
-            <div style={{ background: "#075E54", padding: "16px 20px", borderRadius: "16px 16px 0 0", color: "white", fontWeight: 600, display: "flex", alignItems: "center", gap: 12 }}>
-              <div style={{ width: 32, height: 32, background: "rgba(255,255,255,0.2)", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center" }}>🏨</div>
-              <div>
-                <div style={{ fontSize: 16 }}>Hotel Front Desk</div>
-                <div style={{ fontSize: 12, opacity: 0.8 }}>Online 24/7</div>
-              </div>
-            </div>
-            <div style={{ background: "#ECE5DD", padding: 20, borderRadius: "0 0 16px 16px", display: "flex", flexDirection: "column", gap: 12, minHeight: 300 }}>
-              <div style={{ alignSelf: "flex-start", background: "white", padding: "10px 14px", borderRadius: "0 12px 12px 12px", fontSize: 14, maxWidth: "80%", boxShadow: "0 1px 2px rgba(0,0,0,0.1)" }}>
-                Hi, do you have rooms for this Friday? And is the family pool open?
-                <div style={{ fontSize: 11, color: "#999", marginTop: 4, textAlign: "right" }}>11:47 PM</div>
-              </div>
-              <div style={{ alignSelf: "flex-end", background: "#DCF8C6", padding: "10px 14px", borderRadius: "12px 0 12px 12px", fontSize: 14, maxWidth: "85%", boxShadow: "0 1px 2px rgba(0,0,0,0.1)" }}>
-                Hello! 😊 Yes, we have a Deluxe Room available this Friday for RM 280/night including breakfast for 2. Our family pool is open 7am - 9pm daily! 🏊‍♂️ Would you like me to hold the room for you?
-                <div style={{ fontSize: 11, color: "#777", marginTop: 4, textAlign: "right" }}>11:47 PM</div>
-              </div>
-              <div style={{ alignSelf: "flex-start", background: "white", padding: "10px 14px", borderRadius: "0 12px 12px 12px", fontSize: 14, maxWidth: "80%", boxShadow: "0 1px 2px rgba(0,0,0,0.1)" }}>
-                Great, I&apos;d like to book. My name is Ahmad.
-                <div style={{ fontSize: 11, color: "#999", marginTop: 4, textAlign: "right" }}>11:48 PM</div>
-              </div>
-              <div style={{ alignSelf: "flex-end", background: "#DCF8C6", padding: "10px 14px", borderRadius: "12px 0 12px 12px", fontSize: 14, maxWidth: "85%", boxShadow: "0 1px 2px rgba(0,0,0,0.1)" }}>
-                Wonderful, Ahmad! I&apos;ve noted your interest. Could you share your email so I can send the details? 📧 Our reservations team will confirm everything first thing tomorrow morning.
-                <div style={{ fontSize: 11, color: "#777", marginTop: 4, textAlign: "right" }}>11:48 PM</div>
-              </div>
-              <div style={{ background: "var(--color-gray-100)", padding: "8px 12px", borderRadius: 8, fontSize: 12, color: "var(--color-gray-500)", marginTop: 8, borderLeft: "3px solid var(--color-green)" }}>
-                Lead captured · Name: Ahmad · Intent: Room booking · Channel: WhatsApp · Time: 11:48 PM · Status: Queued for morning team
-              </div>
-            </div>
-          </div>
-          <div style={{ textAlign: "center", marginTop: 24, fontSize: 18, fontWeight: 600, color: "var(--color-navy)", maxWidth: 700, marginInline: "auto" }}>
-            That lead was captured, logged, and prioritized for your morning team. Without Nocturn AI, Ahmad would have booked on Agoda at midnight. You would have paid 18% commission — RM 50 — on a guest who tried to book direct.
-          </div>
-
-          <div style={{ marginTop: 64, textAlign: "center" }}>
-            <h3 style={{ marginBottom: 24 }}>See the Dashboard in Action</h3>
-            <div style={{ position: "relative", paddingBottom: "56.25%", height: 0, overflow: "hidden", maxWidth: "100%", background: "#111827", borderRadius: 16, boxShadow: "var(--shadow-card)", border: "1px solid var(--color-gray-200)" }}>
-              <div style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", display: "flex", alignItems: "center", justifyContent: "center", color: "white", flexDirection: "column" }}>
-                <div style={{ fontSize: 48, marginBottom: 16 }}>▶️</div>
-                <div style={{ fontSize: 18, fontWeight: 600 }}>2-Minute Real-Time Capture Demo</div>
-                <div style={{ fontSize: 14, color: "rgba(255,255,255,0.7)", marginTop: 8 }}>(Demo Video Coming Soon)</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section >
-
-      {/* SECTION 4.5: Competitor Comparison */}
-      <section className="section section-gray" style={{ background: "var(--color-gray-50)", borderTop: "1px solid var(--color-gray-200)" }}>
-        <div className="container container-narrow">
-          <div style={{ textAlign: "center", marginBottom: 40 }}>
-            <span className="eyebrow">WHY US</span>
-            <h2 style={{ marginTop: 12 }}>Built for Your Reality, Not Their Enterprise</h2>
-          </div>
-          <div className="table-wrapper">
-            <table style={{ width: "100%", borderCollapse: "collapse", minWidth: 600 }}>
-              <thead>
-                <tr style={{ background: "var(--color-navy)", color: "white", textAlign: "left" }}>
-                  <th style={{ padding: "16px 24px", fontWeight: 600, width: "34%" }}>Feature</th>
-                  <th style={{ padding: "16px 24px", fontWeight: 700, width: "22%", background: "var(--color-green)", borderLeft: "1px solid rgba(255,255,255,0.1)", borderRight: "1px solid rgba(255,255,255,0.1)" }}>Nocturn AI</th>
-                  <th style={{ padding: "16px 24px", fontWeight: 600, width: "22%" }}>Enterprise PMS Add-Ons</th>
-                  <th style={{ padding: "16px 24px", fontWeight: 600, width: "22%" }}>Generic Chatbots</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr style={{ borderBottom: "1px solid var(--color-gray-100)" }}>
-                  <td style={{ padding: "16px 24px", fontWeight: 500 }}>WhatsApp Native</td>
-                  <td style={{ padding: "16px 24px", background: "rgba(34, 197, 94, 0.05)", fontWeight: 700, color: "var(--color-green)", borderLeft: "1px solid var(--color-gray-200)", borderRight: "1px solid var(--color-gray-200)" }}>✓ Yes</td>
-                  <td style={{ padding: "16px 24px", color: "var(--color-gray-500)" }}>Rarely</td>
-                  <td style={{ padding: "16px 24px", color: "var(--color-gray-500)" }}>Rarely</td>
-                </tr>
-                <tr style={{ borderBottom: "1px solid var(--color-gray-100)" }}>
-                  <td style={{ padding: "16px 24px", fontWeight: 500 }}>Malaysian Market Built</td>
-                  <td style={{ padding: "16px 24px", background: "rgba(34, 197, 94, 0.05)", fontWeight: 700, color: "var(--color-green)", borderLeft: "1px solid var(--color-gray-200)", borderRight: "1px solid var(--color-gray-200)" }}>✓ Yes</td>
-                  <td style={{ padding: "16px 24px", color: "var(--color-red)" }}>✗ No</td>
-                  <td style={{ padding: "16px 24px", color: "var(--color-red)" }}>✗ No</td>
-                </tr>
-                <tr style={{ borderBottom: "1px solid var(--color-gray-100)" }}>
-                  <td style={{ padding: "16px 24px", fontWeight: 500 }}>Setup Time</td>
-                  <td style={{ padding: "16px 24px", background: "rgba(34, 197, 94, 0.05)", fontWeight: 700, color: "var(--color-green)", borderLeft: "1px solid var(--color-gray-200)", borderRight: "1px solid var(--color-gray-200)" }}>48 hours</td>
-                  <td style={{ padding: "16px 24px", color: "var(--color-gray-500)" }}>6–18 months</td>
-                  <td style={{ padding: "16px 24px", color: "var(--color-gray-500)" }}>1–2 weeks</td>
-                </tr>
-                <tr style={{ borderBottom: "1px solid var(--color-gray-100)" }}>
-                  <td style={{ padding: "16px 24px", fontWeight: 500 }}>Contract</td>
-                  <td style={{ padding: "16px 24px", background: "rgba(34, 197, 94, 0.05)", fontWeight: 700, color: "var(--color-green)", borderLeft: "1px solid var(--color-gray-200)", borderRight: "1px solid var(--color-gray-200)" }}>None</td>
-                  <td style={{ padding: "16px 24px", color: "var(--color-gray-500)" }}>12–24 months</td>
-                  <td style={{ padding: "16px 24px", color: "var(--color-gray-500)" }}>Varies</td>
-                </tr>
-                <tr style={{ borderBottom: "1px solid var(--color-gray-100)" }}>
-                  <td style={{ padding: "16px 24px", fontWeight: 500 }}>Works Without PMS Integration</td>
-                  <td style={{ padding: "16px 24px", background: "rgba(34, 197, 94, 0.05)", fontWeight: 700, color: "var(--color-green)", borderLeft: "1px solid var(--color-gray-200)", borderRight: "1px solid var(--color-gray-200)" }}>✓ Yes</td>
-                  <td style={{ padding: "16px 24px", color: "var(--color-red)" }}>✗ No</td>
-                  <td style={{ padding: "16px 24px", color: "var(--color-gray-500)" }}>Sometimes</td>
-                </tr>
-                <tr>
-                  <td style={{ padding: "16px 24px", fontWeight: 500 }}>After-Hours Capture</td>
-                  <td style={{ padding: "16px 24px", background: "rgba(34, 197, 94, 0.05)", fontWeight: 700, color: "var(--color-green)", borderLeft: "1px solid var(--color-gray-200)", borderRight: "1px solid var(--color-gray-200)" }}>✓ Complete</td>
-                  <td style={{ padding: "16px 24px", color: "var(--color-gray-500)" }}>Partial</td>
-                  <td style={{ padding: "16px 24px", color: "var(--color-gray-500)" }}>Partial</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </section>
-
-      {/* SECTION 6: Problem Testimony */}
-      < section className="section section-gray" style={{ background: "var(--color-gray-50)" }}>
-        <div className="container">
-          <span className="eyebrow">WHAT OPERATORS TOLD US</span>
-          <h2 style={{ marginTop: 12 }}>We Didn&apos;t Build This In a Vacuum. We Built It From the Words of People Who Live This Every Day.</h2>
-          <p className="text-gray-600" style={{ marginBottom: 40 }}>Before writing a single line of code, we sat with Revenue Managers, Reservation Managers, GMs, and industry consultants across Malaysia. Here&apos;s what they told us.</p>
-
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: 24 }}>
-            <div className="testimony-card" style={{ background: "white", padding: 32, borderRadius: 12, border: "1px solid var(--color-gray-200)", borderLeft: "3px solid var(--color-green)" }}>
-              <p style={{ fontSize: 16, fontStyle: "italic", color: "var(--color-navy)", lineHeight: 1.6, marginBottom: 16 }}>
-                &quot;Our primary operational weakness is systematic follow-up on inquiries. The CRM is there, but the process is heavily dependent on human intervention.&quot;
-              </p>
-              <div style={{ height: 1, background: "var(--color-gray-100)", marginBottom: 16 }}></div>
-              <div style={{ fontWeight: 600, fontSize: 14, color: "var(--color-gray-500)" }}>Revenue Manager</div>
-              <div style={{ fontSize: 14, color: "var(--color-gray-400)" }}>International 4-Star Chain Hotel, Kuala Lumpur</div>
-            </div>
-
-            <div className="testimony-card" style={{ background: "white", padding: 32, borderRadius: 12, border: "1px solid var(--color-gray-200)", borderLeft: "3px solid var(--color-green)" }}>
-              <p style={{ fontSize: 16, fontStyle: "italic", color: "var(--color-navy)", lineHeight: 1.6, marginBottom: 16 }}>
-                &quot;90% of our bookings come from walk-ins, phone, WhatsApp, and email. Once office hours end, reservations and sales are closed. Inquiries are effectively dropped.&quot;
-              </p>
-              <div style={{ height: 1, background: "var(--color-gray-100)", marginBottom: 16 }}></div>
-              <div style={{ fontWeight: 600, fontSize: 14, color: "var(--color-gray-500)" }}>Reservation Manager</div>
-              <div style={{ fontSize: 14, color: "var(--color-gray-400)" }}>City Hotel, Kuala Lumpur</div>
-            </div>
-
-            <div className="testimony-card" style={{ background: "white", padding: 32, borderRadius: 12, border: "1px solid var(--color-gray-200)", borderLeft: "3px solid var(--color-green)" }}>
-              <p style={{ fontSize: 16, fontStyle: "italic", color: "var(--color-navy)", lineHeight: 1.6, marginBottom: 16 }}>
-                &quot;99% of hotels — the main pain is paying the OTA. If you could switch acquisition from OTA to direct, even 1%, that&apos;s 3,000 savings per month.&quot;
-              </p>
-              <div style={{ height: 1, background: "var(--color-gray-100)", marginBottom: 16 }}></div>
-              <div style={{ fontWeight: 600, fontSize: 14, color: "var(--color-gray-500)" }}>Pre-Sales Specialist</div>
-              <div style={{ fontSize: 14, color: "var(--color-gray-400)" }}>Global Hospitality Technology Company</div>
-            </div>
-
-            <div className="testimony-card" style={{ background: "white", padding: 32, borderRadius: 12, border: "1px solid var(--color-gray-200)", borderLeft: "3px solid var(--color-green)" }}>
-              <p style={{ fontSize: 16, fontStyle: "italic", color: "var(--color-navy)", lineHeight: 1.6, marginBottom: 16 }}>
-                &quot;Hotels nowadays lose business due to low manpower. People don&apos;t complain anymore — they just don&apos;t come back.&quot;
-              </p>
-              <div style={{ height: 1, background: "var(--color-gray-100)", marginBottom: 16 }}></div>
-              <div style={{ fontWeight: 600, fontSize: 14, color: "var(--color-gray-500)" }}>Independent Hospitality Consultant</div>
-              <div style={{ fontSize: 14, color: "var(--color-gray-400)" }}>30+ Years Experience</div>
-            </div>
-          </div>
-
-          <p style={{ textAlign: "center", marginTop: 40, fontStyle: "italic", color: "var(--color-gray-500)", fontSize: 14 }}>
-            &quot;These aren&apos;t testimonials for our product. They&apos;re testimonies of the problem. <br />We built Nocturn AI to be the solution these operators described — nothing more, nothing less.&quot;
-          </p>
-        </div>
-      </section >
-
-
-
-      {/* SECTION 7: How It Works (Condensed) */}
-      < section className="section section-white" id="how-it-works" >
-        <div className="container">
-          <span className="eyebrow">HOW IT WORKS</span>
-          <h2 style={{ marginTop: 12, textAlign: "center" }}>From "Signed" to "Revenue Recovered" in 72 Hours</h2>
-          <div className="steps-grid">
-            <div className="step-card">
-              <div className="step-number">1</div>
-              <div className="step-icon">📄</div>
-              <h3>We Learn Your Property</h3>
-              <p>
-                Share your rates, room types, facilities, and FAQs. We build your property-specific AI knowledge base — not a generic chatbot. Your property info, your tone, your language.
-              </p>
-              <div style={{ marginTop: 16, color: "var(--color-green)", fontWeight: 600, fontSize: 14 }}>Your time: 30 minutes.</div>
-            </div>
-            <div className="step-connector hide-mobile" aria-hidden="true">
-              <svg width="60" height="2" viewBox="0 0 60 2"><line x1="0" y1="1" x2="60" y2="1" stroke="#CBD5E1" strokeWidth="2" strokeDasharray="6 4" /></svg>
-            </div>
-            <div className="step-card">
-              <div className="step-number">2</div>
-              <div className="step-icon">🔗</div>
-              <h3>Connect Your Channels</h3>
-              <p>
-                Link your WhatsApp Business number. Drop one script tag on your website. Forward your reservation email. Three connections. No IT project. No Opera integration needed.
-              </p>
-              <div style={{ marginTop: 16, color: "var(--color-green)", fontWeight: 600, fontSize: 14 }}>Your time: 15 minutes.</div>
-            </div>
-            <div className="step-connector hide-mobile" aria-hidden="true">
-              <svg width="60" height="2" viewBox="0 0 60 2"><line x1="0" y1="1" x2="60" y2="1" stroke="#CBD5E1" strokeWidth="2" strokeDasharray="6 4" /></svg>
-            </div>
-            <div className="step-card">
-              <div className="step-number">3</div>
-              <div className="step-icon">📊</div>
-              <h3>Watch Revenue Recover</h3>
-              <p>
-                Your GM gets a morning report: inquiries handled last night, leads captured, channels performing. The value is visible from Day 1. Full ROI review at Day 30.
-              </p>
-              <div style={{ marginTop: 16, color: "var(--color-green)", fontWeight: 600, fontSize: 14 }}>Your time: 2 minutes every morning.</div>
-            </div>
-          </div>
-          <div style={{ textAlign: "center", marginTop: 40 }}>
-            <a href="/how-it-works" className="btn btn-outline">See the Full Setup Timeline →</a>
-          </div>
-        </div>
-      </section >
-
-      {/* SECTION 8: Founding Cohort Offer */}
-      < section className="section section-dark" id="founding-cohort" style={{ overflow: "hidden" }}>
-        <div className="hero-gradient-orb" style={{ background: "radial-gradient(circle at 50% 50%, rgba(34, 197, 94, 0.15), transparent 70%)", top: "50%", left: "50%", transform: "translate(-50%,-50%)" }}></div>
-        <div className="container">
-          <div style={{ textAlign: "center", marginBottom: 40, position: "relative", zIndex: 1 }}>
-            <span className="badge badge-green-solid" style={{ marginBottom: 16 }}>LIMITED AVAILABILITY</span>
-            <h2 style={{ color: "white" }}>Be One of the First 5 Hotels to Shape What Comes Next</h2>
-            <p className="text-large" style={{ color: "rgba(255,255,255,0.8)", maxWidth: 600, margin: "16px auto 0" }}>
-              We're selecting 5 properties for our Founding Cohort. You get the product for free for 30 days, direct access to our founding team, and the ability to shape Nocturn AI around YOUR operations.
-            </p>
-          </div>
-
-          <div className="cohort-card">
-            <div style={{ position: "absolute", top: 0, left: 0, width: "100%", height: 4, background: "linear-gradient(90deg, #22C55E, #15803d)" }}></div>
-
-            <div className="cohort-grid">
-              <div>
-                <h3 style={{ color: "white", fontSize: 20, marginBottom: 24 }}>What You Get As A Founding Partner</h3>
-                <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "grid", gridTemplateColumns: "1fr", gap: 16 }}>
-                  <li style={{ display: "flex", gap: 12, color: "rgba(255,255,255,0.9)" }}>
-                    <span style={{ color: "#22C55E" }}>✅</span>
-                    <span><strong>Full Nocturn AI Setup</strong> — WhatsApp + Email + Website. We configure everything.</span>
-                  </li>
-                  <li style={{ display: "flex", gap: 12, color: "rgba(255,255,255,0.9)" }}>
-                    <span style={{ color: "#22C55E" }}>✅</span>
-                    <span><strong>AI Knowledge Base</strong> — Trained on YOUR property. Your rates, your tone.</span>
-                  </li>
-                  <li style={{ display: "flex", gap: 12, color: "rgba(255,255,255,0.9)" }}>
-                    <span style={{ color: "#22C55E" }}>✅</span>
-                    <span><strong>48-Hour Installation</strong> — We do the work. No IT project.</span>
-                  </li>
-                  <li style={{ display: "flex", gap: 12, color: "rgba(255,255,255,0.9)" }}>
-                    <span style={{ color: "#22C55E" }}>✅</span>
-                    <span><strong>Automated Follow-Up Engine</strong> — 24h, 72h, and 7-day follow-ups configured.</span>
-                  </li>
-                  <li style={{ display: "flex", gap: 12, color: "rgba(255,255,255,0.9)" }}>
-                    <span style={{ color: "#22C55E" }}>✅</span>
-                    <span><strong>Conversion Tracking Dashboard</strong> — See every inquiry and conversion.</span>
-                  </li>
-                  <li style={{ display: "flex", gap: 12, color: "rgba(255,255,255,0.9)" }}>
-                    <span style={{ color: "#22C55E" }}>✅</span>
-                    <span><strong>GM Morning Report</strong> — Daily email with leads captured and revenue estimates.</span>
-                  </li>
-                  <li style={{ display: "flex", gap: 12, color: "rgba(255,255,255,0.9)" }}>
-                    <span style={{ color: "#22C55E" }}>✅</span>
-                    <span><strong>Guest Insight Report (Day 30)</strong> — AI-compiled analysis of 30 days of real guest conversations: what they&apos;re asking, recurring objections, sentiment, and the topics that lost you bookings. Written for your GM.</span>
-                  </li>
-                  <li style={{ display: "flex", gap: 12, color: "rgba(255,255,255,0.9)" }}>
-                    <span style={{ color: "#22C55E" }}>✅</span>
-                    <span><strong>Direct Founder Access</strong> — WhatsApp line to report bugs or request features.</span>
-                  </li>
-                </ul>
-
-                <div style={{ marginTop: 32, padding: 24, border: "2px solid var(--color-green)", borderRadius: 12, background: "rgba(34, 197, 94, 0.05)" }}>
-                  <div style={{ color: "#22C55E", fontWeight: 700, marginBottom: 8, fontSize: 14, letterSpacing: "0.5px" }}>🛡️ THE 30-DAY GUARANTEE</div>
-                  <p style={{ color: "rgba(255,255,255,0.9)", fontSize: 15, lineHeight: 1.6 }}>
-                    Run Nocturn AI for 30 days. If your team doesn't agree that it has measurably improved your inquiry response time and follow-up consistency, you pay nothing. No contracts. No credit card upfront.
-                  </p>
-                </div>
-              </div>
-
-              <div style={{ display: "flex", flexDirection: "column", gap: 24 }}>
-                <div style={{ background: "rgba(255,255,255,0.03)", padding: 32, borderRadius: 16, border: "1px solid rgba(255,255,255,0.05)", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", textAlign: "center", flex: 1 }}>
-                  <div style={{ fontSize: 48, fontWeight: 700, color: "white", lineHeight: 1 }}>5</div>
-                  <div style={{ color: "#22C55E", fontWeight: 600, marginTop: 8, marginBottom: 24 }}>SPOTS REMAINING</div>
-                  <a href="/apply" className="btn btn-primary btn-lg btn-glow" style={{ width: "100%" }}>Apply for Cohort →</a>
-                  <p style={{ fontSize: 13, color: "rgba(255,255,255,0.5)", marginTop: 16 }}>Application takes 2 minutes. Qualifying hotels only.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section >
-
-      {/* SECTION 9: Founder's Note */}
-      < section className="section section-light" >
-        <div className="container container-narrow">
-          <span className="eyebrow" style={{ display: "block", textAlign: "center", marginBottom: 16 }}>FROM OUR FOUNDER</span>
-          <div style={{ background: "white", padding: "40px", borderRadius: 12, border: "1px solid var(--color-gray-200)", maxWidth: 700, margin: "0 auto", boxShadow: "var(--shadow-card)" }}>
-            <h3 style={{ fontSize: 24, marginBottom: 24 }}>Why I Built This</h3>
-            <p className="text-gray-600" style={{ marginBottom: 16 }}>
-              <strong>9 operators. Malaysia, Singapore, and the Middle East. This product was designed around their exact words — not a market analysis.</strong>
-            </p>
-            <p className="text-gray-600" style={{ marginBottom: 16 }}>
-              I spent the last several months sitting across from Revenue Managers, Reservation Managers, GMs, and consultants who've collectively managed thousands of hotel rooms across Malaysia, Singapore, and the Middle East.
-            </p>
-            <p className="text-gray-600" style={{ marginBottom: 16 }}>
-              Every single one told me a version of the same story:
-            </p>
-            <p className="text-gray-600" style={{ marginBottom: 16, fontStyle: "italic", borderLeft: "3px solid var(--color-green)", paddingLeft: 16 }}>
-              "We have the demand. We have guests trying to reach us. But between WhatsApp, email, phone calls, and OTA messages — things fall through the cracks. And the tools that promise to fix this are either built for a Western market that doesn't run on WhatsApp, too expensive for our budget, or require a 6-month IT project we don't have bandwidth for."
-            </p>
-            <p className="text-gray-600" style={{ marginBottom: 16 }}>
-              I'm not building another enterprise platform that takes 18 months to implement. I'm building the layer that catches every inquiry your current systems miss — starting with the channels Malaysian hotels actually use.
-            </p>
-            <p className="text-gray-600" style={{ marginBottom: 24 }}>
-              Nocturn AI is in its founding stage. I can offer you my direct attention and the ability to shape this product around your property's real needs. That's why there's no contract, no setup fee, and a 30-day prove-it-or-pay-nothing guarantee.
-            </p>
-            <div style={{ display: "flex", alignItems: "center", gap: 16, marginTop: 32 }}>
-              <img src="/Basyir.png" alt="Ahmad Basyir Azahari" style={{ width: 48, height: 48, borderRadius: "50%", objectFit: "cover" }} />
-              <div>
-                <div style={{ fontWeight: 700, color: "var(--color-navy)" }}>Ahmad Basyir Azahari</div>
-                <div style={{ fontSize: 14, color: "var(--color-gray-500)" }}>Founder, Sheers Software Sdn Bhd</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section >
-
-      {/* SECTION 6: ROI Calculator */}
-      < section className="section section-white" id="roi-calculator" >
-        <div className="container container-narrow" style={{ textAlign: "center" }}>
-          <span className="eyebrow">ROI CALCULATOR</span>
-          <h2 style={{ marginTop: 12 }}>Calculate How Much Revenue You&apos;re Leaving on the Table</h2>
-          <p style={{ color: "var(--color-gray-600)", maxWidth: 600, margin: "16px auto 32px" }}>
-            Hotels like yours typically have RM 3,000-8,000/month in revenue at risk from inquiries that go unanswered or unfollowed. Use this calculator with YOUR numbers.
-          </p>
-          <LeadMagnetCalculator />
-          <div style={{ marginTop: 40, textAlign: "center" }}>
-            <a href="#audit" className="btn btn-outline">
-              Not ready to apply? Get the Free Inquiry Audit →
-            </a>
-          </div>
-        </div>
-      </section>
-
-      {/* SECTION 6.5: Post-Pilot Pricing */}
-      <section className="section section-gray" style={{ background: "var(--color-gray-50)", borderTop: "1px solid var(--color-gray-200)" }}>
-        <div className="container">
-          <div style={{ textAlign: "center", marginBottom: 40 }}>
-            <span className="eyebrow">TRANSPARENT PRICING</span>
-            <h2 style={{ marginTop: 12 }}>After the 30-Day Pilot</h2>
-            <p className="text-gray-600" style={{ maxWidth: 600, margin: "16px auto 0" }}>
-              If the numbers work (and they typically do), continuing is simple. No contracts. Cancel anytime.
-            </p>
-          </div>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: 24, maxWidth: 1000, margin: "0 auto" }}>
-            <div className="pricing-card" style={{ background: "white", padding: 32, borderRadius: 16, border: "1px solid var(--color-gray-200)", boxShadow: "0 4px 6px rgba(0,0,0,0.02)" }}>
-              <div style={{ fontSize: 18, fontWeight: 700, color: "var(--color-navy)", marginBottom: 8 }}>Starter</div>
-              <div style={{ color: "var(--color-gray-500)", fontSize: 14, marginBottom: 24 }}>&lt; 100 rooms</div>
-              <div style={{ fontSize: 36, fontWeight: 800, color: "var(--color-navy)", marginBottom: 24 }}>RM 1,500<span style={{ fontSize: 16, fontWeight: 500, color: "var(--color-gray-400)" }}>/month</span></div>
-              <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: 12 }}>
-                <li style={{ display: "flex", gap: 12, color: "var(--color-gray-700)" }}><span style={{ color: "#22C55E" }}>✓</span> 1 WhatsApp line</li>
-                <li style={{ display: "flex", gap: 12, color: "var(--color-gray-700)" }}><span style={{ color: "#22C55E" }}>✓</span> Web chat widget</li>
-                <li style={{ display: "flex", gap: 12, color: "var(--color-gray-700)" }}><span style={{ color: "#22C55E" }}>✓</span> 500 conversations/month</li>
-                <li style={{ display: "flex", gap: 12, color: "var(--color-gray-700)" }}><span style={{ color: "#22C55E" }}>✓</span> Basic dashboard</li>
-                <li style={{ display: "flex", gap: 12, color: "var(--color-gray-700)" }}><span style={{ color: "#22C55E" }}>✓</span> Email support</li>
-              </ul>
-            </div>
-            <div className="pricing-card popular" style={{ background: "var(--color-navy)", padding: 32, borderRadius: 16, border: "2px solid var(--color-green)", color: "white", position: "relative", boxShadow: "0 10px 25px rgba(34, 197, 94, 0.15)" }}>
-              <div style={{ position: "absolute", top: -14, left: "50%", transform: "translateX(-50%)", background: "var(--color-green)", color: "white", fontSize: 12, fontWeight: 700, padding: "4px 12px", borderRadius: 20, letterSpacing: "1px" }}>MOST POPULAR</div>
-              <div style={{ fontSize: 18, fontWeight: 700, marginBottom: 8 }}>Professional</div>
-              <div style={{ color: "rgba(255,255,255,0.7)", fontSize: 14, marginBottom: 24 }}>100–300 rooms</div>
-              <div style={{ fontSize: 36, fontWeight: 800, marginBottom: 24 }}>RM 3,000<span style={{ fontSize: 16, fontWeight: 500, color: "rgba(255,255,255,0.5)" }}>/month</span></div>
-              <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: 12 }}>
-                <li style={{ display: "flex", gap: 12, color: "rgba(255,255,255,0.9)" }}><span style={{ color: "#22C55E" }}>✓</span> 2 WhatsApp lines</li>
-                <li style={{ display: "flex", gap: 12, color: "rgba(255,255,255,0.9)" }}><span style={{ color: "#22C55E" }}>✓</span> Web chat widget</li>
-                <li style={{ display: "flex", gap: 12, color: "rgba(255,255,255,0.9)" }}><span style={{ color: "#22C55E" }}>✓</span> Email auto-handler</li>
-                <li style={{ display: "flex", gap: 12, color: "rgba(255,255,255,0.9)" }}><span style={{ color: "#22C55E" }}>✓</span> 2,000 conversations/month</li>
-                <li style={{ display: "flex", gap: 12, color: "rgba(255,255,255,0.9)" }}><span style={{ color: "#22C55E" }}>✓</span> Full dashboard</li>
-                <li style={{ display: "flex", gap: 12, color: "rgba(255,255,255,0.9)" }}><span style={{ color: "#22C55E" }}>✓</span> Priority support</li>
-              </ul>
-            </div>
-            <div className="pricing-card" style={{ background: "white", padding: 32, borderRadius: 16, border: "1px solid var(--color-gray-200)", boxShadow: "0 4px 6px rgba(0,0,0,0.02)" }}>
-              <div style={{ fontSize: 18, fontWeight: 700, color: "var(--color-navy)", marginBottom: 8 }}>Enterprise</div>
-              <div style={{ color: "var(--color-gray-500)", fontSize: 14, marginBottom: 24 }}>300+ rooms</div>
-              <div style={{ fontSize: 36, fontWeight: 800, color: "var(--color-navy)", marginBottom: 24 }}>RM 5,000<span style={{ fontSize: 16, fontWeight: 500, color: "var(--color-gray-400)" }}>+/month</span></div>
-              <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: 12 }}>
-                <li style={{ display: "flex", gap: 12, color: "var(--color-gray-700)" }}><span style={{ color: "#22C55E" }}>✓</span> Unlimited WhatsApp lines</li>
-                <li style={{ display: "flex", gap: 12, color: "var(--color-gray-700)" }}><span style={{ color: "#22C55E" }}>✓</span> Web chat widget</li>
-                <li style={{ display: "flex", gap: 12, color: "var(--color-gray-700)" }}><span style={{ color: "#22C55E" }}>✓</span> Email auto-handler</li>
-                <li style={{ display: "flex", gap: 12, color: "var(--color-gray-700)" }}><span style={{ color: "#22C55E" }}>✓</span> Unlimited conversations</li>
-                <li style={{ display: "flex", gap: 12, color: "var(--color-gray-700)" }}><span style={{ color: "#22C55E" }}>✓</span> Full dashboard + API</li>
-                <li style={{ display: "flex", gap: 12, color: "var(--color-gray-700)" }}><span style={{ color: "#22C55E" }}>✓</span> Dedicated account manager</li>
-              </ul>
-            </div>
-          </div>
-          <div style={{ textAlign: "center", marginTop: 32, fontSize: 14, color: "var(--color-gray-500)" }}>
-            Every plan starts with a free 30-day pilot. No contracts. Cancel anytime.
-          </div>
-          <div style={{ textAlign: "center", marginTop: 40 }}>
-            <a href="/apply" className="btn btn-primary btn-lg">
-              Start Free Pilot →
-            </a>
-          </div>
-        </div>
-      </section>
-
-      {/* SECTION 7: FAQ */}
-      < section className="section section-white" id="faq" >
-        <div className="container container-narrow">
-          <h2 style={{ textAlign: "center", marginBottom: 40 }}>Questions Hotels Ask Us</h2>
-          <FAQSection />
-        </div>
-      </section >
-
-      {/* SECTION 10: Final CTA */}
-      < section className="section-dark final-cta" >
-        <div className="final-cta-pattern" aria-hidden="true"></div>
-        <div className="container" style={{ textAlign: "center", position: "relative", zIndex: 1 }}>
-          <h2 style={{ color: "white", fontSize: "clamp(1.75rem, 4vw, 2.75rem)" }}>
-            Every Night Your Hotel Isn't Capturing Inquiries,
-            <br />
-            You're Paying for It in OTA Commissions
-          </h2>
-          <p style={{ color: "rgba(255,255,255,0.6)", fontSize: "var(--fs-large)", maxWidth: 600, margin: "16px auto 32px" }}>
-            The Founding Cohort is open. 30 days free. No commitment.
-          </p>
-          <a href="/apply" className="btn btn-primary btn-lg btn-glow">
-            Apply for Founding Cohort →
-          </a>
-          <p style={{ color: "rgba(255,255,255,0.4)", fontSize: "var(--fs-small)", marginTop: 16 }}>
-            5 spots remaining · Live in 48 hours
-          </p>
-        </div>
-      </section >
-
-      {/* Scroll animation + counter script */}
-      < CounterScript />
-    </>
+    <div className="nocturn-v2">
+      {/* 4.1 Hero */}
+      <Hero />
+      {/* 4.2 Inquiry Graveyard — pain stats */}
+      <InquiryGraveyard />
+      {/* 4.3 Core Pillars (Attribute / Optimize / Ease / Forecast) */}
+      <BenefitGrid />
+      {/* 4.4 Audience Selection */}
+      <UseCases />
+      {/* 4.5 Proof of Mechanism — The Midnight Test */}
+      <MidnightTest />
+      {/* 4.6 Before & After comparison */}
+      <ComparisonSection />
+      {/* 4.7 Founding Cohort Offer */}
+      <FoundingCohortOffer />
+      {/* 4.8 Knowledge Base — TruthTracking pillars + Founder Note */}
+      <TruthTracking />
+      <FounderSection />
+      {/* 4.9 ROI Audit Calculator */}
+      <AuditSection />
+      {/* 4.10 FAQ */}
+      <FAQSection />
+      {/* 4.11 Final CTA */}
+      <ScalingTruth />
+      <FinalCTASection />
+    </div>
   );
 }
 
-/* ---- FAQ Accordion ---- */
-function FAQSection() {
-  const faqs = [
+// ─── 4.1 HERO ─────────────────────────────────────────────────────────────────
+function Hero() {
+  const containerVariants: Variants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.15, delayChildren: 0.3 }
+    }
+  };
+  const itemVariants: Variants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { opacity: 1, y: 0, transition: { type: "spring", damping: 25, stiffness: 100 } }
+  };
+
+  return (
+    <section className="hero">
+      <div className="noise-overlay" />
+      <div className="hero-background-wrapper">
+        <motion.div className="hero-blob blob-1" animate={{ x: [-20, 20, -20], y: [-30, 30, -30], scale: [1, 1.1, 1] }} transition={{ duration: 25, repeat: Infinity, ease: "easeInOut" }} />
+        <motion.div className="hero-blob blob-2" animate={{ x: [30, -30, 30], y: [20, -20, 20], scale: [1, 1.2, 1] }} transition={{ duration: 30, repeat: Infinity, ease: "easeInOut", delay: 2 }} />
+        <motion.div className="hero-blob blob-3" animate={{ x: [-15, 15, -15], y: [15, -15, 15], scale: [1, 0.9, 1] }} transition={{ duration: 22, repeat: Infinity, ease: "easeInOut", delay: 5 }} />
+      </div>
+
+      <div className="container hero-inner">
+        <motion.div className="hero-content" variants={containerVariants} initial="hidden" animate="visible">
+          <motion.div variants={itemVariants} className="hero-header-hyros">
+            <div className="meet-text">Now accepting 5 hotels into our Founding Cohort</div>
+            <h1 className="hyros-style-title" aria-label="Nocturn AI: Stop Losing Hotel Bookings to Silence">
+              NOCTURN AI
+              <span className="sr-only"> — Stop Losing Hotel Bookings to Silence, Malaysia</span>
+            </h1>
+          </motion.div>
+
+          <motion.div variants={itemVariants} className="hero-subtitle-hyros">
+            <p className="hero-subtitle-main">Your Reservations Team Goes Home at 6PM. Your Guests Don&apos;t Stop Inquiring.</p>
+            <p className="hero-subtitle-sub">Malaysian hotels lose direct bookings every night to unanswered WhatsApp messages, unfollowed emails, and after-hours silence. Nocturn AI captures every inquiry, responds instantly, follows up automatically, and shows you exactly what you&apos;re converting — 24/7.</p>
+          </motion.div>
+
+          <motion.div variants={itemVariants} className="hero-ctas">
+            <a href="/apply" className="btn btn-solid-white btn-lg">Apply for Founding Cohort →</a>
+            <a href="#demo" className="btn btn-outline-white btn-lg">Watch 2-Min Demo</a>
+          </motion.div>
+
+          <motion.div variants={itemVariants} style={{ marginTop: 32, display: 'flex', gap: 32, flexWrap: 'wrap', justifyContent: 'center', opacity: 0.7 }}>
+            <span style={{ fontSize: '0.85rem', color: 'rgba(255,255,255,0.7)' }}>✓ Built for Malaysian hospitality</span>
+            <span style={{ fontSize: '0.85rem', color: 'rgba(255,255,255,0.7)' }}>✓ WhatsApp + Email + Web</span>
+            <span style={{ fontSize: '0.85rem', color: 'rgba(255,255,255,0.7)' }}>✓ No system replacement required</span>
+          </motion.div>
+        </motion.div>
+      </div>
+    </section>
+  );
+}
+
+// ─── 4.2 INQUIRY GRAVEYARD ────────────────────────────────────────────────────
+function InquiryGraveyard() {
+  const stats = [
     {
-      q: "Does this replace our PMS or Opera?",
-      a: "No. Nocturn AI operates independently as a layer on top of your existing systems. We capture the inquiry and hand off the booking details to your team. Think of us as the net that catches everything your PMS never sees.",
+      num: "90%",
+      label: "of Malaysian hotel bookings come from manual channels",
+      sub: "WhatsApp, phone calls, emails, walk-ins — not your website.",
+      source: "Based on industry operator interviews, 2025",
+      color: "#EF4444"
     },
     {
-      q: "We already use WhatsApp for everything. How is this different?",
-      a: "Right now, your WhatsApp conversations live on one person's phone. If they're on leave, those conversations are gone. Nocturn AI centralizes every WhatsApp conversation into a team inbox where anyone can see the history. Plus instant AI responses when nobody is available.",
+      num: "30+",
+      label: "daily inquiry touchpoints per property",
+      sub: "And your reservation desk has 3 people to handle them all.",
+      source: "Malaysian hotel operator data, 2025",
+      color: "#EF4444"
     },
     {
-      q: "What happens after 6PM when our reservations team goes home?",
-      a: "That's exactly the problem we solve. Between 6PM and 9AM, Nocturn AI responds to every WhatsApp, email, and web inquiry. It captures guest intent, qualifies the lead, and queues it for your morning team.",
-    },
-    {
-      q: "Will it sound robotic? My guests expect a personal touch.",
-      a: "Our AI is trained specifically on YOUR property's tone. It responds in the guest's language (English and Bahasa Malaysia), keeps messages warm and concise. When a guest needs a human, it transfers instantly with full context.",
-    },
-    {
-      q: "What if the AI gives wrong rate information?",
-      a: "The AI only quotes information from your verified knowledge base. If it's unsure about anything, it says: \"Let me connect you with our reservations team who can confirm the details.\" Safety over speed, always.",
-    },
-    {
-      q: "How long does setup take? Do I need my IT team?",
-      a: "48 hours from your first call to live. We handle the technical setup. Your team spends about 30 minutes sharing property information. No IT project. No server installation.",
-    },
-    {
-      q: "Is our guest data safe? What about PDPA?",
-      a: "All data is encrypted. Each property's data is fully isolated. We comply with Malaysia's PDPA requirements. Your guest data is YOUR data — we never share or sell it.",
-    },
-    {
-      q: "What happens after the 30-day free pilot?",
-      a: "After 30 days, you'll have hard data on revenue recovery. If the numbers speak for themselves, we discuss a simple monthly plan (no lock-in). If they don't, you walk away cost-free.",
-    },
-    {
-      q: "We tried a chatbot before and nobody used it.",
-      a: "Most chatbots only work on your website (<10% of inquiries). Nocturn AI captures the 90% that come through WhatsApp, phone, and email — the channels your guests are already using.",
-    },
+      num: "0%",
+      label: "of inquiries captured after 6PM",
+      sub: "When your reservations team goes home, every inquiry is dropped.",
+      source: "Independent hotel operator interviews, 2025",
+      color: "#EF4444"
+    }
   ];
 
   return (
-    <>
-      <div className="faq-list">
-        {faqs.map((faq, i) => (
-          <div className="faq-item" key={i}>
-            <button
-              className="faq-question"
-              aria-expanded="false"
-              aria-controls={`faq-answer-${i}`}
+    <section className="section section-white">
+      <div className="container">
+        <div style={{ textAlign: 'center', marginBottom: 64 }}>
+          <span className="eyebrow" style={{ color: '#EF4444' }}>THE PROBLEM</span>
+          <h2 style={{ marginBottom: 24 }}>The Inquiry Graveyard: Where Direct Bookings Go to Die</h2>
+        </div>
+
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 24, marginBottom: 64 }}>
+          {stats.map((s, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.1 }}
+              style={{ borderLeft: `4px solid ${s.color}`, padding: '32px', background: '#f8f9fa', borderRadius: '16px' }}
             >
-              <span>{faq.q}</span>
-              <svg className="faq-chevron" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
-                <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-            </button>
-            <div className="faq-answer" id={`faq-answer-${i}`}>
-              <p>{faq.a}</p>
-            </div>
-          </div>
-        ))}
+              <div style={{ fontSize: '3rem', fontWeight: 700, color: s.color, fontFamily: 'var(--font-serif)', marginBottom: 8 }}>{s.num}</div>
+              <div style={{ fontWeight: 600, fontSize: '1rem', marginBottom: 8, color: 'var(--color-navy)' }}>{s.label}</div>
+              <div style={{ color: 'var(--color-gray-500)', fontSize: '0.9rem', marginBottom: 8 }}>{s.sub}</div>
+              <div style={{ color: 'var(--color-gray-400)', fontSize: '0.75rem', fontStyle: 'italic' }}>{s.source}</div>
+            </motion.div>
+          ))}
+        </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          style={{ background: '#fff8f8', border: '1px solid #fde0e0', borderRadius: 24, padding: '40px 48px', maxWidth: 800, margin: '0 auto' }}
+        >
+          <p style={{ fontSize: '1.1rem', color: 'var(--color-gray-700)', lineHeight: 1.8, marginBottom: 0 }}>
+            ❌ <strong>The WhatsApp message at 9:47 PM</strong> — a family asking about rooms for the weekend. Unanswered until morning. They booked on Agoda instead. You paid 18% commission on a guest who tried to book direct.<br /><br />
+            ❌ <strong>The corporate email requesting rates for 10 rooms</strong> — buried under 40 other emails on a Wednesday. No follow-up sent. The RM 15,000 group booking goes silent.<br /><br />
+            ❌ <strong>The phone call during peak check-in</strong> — &ldquo;Can you call back?&rdquo; They never do. You&apos;ll never know what you lost.<br /><br />
+            This isn&apos;t a technology problem. It&apos;s <strong>revenue falling on the floor every day</strong> — and nobody is picking it up.
+          </p>
+        </motion.div>
       </div>
-      {/* FAQPage Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "FAQPage",
-            mainEntity: faqs.map((faq) => ({
-              "@type": "Question",
-              name: faq.q,
-              acceptedAnswer: {
-                "@type": "Answer",
-                text: faq.a,
-              },
-            })),
-          }),
-        }}
-      />
-    </>
+    </section>
   );
 }
 
-/* ---- Counter + ROI + FAQ scripts (client-side) ---- */
-function CounterScript() {
-  return (
-    <script
-      dangerouslySetInnerHTML={{
-        __html: `
-(function(){
-  // ---- Counter animation ----
-  function animateCounter(el) {
-    var target = parseInt(el.getAttribute('data-target'));
-    var suffix = el.getAttribute('data-suffix') || '';
-    if (isNaN(target)) return;
-    var start = 0;
-    var duration = 1500;
-    var startTime = null;
-    function step(ts) {
-      if (!startTime) startTime = ts;
-      var progress = Math.min((ts - startTime) / duration, 1);
-      var eased = 1 - Math.pow(1 - progress, 3);
-      el.textContent = Math.round(start + (target - start) * eased) + suffix;
-      if (progress < 1) requestAnimationFrame(step);
+// ─── 4.5 MIDNIGHT TEST ────────────────────────────────────────────────────────
+function MidnightTest() {
+  const [activeTab, setActiveTab] = useState(0);
+  const tabs = [
+    {
+      label: "Immediate Response",
+      icon: "⚡",
+      title: "Responds in 30 Seconds",
+      content: "It's 11:47 PM. Your front desk closed 90 minutes ago. A family wants to book for the weekend. Nocturn AI responds instantly on WhatsApp with accurate rate and availability info — then captures their details for your morning team.",
+      mockup: (
+        <div className="phone-frame-container">
+          <div className="mockup-whatsapp hifi">
+            <div className="wa-header">
+              <div className="wa-avatar">G</div>
+              <div className="wa-contact-info">
+                <div className="wa-name">Guest (Direct)</div>
+                <div className="wa-status">Online</div>
+              </div>
+            </div>
+            <div className="wa-messages">
+              <div className="wa-bubble guest">Hi, do you have rooms for this Friday? And is the family pool open?</div>
+              <motion.div initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} className="wa-bubble ai">
+                Hello! 😊 Yes, we have a Deluxe Room available this Friday for RM 280/night including breakfast for 2. Our family pool is open 7am–9pm daily! 🏊‍♂️ Would you like me to hold the room for you?
+              </motion.div>
+              <div className="wa-bubble guest">Great, I&apos;d like to book. My name is Ahmad.</div>
+              <motion.div initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.3 }} className="wa-bubble ai">
+                Wonderful, Ahmad! Could you share your email so I can send the details? 📧 Our reservations team will confirm everything first thing tomorrow morning.
+              </motion.div>
+              <div style={{ background: 'rgba(16,185,129,0.1)', border: '1px solid rgba(16,185,129,0.2)', borderRadius: 8, padding: '8px 12px', fontSize: '0.7rem', color: 'var(--color-green)', marginTop: 8 }}>
+                ✓ Lead captured · Name: Ahmad · Intent: Room booking · Channel: WhatsApp · 11:48 PM
+              </div>
+            </div>
+          </div>
+        </div>
+      )
+    },
+    {
+      label: "Lead Capture",
+      icon: "🎯",
+      title: "Never Miss a Lead",
+      content: "That lead was captured, logged, and prioritized for your morning team. Without Nocturn AI, Ahmad would have booked on Agoda at midnight. You would have paid 18% commission — RM 50 — on a guest who tried to book direct.",
+      mockup: (
+        <div className="mockup-leads hifi">
+          <div className="proof-header">Live Lead Pipeline</div>
+          <div className="lead-row hotspot">
+            <div className="lead-info">
+              <strong>Ahmad (Weekend Booking)</strong>
+              <span>Deluxe Room · RM 280 · WhatsApp</span>
+            </div>
+            <span className="status">Hot Lead</span>
+          </div>
+          <div className="lead-row hotspot">
+            <div className="lead-info">
+              <strong>Family Reunion Group</strong>
+              <span>10 Rooms · RM 4,500 · Email</span>
+            </div>
+            <span className="status">Hot Lead</span>
+          </div>
+        </div>
+      )
     }
-    requestAnimationFrame(step);
-  }
+  ];
 
-  var counters = document.querySelectorAll('.stat-number[data-target]');
-  var observer = new IntersectionObserver(function(entries) {
-    entries.forEach(function(entry) {
-      if (entry.isIntersecting) {
-        animateCounter(entry.target);
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.5 });
-  counters.forEach(function(c) { observer.observe(c); });
+  return (
+    <section className="section section-gray" id="demo">
+      <div className="container">
+        <span className="eyebrow">SEE IT IN ACTION</span>
+        <h2>The Midnight Test</h2>
+        <p style={{ fontSize: '1.2rem', color: 'var(--color-gray-500)', maxWidth: 700, margin: '0 auto 48px', textAlign: 'center' }}>
+          It&apos;s 11:47 PM. Your front desk closed 90 minutes ago. A family wants to book for the weekend. Here&apos;s what happens with the Nocturn Revenue Engine.
+        </p>
 
-  // ---- Scroll reveal ----
-  var reveals = document.querySelectorAll('.animate-fade-up');
-  var revealObs = new IntersectionObserver(function(entries) {
-    entries.forEach(function(entry) {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        revealObs.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-  reveals.forEach(function(r) { revealObs.observe(r); });
+        <div className="switcher-container">
+          <div className="switcher-tabs">
+            {tabs.map((tab, i) => (
+              <button
+                key={i}
+                className={`switcher-tab ${activeTab === i ? "active" : ""}`}
+                onClick={() => setActiveTab(i)}
+              >
+                {activeTab === i && <motion.div layoutId="activeTabIndicator" className="uc-active-indicator" />}
+                <span style={{ marginRight: 12 }}>{tab.icon}</span>
+                {tab.label}
+              </button>
+            ))}
+          </div>
 
-  // ---- FAQ Accordion ----
-  document.querySelectorAll('.faq-question').forEach(function(btn) {
-    btn.addEventListener('click', function() {
-      var item = btn.parentElement;
-      var isOpen = item.classList.contains('open');
-      // Close all
-      document.querySelectorAll('.faq-item').forEach(function(fi) { fi.classList.remove('open'); });
-      document.querySelectorAll('.faq-question').forEach(function(fq) { fq.setAttribute('aria-expanded', 'false'); });
-      if (!isOpen) {
-        item.classList.add('open');
-        btn.setAttribute('aria-expanded', 'true');
-      }
-    });
-  });
-})();
-        `,
-      }}
-    />
+          <div className="switcher-content">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={activeTab}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.3 }}
+                className="switcher-inner"
+              >
+                <div className="switcher-text">
+                  <h3 style={{ fontSize: '2.5rem', marginBottom: 16, fontFamily: 'var(--font-serif)' }}>{tabs[activeTab].title}</h3>
+                  <p style={{ fontSize: '1.25rem', color: 'var(--color-gray-500)', lineHeight: 1.6, marginBottom: 40, maxWidth: 450 }}>{tabs[activeTab].content}</p>
+                </div>
+                <div className="mockup-area-hifi">
+                  {tabs[activeTab].mockup}
+                </div>
+              </motion.div>
+            </AnimatePresence>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ─── 4.6 BEFORE & AFTER COMPARISON ───────────────────────────────────────────
+function ComparisonSection() {
+  const rows = [
+    { dim: "Response Time", before: "8–24 hours (unanswered after 6PM)", after: "<30 Seconds (24/7/365)" },
+    { dim: "Follow-up Logic", before: "Forgotten or 'when we have time'", after: "Automated (Day 1, 3, and 7)" },
+    { dim: "Inquiry Window", before: "9 AM – 6 PM (Limited)", after: "12 AM – 11:59 PM (Infinite)" },
+    { dim: "Guest Sentiment", before: "Frustrated / Bounces to OTA", after: "Delighted / Closes Direct" },
+    { dim: "Revenue Leak", before: "15–20% Invisible OTA Bleed", after: "15% Predicted Recovery" },
+    { dim: "GM Reporting", before: "Gut feeling / Occupancy only", after: "Daily Morning ROI Proof" }
+  ];
+
+  return (
+    <section className="section section-white">
+      <div className="container">
+        <span className="eyebrow">HOSPITALITY ROI</span>
+        <h2 style={{ marginBottom: 64 }}>The Inquiry Graveyard vs. The Nocturn Revenue Engine</h2>
+
+        <div className="comparison-container-hifi">
+          <div className="comp-card-hifi comp-before">
+            <div className="comp-label">Standard Hotel Operation (Manual)</div>
+            <div className="comp-visual">
+              <div className="wa-bubble guest">Hi, is there group discount?</div>
+              <div className="wa-bubble guest" style={{ opacity: 0.6, marginTop: 4 }}>Hello?</div>
+              <div className="wa-bubble guest" style={{ opacity: 0.3, marginTop: 4 }}>Still waiting...</div>
+              <div className="read-receipt">Read 2:14 AM</div>
+            </div>
+            <div className="comp-points">
+              {rows.map((r, i) => (
+                <div key={i} className="comp-point">❌ {r.before}</div>
+              ))}
+            </div>
+          </div>
+
+          <motion.div className="comp-card-hifi comp-after rainbow-card" whileHover={{ scale: 1.02 }}>
+            <div className="comp-label">Nocturn AI-First Operation</div>
+            <div className="comp-visual">
+              <div className="wa-bubble guest">Hi, is there group discount?</div>
+              <motion.div initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} className="wa-bubble ai">
+                Absolutely! For 5+ rooms, we offer 15% off. Ready to book?
+              </motion.div>
+            </div>
+            <div className="comp-points">
+              {rows.map((r, i) => (
+                <div key={i} className="comp-point">✅ {r.after}</div>
+              ))}
+            </div>
+          </motion.div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ─── 4.7 FOUNDING COHORT OFFER ────────────────────────────────────────────────
+function FoundingCohortOffer() {
+  const valueStack = [
+    { title: "Full Nocturn AI Setup — WhatsApp + Email + Website", desc: "We configure everything for your property. Your team spends 30 minutes total." },
+    { title: "AI Knowledge Base — Trained on YOUR Property", desc: "Not generic. Your rates, your room types, your facilities, your FAQs, your tone." },
+    { title: "48-Hour Installation", desc: "We do the work. No IT project. No system replacement." },
+    { title: "Automated Follow-Up Engine", desc: "24hr, 72hr, and 7-day follow-ups configured for your guest segments." },
+    { title: "Inquiry & Conversion Dashboard", desc: "See every inquiry, every channel, every response time, every conversion." },
+    { title: "GM Morning Report", desc: "Daily email to your GM: inquiries handled, leads captured, estimated revenue." },
+    { title: "Guest Insight Report at Day 30", desc: "Keyword analysis: What are guests asking about most? What objections come up before booking?" },
+    { title: "Direct WhatsApp Line to Our Founder", desc: "Report bugs, request features, get answers in hours. This level of access ends after the founding cohort is full." }
+  ];
+
+  return (
+    <section className="section section-gray" id="offer">
+      <div className="container">
+        <div style={{ textAlign: 'center', marginBottom: 64 }}>
+          <span className="eyebrow" style={{ color: 'var(--color-green)' }}>FOUNDING COHORT</span>
+          <h2 style={{ marginBottom: 16 }}>Be One of the First 5 Hotels to Shape What Comes Next</h2>
+          <p style={{ fontSize: '1.2rem', color: 'var(--color-gray-500)', maxWidth: 700, margin: '0 auto' }}>
+            We&apos;re selecting 5 properties for our Founding Cohort. You get the product for free for 30 days, direct access to our founding team, and the ability to shape Nocturn AI around YOUR operations. In return, we get your honest feedback and real-world data.
+          </p>
+        </div>
+
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 16, maxWidth: 900, margin: '0 auto 48px' }}>
+          {valueStack.map((item, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.06 }}
+              style={{ display: 'flex', gap: 16, padding: '20px 24px', background: '#fff', borderRadius: 16, border: '1px solid #e9ecef' }}
+            >
+              <span style={{ color: 'var(--color-green)', fontWeight: 700, fontSize: '1.2rem', flexShrink: 0 }}>✅</span>
+              <div>
+                <div style={{ fontWeight: 600, color: 'var(--color-navy)', marginBottom: 4, fontSize: '0.95rem' }}>{item.title}</div>
+                <div style={{ fontSize: '0.85rem', color: 'var(--color-gray-500)', lineHeight: 1.5 }}>{item.desc}</div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Guarantee box */}
+        <div style={{ maxWidth: 700, margin: '0 auto 48px', border: '2px solid var(--color-green)', borderRadius: 24, padding: '40px 48px', background: 'rgba(16,185,129,0.03)' }}>
+          <div style={{ fontWeight: 700, fontSize: '0.85rem', letterSpacing: '0.1em', color: 'var(--color-green)', marginBottom: 20 }}>THE 30-DAY GUARANTEE</div>
+          <p style={{ fontSize: '1.1rem', color: 'var(--color-gray-700)', lineHeight: 1.8, marginBottom: 16 }}>
+            Run Nocturn AI for 30 days. If your team doesn&apos;t agree that it has measurably improved your inquiry response time and follow-up consistency, you pay nothing. Not &ldquo;money back.&rdquo; You never pay in the first place.
+          </p>
+          <p style={{ color: 'var(--color-gray-500)', fontSize: '0.95rem' }}>No contracts. No credit card upfront. No setup fees. The product proves itself or you walk away.</p>
+        </div>
+
+        <div style={{ textAlign: 'center' }}>
+          <a href="/apply" className="btn btn-solid-green btn-lg" style={{ fontSize: '1.1rem', padding: '20px 48px' }}>
+            Apply for Founding Cohort — 5 Spots Only →
+          </a>
+          <p style={{ marginTop: 16, color: 'var(--color-gray-400)', fontSize: '0.9rem' }}>Application takes 2 minutes. We&apos;ll respond within 24 hours.</p>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ─── 4.9 ROI AUDIT CALCULATOR ─────────────────────────────────────────────────
+function AuditSection() {
+  const [status, setStatus] = useState<'idle' | 'loading' | 'success'>('idle');
+
+  const handleAudit = () => {
+    setStatus('loading');
+    setTimeout(() => setStatus('success'), 1500);
+  };
+
+  return (
+    <section className="section section-gray" id="audit">
+      <div className="container">
+        <div style={{ textAlign: 'center', marginBottom: 64 }}>
+          <span className="eyebrow">YOUR NUMBERS</span>
+          <h2 style={{ marginBottom: 16 }}>How Much Revenue Is Your Hotel Leaving on the Table?</h2>
+          <p style={{ color: 'var(--color-gray-500)', fontSize: '1.2rem', maxWidth: 700, margin: '0 auto' }}>
+            Enter your property details below for an estimate. The 30-day pilot will give you your real numbers.
+          </p>
+        </div>
+
+        <div className="apply-form-card" style={{ maxWidth: 600, margin: '0 auto' }}>
+          <AnimatePresence mode="wait">
+            {status === 'success' ? (
+              <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} key="success" style={{ textAlign: 'center', padding: '40px 0' }}>
+                <div style={{ fontSize: '3rem', marginBottom: 20 }}>📧</div>
+                <h3 style={{ fontSize: '1.5rem', marginBottom: 12, color: 'var(--color-navy)', fontWeight: 700 }}>Audit Request Received!</h3>
+                <p style={{ color: 'var(--color-gray-500)' }}>We are preparing your custom ROI report. Check your inbox in 2 minutes.</p>
+              </motion.div>
+            ) : (
+              <motion.div exit={{ opacity: 0, y: -10 }} key="form" style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
+                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 20 }}>
+                  <div>
+                    <label style={{ display: 'block', fontWeight: 600, marginBottom: 8, fontSize: '0.9rem' }}>Daily Inquiries Your Hotel Receives</label>
+                    <input type="number" className="input-field" placeholder="e.g. 30" />
+                  </div>
+                  <div>
+                    <label style={{ display: 'block', fontWeight: 600, marginBottom: 8, fontSize: '0.9rem' }}>Avg. Daily Rate / ADR (RM)</label>
+                    <input type="number" className="input-field" placeholder="e.g. 230" />
+                  </div>
+                </div>
+                <div>
+                  <label style={{ display: 'block', fontWeight: 600, marginBottom: 8, fontSize: '0.9rem' }}>% of Inquiries After Office Hours</label>
+                  <input type="number" className="input-field" placeholder="e.g. 30" />
+                </div>
+                <div>
+                  <label style={{ display: 'block', fontWeight: 600, marginBottom: 8, fontSize: '0.9rem' }}>Business Email</label>
+                  <input type="email" className="input-field" placeholder="manager@yourhotel.com" />
+                </div>
+                <button onClick={handleAudit} className="btn btn-solid-green btn-lg" style={{ width: '100%', marginTop: 12, justifyContent: 'center' }} disabled={status === 'loading'}>
+                  {status === 'loading' ? 'Calculating...' : 'See Your Real Numbers — Apply for Pilot →'}
+                </button>
+                <div style={{ textAlign: 'center', fontSize: '0.8rem', color: 'var(--color-gray-400)' }}>
+                  * Estimation based on industry conversion benchmarks (15% conversion, 18% OTA avg). Your actual results will depend on property type, location, and season.
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ─── 4.10 FAQ ─────────────────────────────────────────────────────────────────
+function FAQSection() {
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+
+  const faqs = [
+    {
+      q: "Does this replace our PMS or Opera?",
+      a: "No. Nocturn AI sits alongside your existing systems. We capture and manage what happens BEFORE the booking enters your PMS — the inquiry, the conversation, the follow-up. Think of us as the net that catches everything your PMS never sees. No Opera integration needed. No system replacement."
+    },
+    {
+      q: "We already use WhatsApp for everything. How is this different?",
+      a: "Right now, your WhatsApp conversations live on one person's phone. If they're sick, on leave, or quit — those conversations are gone. Nocturn AI centralizes every WhatsApp conversation into a team inbox where anyone can see the history and pick up where someone left off. Plus instant AI responses when nobody is available, and automatic follow-ups on leads that go silent."
+    },
+    {
+      q: "What happens after 6PM when our reservations team goes home?",
+      a: "That's exactly the problem we solve. Between 6PM and 9AM, Nocturn AI responds to every WhatsApp, email, and web inquiry. It captures guest intent, qualifies the lead, and queues it — prioritized by value — for your morning team. You stop losing the 9:47 PM WhatsApp messages that currently go unanswered until the next day (if at all)."
+    },
+    {
+      q: "Will it sound robotic? My guests expect a personal touch.",
+      a: "Our AI is trained specifically on YOUR property's information and tone. It responds in the guest's language (English and Bahasa Malaysia), keeps messages warm and concise — like your best reservation agent on a good day. When a guest needs a human, it transfers instantly with the full conversation context. No repeat questions for the guest."
+    },
+    {
+      q: "What if the AI gives wrong rate information?",
+      a: "The AI only quotes information from your verified knowledge base — rates, room types, policies that you provide and approve. If it's unsure about anything, it says: \"Let me connect you with our reservations team who can confirm the details for your specific dates.\" Safety over speed, always."
+    },
+    {
+      q: "How long does setup take? Do I need my IT team?",
+      a: "48 hours from your first call to live. We handle the technical setup. Your team spends about 30 minutes sharing property information. One line of code on your website. Link your WhatsApp Business number. That's it. No IT project. No server installation. No downtime."
+    },
+    {
+      q: "Is our guest data safe? What about PDPA?",
+      a: "All data is encrypted at rest and in transit. Each property's data is fully isolated — no cross-property access. We comply with Malaysia's Personal Data Protection Act (PDPA) requirements. Your guest data is YOUR data — we never share, sell, or use it beyond serving your property. Full data export available anytime you ask."
+    },
+    {
+      q: "What happens after the 30-day free pilot?",
+      a: "After 30 days, you'll have hard data: inquiries captured, leads recovered, response times, estimated revenue impact. If the numbers speak for themselves, we discuss a simple monthly plan — no lock-in contracts. If they don't, you walk away. No charges, no obligations, no awkward conversations."
+    },
+    {
+      q: "We tried a chatbot before and nobody used it.",
+      a: "Most hotel chatbots only work on your website — which handles less than 10% of your total inquiries. Nocturn AI captures the 90% that comes through WhatsApp, phone, and email — the channels your guests are already using. We're not adding another tool your team has to check. We're capturing the conversations that are already happening on channels they already use."
+    }
+  ];
+
+  return (
+    <section className="section section-white">
+      <div className="container container-narrow">
+        <h2 className="comp-title" style={{ textAlign: 'center', marginBottom: 64 }}>Questions Hotels Ask Us</h2>
+        <div className="faq-list">
+          {faqs.map((faq, i) => (
+            <div key={i} className="faq-item" style={{ borderBottom: '1px solid var(--color-gray-100)' }}>
+              <button
+                onClick={() => setOpenIndex(openIndex === i ? null : i)}
+                style={{ width: '100%', textAlign: 'left', background: 'none', border: 'none', cursor: 'pointer', padding: '28px 0', display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 16 }}
+              >
+                <span style={{ fontWeight: 600, fontSize: '1.1rem', color: 'var(--color-navy)' }}>{faq.q}</span>
+                <span style={{ fontSize: '1.5rem', color: 'var(--color-green)', flexShrink: 0, transition: 'transform 0.3s', transform: openIndex === i ? 'rotate(45deg)' : 'rotate(0)' }}>+</span>
+              </button>
+              <AnimatePresence>
+                {openIndex === i && (
+                  <motion.div
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: 'auto', opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    transition={{ duration: 0.3 }}
+                    style={{ overflow: 'hidden' }}
+                  >
+                    <p style={{ color: 'var(--color-gray-500)', lineHeight: 1.8, paddingBottom: 28, fontSize: '1rem' }}>{faq.a}</p>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ─── 4.11 FINAL CTA ───────────────────────────────────────────────────────────
+function FinalCTASection() {
+  return (
+    <section className="section section-dark" style={{ textAlign: 'center', position: 'relative' }}>
+      <div className="noise-overlay" />
+      <div className="container" style={{ position: 'relative', zIndex: 10 }}>
+        <span className="eyebrow">FOUNDING COHORT 2026</span>
+        <h2 style={{ fontSize: 'clamp(2rem, 4vw, 3.5rem)', maxWidth: 900, margin: '0 auto 32px' }}>
+          Every Night Your Hotel Isn&apos;t Capturing Inquiries, You&apos;re Paying for It in OTA Commissions
+        </h2>
+        <p style={{ color: 'var(--color-gray-400)', fontSize: '1.25rem', marginBottom: 48, maxWidth: 650, margin: '0 auto 48px' }}>
+          The bookings are already trying to come to you. Through WhatsApp messages at 9PM. Through emails on Wednesday afternoon that get buried. Through phone calls during check-in rush that go to voicemail.
+          <br /><br />
+          The question isn&apos;t whether you can afford to try Nocturn AI. It&apos;s how much you&apos;re paying every month because you haven&apos;t.
+        </p>
+        <div className="hero-ctas" style={{ display: 'flex', justifyContent: 'center', gap: '20px', flexWrap: 'wrap' }}>
+          <a href="/apply" className="btn btn-solid-white btn-lg">Apply for Founding Cohort →</a>
+          <a href="https://wa.me/601163263808" className="btn btn-outline-white btn-lg">Chat with Founder</a>
+          <a href="mailto:a.basyir@sheerssoft.com?subject=Nocturn AI Strategy Inquiry" className="btn btn-outline-white btn-lg" style={{ opacity: 0.8 }}>Email Strategy Desk</a>
+        </div>
+        <p style={{ marginTop: 32, color: 'rgba(255,255,255,0.4)', fontSize: '0.85rem' }}>
+          30-day free pilot · No setup fee · Live in 48 hours · 5 spots remaining
+        </p>
+      </div>
+    </section>
   );
 }

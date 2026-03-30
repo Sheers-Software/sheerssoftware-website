@@ -3,42 +3,59 @@ import Script from "next/script";
 import "./globals.css";
 import "./layout.css";
 import { Header } from "@/components/Header";
-import { WhatsAppFloatingButton } from "@/components/WhatsAppFloatingButton";
+import { ChatWidget } from "@/components/ChatWidget";
 import LinkedInInsightTag from "@/components/LinkedInInsightTag";
 
 export const metadata: Metadata = {
   title: {
-    default: "Hotel AI Concierge — Capture Every Inquiry 24/7 | Nocturn AI",
+    default: "Nocturn AI: #1 Hotel AI Concierge Malaysia | 24/7 Revenue Recovery",
     template: "%s | Nocturn AI",
   },
   description:
-    "Stop losing bookings after 6pm. Nocturn AI captures every WhatsApp, web & email inquiry 24/7 and proves revenue recovered. Free 30-day pilot for Malaysian hotels.",
+    "Stop losing late-night bookings. Nocturn AI is the leading Hotel AI Concierge in Malaysia, automating WhatsApp, web & email inquiries to recover 15% revenue gap 24/7.",
+  keywords: [
+    "Hotel AI Concierge Malaysia",
+    "AI for hotels Kuala Lumpur",
+    "WhatsApp hotel chatbot",
+    "automated hotel reservations Malaysia",
+    "hotel revenue recovery AI",
+    "reduce hotel OTA commission",
+    "hospitality AI concierge",
+    "Nocturn AI",
+  ],
   metadataBase: new URL("https://ai.sheerssoft.com"),
   openGraph: {
     type: "website",
     locale: "en_MY",
     url: "https://ai.sheerssoft.com",
     siteName: "Nocturn AI | Sheers Software",
-    title: "Hotel AI Concierge — Capture Every Inquiry 24/7 | Nocturn AI",
-    description: "Stop losing bookings after 6pm. Nocturn AI captures every WhatsApp, web & email inquiry 24/7 and proves revenue recovered. Free 30-day pilot for Malaysian hotels.",
+    title: "Nocturn AI: #1 Hotel AI Concierge Malaysia | 24/7 Revenue Recovery",
+    description: "Stop losing late-night bookings. Nocturn AI automates WhatsApp, web & email inquiries to recover 15% revenue gap for Malaysian hotels 24/7.",
     images: [
       {
-        url: "/og-image.png", // Recommended: 1200x630
+        url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Nocturn AI - Hotel Revenue Recovery",
+        alt: "Nocturn AI - Hotel Revenue Recovery & AI Concierge",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Hotel AI Concierge — Capture Every Inquiry 24/7 | Nocturn AI",
-    description: "Stop losing bookings after 6pm. Nocturn AI captures every WhatsApp, web & email inquiry 24/7 and proves revenue recovered.",
+    title: "Nocturn AI: #1 Hotel AI Concierge Malaysia | 24/7 Revenue Recovery",
+    description: "Stop losing bookings after 6pm. Nocturn AI captures every WhatsApp, web & email inquiry 24/7 to recover lost revenue.",
     images: ["/og-image.png"],
   },
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
   alternates: {
     canonical: "./",
@@ -54,7 +71,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en-MY">
+    <html lang="en-MY" suppressHydrationWarning>
       <head>
         {/* Google Tag Manager */}
         <Script
@@ -85,7 +102,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <main id="main-content">{children}</main>
         <Footer />
         <MobileCTA />
-        <WhatsAppFloatingButton />
+        <ChatWidget />
         <LinkedInInsightTag />
 
         {/* --- JSON-LD Schema for GEO & SEO --- */}
@@ -109,34 +126,41 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               },
               {
                 "@context": "https://schema.org",
-                "@type": "LocalBusiness",
-                "name": "Sheers Software Sdn Bhd",
-                "image": "https://sheerssoft.com/og-image.png",
-                "url": "https://sheerssoft.com",
-                "telephone": "+601163263808",
-                "address": {
-                  "@type": "PostalAddress",
-                  "addressCountry": "MY",
-                  "addressRegion": "Kuala Lumpur"
-                }
-              },
-              {
-                "@context": "https://schema.org",
                 "@type": "SoftwareApplication",
                 "name": "Nocturn AI",
                 "operatingSystem": "Web, WhatsApp",
                 "applicationCategory": "BusinessApplication",
-                "provider": {
-                  "@type": "Organization",
-                  "name": "Sheers Software Sdn Bhd"
-                },
-                "offers": {
-                  "@type": "Offer",
-                  "price": "0",
-                  "priceCurrency": "MYR",
-                  "description": "30-day free pilot for qualifying Malaysian hotels."
-                },
                 "description": "An AI Concierge for hotels that captures WhatsApp, Web, and Email inquiries 24/7."
+              },
+              {
+                "@context": "https://schema.org",
+                "@type": "FAQPage",
+                "mainEntity": [
+                  {
+                    "@type": "Question",
+                    "name": "What is a Hotel AI Concierge?",
+                    "acceptedAnswer": {
+                      "@type": "Answer",
+                      "text": "A Hotel AI Concierge is an automated system that handles guest inquiries, bookings, and service requests 24/7 across platforms like WhatsApp and Web, ensuring no lead is lost after hours."
+                    }
+                  },
+                  {
+                    "@type": "Question",
+                    "name": "How does Nocturn AI recover 15% revenue for hotels?",
+                    "acceptedAnswer": {
+                      "@type": "Answer",
+                      "text": "Nocturn AI captures late-night inquiries that usually go unanswered, converting them into direct bookings on WhatsApp and preventing guests from booking through high-commission OTAs."
+                    }
+                  },
+                  {
+                    "@type": "Question",
+                    "name": "Is Nocturn AI available for hotels in Malaysia?",
+                    "acceptedAnswer": {
+                      "@type": "Answer",
+                      "text": "Yes, Nocturn AI is specifically optimized for the Malaysian hospitality market, supporting local nuances and the high volume of WhatsApp-based inquiries in the region."
+                    }
+                  }
+                ]
               }
             ])
           }}
@@ -161,54 +185,62 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 /* ---- Footer ---- */
 function Footer() {
   return (
-    <footer className="footer section-dark">
+    <footer className="footer section-dark" style={{ borderTop: '1px solid rgba(255,255,255,0.05)', padding: '100px 0 60px' }}>
       <div className="container">
         <div className="footer-grid">
           <div className="footer-col">
-            <div className="footer-brand">
-              <svg width="28" height="28" viewBox="0 0 32 32" fill="none" aria-hidden="true">
-                <circle cx="16" cy="16" r="14" stroke="#22C55E" strokeWidth="2.5" />
-                <path d="M16 6C10.5 6 8 12 8 16c0 4 2.5 10 8 10 -3-2-4.5-5.5-4.5-10S13 8 16 6z" fill="#22C55E" />
-              </svg>
-              <span>Nocturn AI</span>
+            <div className="footer-brand" style={{ marginBottom: '24px' }}>
+              <span className="serif" style={{ fontSize: '1.75rem', fontWeight: 700, color: 'white' }}>Nocturn AI</span>
+              <span style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.3)', display: 'block', textTransform: 'uppercase', letterSpacing: '0.1em' }}>by Sheers Software</span>
             </div>
-            <p className="footer-tagline">
-              Capturing bookings while you sleep.
+            <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '1rem', lineHeight: 1.6, maxWidth: '280px' }}>
+              The AI-First revenue recovery layer for Malaysian hospitality. Stop losing bookings to silence.
             </p>
-            <p className="footer-company">
-              A product by <a href="https://sheerssoft.com" style={{ color: "inherit", textDecoration: "underline" }} target="_blank" rel="noopener noreferrer">Sheers Software Sdn Bhd</a>
-            </p>
+            <div className="footer-status" style={{ marginTop: '32px', display: 'flex', gap: '16px' }}>
+                <div style={{ padding: '6px 12px', background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.05)', borderRadius: '6px', fontSize: '0.75rem', color: 'rgba(255,255,255,0.4)' }}>
+                   SSM: 202501033756
+                </div>
+                <div style={{ padding: '6px 12px', background: 'rgba(0,180,140,0.05)', border: '1px solid rgba(0,180,140,0.1)', borderRadius: '6px', fontSize: '0.75rem', color: 'var(--color-green)' }}>
+                   ● SYSTEM ACTIVE
+                </div>
+            </div>
           </div>
 
-          <div className="footer-col">
-            <h4>Product</h4>
-            <a href="/how-it-works">How It Works</a>
-            <a href="/pilot">Pilot Program</a>
-            <a href="/apply">Apply</a>
-            <a href="#audit" style={{ marginTop: "12px", border: "1px solid var(--color-gray-600)", padding: "4px 8px", borderRadius: "4px", fontSize: "13px" }}>Download: How Much Is Your Hotel Losing After 6PM?</a>
+          <div className="footer-col" style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+            <h4 style={{ color: 'white', fontSize: '0.9rem', marginBottom: '8px', textTransform: 'uppercase', letterSpacing: '0.1em' }}>Product</h4>
+            <a href="/how-it-works" style={{ color: 'rgba(255,255,255,0.5)', textDecoration: 'none' }}>How It Works</a>
+            <a href="/pilot" style={{ color: 'rgba(255,255,255,0.5)', textDecoration: 'none' }}>Founding Cohort</a>
+            <a href="/blog" style={{ color: 'rgba(255,255,255,0.5)', textDecoration: 'none' }}>Insight Hub</a>
+            <a href="/apply" style={{ color: 'var(--color-green)', textDecoration: 'none', fontWeight: 600 }}>Apply Now →</a>
           </div>
 
-          <div className="footer-col">
-            <h4>Company</h4>
-            <a href="/about">About</a>
-            <a href="/blog">Blog</a>
+          <div className="footer-col" style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+            <h4 style={{ color: 'white', fontSize: '0.9rem', marginBottom: '8px', textTransform: 'uppercase', letterSpacing: '0.1em' }}>Company</h4>
+            <a href="/about" style={{ color: 'rgba(255,255,255,0.5)', textDecoration: 'none' }}>Our Story</a>
+            <a href="/about#team" style={{ color: 'rgba(255,255,255,0.5)', textDecoration: 'none' }}>Mission</a>
+            <a href="mailto:hello@sheerssoft.com" style={{ color: 'rgba(255,255,255,0.5)', textDecoration: 'none' }}>Contact Desk</a>
           </div>
 
-          <div className="footer-col">
-            <h4>Legal</h4>
-            <a href="/privacy">Privacy Policy</a>
-            <a href="/terms">Terms of Service</a>
+          <div className="footer-col" style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+            <h4 style={{ color: 'white', fontSize: '0.9rem', marginBottom: '8px', textTransform: 'uppercase', letterSpacing: '0.1em' }}>Legal</h4>
+            <a href="/privacy" style={{ color: 'rgba(255,255,255,0.5)', textDecoration: 'none' }}>Privacy Policy</a>
+            <a href="/terms" style={{ color: 'rgba(255,255,255,0.5)', textDecoration: 'none' }}>Terms of Service</a>
+            <span style={{ color: 'rgba(255,255,255,0.3)', fontSize: '0.8rem', marginTop: '12px' }}>PDPA Compliant (Malaysia)</span>
           </div>
         </div>
 
-        <div className="footer-trust">
-          <span>🔒 PDPA Compliant</span>
-          <span>🔐 Encrypted</span>
-          <span>🇲🇾 Built in Malaysia</span>
-        </div>
-
-        <div className="footer-bottom">
-          <p>© {new Date().getFullYear()} <a href="https://sheerssoft.com" style={{ color: "inherit", textDecoration: "none" }} target="_blank" rel="noopener noreferrer">Sheers Software Sdn Bhd</a>. All rights reserved.</p>
+        <div className="footer-bottom" style={{ borderTop: '1px solid rgba(255,255,255,0.05)', paddingTop: '48px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '24px' }}>
+          <p style={{ color: 'rgba(255,255,255,0.3)', fontSize: '0.85rem' }}>
+            © {new Date().getFullYear()} Sheers Software Sdn Bhd. All rights reserved.
+          </p>
+          <div className="footer-meta" style={{ display: 'flex', gap: '32px', fontSize: '0.8rem', color: 'rgba(255,255,255,0.3)' }}>
+            <span style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <span style={{ color: 'var(--color-green)' }}>✓</span> 100% Data Sovereignty
+            </span>
+            <span style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                🇲🇾 Built in Malaysia
+            </span>
+          </div>
         </div>
       </div>
     </footer>
