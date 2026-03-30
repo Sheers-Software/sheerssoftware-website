@@ -14,7 +14,9 @@
       "Bash(gcloud builds:*)",
       "Bash(1 gcloud:*)",
       "Bash(python3 -c \"import sys,json; triggers=json.load\\(sys.stdin\\); [print\\(t.get\\(''''name''''\\), t.get\\(''''id''''\\), t.get\\(''''github'''',{}\\).get\\(''''name'''',''''''''\\)\\) for t in triggers]\")",
-      "Bash(gcloud run:*)"
+      "Bash(gcloud run:*)",
+      "WebFetch(domain:www.notion.so)",
+      "WebFetch(domain:www.notion.com)"
     ]
   }
 }

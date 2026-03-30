@@ -3,7 +3,7 @@
 > **Stop Losing Revenue While You Sleep.**
 > Capture every WhatsApp, email, and web inquiry 24/7 with an AI concierge trained for Malaysian hospitality.
 
-**Version:** `0.5.0` | **Branch:** `feature/hyros-redesign`
+**Version:** `0.6.0` | **Branch:** `main`
 
 ---
 
@@ -165,3 +165,10 @@ Region    : asia-southeast1
 - **TruthTracking mobile:** Replaced broken horizontal-scroll tab row (clipped by `overflow-x: hidden` parent) with a native accordion — all 4 subsections (Capture, Optimize, Ease Of Use, Forecast) now accessible on mobile
 - **Founder photo:** Replaced placeholder `AB` circle with `/Basyir.png`
 - **Footer SSM:** Corrected to `202501033756`
+
+### Sprint 10 — Codebase Consolidation (v0.6.0) ✅
+- **Architecture:** Simplified codebase by removing redundant `business-website`, `business-website-next`, and `business-website-vite` directories.
+- **Unification:** Unified the project into a single Next.js app in the root that handles both product and corporate site redirects via middleware.
+- **CI/CD:** Streamlined `cloudbuild.yaml` to deploy a single unified image to both `sheersdigital-product` and `sheersdigital-site` services.
+- **Redesign:** Finalised Hyros-style high-performance redesign with mobile-first CSS overhaul and neon accents.
+

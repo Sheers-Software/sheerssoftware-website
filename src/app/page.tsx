@@ -65,17 +65,9 @@ function Hero() {
 
       <div className="container hero-inner">
         <motion.div className="hero-content" variants={containerVariants} initial="hidden" animate="visible">
-          <motion.div variants={itemVariants} className="hero-header-hyros">
-            <div className="meet-text">Now accepting 5 hotels into our Founding Cohort</div>
-            <h1 className="hyros-style-title" aria-label="Nocturn AI: Stop Losing Hotel Bookings to Silence">
-              NOCTURN AI
-              <span className="sr-only"> — Stop Losing Hotel Bookings to Silence, Malaysia</span>
-            </h1>
-          </motion.div>
-
           <motion.div variants={itemVariants} className="hero-subtitle-hyros">
-            <p className="hero-subtitle-main">Your Reservations Team Goes Home at 6PM. Your Guests Don&apos;t Stop Inquiring.</p>
-            <p className="hero-subtitle-sub">Malaysian hotels lose direct bookings every night to unanswered WhatsApp messages, unfollowed emails, and after-hours silence. Nocturn AI captures every inquiry, responds instantly, follows up automatically, and shows you exactly what you&apos;re converting — 24/7.</p>
+            <h1 className="hero-subtitle-main">Your reservations team goes home at 6PM. Your guests don&apos;t.</h1>
+            <p className="hero-subtitle-sub">Nocturn AI keeps your direct bookings flowing after hours. It answers WhatsApp messages, captures guest details, and follows up automatically — all while your front desk is closed.</p>
           </motion.div>
 
           <motion.div variants={itemVariants} className="hero-ctas">
