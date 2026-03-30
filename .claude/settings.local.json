@@ -1,0 +1,20 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git pull:*)",
+      "WebFetch(domain:hyros.com)",
+      "WebSearch",
+      "WebFetch(domain:dribbble.com)",
+      "Bash(ls:*)",
+      "Bash(grep -r \"hormozi\\\\|gems\" D:/repos/SheersDigital-site --include=*.md)",
+      "Bash(grep -ri \"hormozi\\\\|gems\" D:/repos/SheersDigital-site --include=*.md --include=*.txt --include=*.js --include=*.ts --include=*.tsx --include=*.jsx)",
+      "Bash(grep:*)",
+      "Bash(npm run:*)",
+      "Bash(gcloud config:*)",
+      "Bash(gcloud builds:*)",
+      "Bash(1 gcloud:*)",
+      "Bash(python3 -c \"import sys,json; triggers=json.load\\(sys.stdin\\); [print\\(t.get\\(''''name''''\\), t.get\\(''''id''''\\), t.get\\(''''github'''',{}\\).get\\(''''name'''',''''''''\\)\\) for t in triggers]\")",
+      "Bash(gcloud run:*)"
+    ]
+  }
+}

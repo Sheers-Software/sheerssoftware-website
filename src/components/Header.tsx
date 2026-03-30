@@ -1,12 +1,16 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import { AnnouncementBar } from "./AnnouncementBar";
 import { Navbar } from "./Navbar";
 
 export function Header() {
     const [isBannerVisible, setIsBannerVisible] = useState(true);
     const [isMounted, setIsMounted] = useState(false);
+    const [scrolled, setScrolled] = useState(false);
+    const pathname = usePathname();
+    const isHome = pathname === "/" || pathname === "";
 
     useEffect(() => {
         setIsMounted(true);
@@ -14,6 +18,11 @@ export function Header() {
         if (dismissed && new Date(dismissed) > new Date(Date.now() - 7 * 24 * 60 * 60 * 1000)) {
             setIsBannerVisible(false);
         }
+
+        const handleScroll = () => setScrolled(window.scrollY > 20);
+        window.addEventListener("scroll", handleScroll, { passive: true });
+        handleScroll();
+        return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
     const handleDismiss = () => {
@@ -21,23 +30,24 @@ export function Header() {
         localStorage.setItem("nocturn-announcement-dismissed-v1", new Date().toISOString());
     };
 
-    // Prevent hydration mismatch
-    if (!isMounted) return null;
-
     return (
-        <header style={{
-            position: "sticky",
+        <header className="site-header" style={{
+            position: isHome ? "absolute" : "relative",
             top: 0,
             left: 0,
             right: 0,
             zIndex: 1000,
             display: "flex",
-            flexDirection: "column"
+            flexDirection: "column",
+            background: isHome ? "transparent" : "white",
+            minHeight: isMounted ? 'auto' : '80px' // Placeholder height
         }}>
-            <AnnouncementBar isVisible={isBannerVisible} onDismiss={handleDismiss} />
-            <div style={{ position: "relative", width: "100%" }}>
-                <Navbar className={!isBannerVisible ? "navbar-top" : ""} />
-            </div>
+            {isMounted && (
+                <>
+                    <AnnouncementBar isVisible={isBannerVisible} onDismiss={handleDismiss} />
+                    <Navbar />
+                </>
+            )}
         </header>
     );
 }

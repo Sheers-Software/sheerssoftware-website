@@ -1,4 +1,4 @@
-# SHEERS DIGITAL — COMPLETE WEBSITE CONTENT DOCUMENT
+# SHEERS SOFTWARE — COMPLETE WEBSITE CONTENT DOCUMENT
 
 ## For: Content Director & Website Designer
 
@@ -15,8 +15,19 @@
 1. [Executive Summary & Design Principles](#1-executive-summary)
 2. [Site Architecture — What Changes](#2-site-architecture)
 3. [Global Elements (Header, Footer, Navigation)](#3-global-elements)
-4. [PAGE 1: Homepage / Landing Page](#4-homepage)
-5. [PAGE 2: How It Works](#5-how-it-works)
+4. [PAGE 1: Homepage / Landing Page (Hyros-Class Funnel)](#4-homepage)
+    - [4.1: The Truth Hero](#4-1-hero)
+    - [4.2: The Tracking Error (Inquiry Graveyard)](#4-2-pain)
+    - [4.3: Core Pillars: The Nocturn Revenue Engine](#4-3-pillars)
+    - [4.4: Audience Selection (Who This Is For)](#4-4-audience)
+    - [4.5: Proof of Mechanism (The Midnight Test)](#4-5-proof)
+    - [4.6: Before & After (Manual vs. AI-First)](#4-6-comparison)
+    - [4.7: The Selection Process (Founding Cohort Offer)](#4-7-selection)
+    - [4.8: The Knowledge Base (Founder's Note & Problem Testimony)](#4-8-knowledge)
+    - [4.9: ROI Audit (ROI Calculator)](#4-9-roi)
+    - [4.10: FAQ](#4-10-faq)
+    - [4.11: Final CTA](#4-11-cta)
+5. [PAGE 2: How It Works (Pillar Deep-Dive)](#5-how-it-works)
 6. [PAGE 3: Pilot Program (replaces Pricing)](#6-pilot-program)
 7. [PAGE 4: About / Our Story](#7-about)
 8. [PAGE 5: Apply for Pilot (replaces Book Demo)](#8-apply)
@@ -187,7 +198,7 @@ Blog
 
 ---
 
-## SECTION 1: HERO
+## SECTION 4.1: THE TRUTH HERO {#4-1-hero}
 
 ### Content
 
@@ -237,7 +248,7 @@ Apply for Founding Cohort →
 
 ---
 
-## SECTION 2: THE PAIN (The Inquiry Graveyard)
+## SECTION 4.2: THE TRACKING ERROR (The Inquiry Graveyard) {#4-2-pain}
 
 ### Content
 
@@ -297,7 +308,68 @@ This isn't a technology problem. It's revenue falling on the floor every day —
 
 ---
 
-## SECTION 3: WHO THIS IS FOR
+## SECTION 4.3: CORE PILLARS: THE NOCTURN REVENUE ENGINE {#4-3-pillars}
+
+### Content
+
+**Eyebrow:**
+```
+THE SYSTEM
+```
+
+**Section Title (H2):**
+```
+Stop Guessing. Start Scaling with Truth.
+```
+
+**Section Description:**
+```
+Nocturn AI isn't just a chatbot. It's a revenue recovery layer that sits over your existing hotel operations to capture, automate, and prove the value of every single guest inquiry.
+```
+
+**The Four Hyros-Class Pillars:**
+
+**Pillar 1: ATTRIBUTE (Capture Every Inquiry)**
+```
+Headline: Catch the Conversions Platforms Drop
+Body: Nocturn AI connects your WhatsApp Business, reservation email, and website into one unified inbox. Whether it's a 2:14 AM WhatsApp message or a corporate group email, we capture the guest's name, intent, and contact info with 100% certainty.
+Includes: Instant WhatsApp Responses, Email Auto-Capture, Website Chat Widget.
+```
+
+**Pillar 2: OPTIMIZE (Automate the Guest Journey)**
+```
+Headline: Everything Else Scales From There
+Body: Once captured, the AI responds in seconds — in English or Bahasa Malaysia. If they don't book, the system sends branded follow-ups at 24 hours, 72 hours, and 7 days. When a complex request arrives, it hands off to your staff with full context.
+Includes: 24/7 AI Interaction, Automated Follow-Up Engine, Smart Human Handoff.
+```
+
+**Pillar 3: EASE OF USE (Deploy in 48 Hours)**
+```
+Headline: Zero Integration Tax. Zero Downtime.
+Body: We don't replace your PMS or Opera. We layer over it. Setup takes 45 minutes of your team's time. One line of code on your site, one connection to your WhatsApp. You're live and recovering revenue within 48 hours.
+Includes: No IT Project Required, No System Replacement, 48-Hour Implementation.
+```
+
+**Pillar 4: FORECAST (Prove the Value Every Morning)**
+```
+Headline: Finally Know Your Real Direct Potential
+Body: Every morning, your GM receives a report showing exactly how many inquiries were handled and the estimated revenue captured. No more guessing conversion "roughly via occupancy." See your real direct capture ROI daily.
+Includes: Conversion Dashboard, GM Morning Report, Revenue Leak Analysis.
+```
+
+### Visual:
+- **KEEP** the mockup showing "Live Conversations" with WhatsApp / Email / Web Chat indicators
+- **KEEP** the "Auto-responded in 12s" status indicator
+- **ADD** a "Truth Meter" or "Recovery Progress" bar visual to the Dashboard mockup
+
+### DESIGNER NOTES:
+- This section is the "Scientific" core of the page. Use clean, high-contrast grid layouts.
+- Each pillar should have its own distinct icon and a clear "INCLUDES" tag to summarize features.
+- The language pulls from Hyros's "Attribute/Optimize/Ease/Forecast" framework but keeps the hotel-specific promise.
+
+---
+
+## SECTION 4.4: AUDIENCE SELECTION (Who This Is For) {#4-4-audience}
 
 ### Content
 
@@ -320,95 +392,33 @@ If your reservation team juggles WhatsApp, phone calls, emails, and walk-ins —
 
 **Card 1: 🛎️ The Reservation Manager**
 ```
-You handle 30+ daily touchpoints across WhatsApp, email, and phone. On busy days it hits 200-300. Your "primary operational weakness" is follow-up — and you know it. You need a system that catches what falls through the cracks, especially after 6PM.
+Role Body: You handle 30+ daily touchpoints across WhatsApp, email, and phone. On busy days it hits 200-300. Your "primary operational weakness" is follow-up — and you know it. You need a system that catches what falls through the cracks, especially after 6PM.
+
+TRACKING GOAL: 95% Automation Rate. No inquiry left on "Read" after 6PM.
 ```
 
 **Card 2: 📈 The Revenue Manager**
 ```
-You're watching 15-25% of every booking go to OTA commissions. You know guests are trying to book direct — through WhatsApp, through email — but they're not getting responses fast enough. You want data on inquiry-to-conversion that you've never been able to track before.
+Role Body: You're watching 15-25% of every booking go to OTA commissions. You know guests are trying to book direct — through WhatsApp, through email — but they're not getting responses fast enough. You want data on inquiry-to-conversion that you've never been able to track before.
+
+TRACKING GOAL: 15% Direct Capture Recovery. Scientific proof of OTA commission saved.
 ```
 
 **Card 3: 👔 The General Manager**
 ```
-Your ownership wants higher RevPAR with a flat budget. Your staff turnover means institutional knowledge walks out the door every 90 days. You need proof that direct bookings are being captured — a morning report you can show the board, not a gut feeling.
+Role Body: Your ownership wants higher RevPAR with a flat budget. Your staff turnover means institutional knowledge walks out the door every 90 days. You need proof that direct bookings are being captured — a morning report you can show the board, not a gut feeling.
+
+TRACKING GOAL: Board-ready RevPAR Proof. 100% Data Sovereignty.
 ```
 
 ### DESIGNER NOTES:
-- **CHANGE** the current "Not for budget hotels. Not for 5-star luxury resorts" qualifier. This is unnecessarily exclusionary and may offend. Replace with the positive framing above.
-- Each card should describe the PAIN first, then imply the solution — the ICP should feel "seen" by their specific card.
-- On mobile, these should stack vertically with the Reservation Manager card first (that's the primary user who will discover and champion the product internally, per Zul and Shamsuridah's interview data).
+- This section should feel like an "Audience Selection" matrix. 
+- **ADD** a "Tracking Goal" badge to each card to align with the Hyros focus on outcomes.
+- These persona cards are based on real pains from Zul (Res), Shamsuridah (Rev), and general GM interviews.
 
 ---
 
-## SECTION 4: THE SOLUTION (What Nocturn AI Does)
-
-### Content
-
-**Eyebrow:**
-```
-THE SOLUTION
-```
-
-**Section Title (H2):**
-```
-One Inbox. Every Channel. Every Inquiry Captured — Even at 3AM.
-```
-
-**Sub-title:**
-```
-Nocturn AI connects your WhatsApp Business, reservation email, and website into one unified inbox — then responds to guests instantly with AI, follows up automatically, and tracks every conversion.
-```
-
-**Six feature blocks (2x3 grid on desktop, stacked on mobile):**
-
-**Feature 1: ⚡ Instant WhatsApp Responses**
-```
-Headline: Respond in Seconds, Not Hours
-Body: Your guests message on WhatsApp because it's what they know. Nocturn AI replies within 30 seconds — in English or Bahasa Malaysia — with warm, natural messages. Room availability, rates, facilities, directions. 24/7, including the hours your desk is closed.
-```
-
-**Feature 2: 📧 Email Auto-Capture**
-```
-Headline: Turn Your Inbox Into a Lead Machine
-Body: Forward your reservation email to Nocturn AI. It reads, understands, and responds — capturing the guest's name, contact, dates, and intent. No more emails sitting unanswered overnight. No more corporate group requests buried in the backlog.
-```
-
-**Feature 3: 💻 Website Chat Widget**
-```
-Headline: One Line of Code. Infinite Conversations.
-Body: Drop a single script tag on your website. Visitors get instant answers instead of bouncing to Booking.com. Captures leads even when no staff is online. Every conversation is logged in the same unified inbox.
-```
-
-**Feature 4: 🔄 Automated Follow-Up**
-```
-Headline: The Follow-Up Your Team Forgets. Automated.
-Body: Guest inquired but didn't book? Nocturn sends a branded follow-up at 24 hours, 72 hours, and 7 days. Customizable by segment — corporate, leisure, government, travel agent. Your team's "primary operational weakness" — eliminated.
-```
-
-**Feature 5: 📊 Conversion Dashboard**
-```
-Headline: Finally Know Your Real Numbers
-Body: For the first time, see exactly: How many inquiries came in. From which channel. What was the response time. How many converted. No more tracking conversion "roughly via occupancy." Simple visual trends — not pivot tables.
-```
-
-**Feature 6: 🤝 Smart Human Handoff**
-```
-Headline: AI Knows When to Step Back
-Body: Complex requests, group bookings, complaints — the AI transfers to your staff instantly with the full conversation context. The guest never repeats themselves. Your team gets the context they need to close.
-```
-
-### Visual (alongside feature grid):
-- **KEEP** the mockup showing "Live Conversations" with WhatsApp / Email / Web Chat indicators
-- **KEEP** the "Auto-responded in 12s" status indicator — this is the money visual
-
-### DESIGNER NOTES:
-- This section REPLACES the need for a separate /features page. All features live here, on the homepage, where the conversion happens.
-- **REMOVE** the standalone "After-Hours Recovery" section and "Human Handoff" section from the current features page — they're now integrated into these six blocks.
-- The current site's "An AI Concierge That Never Sleeps, Never Forgets, and Proves Its Value Every Morning" headline is strong — repurpose the "proves its value every morning" phrase in the dashboard feature description if desired.
-
----
-
-## SECTION 5: THE MIDNIGHT TEST (Social Proof via Experience)
+## SECTION 4.5: PROOF OF MECHANISM (The Midnight Test) {#4-5-proof}
 
 ### Content
 
@@ -424,7 +434,7 @@ The Midnight Test
 
 **Sub-title:**
 ```
-It's 11:47 PM. Your front desk closed 90 minutes ago. A family wants to book for the weekend. Here's what happens with Nocturn AI.
+It's 11:47 PM. Your front desk closed 90 minutes ago. A family wants to book for the weekend. Here's what happens with the Nocturn Revenue Engine.
 ```
 
 **WhatsApp conversation mockup:**
@@ -451,177 +461,41 @@ That lead was captured, logged, and prioritized for your morning team. Without N
 ```
 
 ### DESIGNER NOTES:
-- **KEEP** the WhatsApp mockup styling from the current site — it's excellent
-- **ADD** the "System tag" at the bottom showing what data was captured — this is the "proof of mechanism" that Revenue Managers (Shamsuridah, Amsyar) will care about
-- **ADD** the commission math at the bottom — Bernard explicitly said this is the ROI framing that works: "1% shift from OTA to direct = RM 3,000/month savings"
+- This is the "Mechanism Proof" section. 
+- **KEEP** the WhatsApp mockup styling from the current site.
+- **ADD** the "System tag" at the bottom showing what data was captured — this is the "proof of truth" that Revenue Managers care about.
+- **ADD** the commission math at the bottom — focusing on the RM 50 direct loss.
 
 ---
 
-## SECTION 6: PROBLEM TESTIMONY (Replaces Fabricated Social Proof)
-
-### CRITICAL: This section replaces the current "Social Proof Strip" that contains fabricated stats and a fake testimonial from "Sarah L., Hotel Manager"
+## SECTION 4.6: BEFORE & AFTER (Manual vs. AI-First) {#4-6-comparison}
 
 ### Content
 
-**Eyebrow:**
-```
-WHAT OPERATORS TOLD US
-```
-
 **Section Title (H2):**
 ```
-We Didn't Build This In a Vacuum. We Built It From the Words of People Who Live This Every Day.
+The Inquiry Graveyard vs. The Nocturn Revenue Engine
 ```
 
-**Sub-title:**
-```
-Before writing a single line of code, we sat with Revenue Managers, Reservation Managers, GMs, and industry consultants across Malaysia, Singapore, and the Middle East. Here's what they told us about their reality.
-```
+**Comparison Table:**
 
-**Testimony cards (4 cards, 2x2 grid on desktop):**
-
-**Card 1:**
-```
-"Our primary operational weakness is systematic follow-up on inquiries. The CRM is there, but the process is heavily dependent on human intervention."
-
-— Revenue Manager, International 4-Star Chain Hotel, Kuala Lumpur
-```
-
-**Card 2:**
-```
-"90% of our bookings come from walk-ins, phone, WhatsApp, and email. Once office hours end, reservations and sales are closed. Inquiries are effectively dropped."
-
-— Reservation Manager, City Hotel, Kuala Lumpur
-```
-
-**Card 3:**
-```
-"99% of hotels — the main pain is paying the OTA. If you could switch acquisition from OTA to direct, even 1%, that's 3,000 savings per month."
-
-— Pre-Sales Specialist, Global Hospitality Technology Company
-```
-
-**Card 4:**
-```
-"Hotels nowadays lose business due to low manpower. People don't complain anymore — they just don't come back."
-
-— Independent Hospitality Consultant, 30+ Years Experience
-```
-
-**Below the cards:**
-```
-These aren't testimonials for our product. They're testimonies of the problem. We built Nocturn AI to be the solution these operators described — nothing more, nothing less.
-```
+| Dimension | Standard Hotel Operation (Manual) | Nocturn AI-First Operation |
+|---|---|---|
+| **Response Time** | 8–24 hours (unanswered after 6PM) | **<30 Seconds (24/7/365)** |
+| **Follow-up Logic** | Forgotten or "when we have time" | **Automated (Day 1, 3, and 7)** |
+| **Inquiry Window** | 9 AM – 6 PM (Limited) | **12 AM – 11:59 PM (Infinite)** |
+| **Guest Sentiment** | Frustrated / Bounces to OTA | **Delighted / Closes Direct** |
+| **Revenue Leak** | 15–20% "Invisible" OTA Bleed | **15% Predicted Recovery** |
+| **GM Reporting** | Gut feeling / Occupancy only | **Daily Morning ROI Proof** |
 
 ### DESIGNER NOTES:
-- **REMOVE** the entire current "Social Proof Strip" section with fake stats ("95% Inquiry Response Rate", "RM 8k Avg Monthly Revenue Recovered") and the fake quote from "Sarah L."
-- These problem-testimony quotes are REAL, sourced from actual interviews (Shamsuridah, Zul, Bernard, Floyd). Before publishing, Basyir must get written permission from each person. If any decline, replace with their anonymized title only.
-- DO NOT attribute these as product endorsements. The language "What Operators Told Us" and the closing line make it clear these describe the problem, not endorse the solution. This is honest and more powerful than fake testimonials.
-- Design these as subtle, elegant cards — muted background, quotation marks, no star ratings, no headshots (we don't have permission for those).
+- This is the "Decision Maker" table. 
+- **COLOR CODING**: Use red for the Manual column and green/navy for the Nocturn column.
+- Use a high-fidelity "Comparison Card" component that feels scientific and premium.
 
 ---
 
-## SECTION 7: HOW IT WORKS (Condensed)
-
-### Content
-
-**Eyebrow:**
-```
-HOW IT WORKS
-```
-
-**Section Title (H2):**
-```
-Live in 48 Hours. Proving Value in 7 Days.
-```
-
-**Three steps (horizontal on desktop, vertical on mobile):**
-
-**Step 1: 📄 We Learn Your Property**
-```
-Share your rates, room types, facilities, and FAQs. We build your property-specific AI knowledge base — not a generic chatbot. Your property info, your tone, your language.
-
-Your time: 30 minutes.
-```
-
-**Step 2: 🔗 Connect Your Channels**
-```
-Link your WhatsApp Business number. Drop one script tag on your website. Forward your reservation email. Three connections. No IT project. No Opera integration needed.
-
-Your time: 15 minutes.
-```
-
-**Step 3: 📊 Watch Revenue Recover**
-```
-Your GM gets a morning report: inquiries handled last night, leads captured, channels performing. The value is visible from Day 1. Full ROI review at Day 30.
-
-Your time: 2 minutes every morning.
-```
-
-**Below steps:**
-```
-[See the Full Setup Timeline →] (links to /how-it-works)
-```
-
-### DESIGNER NOTES:
-- This is a CONDENSED version on the homepage. The full detailed timeline lives on /how-it-works.
-- **Emphasize "Your time:"** in each step — Bob and Floyd both flagged that hotels fear the implementation burden. Showing the minimal time investment addresses this fear directly.
-- The connector arrows between steps should be dashed lines, not solid — implying simplicity and speed.
-
----
-
-## SECTION 8: ROI CALCULATOR
-
-### Content
-
-**Eyebrow:**
-```
-YOUR NUMBERS
-```
-
-**Section Title (H2):**
-```
-How Much Revenue Is Your Hotel Leaving on the Table?
-```
-
-**Calculator inputs:**
-
-```
-Input 1: Daily inquiries your hotel receives (Slider: 10-100, default: 30)
-Input 2: Your Average Daily Rate / ADR (Number input: RM, default: 230)
-Input 3: % of inquiries that arrive after office hours (Slider: 10-50%, default: 30%)
-```
-
-**Calculator outputs:**
-
-```
-Output 1: Estimated Monthly Revenue at Risk
-         = [Daily inquiries] × [After-hours %] × [30 days] × [15% conversion rate] × [ADR]
-
-Output 2: Estimated OTA Commission You Could Avoid
-         = [Output 1] × [18% avg OTA commission]
-```
-
-**Disclaimer below calculator:**
-```
-* Estimation based on industry conversion benchmarks. Your actual results will depend on property type, location, and season. The 30-day pilot will give you your real numbers.
-```
-
-**CTA below calculator:**
-```
-[See Your Real Numbers — Apply for Pilot →] (links to /apply)
-```
-
-### DESIGNER NOTES:
-- **KEEP** the current ROI calculator — it's well-built and functional
-- **CHANGE** the formula disclaimer to be more honest (current site says "Actual results vary by property and season" which is fine, but add the bit about the pilot giving real numbers)
-- **CHANGE** the CTA text from "Book a Demo" to "Apply for Pilot"
-- **CHANGE** the default ADR from 230 to 230 (keep — this matches Zul's ADR data exactly)
-- Consider adding a small note: "Based on an ADR of RM 230 (Malaysian 3-4 star average)" to anchor the number in reality
-
----
-
-## SECTION 9: THE FOUNDING COHORT OFFER
+## SECTION 4.7: THE SELECTION PROCESS (Founding Cohort Offer) {#4-7-selection}
 
 ### Content
 
@@ -688,17 +562,16 @@ Application takes 2 minutes. We'll respond within 24 hours.
 ```
 
 ### DESIGNER NOTES:
-- This section is the CORE conversion mechanism of the entire website. It should be the most visually striking section on the page.
-- The guarantee box should have a distinct border (green) and slightly different background — it needs to stand out as the risk-reversal element.
-- The value stack items should have clear visual separation — each ✅ item is a "gift" in the Hormozi Grand Slam Offer framework.
-- **REMOVE** all tiered pricing from the homepage. No RM 1,500 / 3,000 / 5,000 cards. Pricing is discussed in the qualification call.
-- The scarcity number ("5 spots") must be REAL and updated as properties join. If you lie about scarcity and the ICP discovers it, trust is permanently broken.
+- This section is the CORE conversion mechanism. It should be the most visually striking.
+- The guarantee box should have a distinct border (green) and slightly different background.
+- The value stack items should have clear visual separation.
+- **REMOVE** all tiered pricing. The scarcity number ("5 spots") must be REAL.
 
 ---
 
-## SECTION 10: FOUNDER'S NOTE
+## SECTION 4.8: THE KNOWLEDGE BASE (Founder's Note & Problem Testimony) {#4-8-knowledge}
 
-### Content
+### 4.8A: THE FOUNDER'S NOTE
 
 **Eyebrow:**
 ```
@@ -725,19 +598,104 @@ Nocturn AI is in its founding stage. That means you get my direct attention, my 
 
 If you've been burned by overpromising tech vendors before, I understand the skepticism. That's why there's no contract, no setup fee, and a 30-day prove-it-or-pay-nothing guarantee.
 
-— Basyir Sheers
+— Ahmad Basyir
    Founder, Sheers Software Sdn Bhd
 ```
 
+---
+
+### 4.8B: WHAT OPERATORS TOLD US (Industry Insight)
+
+**Eyebrow:**
+```
+INDUSTRY INSIGHT
+```
+
+**Section Title (H2):**
+```
+We Didn't Build This In a Vacuum
+```
+
+**Testimony cards:**
+
+**Card 1:**
+```
+"Our primary operational weakness is systematic follow-up on inquiries. The CRM is there, but the process is heavily dependent on human intervention."
+— Revenue Manager, International 4-Star Chain Hotel, Kuala Lumpur
+```
+
+**Card 2:**
+```
+"90% of our bookings come from walk-ins, phone, WhatsApp, and email. Once office hours end, reservations and sales are closed."
+— Reservation Manager, City Hotel, Kuala Lumpur
+```
+
+**Card 3:**
+```
+"99% of hotels — the main pain is paying the OTA. If you could switch acquisition from OTA to direct, even 1%, that's 3,000 savings per month."
+— Pre-Sales Specialist, Global Hospitality Technology Company
+```
+
+**Below the cards:**
+```
+These aren't testimonials for our product. They're testimonies of the problem. We built Nocturn AI to be the solution these operators described — nothing more, nothing less.
+```
+
 ### DESIGNER NOTES:
-- Include a professional but approachable photo of Basyir if available
-- This section should feel personal — different typography, slightly different background, like a letter
-- The use of first names from the interviews (currently unnamed in this public version for privacy) adds authenticity. Before publishing, confirm Basyir is comfortable being named and visible.
-- This section MUST exist. Floyd's assessment explicitly stated the importance of company background and trust. Bob said "always ask for SSM, company background, CTOS check." The founder's note humanizes the company.
+- Combined personal letter and industry proof.
+- This section humanizes the technology.
 
 ---
 
-## SECTION 11: FAQ (GEO-Optimized)
+## SECTION 4.9: ROI AUDIT (The Calculator) {#4-9-roi}
+
+### Content
+
+**Eyebrow:**
+```
+YOUR NUMBERS
+```
+
+**Section Title (H2):**
+```
+How Much Revenue Is Your Hotel Leaving on the Table?
+```
+
+**Calculator inputs:**
+
+```
+Input 1: Daily inquiries your hotel receives (Slider: 10-100, default: 30)
+Input 2: Your Average Daily Rate / ADR (Number input: RM, default: 230)
+Input 3: % of inquiries that arrive after office hours (Slider: 10-50%, default: 30%)
+```
+
+**Calculator outputs:**
+
+```
+Output 1: Estimated Monthly Revenue at Risk
+         = [Daily inquiries] × [After-hours %] × [30 days] × [15% conversion rate] × [ADR]
+
+Output 2: Estimated OTA Commission You Could Avoid
+         = [Output 1] × [18% avg OTA commission]
+```
+
+**Disclaimer below calculator:**
+```
+* Estimation based on industry conversion benchmarks. Your actual results will depend on property type, location, and season. The 30-day pilot will give you your real numbers.
+```
+
+**CTA below calculator:**
+```
+[See Your Real Numbers — Apply for Pilot →] (links to /apply)
+```
+
+### DESIGNER NOTES:
+- Matches Zul's ADR data exactly.
+- Final conversion step before the FAQ.
+
+---
+
+## SECTION 4.10: FAQ {#4-10-faq}
 
 ### Content
 
@@ -794,14 +752,13 @@ Most hotel chatbots only work on your website — which handles less than 10% of
 ```
 
 ### DESIGNER NOTES:
-- Implement as an accordion (expand/collapse) — current site already has this functionality, keep it
-- **ADD** FAQ Schema markup (current site already has this — keep the JSON-LD implementation)
-- Bernard specifically recommended GEO (Generative Engine Optimization) — FAQs structured as natural-language Q&A pairs help AI search engines surface your content when hoteliers ask questions like "how to capture hotel WhatsApp inquiries after hours"
-- The FAQ content should be crawlable — not hidden behind JavaScript that blocks search engines
+- Implement as an accordion (expand/collapse).
+- Keep FAQ Schema markup (JSON-LD) for GEO optimization.
+- FAQs structured as natural-language Q&A pairs help AI search engines surface content when hoteliers search "how to capture hotel WhatsApp inquiries after hours."
 
 ---
 
-## SECTION 12: FINAL CTA
+## SECTION 4.11: FINAL CTA {#4-11-cta}
 
 ### Content
 
@@ -828,9 +785,8 @@ Apply for Founding Cohort →
 ```
 
 ### DESIGNER NOTES:
-- Dark background section (navy or dark green)
-- **REMOVE** the current "78% of hotel chains have integrated AI in 2025" stat — this is unverified and the ICP doesn't care about what chains are doing. They care about their own P&L.
-- **REMOVE** "Your Competitors Are Already Capturing the Bookings You're Missing" — this competitive fear framing is weak for hospitality. The ICP's real fear isn't competition; it's OTA commission and lost revenue. Lead with that.
+- Dark background section (navy or dark green).
+- Final conversion push before the footer.
 
 ---
 

@@ -6,35 +6,23 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 This is a monorepo for **Nocturn AI** — an AI-powered hotel lead capture product by Sheers Software Sdn Bhd, targeting independent Malaysian hotels.
 
-It contains two separate applications:
+It contains a unified application:
 
 | App | Directory | Stack | Live URL |
 |-----|-----------|-------|----------|
-| Product App (Nocturn AI) | `/` (root) | Next.js 16 App Router, TypeScript, React 19 | [ai.sheerssoft.com](https://ai.sheerssoft.com) |
-| Marketing Website (SheersSoft) | `/business-website` | Next.js 16 App Router, TypeScript, React 19, Tailwind CSS v4, Framer Motion | [sheerssoft.com](https://sheerssoft.com) |
-| Marketing Website (Legacy Vite) | `/business-website-vite` | Vite, React 19, React Router v7 | (archived, not deployed) |
+| Unified App (Nocturn AI) | `/` (root) | Next.js 16 App Router, TypeScript, React 19 | [ai.sheerssoft.com](https://ai.sheerssoft.com) (Redirects from sheerssoft.com) |
 
-These are **completely independent apps** with separate `package.json`, `node_modules`, build pipelines, and Docker images. Changes to one do not affect the other.
+These are now consolidated into a single codebase.
 
 ---
 
 ## Development Commands
 
-### Product App (Next.js) — run from repo root
+### Unified App (Next.js) — run from repo root
 ```bash
 npm install
 npm run dev      # http://localhost:3000
 npm run build
-npm run lint
-```
-
-### Marketing Website (Next.js) — run from /business-website
-```bash
-cd business-website
-npm install
-npm run dev      # http://localhost:3000
-npm run build
-npm run start    # serve production build
 npm run lint
 ```
 
@@ -42,9 +30,9 @@ There are no tests in this codebase.
 
 ---
 
-## Product App Architecture (`/src`)
+## Architecture (`/src`)
 
-Uses Next.js 15+ App Router with `output: "standalone"` for Docker deployment.
+Uses Next.js 16+ App Router with `output: "standalone"` for Docker deployment.
 
 ### Pages (`/src/app`)
 - `/` — Home page (hero, how-it-works, pricing preview, testimonials)

@@ -1,9 +1,11 @@
 steps:
   # ==========================================
-  # PRODUCT APP — Nocturn AI (Next.js, root)
-  # Deployed to: ai.sheerssoft.com
+  # UNIFIED APP — Nocturn AI (Next.js, root)
+  # Deployed to: ai.sheerssoft.com (as product)
+  # Redirected from: sheerssoft.com (as site)
   # ==========================================
-  # 1. Build the Product Docker image
+
+  # 1. Build the Unified Docker image (from root)
   - name: 'gcr.io/cloud-builders/docker'
     args:
       - 'build'
@@ -12,18 +14,18 @@ steps:
       - '-t'
       - 'gcr.io/$PROJECT_ID/sheersdigital-product:latest'
       - '.'
-    id: 'build-product-image'
+    id: 'build-unified-image'
 
-  # 2. Push the Product Docker image
+  # 2. Push the Unified Docker image
   - name: 'gcr.io/cloud-builders/docker'
     args:
       - 'push'
       - '--all-tags'
       - 'gcr.io/$PROJECT_ID/sheersdigital-product'
-    id: 'push-product-image'
-    waitFor: ['build-product-image']
+    id: 'push-unified-image'
+    waitFor: ['build-unified-image']
 
-  # 3. Deploy Product to Cloud Run (secrets injected from Secret Manager)
+  # 3. Deploy to Main Product Service (ai.sheerssoft.com)
   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
     entrypoint: gcloud
     args:
@@ -37,7 +39,6 @@ steps:
       - '--platform'
       - 'managed'
       - '--allow-unauthenticated'
-      - '--verbosity=debug'
       - '--quiet'
       - '--memory'
       - '512Mi'
@@ -45,35 +46,11 @@ steps:
       - '1'
       - '--set-secrets'
       - 'RESEND_API_KEY=RESEND_API_KEY:latest,WHATSAPP_VERIFY_TOKEN=WHATSAPP_VERIFY_TOKEN:latest'
-    id: 'deploy-product-cloud-run'
-    waitFor: ['push-product-image']
+    id: 'deploy-product'
+    waitFor: ['push-unified-image']
 
-  # ==========================================
-  # BUSINESS WEBSITE — SheersSoft (Next.js, /business-website)
-  # Deployed to: sheerssoft.com
-  # ==========================================
-  # 4. Build the Website Docker image
-  - name: 'gcr.io/cloud-builders/docker'
-    dir: 'business-website'
-    args:
-      - 'build'
-      - '-t'
-      - 'gcr.io/$PROJECT_ID/sheersdigital-site:$_COMMIT_SHA'
-      - '-t'
-      - 'gcr.io/$PROJECT_ID/sheersdigital-site:latest'
-      - '.'
-    id: 'build-website-image'
-
-  # 5. Push the Website Docker image
-  - name: 'gcr.io/cloud-builders/docker'
-    args:
-      - 'push'
-      - '--all-tags'
-      - 'gcr.io/$PROJECT_ID/sheersdigital-site'
-    id: 'push-website-image'
-    waitFor: ['build-website-image']
-
-  # 6. Deploy Website to Cloud Run (no secrets — static Next.js, all tracking is client-side)
+  # 4. Deploy to Redirect Service (sheerssoft.com)
+  # This service now runs the SAME CODE and uses middleware to 301 redirect to ai.sheerssoft.com
   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
     entrypoint: gcloud
     args:
@@ -81,29 +58,29 @@ steps:
       - 'deploy'
       - 'sheersdigital-site'
       - '--image'
-      - 'gcr.io/$PROJECT_ID/sheersdigital-site:$_COMMIT_SHA'
+      - 'gcr.io/$PROJECT_ID/sheersdigital-product:$_COMMIT_SHA'
       - '--region'
       - 'asia-southeast1'
       - '--platform'
       - 'managed'
       - '--allow-unauthenticated'
-      - '--verbosity=debug'
       - '--quiet'
       - '--memory'
       - '512Mi'
       - '--cpu'
       - '1'
-    id: 'deploy-website-cloud-run'
-    waitFor: ['push-website-image']
+      - '--set-secrets'
+      - 'RESEND_API_KEY=RESEND_API_KEY:latest,WHATSAPP_VERIFY_TOKEN=WHATSAPP_VERIFY_TOKEN:latest'
+    id: 'deploy-site-redirect'
+    waitFor: ['push-unified-image']
 
 images:
   - 'gcr.io/$PROJECT_ID/sheersdigital-product:$_COMMIT_SHA'
   - 'gcr.io/$PROJECT_ID/sheersdigital-product:latest'
-  - 'gcr.io/$PROJECT_ID/sheersdigital-site:$_COMMIT_SHA'
-  - 'gcr.io/$PROJECT_ID/sheersdigital-site:latest'
 
 options:
   machineType: 'E2_HIGHCPU_8'
   logging: CLOUD_LOGGING_ONLY
 
 timeout: '2400s'
+

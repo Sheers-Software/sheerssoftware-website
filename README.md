@@ -18,7 +18,6 @@ Nocturn AI is an automated inquiry capture and engagement layer for independent 
 
 ## Project Structure
 
-```
 ├── src/                          # Next.js 16 product app (App Router)
 │   ├── app/                      # Pages, layouts, global CSS
 │   │   ├── page.tsx              # Homepage (full funnel)
@@ -33,15 +32,12 @@ Nocturn AI is an automated inquiry capture and engagement layer for independent 
 │       ├── BenefitGrid.tsx       # "The System" 2x2 pillar cards
 │       ├── UseCases.tsx          # "Who This Is For" ICP cards
 │       ├── TruthTracking.tsx     # Tab (desktop) / accordion (mobile) feature section
-│       ├── ScalingTruth.tsx      # Pre-CTA statement
-│       ├── FounderSection.tsx    # Founder letter + photo
 │       └── ...
-├── business-website-vite/        # Archived Vite app (not deployed)
 ├── docs/                         # Strategy docs, content specs
-├── public/                       # Static assets incl. Basyir.png
+├── public/                       # Static assets
 ├── Dockerfile                    # Production container (standalone output)
-└── cloudbuild.yaml               # GCP Cloud Build CI/CD
-```
+└── cloudbuild.yaml               # GCP Cloud Build CI/CD (Unified)
+
 
 ---
 
