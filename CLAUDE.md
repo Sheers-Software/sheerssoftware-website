@@ -112,7 +112,6 @@ Next.js 16 App Router application (migrated from Vite/React Router). TypeScript 
 
 ## Deployment
 
-Both apps deploy to **Google Cloud Run** (`asia-southeast1`, project `sheers-software`) via Google Cloud Build (`cloudbuild.yaml`). CI/CD triggers automatically on push.
+The application deploys to **Google Cloud Run** (`asia-southeast1`, project `sheers-software`) via Google Cloud Build (`cloudbuild.yaml`). CI/CD triggers automatically on push.
 
-- Product app: built from root `Dockerfile` using Next.js standalone output
-- Marketing site: built from `business-website/Dockerfile` (Next.js standalone output)
+- **Unified App**: built from root `Dockerfile` using Next.js standalone output and deployed to the `sheerssoft-website` service.

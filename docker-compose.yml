@@ -1,10 +1,10 @@
 services:
-  # Unified Nocturn AI site (handles both sheerssoft.com and ai.sheerssoft.com via middleware)
-  nocturn-ai:
+  # sheerssoft-website (Unified application)
+  sheerssoft-website:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: nocturn-ai
+    container_name: sheerssoft-website
     ports:
       - "3002:3000"
     environment:
