@@ -6,9 +6,9 @@ export function middleware(request: NextRequest) {
 
   // Check if the request is coming from sheerssoft.com (root or www)
   if (host && (host === 'sheerssoft.com' || host === 'www.sheerssoft.com')) {
-    url.host = 'ai.sheerssoft.com'
-    url.protocol = 'https:' // Ensure https
-    return NextResponse.redirect(url, 301)
+    // We no longer redirect to ai.sheerssoft.com
+    // Just proceed to the next middleware or route
+    return NextResponse.next()
   }
 
   return NextResponse.next()

@@ -10,7 +10,7 @@ It contains a unified application:
 
 | App | Directory | Stack | Live URL |
 |-----|-----------|-------|----------|
-| Unified App (Nocturn AI) | `/` (root) | Next.js 16 App Router, TypeScript, React 19 | [ai.sheerssoft.com](https://ai.sheerssoft.com) (Redirects from sheerssoft.com) |
+| Unified App (Nocturn AI) | `/` (root) | Next.js 16 App Router, TypeScript, React 19 | [sheerssoft.com](https://sheerssoft.com) (Also reachable via ai.sheerssoft.com) |
 
 These are now consolidated into a single codebase.
 
