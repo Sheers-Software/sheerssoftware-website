@@ -24,7 +24,23 @@ steps:
     id: 'push-unified-image'
     waitFor: ['build-unified-image']
 
-  # 3. Deploy to Main Website Service (sheerssoft.com)
+  # 3. Cleanup: Remove literal env var to avoid type conflict
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    entrypoint: gcloud
+    args:
+      - 'run'
+      - 'services'
+      - 'update'
+      - 'sheerssoft-website'
+      - '--remove-env-vars'
+      - 'MAKE_WEBHOOK_URL'
+      - '--region'
+      - 'asia-southeast1'
+      - '--quiet'
+    id: 'cleanup-env-vars'
+    waitFor: ['push-unified-image']
+
+  # 4. Deploy to Main Website Service (sheerssoft.com)
   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
     entrypoint: gcloud
     args:
@@ -46,7 +62,7 @@ steps:
       - '--set-secrets'
       - 'RESEND_API_KEY=RESEND_API_KEY:latest,WHATSAPP_VERIFY_TOKEN=WHATSAPP_VERIFY_TOKEN:latest,MAKE_WEBHOOK_URL=MAKE_WEBHOOK_URL:latest,META_CAPI_TOKEN_NOCTURN=META_CAPI_TOKEN_NOCTURN:latest,META_CAPI_TOKEN_SHEERS=META_CAPI_TOKEN_SHEERS:latest'
     id: 'deploy-website'
-    waitFor: ['push-unified-image']
+    waitFor: ['cleanup-env-vars']
 
 images:
   - 'gcr.io/$PROJECT_ID/sheerssoft-website:$_COMMIT_SHA'
