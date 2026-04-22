@@ -76,7 +76,7 @@ function Hero() {
 
           <motion.div variants={itemVariants} className="hero-ctas">
             <a href="https://wa.me/601163263808" className="btn btn-solid-white btn-lg">Chat with the Founder on WhatsApp Now</a>
-            <a href="/apply" className="btn btn-outline-white btn-lg">Apply for Founding Cohort — RM999</a>
+            <a href="/apply" className="btn btn-outline-white btn-lg">Start 48-Hour Implementation</a>
           </motion.div>
 
           <motion.div variants={itemVariants} style={{ marginTop: 24, textAlign: 'center', opacity: 0.8 }}>
@@ -605,8 +605,8 @@ function FinalCTASection() {
           RM199/mo platform. RM999 one-time setup. 3% only when we deliver a confirmed booking. You keep the other 15%.
         </p>
         <div className="hero-ctas" style={{ display: 'flex', justifyContent: 'center', gap: '20px', flexWrap: 'wrap' }}>
-          <a href="/apply" className="btn btn-solid-white btn-lg">Start 48-Hour Implementation →</a>
-          <a href="https://wa.me/601163263808" className="btn btn-outline-white btn-lg">Chat with Founder on WhatsApp</a>
+          <a href="https://wa.me/601163263808" className="btn btn-solid-white btn-lg">Chat with Founder on WhatsApp</a>
+          <a href="/apply" className="btn btn-outline-white btn-lg">Start 48-Hour Implementation →</a>
           <a href="mailto:a.basyir@sheerssoft.com?subject=Nocturn AI Revenue Partner Inquiry" className="btn btn-outline-white btn-lg" style={{ opacity: 0.8 }}>Email Strategy Desk</a>
         </div>
         <p style={{ marginTop: 32, color: 'rgba(255,255,255,0.4)', fontSize: '0.85rem' }}>

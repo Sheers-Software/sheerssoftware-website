@@ -57,75 +57,30 @@ export async function POST(req: NextRequest) {
         console.error("Critical Resend error:", notificationErr);
     }
 
-    // 2. Send WhatsApp Webhook Notification
+    // 2. Send Data to Make.com Webhook (Founding Cohort Automation)
     if (process.env.WHATSAPP_WEBHOOK_URL) {
         try {
             const webhookRes = await fetch(process.env.WHATSAPP_WEBHOOK_URL, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
-                    text: `*New Application*\nName: ${name}\nProperty: ${property}\nRooms: ${rooms}\nChannels: ${currentHandling}\nEmail: ${email}\nPhone: ${phone}`,
+                    source: "Website-Apply-Form",
+                    timestamp: new Date().toISOString(),
                     data: body
                 }),
             });
             if (!webhookRes.ok) {
-                console.error("WhatsApp Webhook failed status:", webhookRes.status);
+                console.error("Webhook failed status:", webhookRes.status);
             } else {
-                console.log("WhatsApp Webhook triggered successfully.");
+                console.log("Lead data forwarded to Make.com successfully.");
             }
         } catch (webhookError) {
-            console.error('WhatsApp Webhook fetch error:', webhookError);
+            console.error('Webhook fetch error:', webhookError);
         }
     } else {
-        console.warn("WHATSAPP_WEBHOOK_URL missing, skipping WhatsApp notification.");
+        console.warn("WHATSAPP_WEBHOOK_URL missing, skipping external lead forwarding.");
     }
 
-    const portalId = process.env.HUBSPOT_PORTAL_ID;
-    const formId = process.env.HUBSPOT_FORM_ID;
-
-    // 3. HubSpot CRM Sync
-    if (!portalId || !formId) {
-      console.warn("HubSpot credentials not found in env, skipping CRM submission (Mocking Success)");
-      return NextResponse.json({ ok: true, note: "Notifications sent, CRM skipped" });
-    }
-
-    const payload = {
-      fields: [
-        { name: "email", value: email },
-        { name: "firstname", value: firstName },
-        { name: "lastname", value: lastName },
-        { name: "hotel_property_name", value: property },
-        { name: "hotel_room_band", value: rooms || "" },
-        { name: "phone", value: phone || "" },
-        { name: "current_handling", value: currentHandling || "" },
-        { name: "utm_source", value: utm_source || "" },
-        { name: "utm_medium", value: utm_medium || "" },
-        { name: "utm_campaign", value: utm_campaign || "" },
-      ],
-      context: {
-        pageUri: req.headers.get("referer") || "https://sheerssoft.com/apply",
-        pageName: "Apply for Founding Cohort",
-      },
-    };
-
-    const res = await fetch(
-      `https://api.hsforms.com/submissions/v3/integration/submit/${portalId}/${formId}`,
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(payload),
-      }
-    );
-
-    if (!res.ok) {
-      const text = await res.text();
-      console.error("HubSpot form error:", res.status, text);
-      return NextResponse.json({ error: "HubSpot submission failed" }, { status: 502 });
-    }
-
-    console.log("HubSpot submission successful.");
     return NextResponse.json({ ok: true });
   } catch (err) {
     console.error("submit-apply critical backend error:", err);

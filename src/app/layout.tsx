@@ -167,15 +167,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         />
 
         {/* GA4 configured via GTM — add GA4 tag in GTM dashboard */}
-
-        {/* HubSpot Tracking Code */}
-        <script
-          type="text/javascript"
-          id="hs-script-loader"
-          async
-          defer
-          src="//js-na2.hs-scripts.com/243983306.js">
-        </script>
       </body>
     </html>
   );

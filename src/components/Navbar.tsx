@@ -51,7 +51,7 @@ export function Navbar({ className }: { className?: string }) {
 
                 <div className="navbar-actions hide-mobile" style={{ display: 'flex', gap: '16px', justifyContent: 'flex-end', alignItems: 'center' }}>
                     <a href="https://app.sheerssoft.com" className={isHome ? "btn btn-outline-white" : "btn btn-outline-navy"}>Log In</a>
-                    <a href="/apply" className={isHome ? "btn btn-solid-white" : "btn btn-solid-green"}>Sign Up</a>
+                    <a href="/apply" className={isHome ? "btn btn-solid-white" : "btn btn-solid-green"}>Apply Now</a>
                 </div>
 
                 <button
@@ -84,7 +84,7 @@ export function Navbar({ className }: { className?: string }) {
                         <div style={{ height: 1, background: "var(--color-gray-100)", margin: "8px 0" }}></div>
                         <a href="https://app.sheerssoft.com" style={{ color: "var(--color-navy)" }}>Log In</a>
                         <a href="/apply" className="btn btn-solid-green" style={{ width: "100%", marginTop: 8 }}>
-                            Sign Up
+                            Apply Now
                         </a>
                     </motion.div>
                 )}

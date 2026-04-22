@@ -98,12 +98,19 @@ export default function ApplyPage() {
                                 <InputGroup name="name" label="Full Name" type="text" required placeholder="Ahmad Basyir" />
                                 <InputGroup name="email" label="Work Email" type="email" required placeholder="director@hotel.com" />
                                 <InputGroup name="property" label="Hotel Name + City" type="text" required placeholder="e.g., Grand Seasons Hotel, Kuala Lumpur" />
-                                <InputGroup name="rooms" label="Number of Rooms" type="select" options={["<30", "30-50", "50-150", "150+"]} required />
+                                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
+                                    <InputGroup name="starRating" label="Star Rating" type="select" options={["3-Star", "4-Star", "5-Star", "Budget / Boutique"]} required />
+                                    <InputGroup name="rooms" label="Number of Rooms" type="select" options={["<30", "30-50", "51-150", "150+"]} required />
+                                </div>
+                                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
+                                    <InputGroup name="adr" label="Average Daily Rate (RM)" type="number" required placeholder="e.g., 250" />
+                                    <InputGroup name="monthlyVolume" label="Est. Monthly Revenue (RM)" type="number" required placeholder="e.g., 50000" />
+                                </div>
                                 <InputGroup name="currentHandling" label="Current After-Hours Process" type="select" options={[
                                     "WhatsApp/calls only, often missed",
                                     "Someone on call but inconsistent",
-                                    "We have a system but it's not working",
-                                    "We miss most after-hours inquiries"
+                                    "We miss most after-hours inquiries",
+                                    "We have a system but it's not working"
                                 ]} required />
                                 <InputGroup name="phone" label="Your WhatsApp Number" type="tel" required placeholder="+60..." />
 
