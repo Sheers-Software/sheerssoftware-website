@@ -20,6 +20,8 @@ export async function POST(req: NextRequest) {
       utm_campaign,
     } = body;
 
+    console.log("Submission received:", JSON.stringify(body));
+
     if (!email || !name || !property || !phone) {
       return NextResponse.json({ error: "Missing required fields" }, { status: 400 });
     }
@@ -31,6 +33,7 @@ export async function POST(req: NextRequest) {
     // 1. Send Email Notification via Resend
     try {
         if (process.env.RESEND_API_KEY) {
+            console.log("Attempting Resend notification...");
             const resend = new Resend(process.env.RESEND_API_KEY);
             const { data, error } = await resend.emails.send({
                 from: 'Nocturn AI <onboarding@resend.dev>', // Note: Update to a verified domain email in Resend dashboard
@@ -51,12 +54,12 @@ export async function POST(req: NextRequest) {
                 `,
             });
             if (error) {
-                console.error("Resend delivery failed:", error);
+                console.error("Resend delivery FAILED:", error);
             } else {
-                console.log("Resend email sent successfully:", data?.id);
+                console.log("Resend email SENT successfully. ID:", data?.id);
             }
         } else {
-            console.warn("RESEND_API_KEY missing, skipping email notification.");
+            console.warn("RESEND_API_KEY missing, skipping email.");
         }
     } catch (notificationErr) {
         console.error("Critical Resend error:", notificationErr);
@@ -64,6 +67,7 @@ export async function POST(req: NextRequest) {
 
     // 2. Send Data to Make.com Webhook (Founding Cohort Automation)
     if (process.env.MAKE_WEBHOOK_URL) {
+        console.log("Attempting Webhook forward...");
         try {
             const webhookRes = await fetch(process.env.MAKE_WEBHOOK_URL, {
                 method: 'POST',
@@ -75,7 +79,7 @@ export async function POST(req: NextRequest) {
                 }),
             });
             if (!webhookRes.ok) {
-                console.error("Webhook failed status:", webhookRes.status);
+                console.error("Webhook FAILED. Status:", webhookRes.status);
             } else {
                 console.log("Lead data forwarded to Make.com successfully.");
             }
@@ -83,7 +87,7 @@ export async function POST(req: NextRequest) {
             console.error('Webhook fetch error:', webhookError);
         }
     } else {
-        console.warn("MAKE_WEBHOOK_URL missing, skipping external lead forwarding.");
+        console.warn("MAKE_WEBHOOK_URL missing, skipping webhook.");
     }
 
     return NextResponse.json({ ok: true });
