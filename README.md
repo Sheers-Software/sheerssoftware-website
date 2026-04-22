@@ -3,7 +3,7 @@
 > **Stop Losing Revenue While You Sleep.**
 > Capture every WhatsApp, email, and web inquiry 24/7 with an AI concierge trained for Malaysian hospitality.
 
-**Version:** `0.7.0` | **Branch:** `main`
+**Version:** `0.8.0` | **Branch:** `main`
 
 ---
 
@@ -72,9 +72,8 @@ npm run lint
 | Variable | Required | Purpose |
 |----------|----------|---------|
 | `RESEND_API_KEY` | Yes | Email delivery for application submissions |
-| `WHATSAPP_WEBHOOK_URL` | Yes (Rec.) | Webhook (Make/Zapier) for WhatsApp notifications to founder |
-| `HUBSPOT_PORTAL_ID` | Yes | HubSpot account ID for lead capture |
-| `HUBSPOT_FORM_ID` | Yes | HubSpot Form GUID for `/apply` submissions |
+| `WHATSAPP_WEBHOOK_URL` | Yes | Primary sink for lead capture (Make.com webhook) |
+| `WHATSAPP_VERIFY_TOKEN` | Yes | Security token for WhatsApp API verification |
 
 ---
 
@@ -174,8 +173,15 @@ Region    : asia-southeast1
 - **CI/CD:** Streamlined `cloudbuild.yaml` to deploy a single unified image to both `sheersdigital-product` and `sheersdigital-site` services.
 - **Redesign:** Finalised Hyros-style high-performance redesign with mobile-first CSS overhaul and neon accents.
 
-### Sprint 11 — Strategy Realignment & Acquisition Flow (v0.7.0) ✅
-- **Copy Alignment:** Restructured hero metrics and CTAs to prioritize Same-Day FPX cash and 3% Performance capture limits. Added WhatsApp immediate routing for top-level traffic.
-- **Backend Hubspot Form Bridge:** Built robust Next.js server route `/api/submit-apply` to securely transmit founding cohort applications into CRM workflow.
+### Sprint 11 — Strategy Realignment & Internal Infrastructure (v0.7.0) ✅
+- **Copy Alignment:** Restructured hero metrics and CTAs to prioritize Same-Day FPX cash and 3% Performance capture limits. 
+- **Backend Infrastructure:** Built robust Next.js server route `/api/submit-apply` to securely transmit applications.
 - **Acquisition Flow Integrity:** Deprecated unscalable SaaS HubSpot embeds, driving users explicitly through a locally styled `/apply` gating page for quality control.
+
+### Sprint 12 — HubSpot Detachment & WhatsApp-First Funnel (v0.8.0) ✅
+- **HubSpot Removal:** Completely removed all HubSpot tracking scripts and CRM integration logic from the frontend and backend.
+- **WhatsApp Priority:** Re-aligned landing page CTAs to prioritize direct WhatsApp engagement with the founder.
+- **Enriched Acquisition Form:** Updated the `/apply` form to capture specific hotel metrics (Star Rating, ADR, Monthly Inquiry Volume).
+- **Make.com Integration:** Configured the backend to forward all application data to a centralized Make.com webhook for automation.
+- **CI/CD Cleanup:** Removed HubSpot-dependent environment variables from Cloud Build configuration.
 
