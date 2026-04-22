@@ -1,11 +1,10 @@
 # ICP Workflow & Pain Point Analysis
 
-Based on the strategic documentation for Sheers Software's products, the company targets two distinct product categories with their respective Ideal Customer Profiles (ICPs).
+Based on the strategic documentation for Sheers Software's products, the company targets the following Ideal Customer Profile (ICP).
 
 1. **Nocturn AI** (After-hours inquiry capture) targeting Independent 3-4 star hotels.
-2. **Resort Genius** (AI agent-assist dashboard) targeting Hospitality Call Centers.
 
-Below is the deep dive into the specific workflows, segment breakages, and specific pain points for each ICP.
+Below is the deep dive into the specific workflows, segment breakages, and specific pain points for the target ICP.
 
 ---
 
@@ -50,32 +49,4 @@ Below is the deep dive into the specific workflows, segment breakages, and speci
 *   **Segment 2 Breakage (The Vicious Cycle):** Implementing enterprise tech (like Opera integrations) takes 6-18 months and costs a fortune. Adopting generic chatbots usually fails because guests hate them and staff ignore them.
 *   **Exact Pain Point:** Direct owner pressure on profitability. Knowing revenue is falling through the cracks after 6PM (RM 3,000 - 8,000/mo at risk) but having no cost-effective, easily implementable way to solve it. 
 
----
 
-## 2. Resort Genius: Hospitality Call Centers
-
-### ICP 4: The Call Center Agent ("Sarah" - The User)
-
-**Daily Workflow Segments:**
-1. **Call Reception:** Answers 50+ calls a day from guests with a wide variety of unpredictable needs (from "Is the pool bar open?" to "Where is the nearest pharmacy?").
-2. **Information Retrieval (The Search):** Puts the guest on hold. Rummages through 10 open browser tabs, thick binder manuals, scattered PDFs, and outdated intranet pages. 
-3. **Resolution:** Relays the anwer to the guest, logs the call, wraps up.
-
-**Workflow Breakages & Pain Points:**
-*   **Segment 1 Breakage (Performance Anxiety):** Immediate stress when encountering "weird" or hyper-specific questions they haven't memorized.
-*   **Segment 2 Breakage (Search Fatigue):** Spending 40% of their day just looking for information. The information is scattered, siloed, and often contradictory.
-*   **Segment 3 Breakage (Metric Failure):** High Average Handle Time (AHT) metrics because they spend 8 minutes digging for an answer. 
-*   **Exact Pain Point:** "Search Fatigue". The constant dread of being asked a question they don't know the answer to. The tension between wanting to be helpful and the pressure of strict AHT KPIs. They feel incompetent when they have to put guests on lengthy holds.
-
-### ICP 5: The Operations Manager ("David" - The Buyer)
-
-**Daily Workflow Segments:**
-1. **KPI Monitoring:** Tracks department AHT, CSAT (Customer Satisfaction), and First Call Resolution rates.
-2. **Training & QA:** Spends hours retraining staff, updating manual knowledge bases, auditing calls for quality.
-3. **Hiring/Retention:** Constantly recruiting to backfill a leaky bucket of agents quitting due to stress.
-
-**Workflow Breakages & Pain Points:**
-*   **Segment 1 Breakage (The Onboarding Bottleneck):** It takes weeks to train a new agent to proficiency because there is too much institutional knowledge to memorize.
-*   **Segment 2 Breakage (Inconsistent QA):** Different agents give different answers to the same questions because they are referencing different outdated PDFs.
-*   **Segment 3 Breakage (The Churn Loop):** By the time an agent is finally profitable and proficient, they quit due to burnout. The cycle starts over.
-*   **Exact Pain Point:** The Training Bottleneck. Being held accountable for AHT metrics that are structurally impossible to improve with their current scattered knowledge infrastructure. Endless hiring and training loops.

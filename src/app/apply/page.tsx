@@ -17,14 +17,16 @@ export default function ApplyPage() {
 
         const formData = new FormData(e.currentTarget);
         const data = {
-            hotelNameAndLocation: formData.get("hotelNameAndLocation"),
-            roomCount: formData.get("roomCount"),
+            name: formData.get("name"),
+            email: formData.get("email"),
+            property: formData.get("property"),
+            rooms: formData.get("rooms"),
+            phone: formData.get("phone"),
             currentHandling: formData.get("currentHandling"),
-            whatsapp: formData.get("whatsapp"),
         };
 
         try {
-            const res = await fetch("/api/send-email", {
+            const res = await fetch("/api/submit-apply", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(data),
@@ -88,15 +90,17 @@ export default function ApplyPage() {
                             )}
 
                             <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: 24 }}>
-                                <InputGroup name="hotelNameAndLocation" label="Hotel Name + City" type="text" required placeholder="e.g., Grand Seasons Hotel, Kuala Lumpur" />
-                                <InputGroup name="roomCount" label="Number of Rooms" type="select" options={["<30", "30-50", "50-150", "150+"]} required />
+                                <InputGroup name="name" label="Full Name" type="text" required placeholder="Ahmad Basyir" />
+                                <InputGroup name="email" label="Work Email" type="email" required placeholder="director@hotel.com" />
+                                <InputGroup name="property" label="Hotel Name + City" type="text" required placeholder="e.g., Grand Seasons Hotel, Kuala Lumpur" />
+                                <InputGroup name="rooms" label="Number of Rooms" type="select" options={["<30", "30-50", "50-150", "150+"]} required />
                                 <InputGroup name="currentHandling" label="Current After-Hours Process" type="select" options={[
                                     "WhatsApp/calls only, often missed",
                                     "Someone on call but inconsistent",
                                     "We have a system but it's not working",
                                     "We miss most after-hours inquiries"
                                 ]} required />
-                                <InputGroup name="whatsapp" label="Your WhatsApp Number" type="tel" required placeholder="+60..." />
+                                <InputGroup name="phone" label="Your WhatsApp Number" type="tel" required placeholder="+60..." />
 
                                 <button
                                     type="submit"

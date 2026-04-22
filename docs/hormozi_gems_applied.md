@@ -190,27 +190,29 @@ Only then accelerate acquisition.
 | Metric | Estimate | Notes |
 |--------|----------|-------|
 | CAC (pilot) | RM 800 | ~4 hours founder time @ RM 200/hr equivalent |
-| Monthly price (pilot) | RM 500 | Current pilot tier |
+| Setup Fee | RM 999 | Paid upfront, immediately covers CAC |
+| Monthly Platform | RM 199 | Covers server costs and recurring SMS/WhatsApp fees |
+| Performance Fee | 3% | Variable performance based on direct bookings secured |
 | Avg retention (assumption) | 12 months | Conservative |
-| LTV | RM 6,000 | 12 × RM 500 |
-| LTV:CAC | 7.5:1 | Just below the 8:1 threshold |
+| LTV Estimation | RM 5,787 | Setup + 12 × RM 199 + 12 × RM 200 (estimated performance) |
+| LTV:CAC | 7.2:1 | Approaching the 8:1 threshold |
 
 **To hit 8:1+, two levers:**
 
-1. **Reduce CAC** — The `/welcome` wizard means onboarding goes from 4 hours founder time → 1 hour. CAC drops to ~RM 200. LTV:CAC immediately becomes 30:1. This is why the wizard was the highest-leverage thing we could build.
+1. **Reduce CAC** — The `/welcome` wizard and guided application form means onboarding goes from 4 hours founder time → 1 hour. CAC drops to ~RM 200. LTV:CAC immediately becomes >25:1. This is why the wizard was the highest-leverage thing we could build.
 
-2. **Increase LTV** — The boutique tier is RM 1,200/month. Moving a pilot client to boutique after 60 days triples LTV without touching CAC. This is the upsell motion every account manager should be executing at the day-30 ROI call.
+2. **Increase Performance Fee LTV** — By optimizing the AI draft templates and introducing the DuitNow/FPX payment link (Sprint 2.6), we turn drafts into direct guaranteed payments. More bookings confirmed = higher 3% performance returns. This scales our LTV organically without upselling flat tiers.
 
 **LTV expansion playbook:**
 
 ```
-Month 0:   Pilot tier (RM 500) — "Try us for free, pay after first lead"
-Month 2:   Upsell review — present ROI data, offer boutique tier (RM 1,200)
-Month 6:   Add second property — boutique tier for each (RM 2,400 total)
-Month 12:  Annual contract at independent tier (RM 2,800) — 15% discount for commitment
+Month 0:   RM 999 Setup Fee and Shadow Pilot — "Prove the loss first"
+Month 1:   RM 199 Platform fee + 3% Performance active
+Month 2:   ROI review — present data, optimize FPX conversion rates
+Month 6:   Expand to second property for multi-property owners
 ```
 
-Target: Average client LTV of RM 18,000+ over 24 months. At a CAC of RM 200 post-wizard: 90:1.
+Target: Average client LTV of RM 12,000+ over 24 months. At a CAC of RM 200 post-wizard: 60:1.
 
 ---
 
@@ -227,13 +229,13 @@ That's a feature list, not an outcome. Hotel GMs don't care about features. They
 
 **The productized Nocturn AI offer:**
 
-> **"Your hotel's after-hours AI assistant. Captures every booking lead while you sleep. Delivers a revenue report to your GM at 7am every morning. Live in 48 hours."**
+> **"Your hotel's Hybrid Co-Pilot. Drafts the perfect booking reply with a payment link while you sleep. Delivers a revenue report to your GM at 9am every morning. Live in 48 hours."**
 >
-> - You keep 100% of the bookings your AI captures.
-> - We charge RM 500/month.
-> - If the AI doesn't capture a single qualified lead in the first 30 days, you pay nothing.
+> - You keep the 15-18% OTA commission. We only charge a 3% performance fee when we secure a direct booking.
+> - RM 199/month platform fee.
+> - If the commissions we save you don't exceed our platform fee in the first 30 days, your next month is free.
 >
-> **Single outcome: Revenue recovered from after-hours inquiries.**
+> **Single outcome: Revenue recovered from after-hours inquiries via Direct Bookings.**
 
 Everything else (WhatsApp, KB, analytics, daily report) is delivery infrastructure — not the offer. Never lead with it in sales conversations.
 
@@ -398,20 +400,20 @@ The `/admin/kb-ingestion` page we built IS the systematized script. The structur
 
 ---
 
-> ### Never Miss a Hotel Booking Again
+> ### Stop Bleeding 18% to OTAs.
 >
-> Your AI hotel concierge, live on WhatsApp in 48 hours.
+> Your Hybrid Co-Pilot, live on WhatsApp in 48 hours.
 >
 > **What you get:**
-> - Responds to every guest inquiry in 18 seconds — 24/7, including overnight
-> - Captures guest name, phone, email, and booking intent automatically
-> - Replies in English and Bahasa Malaysia
-> - Sends your GM a revenue report at 7am every morning
+> - Drafts the perfect reply to every guest inquiry in seconds — 24/7, including overnight
+> - Auto-generates FPX payment links to secure the direct booking
+> - Replies in English and Bahasa Malaysia based on live Google Sheet inventory
+> - Sends your GM a revenue report at 9am every morning
 >
 > **The guarantee:**
-> If the AI doesn't capture a single qualified lead in your first 30 days, you pay nothing. Not a cent.
+> 30-Day Pay For Itself Guarantee. If the OTA commissions we save you don't completely exceed our platform fee, your next month is free.
 >
-> **RM 500/month.** Less than the cost of one missed booking.
+> **RM 199/month + 3% Performance Fee.** We only win when you capture margin.
 
 ---
 

@@ -806,11 +806,11 @@ Group 4 — Contact:
 **Below submit:** "We review every application personally and respond within 24 hours via WhatsApp."
 
 **Form backend:**
-- POST to HubSpot via API (if HubSpot is set up) OR to Airtable via API
+- POST to our internal API `/api/submit-apply` (which securely forwards to HubSpot Forms API)
 - On successful submit: 
-  1. Redirect to `/thank-you`
+  1. Redirect to `/apply/thank-you`
   2. Fire `form_submit` event to Google Analytics 4
-  3. Send notification to Basyir's WhatsApp via Make/Zapier webhook with all form data
+  3. Lead appears in HubSpot immediately
 
 **Form validation:**
 - Real-time validation (not just on submit)
@@ -818,9 +818,9 @@ Group 4 — Contact:
 - Phone number format check (accept +60 format)
 - Required field indicators and error messages
 
-**CRITICAL: Do NOT use the HubSpot default form embed.** The current /book-demo page uses `HubSpotLeadForm` and `HubSpotModal` components. These should be replaced with a custom form that matches the site design. The HubSpot form looks generic and signals template-level effort to sophisticated ICPs.
+**CRITICAL: Do NOT use the HubSpot default form embed.** The current /apply page should use a custom coded form that matches the site design. The HubSpot form looks generic and signals template-level effort to sophisticated ICPs.
 
-If the backend integration with HubSpot is needed for CRM, POST the form data to HubSpot's API endpoint programmatically from your custom form's submit handler.
+The backend integration with HubSpot is implemented in `/api/submit-apply`; your frontend form merely needs to POST a JSON payload there.
 
 ### Task 3.5: Rebuild /thank-you
 

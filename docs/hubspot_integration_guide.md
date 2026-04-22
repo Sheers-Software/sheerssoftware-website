@@ -12,7 +12,7 @@ It assumes the current Next.js App Router implementation and the structure descr
 
 - **Single source of truth**: Every demo request and key interaction creates/updates a **HubSpot contact** (and optionally a deal).  
 - **Attribution intact**: Preserve **UTM** and source data from first touch through to demo booking.  
-- **Minimal friction**: Keep the current `/book-demo` UX (split layout, custom form) while using HubSpot behind the scenes.  
+- **Minimal friction**: Keep the current `/apply` UX (split layout, custom form) while using HubSpot behind the scenes.  
 - **Extendable events**: Prepare a simple way to log **ROI calculator interactions** and other high‑intent signals later.  
 
 ---
@@ -20,10 +20,10 @@ It assumes the current Next.js App Router implementation and the structure descr
 ## 2. Current State (Summary)
 
 - HubSpot tracking script is already injected in `RootLayout`, so **page views and sessions** appear in HubSpot.  
-- `BookingForm` (on `/book-demo`) is a client component that:
+- `ApplyForm` (on `/apply`) is a client component that:
   - Collects name, email, property name, room‑count band, phone/WhatsApp.  
   - Captures `utm_source`, `utm_medium`, `utm_campaign` via hidden fields.  
-  - Currently **simulates** a delay and redirects to `/book-demo/thank-you` without calling HubSpot.  
+  - Currently **simulates** a delay and redirects to `/apply/thank-you` without calling HubSpot.  
 
 This guide focuses on replacing the simulated behaviour with a **real HubSpot integration**.
 
@@ -91,13 +91,13 @@ Add the following to your deployment environment (e.g. Vercel project settings) 
 
 ---
 
-## 5. Backend: `/api/submit-demo` Route
+## 5. Backend: `/api/submit-apply` Route
 
 Create a **server route** that receives the booking data, normalizes it, and posts to HubSpot’s Forms API.
 
 ### 5.1. Route outline (App Router)
 
-Create `src/app/api/submit-demo/route.ts` with logic like:
+Create `src/app/api/submit-apply/route.ts` with logic like:
 
 ```ts
 import { NextRequest, NextResponse } from "next/server";
@@ -141,8 +141,8 @@ export async function POST(req: NextRequest) {
         { name: "utm_campaign", value: utm_campaign || "" },
       ],
       context: {
-        pageUri: req.headers.get("referer") || "https://nocturn.ai/book-demo",
-        pageName: "Book a Demo",
+        pageUri: req.headers.get("referer") || "https://nocturn.ai/apply",
+        pageName: "Apply for Founding Cohort",
       },
     };
 
@@ -165,7 +165,7 @@ export async function POST(req: NextRequest) {
 
     return NextResponse.json({ ok: true });
   } catch (err) {
-    console.error("submit-demo error:", err);
+    console.error("submit-apply error:", err);
     return NextResponse.json({ error: "Server error" }, { status: 500 });
   }
 }
@@ -175,17 +175,17 @@ Adapt field names if your HubSpot form uses different `name` attributes.
 
 ---
 
-## 6. Frontend: Wire `BookingForm` to the API
+## 6. Frontend: Wire `ApplyForm` to the API
 
-Update `BookingForm` to call the new API instead of `setTimeout` + redirect.
+Update `ApplyForm` to call the new API instead of `setTimeout` + redirect.
 
 ### 6.1. Submission flow
 
 Desired behaviour:
 
-1. User submits `/book-demo` form.  
-2. `BookingForm` sends a `POST` to `/api/submit-demo` with JSON body.  
-3. On success, router navigates to `/book-demo/thank-you`.  
+1. User submits `/apply` form.  
+2. `ApplyForm` sends a `POST` to `/api/submit-apply` with JSON body.  
+3. On success, router navigates to `/apply/thank-you`.  
 4. On failure, show an inline error and allow retry; optionally log to an error tracker.  
 
 ### 6.2. Example client-side call
@@ -201,7 +201,7 @@ async function handleSubmit(e: FormEvent<HTMLFormElement>) {
   const payload = Object.fromEntries(formData.entries());
 
   try {
-    const res = await fetch("/api/submit-demo", {
+    const res = await fetch("/api/submit-apply", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(payload),
@@ -209,15 +209,15 @@ async function handleSubmit(e: FormEvent<HTMLFormElement>) {
 
     if (!res.ok) {
       // Optionally surface a better error message
-      console.error("submit-demo failed", await res.text());
+      console.error("submit-apply failed", await res.text());
       alert("There was an issue booking your demo. Please try again.");
       setIsLoading(false);
       return;
     }
 
-    router.push("/book-demo/thank-you");
+    router.push("/apply/thank-you");
   } catch (err) {
-    console.error("submit-demo error", err);
+    console.error("submit-apply error", err);
     alert("There was an issue booking your demo. Please try again.");
     setIsLoading(false);
   }
@@ -237,7 +237,7 @@ Once form capture is working, you can:
   - Sales calendar stays controlled in HubSpot.  
 
 - Or, if you want **instant scheduling on-page**:
-  - Replace (or supplement) the right-hand column on `/book-demo` with a **HubSpot Meetings embed**.  
+  - Replace (or supplement) the right-hand column on `/apply` with a **HubSpot Meetings embed**.  
   - Continue to use the form to collect context and create a contact; the meeting widget associates with that contact automatically in HubSpot.
 
 If you later introduce a dedicated sales pipeline:
@@ -262,7 +262,7 @@ When the user interacts with the ROI calculator (moves a slider or edits ADR), y
   - `after_hours_share`  
   - `estimated_monthly_recovery`  
 
-- Or, if you want to avoid Events API complexity, store `latest_roi_estimate` as a **contact property** only **after** the user submits the demo form (i.e. include it in the `/api/submit-demo` payload when available).
+- Or, if you want to avoid Events API complexity, store `latest_roi_estimate` as a **contact property** only **after** the user submits the demo form (i.e. include it in the `/api/submit-apply` payload when available).
 
 ### 8.2. Page engagement
 
@@ -283,13 +283,13 @@ These can drive:
 Before going live, validate:
 
 1. **Form submission**
-   - Submit `/book-demo` form in **incognito** with UTM parameters.  
+   - Submit `/apply` form in **incognito** with UTM parameters.  
    - Confirm:
      - Contact appears in HubSpot.  
      - All mapped properties are populated correctly (name, property, room band, UTMs).  
 
 2. **Thank-you flow**
-   - After submit, you’re redirected to `/book-demo/thank-you`.  
+   - After submit, you’re redirected to `/apply/thank-you`.  
    - Browser back button doesn’t resubmit (API uses POST; refreshing should not create duplicates in HubSpot).  
 
 3. **Tracking**

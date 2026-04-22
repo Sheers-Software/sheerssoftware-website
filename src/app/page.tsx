@@ -69,13 +69,18 @@ function Hero() {
       <div className="container hero-inner">
         <motion.div className="hero-content" variants={containerVariants} initial="hidden" animate="visible">
           <motion.div variants={itemVariants} className="hero-subtitle-hyros">
-            <h1 className="hero-subtitle-main">Stop Paying 18% to OTAs.<br />Capture Direct Revenue for 3%.</h1>
-            <p className="hero-subtitle-sub">Nocturn AI turns your WhatsApp, Email, and Website into a high-converting sales machine. Pay only when you get a confirmed booking. Built specifically for the Malaysian hospitality market.</p>
+            <span className="eyebrow" style={{ color: 'rgba(255,255,255,0.8)' }}>For Independent Malaysian Hotels (40–150 Rooms)</span>
+            <h1 className="hero-subtitle-main" style={{ marginTop: 16 }}>Stop Bleeding 18% to Agoda.<br />Get Same-Day FPX Cash.</h1>
+            <p className="hero-subtitle-sub">Your front desk closes at 6 PM. At 11:47 PM, a family WhatsApps you asking for weekend availability. While your staff is asleep, they book your hotel on Booking.com instead. You just paid an 18% tax on a guest who wanted to book directly with you.</p>
           </motion.div>
 
           <motion.div variants={itemVariants} className="hero-ctas">
-            <a href="#calculator" className="btn btn-solid-white btn-lg">Calculate Your Revenue Recovery →</a>
-            <a href="/apply" className="btn btn-outline-white btn-lg">Start 48-Hour Implementation — RM999</a>
+            <a href="https://wa.me/601163263808" className="btn btn-solid-white btn-lg">Chat with the Founder on WhatsApp Now</a>
+            <a href="/apply" className="btn btn-outline-white btn-lg">Apply for Founding Cohort — RM999</a>
+          </motion.div>
+
+          <motion.div variants={itemVariants} style={{ marginTop: 24, textAlign: 'center', opacity: 0.8 }}>
+            <span style={{ fontSize: '0.9rem', color: 'rgba(255,255,255,0.9)' }}>Currently accepting only 10 properties for our Founding Cohort to guarantee our 48-Hour Go-Live promise.</span>
           </motion.div>
 
           <motion.div variants={itemVariants} style={{ marginTop: 32, display: 'flex', gap: 32, flexWrap: 'wrap', justifyContent: 'center', opacity: 0.7 }}>
@@ -227,11 +232,11 @@ function MidnightTest() {
 
   return (
     <section className="section section-gray" id="demo">
-      <div className="container">
-        <span className="eyebrow">SEE IT IN ACTION</span>
-        <h2>The Midnight Test</h2>
+      <div className="container" id="how-it-works">
+        <span className="eyebrow">THE HYBRID CO-PILOT</span>
+        <h2>Full Conversions. 100% Total Control. Zero IT Teams Required.</h2>
         <p style={{ fontSize: '1.2rem', color: 'var(--color-gray-500)', maxWidth: 700, margin: '0 auto 48px', textAlign: 'center' }}>
-          It&apos;s 11:47 PM. Your front desk closed 90 minutes ago. A family wants to book for the weekend. Here&apos;s what happens with the Nocturn Revenue Engine.
+          Waiting weeks for Meta API approvals and dealing with complex PMS integrations kills deals. So we bypassed it. Welcome to the Hybrid Co-Pilot—designed so you go live in 48 hours without changing the phone number you already use.
         </p>
 
         <div className="switcher-container">

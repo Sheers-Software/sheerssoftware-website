@@ -3,7 +3,7 @@
 > **Stop Losing Revenue While You Sleep.**
 > Capture every WhatsApp, email, and web inquiry 24/7 with an AI concierge trained for Malaysian hospitality.
 
-**Version:** `0.6.0` | **Branch:** `main`
+**Version:** `0.7.0` | **Branch:** `main`
 
 ---
 
@@ -171,4 +171,9 @@ Region    : asia-southeast1
 - **Unification:** Unified the project into a single Next.js app in the root that handles both product and corporate site redirects via middleware.
 - **CI/CD:** Streamlined `cloudbuild.yaml` to deploy a single unified image to both `sheersdigital-product` and `sheersdigital-site` services.
 - **Redesign:** Finalised Hyros-style high-performance redesign with mobile-first CSS overhaul and neon accents.
+
+### Sprint 11 — Strategy Realignment & Acquisition Flow (v0.7.0) ✅
+- **Copy Alignment:** Restructured hero metrics and CTAs to prioritize Same-Day FPX cash and 3% Performance capture limits. Added WhatsApp immediate routing for top-level traffic.
+- **Backend Hubspot Form Bridge:** Built robust Next.js server route `/api/submit-apply` to securely transmit founding cohort applications into CRM workflow.
+- **Acquisition Flow Integrity:** Deprecated unscalable SaaS HubSpot embeds, driving users explicitly through a locally styled `/apply` gating page for quality control.
 

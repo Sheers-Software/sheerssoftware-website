@@ -1,0 +1,21 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)",
+      "Bash(gcloud:*)",
+      "Bash(docker compose:*)",
+      "Bash(grep -ri \"supabase\\\\|SUPABASE_URL\\\\|SUPABASE_KEY\\\\|SUPABASE_ANON\" H:SourcereposSheersDigital-site --include=*.ts --include=*.tsx --include=*.js --include=*.jsx --include=*.env --include=*.json)",
+      "Bash(grep -r \"\\\\.from\\\\|\\\\.auth\\\\|\\\\.rpc\\\\|\\\\.query\\\\|database\" H:SourcereposSheersDigital-site/src --include=*.ts --include=*.tsx)",
+      "Bash(grep -r \"postgres\\\\|postgresql\\\\|db\\\\|database\" H:SourcereposSheersDigital-site --include=*.json)",
+      "Bash(gcloud services:*)",
+      "Bash(ls -la \"H:\\\\Source\\\\repos\\\\SheersDigital-site\"/.env*)",
+      "Bash(ls -la \"H:\\\\Source\\\\repos\\\\SheersDigital-site\"/src/.env*)",
+      "Bash(gcloud projects:*)",
+      "WebFetch(domain:resend.com)",
+      "WebSearch"
+    ]
+  }
+}
