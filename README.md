@@ -72,7 +72,9 @@ npm run lint
 | Variable | Required | Purpose |
 |----------|----------|---------|
 | `RESEND_API_KEY` | Yes | Email delivery for application submissions |
-| `WHATSAPP_WEBHOOK_URL` | No | Webhook (Make/Zapier) for WhatsApp notifications |
+| `WHATSAPP_WEBHOOK_URL` | Yes (Rec.) | Webhook (Make/Zapier) for WhatsApp notifications to founder |
+| `HUBSPOT_PORTAL_ID` | Yes | HubSpot account ID for lead capture |
+| `HUBSPOT_FORM_ID` | Yes | HubSpot Form GUID for `/apply` submissions |
 
 ---
 
