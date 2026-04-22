@@ -9,7 +9,10 @@ export async function POST(req: NextRequest) {
       name,
       email,
       property,
+      starRating,
       rooms,
+      adr,
+      monthlyVolume,
       phone,
       currentHandling,
       utm_source,
@@ -36,8 +39,10 @@ export async function POST(req: NextRequest) {
                 html: `
                   <h1>New Application Received</h1>
                   <p><strong>Name:</strong> ${name}</p>
-                  <p><strong>Property:</strong> ${property}</p>
+                  <p><strong>Property:</strong> ${property} (${starRating})</p>
                   <p><strong>Rooms:</strong> ${rooms}</p>
+                  <p><strong>ADR:</strong> RM${adr}</p>
+                  <p><strong>Monthly Est. Revenue:</strong> RM${monthlyVolume}</p>
                   <p><strong>Current Handling:</strong> ${currentHandling}</p>
                   <p><strong>Email:</strong> ${email}</p>
                   <p><strong>WhatsApp:</strong> ${phone}</p>
@@ -78,7 +83,7 @@ export async function POST(req: NextRequest) {
             console.error('Webhook fetch error:', webhookError);
         }
     } else {
-        console.warn("WHATSAPP_WEBHOOK_URL missing, skipping external lead forwarding.");
+        console.warn("MAKE_WEBHOOK_URL missing, skipping external lead forwarding.");
     }
 
     return NextResponse.json({ ok: true });
