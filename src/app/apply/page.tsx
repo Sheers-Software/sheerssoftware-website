@@ -37,7 +37,7 @@ export default function ApplyPage() {
                 throw new Error(json.error || "Failed to submit application");
             }
 
-            router.push("/thank-you");
+            router.push("/apply/thank-you");
         } catch (err: any) {
             console.error(err);
             setErrorMsg(err.message || "Something went wrong. Please try again.");
