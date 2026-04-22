@@ -16,6 +16,8 @@ export default function ApplyPage() {
         setErrorMsg("");
 
         const formData = new FormData(e.currentTarget);
+        const searchParams = new URLSearchParams(window.location.search);
+
         const data = {
             name: formData.get("name"),
             email: formData.get("email"),
@@ -23,6 +25,9 @@ export default function ApplyPage() {
             rooms: formData.get("rooms"),
             phone: formData.get("phone"),
             currentHandling: formData.get("currentHandling"),
+            utm_source: searchParams.get("utm_source"),
+            utm_medium: searchParams.get("utm_medium"),
+            utm_campaign: searchParams.get("utm_campaign"),
         };
 
         try {

@@ -25,6 +25,46 @@ export async function POST(req: NextRequest) {
     const [firstName, ...rest] = String(name).trim().split(" ");
     const lastName = rest.join(" ");
 
+    // Send notifications to founder
+    try {
+        if (process.env.RESEND_API_KEY) {
+            const resend = new Resend(process.env.RESEND_API_KEY);
+            await resend.emails.send({
+                from: 'Nocturn AI Applications <onboarding@resend.dev>', 
+                to: ['a.basyir@sheerssoft.com'],
+                subject: `New Founding Cohort Application: ${property}`,
+                html: `
+                  <h1>New Application Received</h1>
+                  <p><strong>Name:</strong> ${name}</p>
+                  <p><strong>Property:</strong> ${property}</p>
+                  <p><strong>Rooms:</strong> ${rooms}</p>
+                  <p><strong>Current Handling:</strong> ${currentHandling}</p>
+                  <p><strong>Email:</strong> ${email}</p>
+                  <p><strong>WhatsApp:</strong> ${phone}</p>
+                  <br/>
+                  <p><small>UTMs: ${utm_source || 'none'} | ${utm_medium || 'none'} | ${utm_campaign || 'none'}</small></p>
+                `,
+            });
+        }
+    } catch (notificationErr) {
+        console.error("Resend error (non-fatal):", notificationErr);
+    }
+
+    if (process.env.WHATSAPP_WEBHOOK_URL) {
+        try {
+            await fetch(process.env.WHATSAPP_WEBHOOK_URL, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    text: `*New Application*\nName: ${name}\nProperty: ${property}\nRooms: ${rooms}\nChannels: ${currentHandling}\nEmail: ${email}\nPhone: ${phone}`,
+                    data: body
+                }),
+            });
+        } catch (webhookError) {
+            console.error('Webhook error (non-fatal):', webhookError);
+        }
+    }
+
     const portalId = process.env.HUBSPOT_PORTAL_ID;
     const formId = process.env.HUBSPOT_FORM_ID;
 
@@ -69,46 +109,6 @@ export async function POST(req: NextRequest) {
       const text = await res.text();
       console.error("HubSpot form error:", res.status, text);
       return NextResponse.json({ error: "HubSpot submission failed" }, { status: 502 });
-    }
-
-    // Send notifications to founder
-    try {
-        if (process.env.RESEND_API_KEY) {
-            const resend = new Resend(process.env.RESEND_API_KEY);
-            await resend.emails.send({
-                from: 'Nocturn AI Applications <onboarding@resend.dev>', 
-                to: ['a.basyir@sheerssoft.com'],
-                subject: `New Founding Cohort Application: ${property}`,
-                html: `
-                  <h1>New Application Received</h1>
-                  <p><strong>Name:</strong> ${name}</p>
-                  <p><strong>Property:</strong> ${property}</p>
-                  <p><strong>Rooms:</strong> ${rooms}</p>
-                  <p><strong>Current Handling:</strong> ${currentHandling}</p>
-                  <p><strong>Email:</strong> ${email}</p>
-                  <p><strong>WhatsApp:</strong> ${phone}</p>
-                  <br/>
-                  <p><small>UTMs: ${utm_source || 'none'} | ${utm_medium || 'none'} | ${utm_campaign || 'none'}</small></p>
-                `,
-            });
-        }
-    } catch (notificationErr) {
-        console.error("Resend error (non-fatal):", notificationErr);
-    }
-
-    if (process.env.WHATSAPP_WEBHOOK_URL) {
-        try {
-            await fetch(process.env.WHATSAPP_WEBHOOK_URL, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    text: `*New Application*\nName: ${name}\nProperty: ${property}\nRooms: ${rooms}\nChannels: ${currentHandling}\nEmail: ${email}\nPhone: ${phone}`,
-                    data: body
-                }),
-            });
-        } catch (webhookError) {
-            console.error('Webhook error (non-fatal):', webhookError);
-        }
     }
 
     return NextResponse.json({ ok: true });
