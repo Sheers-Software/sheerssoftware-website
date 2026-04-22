@@ -58,9 +58,9 @@ export async function POST(req: NextRequest) {
     }
 
     // 2. Send Data to Make.com Webhook (Founding Cohort Automation)
-    if (process.env.WHATSAPP_WEBHOOK_URL) {
+    if (process.env.MAKE_WEBHOOK_URL) {
         try {
-            const webhookRes = await fetch(process.env.WHATSAPP_WEBHOOK_URL, {
+            const webhookRes = await fetch(process.env.MAKE_WEBHOOK_URL, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({

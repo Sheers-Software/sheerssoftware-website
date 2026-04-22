@@ -72,7 +72,7 @@ npm run lint
 | Variable | Required | Purpose |
 |----------|----------|---------|
 | `RESEND_API_KEY` | Yes | Email delivery for application submissions |
-| `WHATSAPP_WEBHOOK_URL` | Yes | Primary sink for lead capture (Make.com webhook) |
+| `MAKE_WEBHOOK_URL` | Yes | Primary sink for lead capture (Make.com webhook) |
 | `WHATSAPP_VERIFY_TOKEN` | Yes | Security token for WhatsApp API verification |
 
 ---
