@@ -3,7 +3,7 @@
 > **Stop Losing Revenue While You Sleep.**
 > Capture every WhatsApp, email, and web inquiry 24/7 with an AI concierge trained for Malaysian hospitality.
 
-**Version:** `0.8.0` | **Branch:** `main`
+**Version:** `0.8.2` | **Branch:** `main`
 
 ---
 
@@ -71,9 +71,11 @@ npm run lint
 
 | Variable | Required | Purpose |
 |----------|----------|---------|
-| `RESEND_API_KEY` | Yes | Email delivery for application submissions |
-| `MAKE_WEBHOOK_URL` | Yes | Primary sink for lead capture (Make.com webhook) |
-| `WHATSAPP_VERIFY_TOKEN` | Yes | Security token for WhatsApp API verification |
+| `RESEND_API_KEY` | Yes | Email delivery for application submissions (via GCP Secret Manager) |
+| `MAKE_WEBHOOK_URL` | Yes | Primary lead sink (via GCP Secret Manager) |
+| `WHATSAPP_VERIFY_TOKEN` | Yes | WhatsApp API verification (via GCP Secret Manager) |
+| `META_CAPI_TOKEN_NOCTURN` | Optional | Meta Conversion API token (Nocturn) |
+| `META_CAPI_TOKEN_SHEERS` | Optional | Meta Conversion API token (Sheers) |
 
 ---
 
@@ -179,9 +181,14 @@ Region    : asia-southeast1
 - **Acquisition Flow Integrity:** Deprecated unscalable SaaS HubSpot embeds, driving users explicitly through a locally styled `/apply` gating page for quality control.
 
 ### Sprint 12 — HubSpot Detachment & WhatsApp-First Funnel (v0.8.0) ✅
-- **HubSpot Removal:** Completely removed all HubSpot tracking scripts and CRM integration logic from the frontend and backend.
-- **WhatsApp Priority:** Re-aligned landing page CTAs to prioritize direct WhatsApp engagement with the founder.
+- **HubSpot Removal:** Completely removed all HubSpot tracking scripts and CRM integration logic.
+- **WhatsApp Priority:** Re-aligned landing page CTAs to prioritize direct WhatsApp engagement.
 - **Enriched Acquisition Form:** Updated the `/apply` form to capture specific hotel metrics (Star Rating, ADR, Monthly Inquiry Volume).
-- **Make.com Integration:** Configured the backend to forward all application data to a centralized Make.com webhook for automation.
-- **CI/CD Cleanup:** Removed HubSpot-dependent environment variables from Cloud Build configuration.
+- **Make.com Integration:** Configured the backend to forward all application data to a centralized Make.com webhook.
+
+### Sprint 13 — Enterprise Security & Notification Recovery (v0.8.2) ✅
+- **Secret Centralization:** Migrated all production credentials (`RESEND_API_KEY`, `WHATSAPP_VERIFY_TOKEN`, `MAKE_WEBHOOK_URL`) to **GCP Secret Manager**.
+- **Deployment Resilience:** Implemented a two-step "cleanup-then-deploy" process in `cloudbuild.yaml` to handle environment variable type migrations (Literal → Secret).
+- **Notification Bugfix:** Fixed a critical frontend payload error where new qualification fields were not being transmitted, restoring lead data integrity.
+- **Stability Audit:** Confirmed no port 8080 redirects and validated site performance on `sheerssoft.com`.
 
