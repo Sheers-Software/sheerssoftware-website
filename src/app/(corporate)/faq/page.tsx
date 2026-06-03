@@ -9,7 +9,7 @@ const FAQ = () => {
 
     const faqs = [
         {
-            question: "What services does SheersSoft provide?",
+            question: "What services does Sheers Software provide?",
             answer: "We specialize in digital transformation solutions, including custom web and mobile app development, AI & automation integration, and enterprise software engineering. Our products capture and qualify leads automatically to grow businesses."
         },
         {
@@ -29,7 +29,7 @@ const FAQ = () => {
             answer: "We offer both project-based pricing and retainer models. For standard services, we have tiered packages (Starter, Professional, Enterprise). For custom solutions, we provide a tailored quote based on your specific requirements."
         },
         {
-            question: "Where is SheersSoft located?",
+            question: "Where is Sheers Software located?",
             answer: "We are based in Kuala Lumpur, Malaysia, but we serve clients globally. Our team is accustomed to working remotely and collaborating with international teams."
         }
     ];

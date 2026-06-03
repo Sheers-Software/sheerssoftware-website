@@ -10,35 +10,35 @@ const Solutions = () => {
     const solutions = [
         {
             icon: Globe,
-            title: 'Mobile and Web Solutions',
-            desc: 'High-performance digital experiences built for scale and speed.',
+            title: 'AI Operations Sprint',
+            desc: 'We map your single biggest manual workflow — bookings, invoicing, customer follow-up, staff scheduling — and build a live AI system to eliminate it. Deployed on GCP. Integrated with WhatsApp, Google Sheets, and email. Live in 21 days.',
             features: [
-                'Progressive Web Apps (PWA)',
-                'Native Mobile Apps (iOS & Android)',
-                'Responsive Web Design',
-                'Cross-Platform Development'
+                '30-min discovery call + free ROI brief',
+                'Custom AI system built and deployed',
+                'WhatsApp / Google Sheets / email integration',
+                '30 days post-launch support'
             ]
         },
         {
             icon: Code,
-            title: 'Software Engineering & Quality',
-            desc: 'Robust, maintainable, and secure codebases driven by best practices.',
+            title: 'AI WhatsApp Concierge — Nocturn AI',
+            desc: 'An always-on AI agent that handles customer inquiries, qualifies leads, and books appointments via WhatsApp — even outside business hours. Built for F&B chains, clinics, dental practices, and property agencies.',
             features: [
-                'Microservices Architecture',
-                'Automated Testing (QA)',
-                'CI/CD Pipelines',
-                'Legacy System Modernization'
+                '24/7 WhatsApp auto-response',
+                'Lead qualification and intake',
+                'Appointment booking automation',
+                'Missed inquiry recovery'
             ]
         },
         {
             icon: Cpu,
-            title: 'Digital Transformation & AI',
-            desc: 'Future-proof your business with intelligent automation and data-driven insights.',
+            title: 'MSME Digital Grant Navigation',
+            desc: 'Budget 2026 allocates up to RM5,000 in matching grants for SME digitalisation through BSN and MDEC. Most SME owners don\'t know this exists. We identify your eligibility, prepare the application, and help you claim the grant — effectively halving the cost of your AI system.',
             features: [
-                'AI-Powered Automation',
-                'Data Analytics & Insights',
-                'Cloud Migration Strategy',
-                'Process Digitization'
+                'Eligibility assessment (free)',
+                'Grant application preparation',
+                'Up to RM5,000 reimbursement',
+                'BSN / MDEC compliant documentation'
             ]
         }
     ];
@@ -52,10 +52,10 @@ const Solutions = () => {
                     className="page-hero text-center"
                 >
                     <h1 className="page-title">
-                        Our <span className="text-gradient">Solutions</span>
+                        What We Build for <span className="text-gradient">Malaysian SMEs</span>
                     </h1>
                     <p className="page-subtitle">
-                        Empowering businesses with cutting-edge technology and engineering excellence.
+                        Three specific offerings. Each deployed in under 3 weeks. Each built for the operational reality of Malaysian businesses — not enterprise spec sheets.
                     </p>
                 </motion.div>
 
@@ -104,16 +104,16 @@ const Solutions = () => {
                 <div style={{ textAlign: 'center' }}>
                     <GlassCard variant="magenta" style={{ padding: 'var(--space-3xl)', maxWidth: '900px', margin: '0 auto' }}>
                         <h2 style={{ fontSize: 'var(--font-size-3xl)', fontWeight: 'bold', marginBottom: 'var(--space-md)' }}>
-                            Ready to Transform Your Business?
+                            Not Sure Which Option Fits? Start With a Free Discovery Call.
                         </h2>
                         <p style={{ fontSize: 'var(--font-size-lg)', color: 'var(--text-secondary)', marginBottom: 'var(--space-xl)' }}>
-                            Let's build the future together with our expert engineering teams.
+                            We'll map your operation, identify the highest-ROI automation, and deliver a written brief before you commit to anything.
                         </p>
-                        <Link href="/contact">
+                        <a href="https://cal.com/ahmadbasyir/discovery" target="_blank" rel="noopener noreferrer">
                             <NeonButton variant="primary" size="lg">
-                                Start Your Project
+                                Book Your Free Discovery Call
                             </NeonButton>
-                        </Link>
+                        </a>
                     </GlassCard>
                 </div>
             </div>

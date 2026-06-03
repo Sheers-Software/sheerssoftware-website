@@ -16,9 +16,11 @@ const TwitterIcon = ({ size = 20 }: { size?: number }) => (
   </svg>
 );
 
-const FacebookIcon = ({ size = 20 }: { size?: number }) => (
+const InstagramIcon = ({ size = 20 }: { size?: number }) => (
   <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
   </svg>
 );
 
@@ -29,19 +31,16 @@ const Footer = () => {
                 <div className="footer-content">
                     {/* Brand */}
                     <div className="footer-brand">
-                        <h3 className="brand-name">Sheers<span className="footer-logo-accent">.</span>Soft</h3>
+                        <h3 className="brand-name">Sheers Software</h3>
                         <p className="brand-tagline">
-                            Empowering businesses with technology, strategy, and support.
+                            AI automation for Malaysian SMEs. Built and deployed in 3 weeks.
                         </p>
                         <div className="footer-social">
                             <a href="https://www.linkedin.com/in/ahmad-basyir-azahari/" className="social-link" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
                                 <LinkedinIcon size={20} />
                             </a>
-                            <a href="#" className="social-link" aria-label="Twitter">
-                                <TwitterIcon size={20} />
-                            </a>
-                            <a href="#" className="social-link" aria-label="Facebook">
-                                <FacebookIcon size={20} />
+                            <a href="https://www.instagram.com/abasyir_launch" className="social-link" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+                                <InstagramIcon size={20} />
                             </a>
                         </div>
                     </div>
@@ -71,9 +70,9 @@ const Footer = () => {
                             <Mail size={16} />
                             a.basyir@sheerssoft.com
                         </a>
-                        <a href="mailto:m.hafiz@sheerssoft.com" className="footer-link">
+                        <a href="https://cal.com/ahmadbasyir/discovery" className="footer-link" target="_blank" rel="noopener noreferrer">
                             <Mail size={16} />
-                            m.hafiz@sheerssoft.com
+                            Book a Discovery Call
                         </a>
                         <div className="footer-link">
                             <MapPin size={16} />

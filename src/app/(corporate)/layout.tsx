@@ -5,29 +5,32 @@ import PageLayout from "@/components/corporate/PageLayout";
 import LinkedInInsightTag from "@/components/LinkedInInsightTag";
 
 export const metadata: Metadata = {
-  title: "SheersSoft | Business Software Solutions",
-  description: "Empowering businesses with technology, strategy, and support. High-performance websites, PWAs, and autonomous AI for Malaysian businesses.",
+  title: {
+    default: "Sheers Software | AI Automation for Malaysian SMEs",
+    template: "%s | Sheers Software",
+  },
+  description: "Sheers Software builds AI automation systems for Malaysian SMEs — deployed in 3 weeks, priced for local businesses, and eligible for up to RM5,000 in government grants.",
   metadataBase: new URL("https://sheerssoft.com"),
   openGraph: {
     type: "website",
     locale: "en_MY",
     url: "https://sheerssoft.com",
     siteName: "Sheers Software",
-    title: "SheersSoft | Business Software Solutions",
-    description: "Empowering businesses with technology, strategy, and support. High-performance websites, PWAs, and autonomous AI for Malaysian businesses.",
+    title: "Sheers Software | AI Automation for Malaysian SMEs",
+    description: "Malaysian SMEs are losing thousands monthly to manual work. We build the AI systems that stop it — in 3 weeks, not 6 months.",
     images: [
       {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "SheersSoft - Business Software Solutions",
+        alt: "Sheers Software - AI Automation for Malaysian SMEs",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "SheersSoft | Business Software Solutions",
-    description: "Empowering businesses with technology, strategy, and support.",
+    title: "Sheers Software | AI Automation for Malaysian SMEs",
+    description: "AI automation for Malaysian SMEs. Deployed in 3 weeks. Eligible for RM5,000 government grant.",
     images: ["/og-image.png"],
   },
   robots: {

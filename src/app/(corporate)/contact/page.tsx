@@ -53,7 +53,6 @@ const Contact = () => {
                                 <div>
                                     <h3 style={{ fontSize: 'var(--font-size-lg)', fontWeight: 'bold' }}>Email</h3>
                                     <p style={{ color: 'var(--text-secondary)' }}>a.basyir@sheerssoft.com</p>
-                                    <p style={{ color: 'var(--text-secondary)' }}>m.hafiz@sheerssoft.com</p>
                                     <p style={{ fontSize: 'var(--font-size-xs)', color: 'var(--neon-magenta)' }}>24/7 Support</p>
                                 </div>
                             </GlassCard>

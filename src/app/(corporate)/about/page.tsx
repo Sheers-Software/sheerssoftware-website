@@ -15,22 +15,22 @@ const About = () => {
     };
 
     const missionFocus = [
-        "Deliver high-quality custom software and AI-powered applications.",
-        "Foster strong client partnerships built on trust and transparency.",
-        "Continuously innovate to stay ahead in the digital technology landscape."
+        "Every project starts with a free ROI brief — no guesswork, no vague promises.",
+        "We build with tools that integrate with what you already use: WhatsApp, Google Sheets, email.",
+        "We help clients claim government digitalisation grants that offset project costs."
     ];
 
     const visionGoals = [
-        "Market expansion across Malaysia",
-        "Solution portfolio enhancement",
-        "Strategic partnerships",
-        "International market entry (Southeast Asia)"
+        "Build 50 AI systems for Malaysian SMEs by end of 2027",
+        "Establish the AI Operations Sprint as the standard SME automation package in Malaysia",
+        "Become a recognised MDEC digital solution provider",
+        "Expand to Singapore and Indonesia SME markets by 2028"
     ];
 
     const impactGoals = [
-        { icon: TrendingUp, text: "Help businesses achieve measurable operational efficiency." },
-        { icon: Users, text: "Enhance end-user experiences through intuitive and accessible platforms." },
-        { icon: Globe, text: "Drive economic growth by enabling digital transformation across industries." }
+        { icon: TrendingUp, text: "Every client gets a written ROI brief before spending a single ringgit." },
+        { icon: Users, text: "Every system integrates with tools SME teams already use — zero learning curve." },
+        { icon: Globe, text: "Every eligible client gets guided through the government digitalisation grant process." }
     ];
 
     return (
@@ -43,7 +43,7 @@ const About = () => {
                     className="page-hero text-center"
                 >
                     <h1 className="page-title">
-                        About <span className="text-gradient">Sheers Software</span>
+                        Built in Malaysia, for <span className="text-gradient">Malaysian Businesses</span>
                     </h1>
                     <p className="page-subtitle">
                         We create innovative, reliable, and scalable software solutions that help businesses grow.
@@ -57,12 +57,10 @@ const About = () => {
                             <div>
                                 <h2 style={{ fontSize: 'var(--font-size-2xl)', marginBottom: 'var(--space-lg)' }}>Who We Are</h2>
                                 <p style={{ color: 'var(--text-secondary)', lineHeight: 1.8, marginBottom: 'var(--space-lg)' }}>
-                                    Sheers Software Sdn. Bhd. is a leading software development company committed to delivering innovative and reliable digital solutions.
-                                    Our team specializes in custom software, AI-powered applications, and user-friendly platforms designed to help businesses streamline operations,
-                                    enhance customer experiences, and achieve sustainable growth.
+                                    Sheers Software Sdn. Bhd. is a KL-based AI automation firm that builds operational systems for Malaysian SMEs. We specialise in one thing: identifying your single biggest manual workflow and replacing it with an AI system that runs automatically — deployed in 3 weeks.
                                 </p>
                                 <p style={{ color: 'var(--text-secondary)', lineHeight: 1.8 }}>
-                                    With a focus on quality, security, and client success, we turn ideas into impactful technology solutions that drive real results.
+                                    We&apos;re not a large agency with account managers and 6-month timelines. We&apos;re a focused team that moves fast, speaks finance — so you always know your ROI before we build anything — and works exclusively with Malaysian businesses ready to stop doing things manually.
                                 </p>
                             </div>
                             <div style={{ background: 'rgba(255,255,255,0.03)', padding: 'var(--space-xl)', borderRadius: 'var(--radius-md)' }}>
@@ -101,10 +99,10 @@ const About = () => {
                         <GlassCard variant="cyan" style={{ padding: 'var(--space-xl)', height: '100%' }}>
                             <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-md)', marginBottom: 'var(--space-lg)' }}>
                                 <Target size={32} style={{ color: 'var(--neon-cyan)' }} />
-                                <h2 style={{ fontSize: 'var(--font-size-2xl)', margin: 0 }}>Our Mission</h2>
+                                <h2 style={{ fontSize: 'var(--font-size-2xl)', margin: 0 }}>Our Focus</h2>
                             </div>
                             <p style={{ fontSize: 'var(--font-size-lg)', lineHeight: 1.6, marginBottom: 'var(--space-lg)' }}>
-                                To empower businesses with innovative, reliable, and scalable software solutions that streamline operations, enhance customer experiences, and drive sustainable growth.
+                                To give every Malaysian SME access to the same operational efficiency that enterprise companies have — without the enterprise price tag, the 6-month timeline, or the requirement to hire a tech team.
                             </p>
                             <div>
                                 <h4 style={{ color: 'var(--neon-cyan)', marginBottom: 'var(--space-md)' }}>Mission Focus:</h4>
@@ -125,10 +123,10 @@ const About = () => {
                         <GlassCard variant="magenta" style={{ padding: 'var(--space-xl)', height: '100%' }}>
                             <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-md)', marginBottom: 'var(--space-lg)' }}>
                                 <Globe size={32} style={{ color: 'var(--neon-magenta)' }} />
-                                <h2 style={{ fontSize: 'var(--font-size-2xl)', margin: 0 }}>Our Vision</h2>
+                                <h2 style={{ fontSize: 'var(--font-size-2xl)', margin: 0 }}>Where We&apos;re Going</h2>
                             </div>
                             <p style={{ fontSize: 'var(--font-size-lg)', lineHeight: 1.6, marginBottom: 'var(--space-lg)' }}>
-                                To be a global leader in software development, recognized for transforming ideas into impactful digital solutions that redefine business success.
+                                To be the most trusted AI automation firm for Malaysian SMEs — the company a clinic owner, a property agency director, or an F&amp;B chain operator calls first when they want to stop doing things manually.
                             </p>
                             <div>
                                 <h4 style={{ color: 'var(--neon-magenta)', marginBottom: 'var(--space-md)' }}>Vision Goals:</h4>

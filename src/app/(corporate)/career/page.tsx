@@ -87,7 +87,7 @@ const Career = () => {
                 <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} style={{ marginBottom: 'var(--space-3xl)' }}>
                     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 'var(--space-2xl)', alignItems: 'center' }}>
                         <div>
-                            <h2 className="section-title">Life at <span className="text-gradient">SheersSoft</span></h2>
+                            <h2 className="section-title">Life at <span className="text-gradient">Sheers Software</span></h2>
                             <p style={{ lineHeight: 1.6, color: 'var(--text-secondary)', marginBottom: 'var(--space-lg)' }}>
                                 We believe in a culture of innovation, continuous learning, and work-life balance.
                                 Our team is diverse, inclusive, and driven by a shared passion for technology.
@@ -160,7 +160,7 @@ const Career = () => {
                 {/* Internship Program */}
                 <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}>
                     <GlassCard variant="gradient" style={{ padding: 'var(--space-2xl)', textAlign: 'center' }}>
-                        <h2 style={{ fontSize: 'var(--font-size-2xl)', marginBottom: 'var(--space-md)' }}>SheersSoft Internship Program</h2>
+                        <h2 style={{ fontSize: 'var(--font-size-2xl)', marginBottom: 'var(--space-md)' }}>Sheers Software Internship Program</h2>
                         <p style={{ maxWidth: '600px', margin: '0 auto var(--space-xl)', color: 'var(--text-secondary)' }}>
                             Kickstart your career with hands-on experience in real-world projects.
                             We offer structured mentorship for students in Computer Science, Data Science, and Digital Marketing.

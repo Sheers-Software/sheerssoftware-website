@@ -68,7 +68,7 @@ const Navbar = () => {
                 <div className="navbar-content">
                     {/* Logo */}
                     <Link href="/" className="navbar-logo">
-                        Sheers<span className="nav-logo-accent">.</span>Soft
+                        Sheers Software
                     </Link>
 
                     {/* Desktop Navigation */}

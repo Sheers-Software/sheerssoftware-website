@@ -24,28 +24,27 @@ const Home = () => {
                     >
                         <div className="hero-badge">
                             <Sparkles size={16} />
-                            <span>Professional Digital Solutions</span>
+                            <span>AI Automation for Malaysian SMEs</span>
                         </div>
 
                         {/* ⚡ Hook */}
                         <h1 className="hero-title">
-                            Transform Your Business with <span className="text-gradient">SheersSoft</span>
+                            Malaysian SMEs Are Losing RM2,000–8,000 a Month to Manual Work. <span className="text-gradient">We Build the AI Systems That Stop It.</span>
                         </h1>
 
                         <p className="hero-subtitle">
-                            Stop losing time and money on manual processes. <br />
-                            Let <span className="text-neon-cyan">intelligent automation</span> work for you.
+                            Sheers Software builds custom AI automation for Malaysian businesses — deployed in 3 weeks, priced for SMEs, and eligible for up to RM5,000 in government grants.
                         </p>
 
                         <div className="hero-cta-group">
-                            <Link href="/contact">
+                            <a href="https://cal.com/ahmadbasyir/discovery" target="_blank" rel="noopener noreferrer">
                                 <NeonButton variant="primary" size="lg">
-                                    Start Transformation <ArrowRight size={20} />
+                                    See If You Qualify <ArrowRight size={20} />
                                 </NeonButton>
-                            </Link>
+                            </a>
                             <Link href="/solutions">
                                 <NeonButton variant="secondary" size="lg">
-                                    View Solutions
+                                    How It Works
                                 </NeonButton>
                             </Link>
                         </div>
@@ -58,29 +57,29 @@ const Home = () => {
                 <div className="container">
                     <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}>
                         <h2 className="section-title text-center">
-                            Are You Struggling With These <span className="text-neon-magenta">Problems</span>?
+                            The Real Cost of Running Your Business <span className="text-neon-magenta">Manually in 2026</span>
                         </h2>
                         <div className="problems-grid">
                             <GlassCard variant="magenta" className="problem-card">
                                 <div className="card-icon-wrapper magenta">
                                     <AlertTriangle size={32} />
                                 </div>
-                                <h3>Wasting Time</h3>
-                                <p>Your team spends hours on repetitive manual tasks instead of high-value work.</p>
+                                <h3>Your Team Is Doing RM15/Hour Work</h3>
+                                <p>WhatsApp bookings, manual invoices, Excel trackers. That&apos;s not what you hired them for — and every hour they spend on it costs more than the software that eliminates it.</p>
                             </GlassCard>
                             <GlassCard variant="magenta" className="problem-card">
                                 <div className="card-icon-wrapper magenta">
                                     <TrendingUp size={32} />
                                 </div>
-                                <h3>High Costs</h3>
-                                <p>Operational expenses keep climbing every month while efficiency stagnates.</p>
+                                <h3>Digital Agencies Want 6 Months and RM50,000</h3>
+                                <p>By the time a traditional agency delivers, the market has moved. You don&apos;t need a 6-month project. You need a working system in 3 weeks.</p>
                             </GlassCard>
                             <GlassCard variant="magenta" className="problem-card">
                                 <div className="card-icon-wrapper magenta">
                                     <Clock size={32} />
                                 </div>
-                                <h3>Slow Growth</h3>
-                                <p>Your business isn't scaling as fast as you'd like due to bottlenecks.</p>
+                                <h3>97% of Malaysian SMEs Aren&apos;t Digitally Mature — Yet</h3>
+                                <p>The businesses automating their operations now are cutting costs, responding faster, and closing more. The first-mover window in your market is 12–18 months. It is open right now.</p>
                             </GlassCard>
                         </div>
                     </motion.div>
@@ -97,14 +96,13 @@ const Home = () => {
                         className="text-center"
                     >
                         <h2 className="section-title">
-                            Every Day You Wait, You're <span className="text-neon-magenta">Losing Money</span>
+                            The Window for First-Mover Advantage in Your Market Is <span className="text-neon-magenta">12–18 Months.</span>
                         </h2>
                         <p className="section-text">
-                            While your competitors automate and scale, you're stuck with outdated processes.
-                            Your team is overworked, customers are waiting, and opportunities are slipping away.
+                            AI adoption in Malaysian SMEs is accelerating. The businesses automating their operations now are cutting costs, responding faster, and closing more — while their competitors still manage everything on WhatsApp and Excel.
                         </p>
                         <p className="section-text-highlight">
-                            How much longer can you afford to wait?
+                            We&apos;re not selling you a feature. We&apos;re selling you a head start.
                         </p>
                     </motion.div>
                 </div>
@@ -115,26 +113,26 @@ const Home = () => {
                 <div className="container">
                     <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}>
                         <h2 className="section-title text-center">
-                            Introducing <span className="text-gradient">SheersSoft Solutions</span>
+                            <span className="text-gradient">What We Build</span>
                         </h2>
                         <p className="section-subtitle text-center">
-                            The all-in-one platform that automates your business operations
+                            Three specific offerings. Each built for Malaysian SMEs. Each deployable in under 3 weeks.
                         </p>
                         <div className="solution-grid">
                             <GlassCard variant="green" hover className="solution-card">
                                 <Zap size={40} className="text-neon-green mb-4" />
-                                <h3>AI-Powered Automation</h3>
-                                <p>Automate repetitive tasks and free up your team's time for what matters.</p>
+                                <h3>AI Operations Sprint</h3>
+                                <p>We map your single biggest manual process, build the AI system to eliminate it, and deploy it live — in 21 days or less. Bookings, invoicing, customer follow-up, staff tracking. If it&apos;s manual, we can automate it. Most clients qualify for a RM5,000 government grant that offsets the cost.</p>
                             </GlassCard>
                             <GlassCard variant="green" hover className="solution-card">
                                 <Shield size={40} className="text-neon-green mb-4" />
-                                <h3>Secure & Reliable</h3>
-                                <p>Enterprise-grade security you can trust with your most sensitive data.</p>
+                                <h3>AI WhatsApp Concierge (Nocturn AI)</h3>
+                                <p>Captures every customer inquiry, qualifies every lead, and responds 24/7 — even when you&apos;re closed. Built specifically for F&amp;B chains, clinics, and property agencies. Never miss a booking again.</p>
                             </GlassCard>
                             <GlassCard variant="green" hover className="solution-card">
                                 <TrendingUp size={40} className="text-neon-green mb-4" />
-                                <h3>Scalable Growth</h3>
-                                <p>Grows with your business from startup to enterprise without friction.</p>
+                                <h3>MSME Digital Grant Navigation</h3>
+                                <p>Budget 2026 includes up to RM5,000 in matching grants for SME digitalisation via BSN and MDEC. Most SME owners have no idea this exists. We identify if you qualify, help you apply, and offset the cost of your system. You&apos;re effectively getting the build at half price.</p>
                             </GlassCard>
                         </div>
                     </motion.div>
@@ -146,25 +144,22 @@ const Home = () => {
                 <div className="container">
                     <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}>
                         <h2 className="section-title text-center">
-                            Transform Your Business <span className="text-gradient">Today</span>
+                            Why Malaysian SMEs <span className="text-gradient">Choose Us</span>
                         </h2>
                         <div className="benefits-grid">
                             <GlassCard variant="cyan" hover className="benefit-card">
-                                <div className="benefit-icon">🚀</div>
-                                <h3>10x Faster Operations</h3>
-                                <p>Complete tasks in minutes that used to take hours. Our automation handles the heavy lifting.</p>
+                                <h3>21 Days</h3>
+                                <p>From discovery call to live deployed system. Not 6 months. Not a pilot. A working AI system in your business in 3 weeks.</p>
                             </GlassCard>
 
                             <GlassCard variant="green" hover className="benefit-card">
-                                <div className="benefit-icon">🌍</div>
-                                <h3>Scale Globally</h3>
-                                <p>Expand to new markets without hiring more staff. Our platform scales with you.</p>
+                                <h3>RM5,000</h3>
+                                <p>In government digitalisation grants available to qualifying Malaysian SMEs under Budget 2026. We handle the paperwork. You keep the savings.</p>
                             </GlassCard>
 
                             <GlassCard variant="magenta" hover className="benefit-card">
-                                <div className="benefit-icon">💎</div>
-                                <h3>Premium Support</h3>
-                                <p>Get dedicated support from our expert team. We're here 24/7 to help you succeed.</p>
+                                <h3>ROI Brief First</h3>
+                                <p>Before you pay a single ringgit, we give you a 1-page brief showing exactly what the system will save you — in RM, per month. If the numbers don&apos;t make sense, we say so.</p>
                             </GlassCard>
                         </div>
                     </motion.div>
@@ -176,23 +171,23 @@ const Home = () => {
                 <div className="container">
                     <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}>
                         <h2 className="section-title text-center">
-                            Everything You Need to <span className="text-neon-green">Succeed</span>
+                            <span className="text-neon-green">How We Work</span>
                         </h2>
                         <GlassCard variant="gradient" className="offer-card">
                             <div className="offer-header">
                                 <Gift size={60} className="text-neon-cyan mb-4" />
-                                <h3>Complete Package</h3>
+                                <h3>The AI Operations Sprint</h3>
                             </div>
                             <div className="offer-list">
                                 {[
-                                    'Full Platform Access',
-                                    'AI-Powered Automation Tools',
-                                    'Priority Customer Support',
-                                    'Monthly Strategy Sessions',
-                                    'Custom Integration Support',
-                                    'Training & Onboarding',
-                                    'Regular Updates & Features',
-                                    '99.9% Uptime Guarantee'
+                                    'One fixed-scope project. One outcome. Zero ambiguity.',
+                                    '30-min discovery call to identify your highest-value automation',
+                                    '1-page ROI brief delivered before any commitment',
+                                    'Custom AI system built and deployed on GCP in 21 days',
+                                    'Integrates with WhatsApp, Google Sheets, and email you already use',
+                                    'Staff training doc and walkthrough included',
+                                    '30 days of async WhatsApp support post-launch',
+                                    'MSME Digital Grant application assistance (up to RM5,000 back)'
                                 ].map((item, index) => (
                                     <div key={index} className="offer-item">
                                         <CheckCircle size={24} className="text-neon-green shrink-0" />
@@ -211,15 +206,15 @@ const Home = () => {
                     <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
                         <GlassCard variant="gradient" className="cta-card">
                             <Clock size={50} className="text-neon-magenta mb-4 inline-block" />
-                            <h2>Limited Time Offer: Get Started Today</h2>
-                            <p className="urgency-text">⚡ Only 5 Spots Available This Month</p>
-                            <p className="cta-subtitle">Join the businesses already transforming their operations</p>
+                            <h2>We Take On 3 New Clients Per Month.</h2>
+                            <p className="urgency-text">Our process starts with a 20-minute discovery call — no commitment, no sales pitch.</p>
+                            <p className="cta-subtitle">We learn your operation, identify the highest-value automation opportunity, and show you the ROI — before you spend anything. If it&apos;s not a clear win for your business, we&apos;ll tell you.</p>
                             <div className="cta-buttons">
-                                <Link href="/contact">
+                                <a href="https://cal.com/ahmadbasyir/discovery" target="_blank" rel="noopener noreferrer">
                                     <NeonButton variant="primary" size="lg">
-                                        Get Free Consultation
+                                        Book a Free Discovery Call
                                     </NeonButton>
-                                </Link>
+                                </a>
                             </div>
                         </GlassCard>
                     </motion.div>
@@ -232,10 +227,9 @@ const Home = () => {
                     <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}>
                         <GlassCard variant="green" className="guarantee-card">
                             <Shield size={60} className="text-neon-green mb-4 inline-block" />
-                            <h3>100% Satisfaction Guarantee</h3>
+                            <h3>ROI Brief Guarantee</h3>
                             <p>
-                                We're so confident in our solutions that if you're not completely satisfied within the first 30 days,
-                                we'll refund every penny. <strong className="text-neon-green">No questions asked.</strong>
+                                Every engagement starts with a free ROI brief. We show you exactly what the system will save you — in ringgit — before you commit. If the numbers don&apos;t make sense for your business, you walk away and owe us nothing.
                             </p>
                         </GlassCard>
                     </motion.div>
