@@ -1,20 +1,22 @@
 import { NextResponse, NextRequest } from 'next/server'
 
 export function middleware(request: NextRequest) {
-  const url = request.nextUrl.clone()
   const host = request.headers.get('host')
 
-  // Check if the request is coming from sheerssoft.com (root or www)
-  if (host && (host === 'sheerssoft.com' || host === 'www.sheerssoft.com')) {
-    // We no longer redirect to ai.sheerssoft.com
-    // Just proceed to the next middleware or route
-    return NextResponse.next()
+  // Check if the request is coming from the old product subdomain
+  if (host && (host === 'ai.sheerssoft.com' || host === 'www.ai.sheerssoft.com')) {
+    const pathname = request.nextUrl.pathname
+    const path = pathname === '/' ? '' : pathname
+    const newPath = path.startsWith('/nocturn-ai') ? path : `/nocturn-ai${path}`
+    
+    return NextResponse.redirect(`https://sheerssoft.com${newPath}${request.nextUrl.search}`, 301)
   }
 
   return NextResponse.next()
 }
 
-// See "Matching Paths" below to learn more
 export const config = {
-  matcher: '/:path*',
+  matcher: [
+    '/((?!api|_next/static|_next/image|favicon.ico).*)',
+  ],
 }

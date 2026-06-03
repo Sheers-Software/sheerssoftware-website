@@ -23,13 +23,6 @@ const pillars = [
     title: "Pre-Trained on Malaysian Hotel Operations",
     desc: "Nocturn AI is not a generic chatbot deployed with default settings. It's trained on Malaysian hospitality — SST rates, Tourism Tax, local check-in norms, public holiday surcharges, and responds fluently in BM, English, and common local dialects.",
     includes: ["SST & Tourism Tax Aware", "BM + English + Local Dialects", "Malaysian Public Holiday Logic", "PDPA 2024/2025 Compliant"]
-  },
-  {
-    icon: "🤝",
-    eyebrow: "HUMAN-IN-THE-LOOP",
-    title: "Escalate VIP Inquiries Without Losing Context",
-    desc: "When a complex booking request or VIP guest needs a human touch, Nocturn AI hands off seamlessly with the full conversation history — so your staff never has to ask a guest to repeat themselves. No lead is ever lost. No context is ever dropped.",
-    includes: ["Instant Staff Escalation", "Full Conversation Handoff", "Priority Lead Flagging", "VIP Guest Routing"]
   }
 ];
 
@@ -38,14 +31,14 @@ export function BenefitGrid() {
     <section className="section section-white snap-section" id="benefits">
       <div className="container">
         <div style={{ textAlign: 'center', marginBottom: 80 }}>
-          <span className="eyebrow" style={{ color: 'var(--color-green)', fontWeight: 600 }}>HOW IT WORKS</span>
+          <span className="eyebrow" style={{ color: 'var(--color-green)', fontWeight: 600 }}>TOP 3 UNIQUE ADVANTAGES</span>
           <h2 style={{ fontSize: 'clamp(2.5rem, 4vw, 3.5rem)', marginBottom: 24 }}>Revenue Recovery That Runs Itself.</h2>
           <p style={{ fontSize: '1.25rem', color: 'var(--color-gray-500)', maxWidth: 700, margin: '0 auto' }}>
             Nocturn AI is not a chatbot. It&apos;s a revenue recovery layer — an always-on sales partner that sits over your existing hotel operations to capture, convert, and prove the value of every guest inquiry.
           </p>
         </div>
 
-        <div className="hyros-grid hyros-grid--2col">
+        <div className="hyros-grid">
           {pillars.map((p, i) => (
             <motion.div
               key={i}

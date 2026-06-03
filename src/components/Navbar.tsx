@@ -9,7 +9,7 @@ export function Navbar({ className }: { className?: string }) {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
     const pathname = usePathname();
-    const isHome = pathname === "/" || pathname === "";
+    const isHome = pathname === "/nocturn-ai" || pathname === "/nocturn-ai/";
 
     return (
         <nav className={`navbar ${className || ""} ${isHome ? "transparent" : "solid"}`} id="navbar">
@@ -20,7 +20,7 @@ export function Navbar({ className }: { className?: string }) {
                 padding: '24px 0',
                 position: 'relative'
             }}>
-                <a href="/" className="navbar-logo" aria-label="Nocturn AI Home" style={{ display: 'flex', alignItems: 'center', gap: '8px', zIndex: 1002 }}>
+                <a href="/nocturn-ai" className="navbar-logo" aria-label="Nocturn AI Home" style={{ display: 'flex', alignItems: 'center', gap: '8px', zIndex: 1002 }}>
                     <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true" className="navbar-logo-icon">
                         <circle cx="16" cy="16" r="14" stroke={isHome ? "white" : "var(--color-navy)"} strokeWidth="2.5" style={{ fill: 'none' }} />
                         <path d="M16 6C10.5 6 8 12 8 16c0 4 2.5 10 8 10 -3-2-4.5-5.5-4.5-10S13 8 16 6z" fill={isHome ? "white" : "var(--color-navy)"} />
@@ -43,15 +43,15 @@ export function Navbar({ className }: { className?: string }) {
                             )}
                         </AnimatePresence>
                     </div>
-                    <a href="/how-it-works" className="nav-link-item">How It Works</a>
-                    <a href="/pilot" className="nav-link-item">Pricing</a>
-                    <a href="/about" className="nav-link-item">About</a>
-                    <a href="/blog" className="nav-link-item">Blog</a>
+                    <a href="/nocturn-ai/how-it-works" className="nav-link-item">How It Works</a>
+                    <a href="/nocturn-ai/pilot" className="nav-link-item">Pricing</a>
+                    <a href="/nocturn-ai/about" className="nav-link-item">About</a>
+                    <a href="/nocturn-ai/blog" className="nav-link-item">Blog</a>
                 </div>
 
                 <div className="navbar-actions hide-mobile" style={{ display: 'flex', gap: '16px', justifyContent: 'flex-end', alignItems: 'center' }}>
                     <a href="https://app.sheerssoft.com" className={isHome ? "btn btn-outline-white" : "btn btn-outline-navy"}>Log In</a>
-                    <a href="/apply" className={isHome ? "btn btn-solid-white" : "btn btn-solid-green"}>Apply Now</a>
+                    <a href="/nocturn-ai/apply" className={isHome ? "btn btn-solid-white" : "btn btn-solid-green"}>Apply Now</a>
                 </div>
 
                 <button
@@ -76,14 +76,14 @@ export function Navbar({ className }: { className?: string }) {
                         id="mobile-menu"
                         style={{ background: 'white' }}
                     >
-                        <a href="/solutions" style={{ color: 'var(--color-navy)' }}>Solutions</a>
-                        <a href="/how-it-works" style={{ color: 'var(--color-navy)' }}>How It Works</a>
-                        <a href="/pilot" style={{ color: 'var(--color-navy)' }}>Pricing</a>
-                        <a href="/about" style={{ color: 'var(--color-navy)' }}>About</a>
-                        <a href="/blog" style={{ color: 'var(--color-navy)' }}>Blog</a>
+                        <a href="/nocturn-ai/how-it-works" style={{ color: 'var(--color-navy)' }}>Solutions</a>
+                        <a href="/nocturn-ai/how-it-works" style={{ color: 'var(--color-navy)' }}>How It Works</a>
+                        <a href="/nocturn-ai/pilot" style={{ color: 'var(--color-navy)' }}>Pricing</a>
+                        <a href="/nocturn-ai/about" style={{ color: 'var(--color-navy)' }}>About</a>
+                        <a href="/nocturn-ai/blog" style={{ color: 'var(--color-navy)' }}>Blog</a>
                         <div style={{ height: 1, background: "var(--color-gray-100)", margin: "8px 0" }}></div>
                         <a href="https://app.sheerssoft.com" style={{ color: "var(--color-navy)" }}>Log In</a>
-                        <a href="/apply" className="btn btn-solid-green" style={{ width: "100%", marginTop: 8 }}>
+                        <a href="/nocturn-ai/apply" className="btn btn-solid-green" style={{ width: "100%", marginTop: 8 }}>
                             Apply Now
                         </a>
                     </motion.div>
@@ -95,24 +95,24 @@ export function Navbar({ className }: { className?: string }) {
 
 function NavDropdown() {
     const items = [
-        {
-            title: "Direct Booking Recovery",
-            desc: "Stop inquiries from entering 'The Graveyard'.",
-            icon: "🎯",
-            href: "/how-it-works#direct"
-        },
-        {
-            title: "Group & Bulk Booking",
-            desc: "Handle 50+ guest inquiries instantly.",
-            icon: "🏨",
-            href: "/how-it-works#group"
-        },
-        {
-            title: "OTA Bypass Strategy",
-            desc: "Turn expensive OTA leads into direct revenue.",
-            icon: "⚡",
-            href: "/how-it-works#ota"
-        }
+            {
+                title: "Direct Booking Recovery",
+                desc: "Stop inquiries from entering 'The Graveyard'.",
+                icon: "🎯",
+                href: "/nocturn-ai/how-it-works#direct"
+            },
+            {
+                title: "Group & Bulk Booking",
+                desc: "Handle 50+ guest inquiries instantly.",
+                icon: "🏨",
+                href: "/nocturn-ai/how-it-works#group"
+            },
+            {
+                title: "OTA Bypass Strategy",
+                desc: "Turn expensive OTA leads into direct revenue.",
+                icon: "⚡",
+                href: "/nocturn-ai/how-it-works#ota"
+            }
     ];
 
     return (

@@ -10,7 +10,7 @@ export function Header() {
     const [isMounted, setIsMounted] = useState(false);
     const [scrolled, setScrolled] = useState(false);
     const pathname = usePathname();
-    const isHome = pathname === "/" || pathname === "";
+    const isHome = pathname === "/nocturn-ai" || pathname === "/nocturn-ai/";
 
     useEffect(() => {
         setIsMounted(true);

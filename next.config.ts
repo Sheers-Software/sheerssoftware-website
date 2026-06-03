@@ -5,23 +5,38 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       {
+        source: '/apply',
+        destination: '/nocturn-ai/apply',
+        permanent: true,
+      },
+      {
+        source: '/how-it-works',
+        destination: '/nocturn-ai/how-it-works',
+        permanent: true,
+      },
+      {
+        source: '/pilot',
+        destination: '/nocturn-ai/pilot',
+        permanent: true,
+      },
+      {
+        source: '/audit',
+        destination: '/nocturn-ai/audit',
+        permanent: true,
+      },
+      {
         source: '/features',
-        destination: '/',
-        permanent: true,
-      },
-      {
-        source: '/pricing',
-        destination: '/pilot',
-        permanent: true,
-      },
-      {
-        source: '/case-studies',
-        destination: '/',
+        destination: '/nocturn-ai',
         permanent: true,
       },
       {
         source: '/book-demo',
-        destination: '/apply',
+        destination: '/nocturn-ai/apply',
+        permanent: true,
+      },
+      {
+        source: '/case-studies',
+        destination: '/solutions',
         permanent: true,
       },
     ];
