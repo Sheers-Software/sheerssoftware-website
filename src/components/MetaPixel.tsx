@@ -4,7 +4,13 @@ import { usePathname, useSearchParams } from "next/navigation";
 import Script from "next/script";
 import { useEffect, useState, Suspense } from "react";
 
-export const FB_PIXEL_ID = "2170165490405363";
+// Nocturn AI pixel (ai.sheerssoft.com)
+export const FB_PIXEL_ID_NOCTURN = process.env.NEXT_PUBLIC_META_PIXEL_ID_NOCTURN || "2170165490405363";
+// Sheers Software pixel (home services campaign)
+export const FB_PIXEL_ID_SHEERS = process.env.NEXT_PUBLIC_META_PIXEL_ID_SHEERS || "1456605209169220";
+
+/** @deprecated use FB_PIXEL_ID_NOCTURN */
+export const FB_PIXEL_ID = FB_PIXEL_ID_NOCTURN;
 
 export const pageview = () => {
     if (typeof window !== "undefined" && (window as any).fbq) {
@@ -38,7 +44,8 @@ function MetaPixelInner() {
             t.src=v;s=b.getElementsByTagName(e)[0];
             s.parentNode.insertBefore(t,s)}(window, document,'script',
             'https://connect.facebook.net/en_US/fbevents.js');
-            fbq('init', '${FB_PIXEL_ID}');
+            fbq('init', '${FB_PIXEL_ID_NOCTURN}');
+            fbq('init', '${FB_PIXEL_ID_SHEERS}');
           `,
                 }}
                 onLoad={() => setLoaded(true)}
@@ -48,7 +55,7 @@ function MetaPixelInner() {
                     height="1"
                     width="1"
                     style={{ display: "none" }}
-                    src={`https://www.facebook.com/tr?id=${FB_PIXEL_ID}&ev=PageView&noscript=1`}
+                    src={`https://www.facebook.com/tr?id=${FB_PIXEL_ID_SHEERS}&ev=PageView&noscript=1`}
                     alt=""
                 />
             </noscript>

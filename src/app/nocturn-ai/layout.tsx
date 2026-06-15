@@ -5,6 +5,7 @@ import "../layout.css";
 import { Header } from "@/components/Header";
 import { ChatWidget } from "@/components/ChatWidget";
 import LinkedInInsightTag from "@/components/LinkedInInsightTag";
+import MetaPixel from "@/components/MetaPixel";
 
 export const metadata: Metadata = {
   title: {
@@ -104,6 +105,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <MobileCTA />
         <ChatWidget />
         <LinkedInInsightTag />
+        <MetaPixel />
 
         {/* --- JSON-LD Schema for GEO & SEO --- */}
         <script
